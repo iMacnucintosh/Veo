@@ -170,7 +170,7 @@ main {
 .main-info {
     padding: 0;
 }
-.main-max750 {
+.max750 {
     max-width: 750px;
     margin: auto;
 }
@@ -299,6 +299,10 @@ footer .bottom-navBar > a {
 }
 
 /* ------------------ MOVIES STYLES ------------------- */
+.infoPeticion {
+    font-size: 15px;
+    margin: 20px;
+}
 
 .poster-item.list {
     padding: 3px !important;
@@ -324,6 +328,75 @@ footer .bottom-navBar > a {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
+}
+
+#cast {
+    display: flex;
+    flex-flow: row nowrap;
+    overflow: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.actor {
+    position: relative;
+    margin: 3px;
+    margin-right: 5px;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+}
+
+.actor img {
+    flex: 1 1 auto;
+    width: 100px;
+    border-radius: 3px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.footer-actors {
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    background-color: rgba(255,255,255,0.8);
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    text-align: center;
+    padding: 3px;
+    padding-top: 5px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+}
+
+.footer-actors h1 {
+    font-family: Google-Sans-Bold;
+    font-size: 11px;
+    margin: 0;
+    font-family: Google-Sans;
+    color: black;
+}
+
+.footer-actors h2 {
+    font-size: 11px;
+    margin: 0;
+    font-family: Google-Sans;
+    color: black;
+}
+
+#related {
+    padding: 10px;
+}
+
+#images {
+    padding: 10px;
+    padding-top: 13px;
+}
+
+#images img {
+    border-radius: 3px;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 /* ------------------ MOVIE STYLES ------------------- */
@@ -373,7 +446,7 @@ footer .bottom-navBar > a {
 
 }
 
-#seasons h3 {
+.title-section {
     font-size: 1.92rem;
     margin: 10px;
 }

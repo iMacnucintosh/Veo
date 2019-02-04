@@ -63,7 +63,7 @@ function InformationMovie(id, parameters) {
         dataType: "json",
         url: "https://api.themoviedb.org/3/movie/" + id,
     }).done(function(recommended_movie, textStatus, jqXHR) {
-
+        console.log(recommended_movie);
         var backdrop_path_style = "style='background-image: url(https://image.tmdb.org/t/p/w500" + recommended_movie.backdrop_path + ")'";
 
         if(recommended_movie.title.length > 18){
@@ -94,14 +94,89 @@ function InformationMovie(id, parameters) {
         }else{
             $('.btn-trailer').hide();
         }
+    }).fail(function( jqXHR, textStatus, errorThrown ) {
+        console.error('La solicitud: Trailer de Película, a fallado: ' +  textStatus);
+    });
 
+    // Cast
+
+    $.ajax({
+        data: parameters,
+        type: "GET",
+        dataType: "json",
+        url: "http://api.themoviedb.org/3/movie/" + id + "/casts"
+    }).done(function(data, textStatus, jqXHR) {
+        var cast_movie = data.cast;
+        var cast_movie_str = '';
+        for(var i=0; i < cast_movie.length;i++){
+            actor = cast_movie[i];
+            console.log(actor);
+            cast_movie_str += '\
+                <a target="_blank" href="https://www.google.es/search?q=' + actor.name.replace(" ","+") + '" class="actor">\
+                    <img src="https://image.tmdb.org/t/p/w300' + actor.profile_path + '" />\
+                    <div class="footer-actors"><h1>' + actor.name + '</h1><h2>' + actor.character + '</h2></div>\
+                 </a>\
+                ';
+        }
+        $('#cast').append(cast_movie_str);
+        resizePosters();
 
     }).fail(function( jqXHR, textStatus, errorThrown ) {
         console.error('La solicitud: Trailer de Película, a fallado: ' +  textStatus);
     });
 
 
+    // Related Movies
+    parameters["page"] = "1";
+    $.ajax({
+        data: parameters,
+        type: "GET",
+        dataType: "json",
+        url: "https://api.themoviedb.org/3/movie/" + id + "/similar"
+    }).done(function(data, textStatus, jqXHR) {
+        var related_movies = data.results;
+        for (var i = 0; i < related_movies.length; i++) {
+            poster_i = data.results[i];
 
+            var poster_str = "\
+                <a href='/movie/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
+                    <img src='https://image.tmdb.org/t/p/w300" + poster_i.poster_path + "' />\
+                 </a>\
+                ";
+
+            $('#related').append(poster_str);
+        }
+        resizePosters();
+
+    }).fail(function( jqXHR, textStatus, errorThrown ) {
+        console.error('La solicitud: Trailer de Película, a fallado: ' +  textStatus);
+    });
+
+    // Images from Movie
+    $.ajax({
+        data: {"api_key":"f368d6c9a2c7d460dacc7cfd42809665"},
+        type: "GET",
+        dataType: "json",
+        url: "https://api.themoviedb.org/3/movie/" + id + "/images"
+    }).done(function(data, textStatus, jqXHR) {
+        var images = data;
+
+        if(images.backdrops.length > 0){
+            images_str = "";
+            for(var i=0; i<images.backdrops.length; i++){
+                var image = images.backdrops[i];
+                images_str += '<div class="col s12 m4"><img class="materialboxed" src="https://image.tmdb.org/t/p/w500' + image.file_path + '" /></div>'
+            }
+            $('#images').append(images_str);
+        }else{
+            $('#images').append("<p class='infoPeticion'>No hay ninguna imagen</p>");
+        }
+
+        $('.materialboxed').materialbox();
+
+    }).fail(function( jqXHR, textStatus, errorThrown ) {
+        console.error('La solicitud: Trailer de Película, a fallado: ' +  textStatus);
+    });
 
 }
 
@@ -237,7 +312,7 @@ function InformationSeason(id_show, num_season, parameters){
                 console.log("aasdf");
                 $(this).text("radio_button_checked")
             }else{
-                 $(this).text("radio_button_unchecked")
+                $(this).text("radio_button_unchecked")
             }
             e.stopPropagation();
             $(this).click(function(){});
@@ -245,7 +320,7 @@ function InformationSeason(id_show, num_season, parameters){
 
 
         $('.close-season-details').click(function(){
-            $(this).parent().parent().fadeOut();
+            $(this).parent().parent().fadeOut(150);
         });
 
     }).fail(function( jqXHR, textStatus, errorThrown ) {
@@ -255,5 +330,5 @@ function InformationSeason(id_show, num_season, parameters){
 }
 
 function showSeasonInfo(num){
-    $('#season-details-' + num).fadeIn();
+    $('#season-details-' + num).fadeIn(150);
 }

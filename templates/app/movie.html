@@ -18,12 +18,6 @@
             <div><i class="material-icons">keyboard_arrow_left</i></div>
         </div>
 
-        {#        <div class="settings-container">#}
-        {#            <a href="/logout">#}
-        {#                <i class="material-icons">power_settings_new</i>#}
-        {#            </a>#}
-        {#        </div>#}
-
     </nav>
 </header>
 
@@ -31,9 +25,10 @@
 <ul class="tabs">
     <li class="tab col s3"><a class="tab-btn active" href="#information">Información</a></li>
     <li class="tab col s3"><a class="tab-btn" href="#related">Relacionadas</a></li>
+    <li class="tab col s3"><a class="tab-btn" href="#images">Imágenes</a></li>
 </ul>
 
-<main class="main-info main-max750">
+<main class="main-info">
     <div id="information" class="col s12">
         <div class="backdrop-container">
             <div id="backdrop-image"></div>
@@ -43,10 +38,14 @@
         <div class="primary-information">
             <p id="sinopsis"></p>
         </div>
+
+        <div class="secondary-information"></div>
+        <h3 class="col s12 title-section">Reparto</h3>
+        <div id="cast" class="col s12 row"></div>
     </div>
 
-    <div id="related" class="col s12">
-    </div>
+    <div id="related" class="col s12 row no-margin"></div>
+    <div id="images" class="col s12 row no-margin"></div>
 </main>
 
 {#{% include "includes/bottom_navbar.html" %}#}
