@@ -66,7 +66,7 @@ function InformationMovie(id, parameters) {
         console.log(recommended_movie);
         var backdrop_path_style = "style='background-image: url(https://image.tmdb.org/t/p/w500" + recommended_movie.backdrop_path + ")'";
 
-        if(recommended_movie.title.length > 18){
+        if(recommended_movie.title.length >= 17){
             $('#title').css("font-size", "1em");
         }
 
@@ -210,7 +210,7 @@ function InformationShow(id, parameters) {
 
         var backdrop_path_style = "style='background-image: url(https://image.tmdb.org/t/p/w500" + recommended_show.backdrop_path + ")'";
 
-        if(recommended_show.name.length > 18){
+        if(recommended_show.name.length >= 17){
             $('#title').css("font-size", "1em");
         }
 
