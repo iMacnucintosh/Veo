@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="07020f31-8a76-45f1-a7cb-86f3cab66ea4" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,17 +12,37 @@
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file leaf-file-name="request_functions.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/request_functions.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="175">
-              <caret line="232" column="32" selection-start-line="232" selection-start-column="32" selection-end-line="232" selection-end-column="32" />
+              <caret line="232" column="32" lean-forward="false" selection-start-line="232" selection-start-column="32" selection-end-line="232" selection-end-column="32" />
               <folding>
-                <element signature="n#!!block;n#RecommendedMovies#0" />
+                <element signature="n#!!block;n#RecommendedMovies#0" expanded="false" />
                 <marker date="1549202999837" expanded="true" signature="645:763" ph="..." />
+                <marker date="1549202999837" expanded="true" signature="5071:5183" ph="..." />
+                <marker date="1549202999837" expanded="true" signature="6759:7281" ph="..." />
+                <marker date="1549202999837" expanded="true" signature="6809:7281" ph="..." />
+                <marker date="1549202999837" expanded="true" signature="6857:6930" ph="..." />
+                <marker date="1549202999837" expanded="true" signature="6998:7111" ph="..." />
+                <marker date="1549202999837" expanded="true" signature="7157:7281" ph="..." />
+                <marker date="1549202999837" expanded="true" signature="7596:7655" ph="..." />
+                <marker date="1549202999837" expanded="true" signature="7644:7655" ph="..." />
+                <marker date="1549202999837" expanded="true" signature="7870:8171" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/app/home.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="25" lean-forward="false" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -78,6 +99,9 @@
       <replace>#4caf50</replace>
     </replaceStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -113,93 +137,112 @@
         <option value="$PROJECT_DIR$/static/css/general_styles.css" />
         <option value="$PROJECT_DIR$/templates/app/show.html" />
         <option value="$PROJECT_DIR$/static/css/themes/blue_dark.css" />
-        <option value="$PROJECT_DIR$/templates/app/home.html" />
         <option value="$PROJECT_DIR$/static/css/styles.css" />
         <option value="$PROJECT_DIR$/static/js/request_functions.js" />
+        <option value="$PROJECT_DIR$/templates/app/home.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
-          <expand>
-            <path>
-              <item name="Veo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Veo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Veo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Veo" type="462c0819:PsiDirectoryNode" />
-              <item name="App" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Veo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Veo" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Veo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Veo" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Veo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Veo" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-              <item name="themes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Veo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Veo" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Veo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Veo" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Veo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Veo" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Veo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Veo" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="includes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Veo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Veo" type="462c0819:PsiDirectoryNode" />
-              <item name="Veo" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Veo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Veo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Veo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Veo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Veo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Veo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Veo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="includes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Veo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Veo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -223,8 +266,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Veo" type="Python.DjangoServer" factoryName="Django server">
-      <module name="Veo" />
+    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -235,6 +277,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
       <option name="launchJavascriptDebuger" value="false" />
       <option name="port" value="8000" />
       <option name="host" value="" />
@@ -244,32 +287,62 @@
       <option name="runNoReload" value="false" />
       <option name="useCustomRunCommand" value="false" />
       <option name="customRunCommand" value="" />
-      <method v="2" />
+      <method />
     </configuration>
-    <configuration default="true" type="js.build_tools.gulp">
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <gulpfile />
       <tasks />
       <arguments />
       <envs />
-      <method v="2" />
+      <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
-      <module name="Veo" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs />
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <module name="Veo" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;.&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
+      <method />
     </configuration>
+    <configuration default="false" name="Veo" type="Python.DjangoServer" factoryName="Django server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Veo" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Django server.Veo" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -291,138 +364,123 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.20801815" />
-      <window_info id="Structure" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Database Changes" order="0" />
-      <window_info anchor="bottom" id="Docker" order="1" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Debug" order="2" />
-      <window_info anchor="bottom" id="Python Console" order="3" />
-      <window_info anchor="bottom" id="Run" order="4" />
-      <window_info anchor="bottom" id="Find" order="5" weight="0.329653" />
-      <window_info anchor="bottom" id="Terminal" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.3289689" />
-      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="TODO" order="9" />
-      <window_info anchor="right" id="R Graphics" order="0" />
-      <window_info anchor="right" id="R Packages" order="1" />
-      <window_info anchor="right" id="Database" order="2" />
-      <window_info anchor="right" id="Data View" order="3" />
-      <window_info anchor="right" id="SciView" order="4" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21669106" sideWeight="0.5" order="-1" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Veo/settings.py">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/static/js/request_functions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!block;n#RecommendedMovies#0" expanded="false" />
+            <marker date="1549202999837" expanded="true" signature="645:763" ph="..." />
+            <marker date="1549202999837" expanded="true" signature="5071:5183" ph="..." />
+            <marker date="1549202999837" expanded="true" signature="6759:7281" ph="..." />
+            <marker date="1549202999837" expanded="true" signature="6809:7281" ph="..." />
+            <marker date="1549202999837" expanded="true" signature="6857:6930" ph="..." />
+            <marker date="1549202999837" expanded="true" signature="6998:7111" ph="..." />
+            <marker date="1549202999837" expanded="true" signature="7157:7281" ph="..." />
+            <marker date="1549202999837" expanded="true" signature="7596:7655" ph="..." />
+            <marker date="1549202999837" expanded="true" signature="7644:7655" ph="..." />
+            <marker date="1549202999837" expanded="true" signature="7870:8171" ph="..." />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/includes/head.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-          <folding />
+          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/app/social.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
-          <caret line="13" column="17" lean-forward="true" selection-end-line="36" selection-end-column="7" />
-          <folding />
+          <caret line="13" column="17" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="36" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/includes/header_navbar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="18" selection-end-column="9" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="18" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/includes/body_end.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/movie_request.js" />
-    <entry file="file://$PROJECT_DIR$/static/css/themes/red_white.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1302">
-          <caret line="102" column="29" selection-start-line="102" selection-start-column="29" selection-end-line="102" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/themes/red_dark.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1111">
-          <caret line="115" column="29" selection-start-line="115" selection-start-column="29" selection-end-line="115" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/themes/green_dark.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1955">
-          <caret line="115" column="29" selection-start-line="115" selection-start-column="29" selection-end-line="115" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/themes/green_white.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/themes/red_white.css" />
+    <entry file="file://$PROJECT_DIR$/static/css/themes/red_dark.css" />
+    <entry file="file://$PROJECT_DIR$/static/css/themes/green_dark.css" />
+    <entry file="file://$PROJECT_DIR$/static/css/themes/green_white.css" />
     <entry file="file://$PROJECT_DIR$/static/js/movies_request.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" column="254" selection-start-line="8" selection-start-column="254" selection-end-line="8" selection-end-column="254" />
+          <caret line="8" column="254" lean-forward="false" selection-start-line="8" selection-start-column="254" selection-end-line="8" selection-end-column="254" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/app/movie.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="413">
-          <caret line="57" column="10" selection-start-line="57" selection-start-column="10" selection-end-line="57" selection-end-column="10" />
+          <caret line="57" column="10" lean-forward="false" selection-start-line="57" selection-start-column="10" selection-end-line="57" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Veo/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="444">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="393">
-          <caret line="126" column="8" selection-start-line="126" selection-start-column="8" selection-end-line="126" selection-end-column="8" />
-          <folding>
-            <element signature="e#335#985#0" />
-            <element signature="e#1098#3336#0" />
-          </folding>
+          <caret line="126" column="8" lean-forward="false" selection-start-line="126" selection-start-column="8" selection-end-line="126" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/general_functions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" column="51" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
+          <caret line="4" column="51" lean-forward="false" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/home_request.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+          <caret line="5" column="6" lean-forward="false" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -436,7 +494,7 @@
     <entry file="file://$PROJECT_DIR$/static/js/shows_request.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" column="248" selection-start-line="8" selection-start-column="248" selection-end-line="8" selection-end-column="248" />
+          <caret line="8" column="248" lean-forward="false" selection-start-line="8" selection-start-column="248" selection-end-line="8" selection-end-column="248" />
         </state>
       </provider>
     </entry>
@@ -450,14 +508,14 @@
     <entry file="file://$PROJECT_DIR$/templates/app/show.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
-          <caret line="37" column="24" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="24" />
+          <caret line="37" column="24" lean-forward="false" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/startapp.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="461">
-          <caret line="73" selection-start-line="73" selection-end-line="73" />
+          <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -471,35 +529,42 @@
     <entry file="file://$PROJECT_DIR$/static/css/themes/blue_white.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="444">
-          <caret line="111" column="29" selection-start-line="111" selection-start-column="29" selection-end-line="111" selection-end-column="29" />
+          <caret line="111" column="29" lean-forward="false" selection-start-line="111" selection-start-column="29" selection-end-line="111" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/themes/blue_dark.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
-          <caret line="124" column="29" selection-end-line="126" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/app/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#article#0;n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <caret line="124" column="29" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/request_functions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
-          <caret line="232" column="32" selection-start-line="232" selection-start-column="32" selection-end-line="232" selection-end-column="32" />
+          <caret line="232" column="32" lean-forward="false" selection-start-line="232" selection-start-column="32" selection-end-line="232" selection-end-column="32" />
           <folding>
-            <element signature="n#!!block;n#RecommendedMovies#0" />
+            <element signature="n#!!block;n#RecommendedMovies#0" expanded="false" />
             <marker date="1549202999837" expanded="true" signature="645:763" ph="..." />
+            <marker date="1549202999837" expanded="true" signature="5071:5183" ph="..." />
+            <marker date="1549202999837" expanded="true" signature="6759:7281" ph="..." />
+            <marker date="1549202999837" expanded="true" signature="6809:7281" ph="..." />
+            <marker date="1549202999837" expanded="true" signature="6857:6930" ph="..." />
+            <marker date="1549202999837" expanded="true" signature="6998:7111" ph="..." />
+            <marker date="1549202999837" expanded="true" signature="7157:7281" ph="..." />
+            <marker date="1549202999837" expanded="true" signature="7596:7655" ph="..." />
+            <marker date="1549202999837" expanded="true" signature="7644:7655" ph="..." />
+            <marker date="1549202999837" expanded="true" signature="7870:8171" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/app/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="25" lean-forward="false" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
