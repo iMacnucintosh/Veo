@@ -116,11 +116,15 @@ footer .nav-active i, footer .nav-active p {
     background-color: #2196f3;
 }
 
+.genre {
+    background-color: #2196f3;
+}
+
 /* --------- SHOW STYLES ---------------- */
 .season-details {
-  background-color: #3e3e3e;
+    background-color: #3e3e3e;
 }
 
 .collapsible-header {
-   background-color: #3e3e3e;
+    background-color: #3e3e3e;
 }

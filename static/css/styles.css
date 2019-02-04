@@ -163,7 +163,7 @@ main {
 }
 
 .main-active {
-    animation: fadeIn .3s;
+    animation: fadeIn .15s;
     opacity: 1;
 }
 
@@ -456,14 +456,13 @@ footer .bottom-navBar > a {
 #genres {
     padding: 10px;
     display: flex;
-    flex-flow: row;
+    flex-flow: wrap;
 }
 .genre {
     padding-left: 10px !important;
     padding-right: 10px !important;
     padding-top: 3px !important;
     padding-bottom: 3px !important;
-    background-color: #2196f3;
     border-radius: 30px;
     color: white;
     margin: 5px;
