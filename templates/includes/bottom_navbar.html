@@ -1,0 +1,45 @@
+<!-- Settings Panel -->
+<section id="settings" class="row no-margin">
+    <article class="header-settings col s12">
+        <h2>Ajustes</h2>
+        <div class="close-settings-container">
+            <i class="material-icons">close</i>
+        </div>
+    </article>
+    <article class="main-settings col s12">
+        <div class="themes-container row">
+            <h3>Tema</h3>
+
+            {% for theme in themes %}
+                <a href="/changeTheme/{{ theme.id }}" class="theme col s4 m3 l2">
+                    <div class="color-background {% if theme.id == profile.theme.id %} active-theme{% endif %}" style="background-color: {{ theme.bg_color }}">
+                        <div class="color-accent" style="background-color: {{ theme.accent_color }}"></div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </article>
+</section>
+
+
+<!-- Button navbar-->
+<footer>
+    <nav class="bottom-navBar row no-margin">
+        <a href="/" id="nav-home" class="col s3">
+            <i class="material-icons">home</i>
+            <p>Inicio</p>
+        </a>
+        <a href="/movies" id="nav-movies" class="col s3">
+            <i class="material-icons">movie</i>
+            <p>Películas</p>
+        </a>
+        <a href="/shows" id="nav-shows" class="col s3">
+            <i class="material-icons">subscriptions</i>
+            <p>Series</p>
+        </a>
+        <a href="/social" id="nav-social" class="col s3">
+            <i class="material-icons">group</i>
+            <p>Amigos</p>
+        </a>
+    </nav>
+</footer>

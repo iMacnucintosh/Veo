@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% include "includes/head.html" %}
+
+    <title>Veo | Película</title>
+
+</head>
+<body>
+<header>
+    <nav class="header-navBar">
+
+        <div class="header-title no-padding-sides">
+            <h1 id="title"></h1>
+        </div>
+
+        <div class="btn-back-list">
+            <div><i class="material-icons">keyboard_arrow_left</i></div>
+        </div>
+
+        {#        <div class="settings-container">#}
+        {#            <a href="/logout">#}
+        {#                <i class="material-icons">power_settings_new</i>#}
+        {#            </a>#}
+        {#        </div>#}
+
+    </nav>
+</header>
+
+<!-- Tabs -->
+<ul class="tabs">
+    <li class="tab col s3"><a class="tab-btn active" href="#information">Información</a></li>
+    <li class="tab col s3"><a class="tab-btn" href="#related">Relacionadas</a></li>
+</ul>
+
+<main class="main-info main-max750">
+    <div id="information" class="col s12">
+        <div class="backdrop-container">
+            <div id="backdrop-image"></div>
+            <img id="poster-img" class="col s3" />
+            <a class="btn-trailer waves-effect waves-light btn" target="_blank"><i class="material-icons left">theaters</i>Ver Tráiler</a>
+        </div>
+        <div class="primary-information">
+            <p id="sinopsis"></p>
+        </div>
+    </div>
+
+    <div id="related" class="col s12">
+    </div>
+</main>
+
+{#{% include "includes/bottom_navbar.html" %}#}
+{% include "includes/body_end.html" %}
+
+<script>
+
+    $(document).ready(function(){
+        //$('#nav-movies').addClass("nav-active");
+
+        // Información de la Película
+        InformationMovie({{id}}, {"language":"es-ES"});
+    });
+
+</script>
+
+</body>
+</html>
