@@ -52,7 +52,7 @@ def sign_in(request):
 
 
                     profile = Profile.objects.create(user=user, theme=1)
-
+                    profile.save()
 
                     user = authenticate(username=form.cleaned_data["username"],
                                         password=form.cleaned_data["password"])
