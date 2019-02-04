@@ -78,6 +78,15 @@ function InformationMovie(id, parameters) {
         $('#sinopsis').text(recommended_movie.overview);
         $('#title').addClass('fadeIn');
 
+
+        // Genres
+        var genres_str = "";
+        for(var i=0; i<recommended_movie.genres.length;i++) {
+            var genre = recommended_movie.genres[i];
+            genres_str += "<div class='genre'>" + genre.name + "</div>";
+        }
+        $('#genres').append(genres_str);
+
     }).fail(function( jqXHR, textStatus, errorThrown ) {
         console.error('La solicitud: Información de Película, a fallado: ' +  textStatus);
     });

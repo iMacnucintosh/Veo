@@ -429,7 +429,7 @@ footer .bottom-navBar > a {
     width: 200px;
     position: absolute;
     right: 1em;
-    bottom: -10px;
+    bottom: -16px;
     border-radius: 30px;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
@@ -453,8 +453,21 @@ footer .bottom-navBar > a {
     text-align: justify;
 }
 
-#seasons {
-
+#genres {
+    padding: 10px;
+    display: flex;
+    flex-flow: row;
+}
+.genre {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+    background-color: #2196f3;
+    border-radius: 30px;
+    color: white;
+    margin: 5px;
+    text-align: center;
 }
 
 .title-section {
