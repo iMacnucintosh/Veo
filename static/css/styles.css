@@ -331,6 +331,7 @@ footer .bottom-navBar > a {
 }
 
 #cast {
+    width: 100%;
     display: flex;
     flex-flow: row nowrap;
     overflow: auto;
@@ -370,15 +371,15 @@ footer .bottom-navBar > a {
 }
 
 .footer-actors h1 {
-    font-family: Google-Sans-Bold;
     font-size: 11px;
     margin: 0;
+    margin-bottom: 4px;
     font-family: Google-Sans;
     color: black;
 }
 
 .footer-actors h2 {
-    font-size: 11px;
+    font-size: 9px;
     margin: 0;
     font-family: Google-Sans;
     color: black;
@@ -416,7 +417,7 @@ footer .bottom-navBar > a {
     width: 100px;
     position: absolute;
     left: 1em;
-    bottom: -30px;
+    bottom: -36px;
     height: auto;
     border-radius: 6px;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
@@ -428,10 +429,20 @@ footer .bottom-navBar > a {
     width: 200px;
     position: absolute;
     right: 1em;
-    bottom: -18px;
+    bottom: -10px;
     border-radius: 30px;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
+
+#date-release {
+    position: absolute;
+    right: 1em;
+    bottom: -52px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
 .primary-information {
     padding: 10px;
     padding-top: 50px;

@@ -70,9 +70,11 @@ function InformationMovie(id, parameters) {
             $('#title').css("font-size", "1em");
         }
 
+        $('title').text("Veo | " + recommended_movie.title);
         $('#title').text(recommended_movie.title);
         $('#backdrop-image').attr("style", "background-image: url(https://image.tmdb.org/t/p/w500" + recommended_movie.backdrop_path) + ")";
         $('#poster-img').attr("src", "https://image.tmdb.org/t/p/w300" + recommended_movie.poster_path);
+        $('#date-release').text(recommended_movie.release_date);
         $('#sinopsis').text(recommended_movie.overview);
         $('#title').addClass('fadeIn');
 
@@ -110,13 +112,14 @@ function InformationMovie(id, parameters) {
         var cast_movie_str = '';
         for(var i=0; i < cast_movie.length;i++){
             actor = cast_movie[i];
-            console.log(actor);
-            cast_movie_str += '\
-                <a target="_blank" href="https://www.google.es/search?q=' + actor.name.replace(" ","+") + '" class="actor">\
+            if(actor.profile_path != null) {
+                cast_movie_str += '\
+                <a target="_blank" href="https://www.google.es/search?q=' + actor.name.replace(" ", "+") + '" class="actor">\
                     <img src="https://image.tmdb.org/t/p/w300' + actor.profile_path + '" />\
-                    <div class="footer-actors"><h1>' + actor.name + '</h1><h2>' + actor.character + '</h2></div>\
+                    <div class="footer-actors"><h1>' + actor.name + '</h1><h2>(' + actor.character + ')</h2></div>\
                  </a>\
                 ';
+            }
         }
         $('#cast').append(cast_movie_str);
         resizePosters();
@@ -135,19 +138,23 @@ function InformationMovie(id, parameters) {
         url: "https://api.themoviedb.org/3/movie/" + id + "/similar"
     }).done(function(data, textStatus, jqXHR) {
         var related_movies = data.results;
-        for (var i = 0; i < related_movies.length; i++) {
-            poster_i = data.results[i];
+        console.log(related_movies);
+        if(related_movies.length > 0) {
+            for (var i = 0; i < related_movies.length; i++) {
+                poster_i = data.results[i];
 
-            var poster_str = "\
+                var poster_str = "\
                 <a href='/movie/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
                     <img src='https://image.tmdb.org/t/p/w300" + poster_i.poster_path + "' />\
                  </a>\
                 ";
 
-            $('#related').append(poster_str);
+                $('#related').append(poster_str);
+            }
+            resizePosters();
+        }else{
+            $('#related').append("<p class='infoPeticion'>No hay películas relacionadas</p>");
         }
-        resizePosters();
-
     }).fail(function( jqXHR, textStatus, errorThrown ) {
         console.error('La solicitud: Trailer de Película, a fallado: ' +  textStatus);
     });
@@ -198,7 +205,7 @@ function InformationShow(id, parameters) {
             $('#title').css("font-size", "1em");
         }
 
-
+        $('title').text("Veo | " + recommended_movie.title);
         $('#title').text(recommended_show.name);
 
         $('#backdrop-image').attr("style", "background-image: url(https://image.tmdb.org/t/p/w500" + recommended_show.backdrop_path) + ")";
