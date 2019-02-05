@@ -456,7 +456,6 @@ footer .bottom-navBar > a {
     padding: 10px;
     display: flex;
     flex-flow: wrap;
-    margin-bottom: 10px !important;
 }
 
 .genre {
@@ -478,6 +477,7 @@ footer .bottom-navBar > a {
     text-align: right;
     font-size: 14px;
     font-weight: bold;
+    margin-top: 5px;
 }
 
 #average-count-num {
@@ -510,6 +510,16 @@ footer .bottom-navBar > a {
     margin: 10px;
 }
 
+#collection {
+    padding: 10px;
+    margin-bottom: 20px !important;
+}
+
+#collection h3 {
+    margin-left: 0px;
+}
+
+/* ------------- SHOW ---------------*/
 #seasons-posters-list {
     padding: 10px;
 }
@@ -571,6 +581,18 @@ footer .bottom-navBar > a {
 
 .episode-overview {
     text-align: justify;
+}
+
+#last-episode-air {
+    padding: 10px;
+}
+
+.date-last-episode {
+    font-weight: bold;
+}
+
+.last-episode-number {
+    font-size: 13px;
 }
 
 /* ------------- CUSTOM STYLES FOR LANDSCAPE ORIENTATION --------------------- */

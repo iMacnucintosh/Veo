@@ -74,19 +74,49 @@ function InformationMovie(id, parameters, colorGenres) {
         $('#title').text(recommended_movie.title);
         $('#backdrop-image').attr("style", "background-image: url(https://image.tmdb.org/t/p/w500" + recommended_movie.backdrop_path) + ")";
         $('#poster-img').attr("src", "https://image.tmdb.org/t/p/w300" + recommended_movie.poster_path);
-
-        var date_release = new Date(recommended_movie.release_date);
-        console.log(date_release);
-        var meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-
-        $('#date-release').text(date_release.getDay() + " de " + meses[date_release.getMonth()] + " del " + date_release.getFullYear());
-
-        $('#average-count-num').text(recommended_movie.vote_average);
-        $('#average-count-bar').css("width", (recommended_movie.vote_average)*10 + "%");
-
         $('#sinopsis').text(recommended_movie.overview);
         $('#title').addClass('fadeIn');
 
+        var date_release = new Date(recommended_movie.release_date);
+        var meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+
+        $('#date-release').text(date_release.getDate() + " de " + meses[date_release.getMonth()] + " del " + date_release.getFullYear());
+        $('#average-count-num').text(recommended_movie.vote_average);
+        $('#average-count-bar').css("width", (recommended_movie.vote_average)*10 + "%");
+
+        // Collection
+        if(recommended_movie.belongs_to_collection != null){
+
+            var collection = recommended_movie.belongs_to_collection;
+            $('#collection').addClass("collection-movie-container");
+            $('#collection').append("<h3 class='title-section'>" + collection.name +"</h3>");
+
+            // Request movie collection
+            $.ajax({
+                data: parameters,
+                type: "GET",
+                dataType: "json",
+                url: "https://api.themoviedb.org/3/collection/" + collection.id
+            }).done(function(collection_parts, textStatus, jqXHR) {
+                var parts = collection_parts.parts;
+                if(parts.length > 0){
+                    parts_str = "";
+                    for(var i=0; i < parts.length;i++){
+                        part = parts[i];
+                        parts_str += "\
+                            <a href='/movie/" + part.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
+                                <img src='https://image.tmdb.org/t/p/w300" + part.poster_path + "' />\
+                            </a>\
+                        ";
+                    }
+                }
+                $('#collection').append(parts_str);
+                resizePosters();
+
+            }).fail(function( jqXHR, textStatus, errorThrown ) {
+                console.error('La solicitud: Trailer de Película, a fallado: ' +  textStatus);
+            });
+        }
 
         // Genres
         var genres_str = "";
@@ -160,7 +190,6 @@ function InformationMovie(id, parameters, colorGenres) {
         url: "https://api.themoviedb.org/3/movie/" + id + "/similar"
     }).done(function(data, textStatus, jqXHR) {
         var related_movies = data.results;
-        console.log(related_movies);
         if(related_movies.length > 0) {
             for (var i = 0; i < related_movies.length; i++) {
                 poster_i = data.results[i];
@@ -175,7 +204,36 @@ function InformationMovie(id, parameters, colorGenres) {
             }
             resizePosters();
         }else{
-            $('#related').append("<p class='infoPeticion'>No hay películas relacionadas</p>");
+            $('#related').append("<p class='infoPeticion'>No hay películas similares</p>");
+        }
+    }).fail(function( jqXHR, textStatus, errorThrown ) {
+        console.error('La solicitud: Trailer de Película, a fallado: ' +  textStatus);
+    });
+
+    // Recommended Movies
+    parameters["page"] = "1";
+    $.ajax({
+        data: parameters,
+        type: "GET",
+        dataType: "json",
+        url: "https://api.themoviedb.org/3/movie/" + id + "/recommendations"
+    }).done(function(data, textStatus, jqXHR) {
+        var recommendations = data.results;
+        if(recommendations.length > 0) {
+            for (var i = 0; i < recommendations.length; i++) {
+                poster_i = data.results[i];
+
+                var poster_str = "\
+                <a href='/show/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
+                    <img src='https://image.tmdb.org/t/p/w300" + poster_i.poster_path + "' />\
+                 </a>\
+                ";
+
+                $('#recommendations').append(poster_str);
+            }
+            resizePosters();
+        }else{
+            $('#recommendations').append("<p class='infoPeticion'>No hay series recomendadas</p>");
         }
     }).fail(function( jqXHR, textStatus, errorThrown ) {
         console.error('La solicitud: Trailer de Película, a fallado: ' +  textStatus);
@@ -273,7 +331,7 @@ function getGenreColor(id){
     return code;
 }
 
-function InformationShow(id, parameters) {
+function InformationShow(id, parameters, colorGenres) {
 
     parameters["api_key"] = "f368d6c9a2c7d460dacc7cfd42809665";
 
@@ -283,28 +341,48 @@ function InformationShow(id, parameters) {
         type: "GET",
         dataType: "json",
         url: "https://api.themoviedb.org/3/tv/" + id,
-    }).done(function(recommended_show, textStatus, jqXHR) {
+    }).done(function(show, textStatus, jqXHR) {
+        console.log(show);
 
-        var backdrop_path_style = "style='background-image: url(https://image.tmdb.org/t/p/w500" + recommended_show.backdrop_path + ")'";
-
-        if(recommended_show.name.length >= 17){
+        if(show.name.length >= 17){
             $('#title').css("font-size", "1em");
         }
 
-        $('title').text("Veo | " + recommended_movie.title);
-        $('#title').text(recommended_show.name);
+        $('title').text("Veo | " + show.name);
+        $('#title').text(show.name);
 
-        $('#backdrop-image').attr("style", "background-image: url(https://image.tmdb.org/t/p/w500" + recommended_show.backdrop_path) + ")";
-        $('#poster-img').attr("src", "https://image.tmdb.org/t/p/w300" + recommended_show.poster_path);
-        $('#sinopsis').text(recommended_show.overview);
+        $('#backdrop-image').attr("style", "background-image: url(https://image.tmdb.org/t/p/w500" + show.backdrop_path) + ")";
+        $('#poster-img').attr("src", "https://image.tmdb.org/t/p/w300" + show.poster_path);
+        $('#sinopsis').text(show.overview);
         $('#title').addClass('fadeIn');
 
+        var date_release = new Date(show.first_air_date);
+        var meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+
+        $('#date-release').text(date_release.getDate() + " de " + meses[date_release.getMonth()] + " del " + date_release.getFullYear());
+
+        $('#average-count-num').text(show.vote_average);
+        $('#average-count-bar').css("width", (show.vote_average)*10 + "%");
+
+
+        // Genres
+        var genres_str = "";
+        for(var i=0; i<show.genres.length;i++) {
+            var genre = show.genres[i];
+            if(colorGenres == true) {
+                var codeColor = getGenreColor(genre.id);
+                genres_str += "<div class='genre' style='background-color: " + codeColor + "'>" + genre.name + "</div>";
+            }else{
+                genres_str += "<div class='genre'>" + genre.name + "</div>";
+            }
+        }
+        $('#genres').append(genres_str);
 
         /* Collapsibles for Seasons */
         var seasons_str = '';
 
-        for(var i=0; i<recommended_show.seasons.length; i++){
-            var season = recommended_show.seasons[i];
+        for(var i=0; i<show.seasons.length; i++){
+            var season = show.seasons[i];
             seasons_str += '<div class="season-poster poster-item list col s4 m3 l2 no-padding" onclick="showSeasonInfo('+i+')">\
                 <img src="https://image.tmdb.org/t/p/w300/' + season.poster_path + '">\
                 </div>';
@@ -317,6 +395,25 @@ function InformationShow(id, parameters) {
         $('#seasons-posters-list').append(seasons_str);
 
         resizePosters();
+
+        // Last episode Air
+
+        var d_last_episode = new Date(show.last_episode_to_air.air_date);
+        var meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+
+        var date_last_episode = d_last_episode.getDate() + " de " + meses[d_last_episode.getMonth()] + " del " + d_last_episode.getFullYear();
+
+
+        var last_episode_str = '\
+            <ul class="collapsible">\
+                <li>\
+                    <div class="collapsible-header"><i class="material-icons">update</i>' + show.last_episode_to_air.name + '</div>\
+                    <div class="collapsible-body row no-margin"><p class="date-last-episode col s6">' + date_last_episode + '</p><p class="col s6 last-episode-number">Episodio ' + show.last_episode_to_air.episode_number + ' - Temporada ' + show.last_episode_to_air.season_number + '</p><p class="col s12">' + show.last_episode_to_air.overview + '</p></div>\
+                </li>\
+            </ul>';
+        $('#last-episode-air').append(last_episode_str);
+
+
 
     }).fail(function( jqXHR, textStatus, errorThrown ) {
         console.error('La solicitud: Información de Serie, a fallado: ' +  textStatus);
@@ -337,6 +434,91 @@ function InformationShow(id, parameters) {
             $('.btn-trailer').hide();
         }
 
+
+    }).fail(function( jqXHR, textStatus, errorThrown ) {
+        console.error('La solicitud: Trailer de Película, a fallado: ' +  textStatus);
+    });
+
+
+    // Related Shows
+    parameters["page"] = "1";
+    $.ajax({
+        data: parameters,
+        type: "GET",
+        dataType: "json",
+        url: "https://api.themoviedb.org/3/tv/" + id + "/similar"
+    }).done(function(data, textStatus, jqXHR) {
+        var related_shows = data.results;
+        if(related_shows.length > 0) {
+            for (var i = 0; i < related_shows.length; i++) {
+                poster_i = data.results[i];
+
+                var poster_str = "\
+                <a href='/show/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
+                    <img src='https://image.tmdb.org/t/p/w300" + poster_i.poster_path + "' />\
+                 </a>\
+                ";
+
+                $('#related').append(poster_str);
+            }
+            resizePosters();
+        }else{
+            $('#related').append("<p class='infoPeticion'>No hay series similares</p>");
+        }
+    }).fail(function( jqXHR, textStatus, errorThrown ) {
+        console.error('La solicitud: Trailer de Película, a fallado: ' +  textStatus);
+    });
+
+    // Recommended Shows
+    parameters["page"] = "1";
+    $.ajax({
+        data: parameters,
+        type: "GET",
+        dataType: "json",
+        url: "https://api.themoviedb.org/3/tv/" + id + "/recommendations"
+    }).done(function(data, textStatus, jqXHR) {
+        var recommendations = data.results;
+        if(recommendations.length > 0) {
+            for (var i = 0; i < recommendations.length; i++) {
+                poster_i = data.results[i];
+
+                var poster_str = "\
+                <a href='/show/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
+                    <img src='https://image.tmdb.org/t/p/w300" + poster_i.poster_path + "' />\
+                 </a>\
+                ";
+
+                $('#recommendations').append(poster_str);
+            }
+            resizePosters();
+        }else{
+            $('#recommendations').append("<p class='infoPeticion'>No hay series recomendadas</p>");
+        }
+    }).fail(function( jqXHR, textStatus, errorThrown ) {
+        console.error('La solicitud: Trailer de Película, a fallado: ' +  textStatus);
+    });
+
+    // Images from Show
+    $.ajax({
+        data: {"api_key":"f368d6c9a2c7d460dacc7cfd42809665"},
+        type: "GET",
+        dataType: "json",
+        url: "https://api.themoviedb.org/3/tv/" + id + "/images"
+    }).done(function(data, textStatus, jqXHR) {
+        var images = data;
+
+        if(images.backdrops.length > 0){
+            images_str = "";
+            for(var i=0; i<images.backdrops.length; i++){
+                var image = images.backdrops[i];
+                images_str += '<div class="col s12 m4"><img class="materialboxed" src="https://image.tmdb.org/t/p/w500' + image.file_path + '" /></div>'
+            }
+            $('#images').append(images_str);
+        }else{
+            $('#images').append("<p class='infoPeticion'>No hay ninguna imagen</p>");
+        }
+
+        $('.materialboxed').materialbox();
 
     }).fail(function( jqXHR, textStatus, errorThrown ) {
         console.error('La solicitud: Trailer de Película, a fallado: ' +  textStatus);
