@@ -16,6 +16,7 @@ class Theme(models.Model):
 class Profile(models.Model):
     user = models.ForeignKey(User, blank=True, null=True)
     theme = models.ForeignKey(Theme, blank=True, null=True)
+    colorGenres = models.BooleanField(default=True)
 
     def __str__(self):
         return str(self.user.first_name) + " " + str(self.user.last_name)

@@ -34,19 +34,28 @@
             <div id="backdrop-image"></div>
             <img id="poster-img" class="col s3" />
             <a class="btn-trailer waves-effect waves-light btn" target="_blank"><i class="material-icons left">theaters</i>Ver Tráiler</a>
-            <h4 id="date-release"></h4>
         </div>
         <div class="primary-information">
             <p id="sinopsis"></p>
         </div>
 
-        <div class="secondary-information">
-            <div id="genres" class="col s9 row no-margin"></div>
-            <div id="average" class="col s3"></div>
+        <div class="secondary-information row">
+            <div id="genres" class="col s8 row no-margin"></div>
+            <h4 id="date-release" class="col s4"></h4>
+            <div class="average-container col s12 row">
+                <div id="average-count-num" class="col s1"></div>
+                <div class="col s11 no-padding">
+                    <div class="average-count-container">
+                        <div id="average-count-bar"></div>
+                    </div>
+                </div>
 
+            </div>
         </div>
         <h3 class="col s12 title-section">Reparto</h3>
-        <div id="cast" class="col s12 row"></div>
+        <div class="cast-container col s12">
+            <div id="cast" class="col s12 row no-margin"></div>
+        </div>
     </div>
 
     <div id="related" class="col s12 row no-margin"></div>
@@ -59,10 +68,8 @@
 <script>
 
     $(document).ready(function(){
-        //$('#nav-movies').addClass("nav-active");
-
         // Información de la Película
-        InformationMovie({{id}}, {"language":"es-ES"});
+        InformationMovie({{id}}, {"language":"es-ES"}, {% if profile.colorGenres == True %}true{% else %}false{% endif %});
     });
 
 </script>

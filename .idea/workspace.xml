@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="07020f31-8a76-45f1-a7cb-86f3cab66ea4" name="Default" comment="" />
+    <list default="true" id="07020f31-8a76-45f1-a7cb-86f3cab66ea4" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Veo.iml" afterPath="$PROJECT_DIR$/.idea/Veo.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/models.py" afterPath="$PROJECT_DIR$/App/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/views.py" afterPath="$PROJECT_DIR$/App/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Veo/urls.py" afterPath="$PROJECT_DIR$/Veo/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/styles.css" afterPath="$PROJECT_DIR$/static/css/styles.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/themes/blue_dark.css" afterPath="$PROJECT_DIR$/static/css/themes/blue_dark.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/themes/blue_white.css" afterPath="$PROJECT_DIR$/static/css/themes/blue_white.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/general_functions.js" afterPath="$PROJECT_DIR$/static/js/general_functions.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/request_functions.js" afterPath="$PROJECT_DIR$/static/js/request_functions.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/app/movie.html" afterPath="$PROJECT_DIR$/templates/app/movie.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/includes/bottom_navbar.html" afterPath="$PROJECT_DIR$/templates/includes/bottom_navbar.html" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,32 +30,60 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="signin.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/app/signin.html">
+      <file leaf-file-name="movie.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/app/movie.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="65" column="129" lean-forward="false" selection-start-line="65" selection-start-column="129" selection-end-line="65" selection-end-column="129" />
+            <state relative-caret-position="243">
+              <caret line="42" column="42" lean-forward="false" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/App/views.py">
+      <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/css/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="54" column="34" lean-forward="false" selection-start-line="54" selection-start-column="34" selection-end-line="54" selection-end-column="34" />
+            <state relative-caret-position="219">
+              <caret line="484" column="20" lean-forward="false" selection-start-line="484" selection-start-column="20" selection-end-line="484" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/app/home.html">
+      <file leaf-file-name="request_functions.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/js/request_functions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="272">
+              <caret line="81" column="94" lean-forward="false" selection-start-line="81" selection-start-column="94" selection-end-line="81" selection-end-column="94" />
+              <folding>
+                <element signature="n#!!block;n#RecommendedMovies#0" expanded="false" />
+                <element signature="e#4218#4316#0" expanded="false" />
+                <element signature="e#4346#4494#0" expanded="false" />
+                <element signature="e#4615#4772#0" expanded="false" />
+                <element signature="e#4881#4975#0" expanded="false" />
+                <element signature="e#5951#6045#0" expanded="false" />
+                <element signature="e#6113#6262#0" expanded="false" />
+                <element signature="e#7078#7172#0" expanded="false" />
+                <element signature="e#7212#7396#0" expanded="false" />
+                <element signature="e#8067#8161#0" expanded="false" />
+                <element signature="n#!!block;n#InformationShow#0" expanded="false" />
+                <element signature="n#!!block;n#InformationSeason#0" expanded="false" />
+                <element signature="n#!!block;n#showSeasonInfo#0" expanded="false" />
+                <marker date="1549371432839" expanded="true" signature="645:763" ph="..." />
+                <marker date="1549371432839" expanded="true" signature="3937:3955" ph="..." />
+                <marker date="1549371432839" expanded="true" signature="5549:5781" ph="..." />
+                <marker date="1549371432839" expanded="true" signature="5552:5781" ph="..." />
+                <marker date="1549371432839" expanded="true" signature="6669:6787" ph="..." />
+                <marker date="1549371432839" expanded="true" signature="11103:11215" ph="..." />
+                <marker date="1549371432839" expanded="true" signature="12791:13313" ph="..." />
+                <marker date="1549371432839" expanded="true" signature="12841:13313" ph="..." />
+                <marker date="1549371432839" expanded="true" signature="12889:12962" ph="..." />
+                <marker date="1549371432839" expanded="true" signature="13030:13143" ph="..." />
+                <marker date="1549371432839" expanded="true" signature="13189:13313" ph="..." />
+                <marker date="1549371432839" expanded="true" signature="13628:13687" ph="..." />
+                <marker date="1549371432839" expanded="true" signature="13676:13687" ph="..." />
+                <marker date="1549371432839" expanded="true" signature="13902:14203" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -58,25 +101,11 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>i {</find>
-      <find>lands</find>
-      <find>console.log</find>
-      <find>vw</find>
-      <find>m</find>
-      <find>main-</find>
-      <find>main-m</find>
-      <find>main-ma</find>
-      <find>main</find>
-      <find>primary-information</find>
-      <find>movies</find>
-      <find>h3 {</find>
-      <find>actor</find>
       <find>btn-tra</find>
       <find>btn-tre</find>
       <find>seasons</find>
       <find>fadeOut</find>
       <find>movie</find>
-      <find>genres</find>
       <find>.3s</find>
       <find>fadeIn</find>
       <find>Inicia</find>
@@ -88,6 +117,20 @@
       <find>bienveni</find>
       <find>bienvenido</find>
       <find>sign</find>
+      <find>.btn-trailer</find>
+      <find>footer</find>
+      <find>date-release</find>
+      <find>actor</find>
+      <find>average</find>
+      <find>secon</find>
+      <find>genres</find>
+      <find>RecommendedMovies</find>
+      <find>InformationMovie</find>
+      <find>title</find>
+      <find>.themes-container h3</find>
+      <find>795548</find>
+      <find>themes-container</find>
+      <find>#average-count-num</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -114,8 +157,6 @@
         <option value="$PROJECT_DIR$/templates/app/social.html" />
         <option value="$PROJECT_DIR$/static/js/jquery.stayInWebApp.js" />
         <option value="$PROJECT_DIR$/App/admin.py" />
-        <option value="$PROJECT_DIR$/App/models.py" />
-        <option value="$PROJECT_DIR$/templates/includes/bottom_navbar.html" />
         <option value="$PROJECT_DIR$/templates/includes/head.html" />
         <option value="$PROJECT_DIR$/static/js/movie_request.js" />
         <option value="$PROJECT_DIR$/static/js/home_request.js" />
@@ -124,20 +165,22 @@
         <option value="$PROJECT_DIR$/static/css/themes/green_dark.css" />
         <option value="$PROJECT_DIR$/static/css/themes/green_white.css" />
         <option value="$PROJECT_DIR$/static/js/movies_request.js" />
-        <option value="$PROJECT_DIR$/Veo/urls.py" />
         <option value="$PROJECT_DIR$/static/js/shows_request.js" />
-        <option value="$PROJECT_DIR$/static/js/startapp.js" />
         <option value="$PROJECT_DIR$/static/css/general_styles.css" />
         <option value="$PROJECT_DIR$/templates/app/show.html" />
-        <option value="$PROJECT_DIR$/static/js/general_functions.js" />
-        <option value="$PROJECT_DIR$/templates/app/movie.html" />
-        <option value="$PROJECT_DIR$/static/js/request_functions.js" />
-        <option value="$PROJECT_DIR$/static/css/themes/blue_white.css" />
-        <option value="$PROJECT_DIR$/static/css/themes/blue_dark.css" />
-        <option value="$PROJECT_DIR$/static/css/styles.css" />
         <option value="$PROJECT_DIR$/templates/app/signin.html" />
-        <option value="$PROJECT_DIR$/App/views.py" />
         <option value="$PROJECT_DIR$/templates/app/home.html" />
+        <option value="$PROJECT_DIR$/App/models.py" />
+        <option value="$PROJECT_DIR$/static/js/startapp.js" />
+        <option value="$PROJECT_DIR$/Veo/urls.py" />
+        <option value="$PROJECT_DIR$/App/views.py" />
+        <option value="$PROJECT_DIR$/static/js/general_functions.js" />
+        <option value="$PROJECT_DIR$/static/css/themes/blue_dark.css" />
+        <option value="$PROJECT_DIR$/templates/includes/bottom_navbar.html" />
+        <option value="$PROJECT_DIR$/static/css/themes/blue_white.css" />
+        <option value="$PROJECT_DIR$/static/css/styles.css" />
+        <option value="$PROJECT_DIR$/static/js/request_functions.js" />
+        <option value="$PROJECT_DIR$/templates/app/movie.html" />
       </list>
     </option>
   </component>
@@ -168,7 +211,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -291,34 +333,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Veo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Veo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="App" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -326,7 +347,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="C:/Program Files/Git/bin/git.exe" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -475,6 +496,30 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/templates/app/signin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1105">
+          <caret line="65" column="129" lean-forward="false" selection-start-line="65" selection-start-column="129" selection-end-line="65" selection-end-column="129" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="54" column="34" lean-forward="false" selection-start-line="54" selection-start-column="34" selection-end-line="54" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/app/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/app/movie.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="731">
@@ -503,7 +548,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="98" lean-forward="false" selection-start-line="15" selection-start-column="98" selection-end-line="15" selection-end-column="98" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc;n#resizePosters#0" expanded="false" />
+            <element signature="n#!!block;n#resizePosters#0" expanded="false" />
+            <element signature="e#183#215#0" expanded="false" />
+            <element signature="e#277#309#0" expanded="false" />
+            <element signature="e#314#346#0" expanded="false" />
+            <element signature="n#!!block;n#zoomBackdrop#0" expanded="false" />
+            <element signature="e#629#1014#0" expanded="false" />
+            <element signature="e#653#792#0" expanded="false" />
+            <element signature="e#731#782#0" expanded="false" />
+            <element signature="e#796#932#0" expanded="false" />
+            <element signature="e#872#922#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -519,7 +576,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="254" lean-forward="false" selection-start-line="8" selection-start-column="254" selection-end-line="8" selection-end-column="254" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -545,30 +601,32 @@
           <caret line="212" column="45" lean-forward="false" selection-start-line="212" selection-start-column="45" selection-end-line="212" selection-end-column="45" />
           <folding>
             <element signature="n#!!block;n#RecommendedMovies#0" expanded="false" />
-            <element signature="e#3469#3567#0" expanded="false" />
-            <element signature="e#3597#3745#0" expanded="false" />
-            <element signature="e#3866#4023#0" expanded="false" />
-            <element signature="e#4132#4226#0" expanded="false" />
-            <element signature="e#5203#5297#0" expanded="false" />
-            <element signature="e#5365#5514#0" expanded="false" />
-            <element signature="e#6330#6424#0" expanded="false" />
-            <element signature="e#6464#6648#0" expanded="false" />
-            <element signature="e#7319#7413#0" expanded="false" />
+            <element signature="e#4218#4316#0" expanded="false" />
+            <element signature="e#4346#4494#0" expanded="false" />
+            <element signature="e#4615#4772#0" expanded="false" />
+            <element signature="e#4881#4975#0" expanded="false" />
+            <element signature="e#5951#6045#0" expanded="false" />
+            <element signature="e#6113#6262#0" expanded="false" />
+            <element signature="e#7078#7172#0" expanded="false" />
+            <element signature="e#7212#7396#0" expanded="false" />
+            <element signature="e#8067#8161#0" expanded="false" />
+            <element signature="n#!!block;n#InformationShow#0" expanded="false" />
             <element signature="n#!!block;n#InformationSeason#0" expanded="false" />
             <element signature="n#!!block;n#showSeasonInfo#0" expanded="false" />
-            <marker date="1549299986680" expanded="true" signature="645:763" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="4801:5033" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="4804:5033" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="5921:6039" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="8768:8880" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="10456:10978" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="10506:10978" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="10554:10627" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="10695:10808" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="10854:10978" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="11293:11352" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="11341:11352" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="11567:11868" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="645:763" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="3937:3955" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="5549:5781" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="5552:5781" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="6669:6787" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="11103:11215" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="12791:13313" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="12841:13313" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="12889:12962" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="13030:13143" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="13189:13313" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="13628:13687" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="13676:13687" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="13902:14203" ph="..." />
           </folding>
         </state>
       </provider>
@@ -579,30 +637,32 @@
           <caret line="232" column="32" lean-forward="false" selection-start-line="232" selection-start-column="32" selection-end-line="232" selection-end-column="32" />
           <folding>
             <element signature="n#!!block;n#RecommendedMovies#0" expanded="false" />
-            <element signature="e#3469#3567#0" expanded="false" />
-            <element signature="e#3597#3745#0" expanded="false" />
-            <element signature="e#3866#4023#0" expanded="false" />
-            <element signature="e#4132#4226#0" expanded="false" />
-            <element signature="e#5203#5297#0" expanded="false" />
-            <element signature="e#5365#5514#0" expanded="false" />
-            <element signature="e#6330#6424#0" expanded="false" />
-            <element signature="e#6464#6648#0" expanded="false" />
-            <element signature="e#7319#7413#0" expanded="false" />
+            <element signature="e#4218#4316#0" expanded="false" />
+            <element signature="e#4346#4494#0" expanded="false" />
+            <element signature="e#4615#4772#0" expanded="false" />
+            <element signature="e#4881#4975#0" expanded="false" />
+            <element signature="e#5951#6045#0" expanded="false" />
+            <element signature="e#6113#6262#0" expanded="false" />
+            <element signature="e#7078#7172#0" expanded="false" />
+            <element signature="e#7212#7396#0" expanded="false" />
+            <element signature="e#8067#8161#0" expanded="false" />
+            <element signature="n#!!block;n#InformationShow#0" expanded="false" />
             <element signature="n#!!block;n#InformationSeason#0" expanded="false" />
             <element signature="n#!!block;n#showSeasonInfo#0" expanded="false" />
-            <marker date="1549299986680" expanded="true" signature="645:763" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="4801:5033" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="4804:5033" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="5921:6039" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="8768:8880" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="10456:10978" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="10506:10978" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="10554:10627" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="10695:10808" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="10854:10978" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="11293:11352" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="11341:11352" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="11567:11868" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="645:763" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="3937:3955" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="5549:5781" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="5552:5781" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="6669:6787" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="11103:11215" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="12791:13313" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="12841:13313" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="12889:12962" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="13030:13143" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="13189:13313" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="13628:13687" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="13676:13687" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="13902:14203" ph="..." />
           </folding>
         </state>
       </provider>
@@ -621,30 +681,32 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#!!block;n#RecommendedMovies#0" expanded="false" />
-            <element signature="e#3469#3567#0" expanded="false" />
-            <element signature="e#3597#3745#0" expanded="false" />
-            <element signature="e#3866#4023#0" expanded="false" />
-            <element signature="e#4132#4226#0" expanded="false" />
-            <element signature="e#5203#5297#0" expanded="false" />
-            <element signature="e#5365#5514#0" expanded="false" />
-            <element signature="e#6330#6424#0" expanded="false" />
-            <element signature="e#6464#6648#0" expanded="false" />
-            <element signature="e#7319#7413#0" expanded="false" />
+            <element signature="e#4218#4316#0" expanded="false" />
+            <element signature="e#4346#4494#0" expanded="false" />
+            <element signature="e#4615#4772#0" expanded="false" />
+            <element signature="e#4881#4975#0" expanded="false" />
+            <element signature="e#5951#6045#0" expanded="false" />
+            <element signature="e#6113#6262#0" expanded="false" />
+            <element signature="e#7078#7172#0" expanded="false" />
+            <element signature="e#7212#7396#0" expanded="false" />
+            <element signature="e#8067#8161#0" expanded="false" />
+            <element signature="n#!!block;n#InformationShow#0" expanded="false" />
             <element signature="n#!!block;n#InformationSeason#0" expanded="false" />
             <element signature="n#!!block;n#showSeasonInfo#0" expanded="false" />
-            <marker date="1549299986680" expanded="true" signature="645:763" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="4801:5033" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="4804:5033" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="5921:6039" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="8768:8880" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="10456:10978" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="10506:10978" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="10554:10627" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="10695:10808" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="10854:10978" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="11293:11352" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="11341:11352" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="11567:11868" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="645:763" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="3937:3955" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="5549:5781" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="5552:5781" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="6669:6787" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="11103:11215" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="12791:13313" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="12841:13313" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="12889:12962" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="13030:13143" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="13189:13313" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="13628:13687" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="13676:13687" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="13902:14203" ph="..." />
           </folding>
         </state>
       </provider>
@@ -663,25 +725,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/includes/body_end.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/movie_request.js" />
     <entry file="file://$PROJECT_DIR$/static/css/themes/red_white.css" />
     <entry file="file://$PROJECT_DIR$/static/css/themes/red_dark.css" />
     <entry file="file://$PROJECT_DIR$/static/css/themes/green_dark.css" />
     <entry file="file://$PROJECT_DIR$/static/css/themes/green_white.css" />
-    <entry file="file://$PROJECT_DIR$/Veo/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/home_request.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -696,32 +744,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/startapp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/includes/bottom_navbar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="14" lean-forward="true" selection-start-line="4" selection-start-column="8" selection-end-line="6" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/app/movies.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-204">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/general_functions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="98" lean-forward="false" selection-start-line="15" selection-start-column="98" selection-end-line="15" selection-end-column="98" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -745,23 +771,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="254" lean-forward="false" selection-start-line="8" selection-start-column="254" selection-end-line="8" selection-end-column="254" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/themes/blue_dark.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="115" column="19" lean-forward="false" selection-start-line="115" selection-start-column="19" selection-end-line="115" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/themes/blue_white.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="105" column="0" lean-forward="false" selection-start-line="105" selection-start-column="0" selection-end-line="107" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -773,76 +782,154 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/styles.css">
+    <entry file="file://$PROJECT_DIR$/templates/app/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="165" column="25" lean-forward="false" selection-start-line="165" selection-start-column="25" selection-end-line="165" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/request_functions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2369">
-          <caret line="257" column="36" lean-forward="false" selection-start-line="257" selection-start-column="30" selection-end-line="257" selection-end-column="36" />
-          <folding>
-            <element signature="n#!!block;n#RecommendedMovies#0" expanded="false" />
-            <element signature="e#3469#3567#0" expanded="false" />
-            <element signature="e#3597#3745#0" expanded="false" />
-            <element signature="e#3866#4023#0" expanded="false" />
-            <element signature="e#4132#4226#0" expanded="false" />
-            <element signature="e#5203#5297#0" expanded="false" />
-            <element signature="e#5365#5514#0" expanded="false" />
-            <element signature="e#6330#6424#0" expanded="false" />
-            <element signature="e#6464#6648#0" expanded="false" />
-            <element signature="e#7319#7413#0" expanded="false" />
-            <element signature="n#!!block;n#InformationSeason#0" expanded="false" />
-            <element signature="n#!!block;n#showSeasonInfo#0" expanded="false" />
-            <marker date="1549299986680" expanded="true" signature="645:763" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="4801:5033" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="4804:5033" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="5921:6039" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="8768:8880" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="10456:10978" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="10506:10978" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="10554:10627" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="10695:10808" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="10854:10978" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="11293:11352" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="11341:11352" ph="..." />
-            <marker date="1549299986680" expanded="true" signature="11567:11868" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/app/movie.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="43" column="36" lean-forward="false" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="43" />
+        <state relative-caret-position="816">
+          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/app/signin.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
+        <state relative-caret-position="107">
           <caret line="65" column="129" lean-forward="false" selection-start-line="65" selection-start-column="129" selection-end-line="65" selection-end-column="129" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/includes/body_end.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/themes/blue_dark.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="96" column="29" lean-forward="true" selection-start-line="96" selection-start-column="29" selection-end-line="96" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Veo/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="49" column="50" lean-forward="false" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/general_functions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="53" column="27" lean-forward="false" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
+          <folding>
+            <element signature="n#!!doc;n#resizePosters#0" expanded="false" />
+            <element signature="n#!!block;n#resizePosters#0" expanded="false" />
+            <element signature="e#183#215#0" expanded="false" />
+            <element signature="e#277#309#0" expanded="false" />
+            <element signature="e#314#346#0" expanded="false" />
+            <element signature="n#!!block;n#zoomBackdrop#0" expanded="false" />
+            <element signature="e#629#1014#0" expanded="false" />
+            <element signature="e#653#792#0" expanded="false" />
+            <element signature="e#731#782#0" expanded="false" />
+            <element signature="e#796#932#0" expanded="false" />
+            <element signature="e#872#922#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/startapp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="46" column="36" lean-forward="false" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="54" column="34" lean-forward="false" selection-start-line="54" selection-start-column="34" selection-end-line="54" selection-end-column="34" />
+        <state relative-caret-position="362">
+          <caret line="140" column="74" lean-forward="false" selection-start-line="140" selection-start-column="74" selection-end-line="140" selection-end-column="74" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/app/home.html">
+    <entry file="file://$PROJECT_DIR$/templates/includes/bottom_navbar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+        <state relative-caret-position="289">
+          <caret line="26" column="88" lean-forward="false" selection-start-line="26" selection-start-column="88" selection-end-line="26" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="18" column="15" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/themes/blue_white.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="99" column="30" lean-forward="false" selection-start-line="99" selection-start-column="30" selection-end-line="99" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="484" column="20" lean-forward="false" selection-start-line="484" selection-start-column="20" selection-end-line="484" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/request_functions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="81" column="94" lean-forward="false" selection-start-line="81" selection-start-column="94" selection-end-line="81" selection-end-column="94" />
+          <folding>
+            <element signature="n#!!block;n#RecommendedMovies#0" expanded="false" />
+            <element signature="e#4218#4316#0" expanded="false" />
+            <element signature="e#4346#4494#0" expanded="false" />
+            <element signature="e#4615#4772#0" expanded="false" />
+            <element signature="e#4881#4975#0" expanded="false" />
+            <element signature="e#5951#6045#0" expanded="false" />
+            <element signature="e#6113#6262#0" expanded="false" />
+            <element signature="e#7078#7172#0" expanded="false" />
+            <element signature="e#7212#7396#0" expanded="false" />
+            <element signature="e#8067#8161#0" expanded="false" />
+            <element signature="n#!!block;n#InformationShow#0" expanded="false" />
+            <element signature="n#!!block;n#InformationSeason#0" expanded="false" />
+            <element signature="n#!!block;n#showSeasonInfo#0" expanded="false" />
+            <marker date="1549371432839" expanded="true" signature="645:763" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="3937:3955" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="5549:5781" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="5552:5781" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="6669:6787" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="11103:11215" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="12791:13313" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="12841:13313" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="12889:12962" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="13030:13143" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="13189:13313" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="13628:13687" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="13676:13687" ph="..." />
+            <marker date="1549371432839" expanded="true" signature="13902:14203" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/app/movie.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="42" column="42" lean-forward="false" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
           <folding />
         </state>
       </provider>

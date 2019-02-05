@@ -52,7 +52,7 @@ function RecommendedMovies() {
     });
 }
 
-function InformationMovie(id, parameters) {
+function InformationMovie(id, parameters, colorGenres) {
 
     parameters["api_key"] = "f368d6c9a2c7d460dacc7cfd42809665";
 
@@ -74,7 +74,16 @@ function InformationMovie(id, parameters) {
         $('#title').text(recommended_movie.title);
         $('#backdrop-image').attr("style", "background-image: url(https://image.tmdb.org/t/p/w500" + recommended_movie.backdrop_path) + ")";
         $('#poster-img').attr("src", "https://image.tmdb.org/t/p/w300" + recommended_movie.poster_path);
-        $('#date-release').text(recommended_movie.release_date);
+
+        var date_release = new Date(recommended_movie.release_date);
+        console.log(date_release);
+        var meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+
+        $('#date-release').text(date_release.getDay() + " - " + meses[date_release.getMonth()] + " - " + date_release.getFullYear());
+
+        $('#average-count-num').text(recommended_movie.vote_average);
+        $('#average-count-bar').css("width", (recommended_movie.vote_average)*10 + "%");
+
         $('#sinopsis').text(recommended_movie.overview);
         $('#title').addClass('fadeIn');
 
@@ -83,7 +92,12 @@ function InformationMovie(id, parameters) {
         var genres_str = "";
         for(var i=0; i<recommended_movie.genres.length;i++) {
             var genre = recommended_movie.genres[i];
-            genres_str += "<div class='genre'>" + genre.name + "</div>";
+            if(colorGenres == true) {
+                var codeColor = getGenreColor(genre.id);
+                genres_str += "<div class='genre' style='background-color: " + codeColor + "'>" + genre.name + "</div>";
+            }else{
+                genres_str += "<div class='genre'>" + genre.name + "</div>";
+            }
         }
         $('#genres').append(genres_str);
 
@@ -110,7 +124,6 @@ function InformationMovie(id, parameters) {
     });
 
     // Cast
-
     $.ajax({
         data: parameters,
         type: "GET",
@@ -194,6 +207,70 @@ function InformationMovie(id, parameters) {
         console.error('La solicitud: Trailer de Película, a fallado: ' +  textStatus);
     });
 
+}
+
+function getGenreColor(id){
+    var code = "";
+    switch(id){
+        case 28: // Acción
+            code = "#f44336";
+            break;
+        case 12: // Aventura
+            code = "#bbb91e";
+            break;
+        case 16: // Animación
+            code = "#96a6f5";
+            break;
+        case 35: // Comedia
+            code = "#e2a189";
+            break;
+        case 80: // Crimen
+            code = "#ba000d";
+            break;
+        case 99: // Documental
+            code = "#27972a";
+            break;
+        case 18: // Drama
+            code = "#49599a";
+            break;
+        case 10751: // Familia
+            code = "#64b5f6";
+            break;
+        case 14: // Fantasía
+            code = "#5e35b1";
+            break;
+        case 36: // Hitoria
+            code = "#fdd835";
+            break;
+        case 27: // Terror
+            code = "#333333";
+            break;
+        case 10402: // Música
+            code = "#ff7043";
+            break;
+        case 9648: // Misterio
+            code = "#25b091";
+            break;
+        case 10749: // Romance
+            code = "#f06292";
+            break;
+        case 878: // Ciencia Ficción
+            code = "#787878";
+            break;
+        case 10770: // Película de TV
+            code = "#8b8d4b";
+            break;
+        case 53: // Suspense
+            code = "#457957";
+            break;
+        case 10752: // Bélica
+            code = "#da6911";
+            break;
+        case 37: // Western
+            code = "#795548";
+            break;
+    }
+    return code;
 }
 
 function InformationShow(id, parameters) {

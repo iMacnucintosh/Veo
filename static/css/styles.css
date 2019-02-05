@@ -245,14 +245,17 @@ footer .bottom-navBar > a {
     font-size: 35px;
 }
 
+.themes-container {
+    padding-top: 10px;
+}
+
+.switch label {
+    font-size: 1.1rem;
+}
+
 #settings .main-settings {
     padding-left: 30px;
     padding-right: 30px;
-}
-
-.themes-container h3 {
-    font-size: 1.92rem;
-    margin-left: 5px;
 }
 
 .theme {
@@ -330,19 +333,22 @@ footer .bottom-navBar > a {
     background-position: top;
 }
 
+.cast-container {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 #cast {
     width: 100%;
     display: flex;
     flex-flow: row nowrap;
     overflow: auto;
-    padding-left: 20px;
-    padding-right: 20px;
 }
 
 .actor {
     position: relative;
     margin: 3px;
-    margin-right: 5px;
+    margin-right: 12px;
     border-radius: 3px;
     display: flex;
     flex-direction: column;
@@ -350,7 +356,7 @@ footer .bottom-navBar > a {
 
 .actor img {
     flex: 1 1 auto;
-    width: 100px;
+    width: 85px;
     border-radius: 3px;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
 }
@@ -372,6 +378,7 @@ footer .bottom-navBar > a {
 
 .footer-actors h1 {
     font-size: 11px;
+    font-weight: bold;
     margin: 0;
     margin-bottom: 4px;
     font-family: Google-Sans;
@@ -417,7 +424,7 @@ footer .bottom-navBar > a {
     width: 100px;
     position: absolute;
     left: 1em;
-    bottom: -36px;
+    bottom: -30px;
     height: auto;
     border-radius: 6px;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
@@ -429,23 +436,15 @@ footer .bottom-navBar > a {
     width: 200px;
     position: absolute;
     right: 1em;
-    bottom: -16px;
+    bottom: -18px;
     border-radius: 30px;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-}
-
-#date-release {
-    position: absolute;
-    right: 1em;
-    bottom: -52px;
-    font-size: 14px;
-    font-weight: bold;
 }
 
 
 .primary-information {
     padding: 10px;
-    padding-top: 50px;
+    padding-top: 40px;
 }
 
 #sinopsis {
@@ -457,7 +456,9 @@ footer .bottom-navBar > a {
     padding: 10px;
     display: flex;
     flex-flow: wrap;
+    margin-bottom: 10px !important;
 }
+
 .genre {
     padding-left: 10px !important;
     padding-right: 10px !important;
@@ -467,6 +468,41 @@ footer .bottom-navBar > a {
     color: white;
     margin: 5px;
     text-align: center;
+}
+
+.secondary-information {
+    padding: 10px;
+}
+
+#date-release {
+    text-align: right;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#average-count-num {
+    font-size: 1.5em;
+    min-width: 50px;
+    font-weight: bold;
+}
+
+.average-container {
+    display: flex;
+    align-items: center;
+}
+
+.average-count-container {
+    position: relative;
+    width: 100%;
+    height: 10px;
+    background-color: rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+}
+
+#average-count-bar {
+    border-radius: 4px;
+    background-color: #2196f3;
+    height: 10px;
 }
 
 .title-section {

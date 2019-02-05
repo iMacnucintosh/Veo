@@ -16,9 +16,9 @@ function resizePosters(){
     $('.poster-item.list').css("height", ((width_poster_list/poster_cols)/0.666666666666) + "px");
 }
 
-
 var escalaBackdrop = 1;
 var aumentando = true;
+
 // Función que da zoom en el tiempo a la imagen de fondo de peli o serie
 function zoomBackdrop(){
 
@@ -36,4 +36,25 @@ function zoomBackdrop(){
         }
         $('#backdrop-image').css("transform", "scale("+escalaBackdrop+")");
     }
+}
+
+function changeColorGenres(toogle, csrf_token) {
+
+    var status = $(toogle).is(':checked');
+
+    var data = new FormData();
+    data.append('status', status);
+    data.append('csrfmiddlewaretoken', csrf_token);
+    $.ajax({
+        url: '/changeGenreColors/',
+        type: "POST",
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (response) {
+            //console.log(response);
+        }
+    });
 }

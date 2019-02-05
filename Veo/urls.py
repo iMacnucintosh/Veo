@@ -43,7 +43,12 @@ urlpatterns = [
     # Movie
     url(r'^movie/(?P<id>\d+)/$', movie),
 
-    # Shwow
+    # Show
     url(r'^show/(?P<id>\d+)/$', show),
+
+    # Change Genre Colors
+    url(r'^changeGenreColors/$', changeGenreColors),
+
+
 
 ]

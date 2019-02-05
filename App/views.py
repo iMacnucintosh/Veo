@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 from App.models import *
 from App.forms import *
@@ -131,3 +131,17 @@ def show(request, id=None):
         "themes": Theme.objects.all()
     }
     return render(request, "app/show.html", context=context)
+
+def changeGenreColors(request):
+    status = request.POST["status"]
+
+    if status == "true":
+        Profile.objects.filter(user=request.user).update(colorGenres=True)
+    else:
+        Profile.objects.filter(user=request.user).update(colorGenres=False)
+
+    data = {
+        'result': status,
+    }
+
+    return JsonResponse(data)
