@@ -356,7 +356,7 @@ footer .bottom-navBar > a {
 
 .actor img {
     flex: 1 1 auto;
-    width: 83px;
+    width: 80px;
     border-radius: 3px;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
 }
