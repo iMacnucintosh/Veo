@@ -79,7 +79,7 @@ function InformationMovie(id, parameters, colorGenres) {
         console.log(date_release);
         var meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
-        $('#date-release').text(date_release.getDay() + " - " + meses[date_release.getMonth()] + " - " + date_release.getFullYear());
+        $('#date-release').text(date_release.getDay() + " de " + meses[date_release.getMonth()] + " del " + date_release.getFullYear());
 
         $('#average-count-num').text(recommended_movie.vote_average);
         $('#average-count-bar').css("width", (recommended_movie.vote_average)*10 + "%");
