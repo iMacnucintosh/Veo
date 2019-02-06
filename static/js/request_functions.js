@@ -66,7 +66,9 @@ function InformationMovie(id, parameters, colorGenres) {
         console.log(recommended_movie);
         var backdrop_path_style = "style='background-image: url(https://image.tmdb.org/t/p/w500" + recommended_movie.backdrop_path + ")'";
 
-        if(recommended_movie.title.length >= 17){
+        if(recommended_movie.title.length >= 17 && recommended_movie.title.length <= 28){
+            $('#title').css("font-size", "1.3em");
+        }else if(recommended_movie.title.length > 28){
             $('#title').css("font-size", "1em");
         }
 
@@ -99,15 +101,19 @@ function InformationMovie(id, parameters, colorGenres) {
                 url: "https://api.themoviedb.org/3/collection/" + collection.id
             }).done(function(collection_parts, textStatus, jqXHR) {
                 var parts = collection_parts.parts;
+                console.log(parts);
                 if(parts.length > 0){
                     parts_str = "";
                     for(var i=0; i < parts.length;i++){
                         part = parts[i];
-                        parts_str += "\
-                            <a href='/movie/" + part.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
-                                <img src='https://image.tmdb.org/t/p/w300" + part.poster_path + "' />\
-                            </a>\
-                        ";
+                        if(part.poster_path != null)
+                        {
+                            parts_str += "\
+                                <a href='/movie/" + part.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
+                                    <img src='https://image.tmdb.org/t/p/w300" + part.poster_path + "' />\
+                                </a>\
+                            ";
+                        }
                     }
                 }
                 $('#collection').append(parts_str);
@@ -327,6 +333,28 @@ function getGenreColor(id){
         case 37: // Western
             code = "#795548";
             break;
+        // Shows
+        case 10759: // Action & Adventure
+            code = "#bbb91e";
+            break;
+        case 10762: // Kids
+            code = "#9bf9ac";
+            break;
+        case 10764: // Reality
+            code = "#793030";
+            break;
+        case 10765: // Sci-Fi & Fantasy"
+            code = "#787878";
+            break;
+        case 10766: // Soap
+            code = "#a2ff67";
+            break;
+        case 10767: // Talk
+            code = "#ff7d70";
+            break;
+        case 10768: // War & Politics
+            code = "#ff5040";
+            break;
     }
     return code;
 }
@@ -344,7 +372,9 @@ function InformationShow(id, parameters, colorGenres) {
     }).done(function(show, textStatus, jqXHR) {
         console.log(show);
 
-        if(show.name.length >= 17){
+        if(show.name.length >= 17 && show.name.title.length <= 28){
+            $('#title').css("font-size", "1.3em");
+        }else if(show.name.length > 28){
             $('#title').css("font-size", "1em");
         }
 
@@ -364,11 +394,11 @@ function InformationShow(id, parameters, colorGenres) {
         $('#average-count-num').text(show.vote_average);
         $('#average-count-bar').css("width", (show.vote_average)*10 + "%");
 
-
         // Genres
         var genres_str = "";
         for(var i=0; i<show.genres.length;i++) {
             var genre = show.genres[i];
+            console.log(genre);
             if(colorGenres == true) {
                 var codeColor = getGenreColor(genre.id);
                 genres_str += "<div class='genre' style='background-color: " + codeColor + "'>" + genre.name + "</div>";
@@ -378,14 +408,13 @@ function InformationShow(id, parameters, colorGenres) {
         }
         $('#genres').append(genres_str);
 
-        /* Collapsibles for Seasons */
         var seasons_str = '';
 
         for(var i=0; i<show.seasons.length; i++){
             var season = show.seasons[i];
             seasons_str += '<div class="season-poster poster-item list col s4 m3 l2 no-padding" onclick="showSeasonInfo('+i+')">\
                 <img src="https://image.tmdb.org/t/p/w300/' + season.poster_path + '">\
-                </div>';
+             </div>';
 
             // Information for each season
             InformationSeason(id, i, parameters);
@@ -403,17 +432,18 @@ function InformationShow(id, parameters, colorGenres) {
 
         var date_last_episode = d_last_episode.getDate() + " de " + meses[d_last_episode.getMonth()] + " del " + d_last_episode.getFullYear();
 
-
+        var overview = show.last_episode_to_air.overview;
+        if(overview == ""){
+            overview = "No hay ninguna descripción disponible";
+        }
         var last_episode_str = '\
             <ul class="collapsible">\
                 <li>\
-                    <div class="collapsible-header"><i class="material-icons">update</i>' + show.last_episode_to_air.name + '</div>\
-                    <div class="collapsible-body row no-margin"><p class="date-last-episode col s6">' + date_last_episode + '</p><p class="col s6 last-episode-number">Episodio ' + show.last_episode_to_air.episode_number + ' - Temporada ' + show.last_episode_to_air.season_number + '</p><p class="col s12">' + show.last_episode_to_air.overview + '</p></div>\
+                    <div class="collapsible-header"><i class="material-icons">update</i>' + show.last_episode_to_air.name + '<span class="last-episode-span">(Último Episodio)</span></div>\
+                    <div class="collapsible-body row no-margin"><p class="date-last-episode col s6">' + date_last_episode + '</p><p class="col s6 last-episode-number">T' + show.last_episode_to_air.season_number + ' x E' + show.last_episode_to_air.episode_number+ '</p><p class="col s12 last-episode-overview">' + overview + '</p></div>\
                 </li>\
             </ul>';
         $('#last-episode-air').append(last_episode_str);
-
-
 
     }).fail(function( jqXHR, textStatus, errorThrown ) {
         console.error('La solicitud: Información de Serie, a fallado: ' +  textStatus);
@@ -538,6 +568,12 @@ function InformationSeason(id_show, num_season, parameters){
     }).done(function(season_info, textStatus, jqXHR) {
         /* Información de cada temporada */
         console.log(season_info);
+        var season_date_str = season_info.air_date;
+
+        var season_date = new Date(season_date_str);
+        var meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+
+        var season_date_format = season_date.getDate() + " " + meses[season_date.getMonth()] + " " + season_date.getFullYear();
 
         var season_info_str = '<div id="season-details-'+ num_season + '" class="season-details">\
          <div class="header-season row col s12">\
@@ -546,6 +582,8 @@ function InformationSeason(id_show, num_season, parameters){
             </div>\
             <div class="poster-item list col s4 m3 l2 no-padding">\
                 <img src="https://image.tmdb.org/t/p/w300/' + season_info.poster_path + '">\
+                <h3 class="date-season">' + season_date_format + '</h3>\
+                <p class="num-episodes-season">' + season_info.episodes.length + ' Episodios</p>\
             </div>\
             <div class="season-info col s8">\
                  <h5 class="col s12">' + season_info.name + '</h5>\
@@ -566,10 +604,13 @@ function InformationSeason(id_show, num_season, parameters){
         // Collapsible for each episode
         for(var i=0; i<season_info.episodes.length; i++){
             var episode = season_info.episodes[i];
+            var overview = episode.overview;
+            if(overview == ""){
+                overview = "No hay ninguna descripción disponible";
+            }
             season_info_str += '\
                         <li>\
-                            <div class="collapsible-header"><i class="material-icons">radio_button_unchecked</i>' + episode.name + '</div>\
-                            <div class="collapsible-body"><p class="episode-overview col s12">' + episode.overview + '</p></div>\
+                            <div class="collapsible-header"><i class="material-icons" onclick="clickable(this, ' + id_show + ','+ num_season + ',' + episode.episode_number + ')" id="' + id_show + '_' + num_season + '_' + episode.episode_number + '">radio_button_unchecked</i>' + episode.name + '</div>\                            <div class="collapsible-body row no-margin"><p class="date-last-episode col s6">' + episode.air_date + '</p><p class="col s6 last-episode-number">T' + episode.season_number + ' x E' + episode.episode_number+ '</p><p class="col s12 last-episode-overview">' + overview + '</p></div>\
                         </li>'
         }
 
@@ -581,17 +622,9 @@ function InformationSeason(id_show, num_season, parameters){
 
 
         // Se marca muchas veces
-        $('.season-episodes .collapsible-header i').on("click", function(e) {
-            console.log("Marcariamos como visto o no visto");
-            if($(this).text() == "radio_button_unchecked"){
-                console.log("aasdf");
-                $(this).text("radio_button_checked")
-            }else{
-                $(this).text("radio_button_unchecked")
-            }
+        $('.season-episodes .collapsible-header i').click(function(e) {
             e.stopPropagation();
-            $(this).click(function(){});
-        } )
+        });
 
 
         $('.close-season-details').click(function(){
@@ -599,11 +632,26 @@ function InformationSeason(id_show, num_season, parameters){
         });
 
     }).fail(function( jqXHR, textStatus, errorThrown ) {
-        console.error('La solicitud: Información de Serie, a fallado: ' +  textStatus);
+        console.error('La solicitud: Información de la Temporada, a fallado: ' +  textStatus);
+        $('#season-details-' + num_season).remove();
+        $(".season-poster[onclick='showSeasonInfo(" + num_season + ")']").remove();
     });
-
 }
 
 function showSeasonInfo(num){
     $('#season-details-' + num).fadeIn(150);
+}
+
+function clickable(elemento, id, season, episode){
+    console.log(id);
+    console.log(season);
+    console.log(episode);
+
+    // Pedición para cambiar el estado de visualización del capitulo
+    if($(elemento).text() == "radio_button_unchecked"){
+        $(elemento).text("radio_button_checked");
+    } else{
+        $(elemento).text("radio_button_unchecked");
+    }
+
 }

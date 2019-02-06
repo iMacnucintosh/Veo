@@ -78,7 +78,7 @@ header .header-navBar {
     display: flex;
 }
 
-.img-profile-container, .header-title, .settings-container {
+.img-profile-container, .header-title, .search-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -121,7 +121,7 @@ header .header-navBar .img-profile {
     max-width: calc(100% - 180px);
 }
 
-.settings-container {
+.search-container {
     position: absolute;
     z-index: 1;
     top: 15px;
@@ -131,7 +131,7 @@ header .header-navBar .img-profile {
     justify-content: center;
 }
 
-.settings-container i {
+.search-container i {
     font-size: 25px !important;
 }
 
@@ -243,6 +243,17 @@ footer .bottom-navBar > a {
 
 .close-settings-container i {
     font-size: 35px;
+}
+
+.log-out {
+    padding: 10px;
+    padding-right: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.log-out a {
+    border-radius: 20px;
 }
 
 .themes-container {
@@ -453,9 +464,10 @@ footer .bottom-navBar > a {
 }
 
 #genres {
-    padding: 10px;
     display: flex;
     flex-flow: wrap;
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
 }
 
 .genre {
@@ -465,7 +477,7 @@ footer .bottom-navBar > a {
     padding-bottom: 3px !important;
     border-radius: 30px;
     color: white;
-    margin: 5px;
+    margin-right: 5px;
     text-align: center;
 }
 
@@ -477,7 +489,7 @@ footer .bottom-navBar > a {
     text-align: right;
     font-size: 14px;
     font-weight: bold;
-    margin-top: 5px;
+    margin-top: 13px;
 }
 
 #average-count-num {
@@ -506,7 +518,7 @@ footer .bottom-navBar > a {
 }
 
 .title-section {
-    font-size: 1.92rem;
+    font-size: 1.6rem;
     margin: 10px;
 }
 
@@ -570,7 +582,7 @@ footer .bottom-navBar > a {
 
 .season-overview {
     text-align: justify;
-    max-height: 150px;
+    max-height: 170px;
     overflow: auto;
 }
 
@@ -583,6 +595,11 @@ footer .bottom-navBar > a {
     text-align: justify;
 }
 
+.last-episode-span {
+    position: absolute;
+    right: 20px;
+}
+
 #last-episode-air {
     padding: 10px;
 }
@@ -592,7 +609,29 @@ footer .bottom-navBar > a {
 }
 
 .last-episode-number {
-    font-size: 13px;
+    text-align: right;
+}
+
+.last-episode-overview {
+    text-align: justify;
+}
+
+.season-info h5 {
+    padding-right: 35px !important;
+}
+
+.date-season {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 3px;
+}
+
+.num-episodes-season {
+    margin: 0;
+    font-size: 0.8rem;
+    text-align: center;
 }
 
 /* ------------- CUSTOM STYLES FOR LANDSCAPE ORIENTATION --------------------- */
