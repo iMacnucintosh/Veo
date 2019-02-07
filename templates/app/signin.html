@@ -75,12 +75,17 @@
 
 {% include "includes/body_end.html" %}
 
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("main").addClass("main-active");
+    });
+</script>
+
 <!-- Si el nombre de usuario no esta disponible limpiamos el campo username y establecemos ahi el foco -->
 {% if code_error == 2 %}
     <script type="text/javascript">
         $(document).ready(function(){
             $('#id_username').val("").focus();
-            $("main").addClass("main-active");
         });
     </script>
 {% endif %}
