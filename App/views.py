@@ -145,3 +145,49 @@ def changeGenreColors(request):
     }
 
     return JsonResponse(data)
+
+def addMovieToSee(request):
+    movie = Movie.objects.create(id_movie=request.POST["id"], user=request.user, title=request.POST["title"], poster_path=request.POST["poster_path"])
+
+    data = {
+        'result': movie.id,
+    }
+
+    return JsonResponse(data)
+
+def isMovieOnMyList(request):
+    movie = Movie.objects.filter(id_movie=request.POST["id"], user=request.user)
+
+    if len(movie) > 0:
+        data = {
+            'result': movie.first().id,
+        }
+    else:
+        data = {
+            'result': "null",
+        }
+
+    return JsonResponse(data)
+
+def removeMovieToSee(request):
+    Movie.objects.filter(id_movie=request.POST["id"], user=request.user).delete()
+
+    data = {
+        'result': "ok",
+    }
+
+    return JsonResponse(data)
+
+def myMoviesToSee(request):
+    movies = Movie.objects.filter(user=request.user, seen=False).order_by("date_add")
+    results = []
+
+
+    for movie in movies:
+        results.append({"id": movie.id_movie, "poster_path": movie.poster_path})
+
+    data = {
+        'results': results
+    }
+
+    return JsonResponse(data)

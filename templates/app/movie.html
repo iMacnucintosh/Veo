@@ -35,6 +35,7 @@
             <div id="backdrop-image"></div>
             <img id="poster-img" class="col s3" />
             <a class="btn-trailer waves-effect waves-light btn" target="_blank"><i class="material-icons left">theaters</i>Ver Tráiler</a>
+            <a class="btn-floating btn-large waves-effect waves-light red"><img id="toSee" src="/static/images/ToSee.png" onclick="addMovieToSee({{ id }}, this, '{{ csrf_token }}')" /></a>
         </div>
         <div class="primary-information">
             <p id="sinopsis"></p>
@@ -67,6 +68,10 @@
     <div id="images" class="col s12 row no-margin"></div>
 </main>
 
+<div class="gif-loading">
+    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+</div>
+
 {% include "includes/bottom_navbar.html" %}
 {% include "includes/body_end.html" %}
 
@@ -74,7 +79,7 @@
     $(document).ready(function(){
         $('#nav-movies').addClass("nav-active");
         // Información de la Película
-        InformationMovie({{id}}, {"language":"es-ES"}, {% if profile.colorGenres == True %}true{% else %}false{% endif %});
+        InformationMovie({{id}}, {"language":"es-ES"}, {% if profile.colorGenres == True %}true{% else %}false{% endif %}, '{{ csrf_token }}');
     });
 </script>
 

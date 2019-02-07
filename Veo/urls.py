@@ -43,12 +43,22 @@ urlpatterns = [
     # Movie
     url(r'^movie/(?P<id>\d+)/$', movie),
 
+    # Is Movie on my List
+    url(r'^isMovieOnMyList/$', isMovieOnMyList),
+
     # Show
     url(r'^show/(?P<id>\d+)/$', show),
 
     # Change Genre Colors
     url(r'^changeGenreColors/$', changeGenreColors),
 
+    # Add movie to see
+    url(r'^addMovieToSee/$', addMovieToSee),
 
+    # Remove movie to see
+    url(r'^removeMovieToSee/$', removeMovieToSee),
+
+    # List of my movies to see
+    url(r'^myMoviesToSee/$', myMoviesToSee),
 
 ]

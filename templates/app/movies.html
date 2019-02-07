@@ -21,8 +21,12 @@
     <section id="movies_popularity" class="col s12 row no-margin"></section>
     <section id="movies_vote_count" class="col s12 row no-margin"></section>
     <section id="movies_theatres" class="col s12 row no-margin"></section>
-    <section id="movies_pending" class="col s12 row no-margin">Todas las pelis que he añadido para ver</section>
+    <section id="movies_pending" class="col s12 row no-margin"></section>
 </main>
+
+<div class="gif-loading">
+    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+</div>
 
 {% include "includes/bottom_navbar.html" %}
 {% include "includes/body_end.html" %}
@@ -37,6 +41,8 @@
 
         $('.search-field form').attr("action", "/search");
 
+        // Mis Películas por ver
+        MyMoviesToSee('{{ csrf_token }}', '#movies-pending');
     });
 
 </script>

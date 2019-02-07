@@ -22,3 +22,13 @@ class Profile(models.Model):
         return str(self.user.first_name) + " " + str(self.user.last_name)
 
 
+class Movie(models.Model):
+    id_movie = models.IntegerField()
+    title = models.CharField(max_length=100)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    poster_path = models.CharField(max_length=50)
+    date_add = models.DateTimeField(auto_now=False, auto_now_add=True)
+    seen = models.BooleanField(default=False)
+
+    def __str__(self):
+        return str(self.title) + " (" + self.user.username +  ") - Vista: " + str(self.seen)

@@ -46,6 +46,30 @@
     }
 }
 
+@keyframes scaleGelly-on {
+    0% {
+        transform: scale(0);
+    }
+    75% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes scaleGelly-off {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+
 /* Eye movement for login */
 @keyframes eye_movement {
     0%   {top: 66px;left:42px;}

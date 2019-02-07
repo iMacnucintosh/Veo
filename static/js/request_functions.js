@@ -1,6 +1,8 @@
 /**
  * Created by mlopez on 30/01/2019.
  */
+
+// Return a list with Movies or Shows with the parameters you has specified
 function TmdbRequestFilter(selector_container, url, parameters, description_request, info_for){
 
     parameters["api_key"] = "f368d6c9a2c7d460dacc7cfd42809665";
@@ -11,6 +13,8 @@ function TmdbRequestFilter(selector_container, url, parameters, description_requ
         dataType: "json",
         url: url,
     }).done(function(data, textStatus, jqXHR) {
+        $('.gif-loading').fadeOut(100);
+        $("main").addClass("main-active");
         if(data.results.length > 0) {
             for (var i = 0; i < data.results.length; i++) {
                 poster_i = data.results[i];
@@ -30,6 +34,7 @@ function TmdbRequestFilter(selector_container, url, parameters, description_requ
     });
 }
 
+// Return a specific number of random movies from your list
 function RecommendedMovies() {
     $.ajax({
         data: {
@@ -52,7 +57,8 @@ function RecommendedMovies() {
     });
 }
 
-function InformationMovie(id, parameters, colorGenres) {
+// Get all information from Movie
+function InformationMovie(id, parameters, colorGenres, csrf_token) {
 
     parameters["api_key"] = "f368d6c9a2c7d460dacc7cfd42809665";
 
@@ -62,34 +68,37 @@ function InformationMovie(id, parameters, colorGenres) {
         type: "GET",
         dataType: "json",
         url: "https://api.themoviedb.org/3/movie/" + id,
-    }).done(function(recommended_movie, textStatus, jqXHR) {
-        console.log(recommended_movie);
-        var backdrop_path_style = "style='background-image: url(https://image.tmdb.org/t/p/w500" + recommended_movie.backdrop_path + ")'";
+    }).done(function(movie, textStatus, jqXHR) {
+        $('.gif-loading').fadeOut(100);
+        $("main").addClass("main-active");
+        var backdrop_path_style = "style='background-image: url(https://image.tmdb.org/t/p/w500" + movie.backdrop_path + ")'";
 
-        if(recommended_movie.title.length >= 17 && recommended_movie.title.length <= 28){
+        if(movie.title.length >= 17 && movie.title.length <= 28){
             $('#title').css("font-size", "1.3em");
-        }else if(recommended_movie.title.length > 28){
+        }else if(movie.title.length > 28){
             $('#title').css("font-size", "1em");
         }
 
-        $('title').text("Veo | " + recommended_movie.title);
-        $('#title').text(recommended_movie.title);
-        $('#backdrop-image').attr("style", "background-image: url(https://image.tmdb.org/t/p/w500" + recommended_movie.backdrop_path) + ")";
-        $('#poster-img').attr("src", "https://image.tmdb.org/t/p/w300" + recommended_movie.poster_path);
-        $('#sinopsis').text(recommended_movie.overview);
+        $('title').text("Veo | " + movie.title);
+        $('#title').text(movie.title);
+        $('#backdrop-image').attr("style", "background-image: url(https://image.tmdb.org/t/p/w500" + movie.backdrop_path) + ")";
+        $('#toSee').attr("alt", movie.poster_path);
+        $('#toSee').attr("rel", movie.title);
+        $('#poster-img').attr("src", "https://image.tmdb.org/t/p/w300" + movie.poster_path);
+        $('#sinopsis').text(movie.overview);
         $('#title').addClass('fadeIn');
 
-        var date_release = new Date(recommended_movie.release_date);
+        var date_release = new Date(movie.release_date);
         var meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
         $('#date-release').text(date_release.getDate() + " de " + meses[date_release.getMonth()] + " del " + date_release.getFullYear());
-        $('#average-count-num').text(recommended_movie.vote_average);
-        $('#average-count-bar').css("width", (recommended_movie.vote_average)*10 + "%");
+        $('#average-count-num').text(movie.vote_average);
+        $('#average-count-bar').css("width", (movie.vote_average)*10 + "%");
 
         // Collection
-        if(recommended_movie.belongs_to_collection != null){
+        if(movie.belongs_to_collection != null){
 
-            var collection = recommended_movie.belongs_to_collection;
+            var collection = movie.belongs_to_collection;
             $('#collection').addClass("collection-movie-container");
             $('#collection').append("<h3 class='title-section'>" + collection.name +"</h3>");
 
@@ -101,7 +110,6 @@ function InformationMovie(id, parameters, colorGenres) {
                 url: "https://api.themoviedb.org/3/collection/" + collection.id
             }).done(function(collection_parts, textStatus, jqXHR) {
                 var parts = collection_parts.parts;
-                console.log(parts);
                 if(parts.length > 0){
                     parts_str = "";
                     for(var i=0; i < parts.length;i++){
@@ -126,8 +134,8 @@ function InformationMovie(id, parameters, colorGenres) {
 
         // Genres
         var genres_str = "";
-        for(var i=0; i<recommended_movie.genres.length;i++) {
-            var genre = recommended_movie.genres[i];
+        for(var i=0; i<movie.genres.length;i++) {
+            var genre = movie.genres[i];
             if(colorGenres == true) {
                 var codeColor = getGenreColor(genre.id);
                 genres_str += "<div class='genre' style='background-color: " + codeColor + "'>" + genre.name + "</div>";
@@ -159,6 +167,26 @@ function InformationMovie(id, parameters, colorGenres) {
         console.error('La solicitud: Trailer de Película, a fallado: ' +  textStatus);
     });
 
+    // Check if is in my list of Movies
+    var data = new FormData();
+    data.append('id', id);
+    data.append('csrfmiddlewaretoken', csrf_token);
+    $.ajax({
+        url: '/isMovieOnMyList/',
+        type: "POST",
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (response) {
+            if(response.result != "null"){
+                $('#toSee').attr("src", "/static/images/OnSeen.png");
+                $('#toSee').attr("onclick", "removeMovieToSee(" + id + ", this, '" + csrf_token +"')");
+            }
+        }
+    });
+
     // Cast
     $.ajax({
         data: parameters,
@@ -185,7 +213,6 @@ function InformationMovie(id, parameters, colorGenres) {
     }).fail(function( jqXHR, textStatus, errorThrown ) {
         console.error('La solicitud: Trailer de Película, a fallado: ' +  textStatus);
     });
-
 
     // Related Movies
     parameters["page"] = "1";
@@ -273,92 +300,7 @@ function InformationMovie(id, parameters, colorGenres) {
 
 }
 
-function getGenreColor(id){
-    var code = "";
-    switch(id){
-        case 28: // Acción
-            code = "#f44336";
-            break;
-        case 12: // Aventura
-            code = "#bbb91e";
-            break;
-        case 16: // Animación
-            code = "#96a6f5";
-            break;
-        case 35: // Comedia
-            code = "#e2a189";
-            break;
-        case 80: // Crimen
-            code = "#ba000d";
-            break;
-        case 99: // Documental
-            code = "#27972a";
-            break;
-        case 18: // Drama
-            code = "#49599a";
-            break;
-        case 10751: // Familia
-            code = "#64b5f6";
-            break;
-        case 14: // Fantasía
-            code = "#5e35b1";
-            break;
-        case 36: // Hitoria
-            code = "#fdd835";
-            break;
-        case 27: // Terror
-            code = "#333333";
-            break;
-        case 10402: // Música
-            code = "#ff7043";
-            break;
-        case 9648: // Misterio
-            code = "#25b091";
-            break;
-        case 10749: // Romance
-            code = "#f06292";
-            break;
-        case 878: // Ciencia Ficción
-            code = "#787878";
-            break;
-        case 10770: // Película de TV
-            code = "#8b8d4b";
-            break;
-        case 53: // Suspense
-            code = "#457957";
-            break;
-        case 10752: // Bélica
-            code = "#da6911";
-            break;
-        case 37: // Western
-            code = "#795548";
-            break;
-        // Shows
-        case 10759: // Action & Adventure
-            code = "#bbb91e";
-            break;
-        case 10762: // Kids
-            code = "#9bf9ac";
-            break;
-        case 10764: // Reality
-            code = "#793030";
-            break;
-        case 10765: // Sci-Fi & Fantasy"
-            code = "#787878";
-            break;
-        case 10766: // Soap
-            code = "#a2ff67";
-            break;
-        case 10767: // Talk
-            code = "#ff7d70";
-            break;
-        case 10768: // War & Politics
-            code = "#ff5040";
-            break;
-    }
-    return code;
-}
-
+// Get all information from Show
 function InformationShow(id, parameters, colorGenres) {
 
     parameters["api_key"] = "f368d6c9a2c7d460dacc7cfd42809665";
@@ -370,8 +312,8 @@ function InformationShow(id, parameters, colorGenres) {
         dataType: "json",
         url: "https://api.themoviedb.org/3/tv/" + id,
     }).done(function(show, textStatus, jqXHR) {
-        console.log(show);
-
+        $('.gif-loading').fadeOut(100);
+        $("main").addClass("main-active");
         if(show.name.length >= 17 && show.name.title.length <= 28){
             $('#title').css("font-size", "1.3em");
         }else if(show.name.length > 28){
@@ -398,7 +340,6 @@ function InformationShow(id, parameters, colorGenres) {
         var genres_str = "";
         for(var i=0; i<show.genres.length;i++) {
             var genre = show.genres[i];
-            console.log(genre);
             if(colorGenres == true) {
                 var codeColor = getGenreColor(genre.id);
                 genres_str += "<div class='genre' style='background-color: " + codeColor + "'>" + genre.name + "</div>";
@@ -470,7 +411,6 @@ function InformationShow(id, parameters, colorGenres) {
     }).fail(function( jqXHR, textStatus, errorThrown ) {
         console.error('La solicitud: Trailer de Película, a fallado: ' +  textStatus);
     });
-
 
     // Related Shows
     parameters["page"] = "1";
@@ -569,7 +509,6 @@ function InformationSeason(id_show, num_season, parameters){
         url: "https://api.themoviedb.org/3/tv/" + id_show + "/season/" + num_season,
     }).done(function(season_info, textStatus, jqXHR) {
         /* Información de cada temporada */
-        console.log(season_info);
         var season_date_str = season_info.air_date;
 
         var season_date = new Date(season_date_str);
@@ -612,7 +551,7 @@ function InformationSeason(id_show, num_season, parameters){
             }
             season_info_str += '\
                         <li>\
-                            <div class="collapsible-header"><i class="material-icons" onclick="clickable(this, ' + id_show + ','+ num_season + ',' + episode.episode_number + ')" id="' + id_show + '_' + num_season + '_' + episode.episode_number + '">radio_button_unchecked</i>' + episode.name + '</div>\                            <div class="collapsible-body row no-margin"><p class="date-last-episode col s6">' + episode.air_date + '</p><p class="col s6 last-episode-number">T' + episode.season_number + ' x E' + episode.episode_number+ '</p><p class="col s12 last-episode-overview">' + overview + '</p></div>\
+                            <div class="collapsible-header"><i class="material-icons" onclick="changeStateEpisode(this, ' + id_show + ','+ num_season + ',' + episode.episode_number + ')" id="' + id_show + '_' + num_season + '_' + episode.episode_number + '">radio_button_unchecked</i>' + episode.name + '</div>\                            <div class="collapsible-body row no-margin"><p class="date-last-episode col s6">' + episode.air_date + '</p><p class="col s6 last-episode-number">T' + episode.season_number + ' x E' + episode.episode_number+ '</p><p class="col s12 last-episode-overview">' + overview + '</p></div>\
                         </li>'
         }
 
@@ -641,16 +580,8 @@ function InformationSeason(id_show, num_season, parameters){
     });
 }
 
-function showSeasonInfo(num){
-    $('body').css("overflow", "hidden");
-    $('#season-details-' + num).fadeIn(150);
-}
-
-function clickable(elemento, id, season, episode){
-    console.log(id);
-    console.log(season);
-    console.log(episode);
-
+// Check/Uncheck episode like seen
+function changeStateEpisode(elemento, id, season, episode){
     // Pedición para cambiar el estado de visualización del capitulo
     if($(elemento).text() == "radio_button_unchecked"){
         $(elemento).text("radio_button_checked");
@@ -659,3 +590,85 @@ function clickable(elemento, id, season, episode){
     }
 
 }
+
+// Add a movie to list of user movies
+function addMovieToSee(id, elemento, csrf_token){
+    var data = new FormData();
+    data.append('id', id);
+    data.append('title', $(elemento).attr("rel"));
+    data.append('poster_path', $(elemento).attr("alt"));
+    data.append('csrfmiddlewaretoken', csrf_token);
+    $.ajax({
+        url: '/addMovieToSee/',
+        type: "POST",
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (response) {
+            M.toast({html: 'Has añadido ' + $('#title').text() + " a tu lista de pendientes"})
+            $(elemento).attr("src", "/static/images/OnSeen.png");
+            $(elemento).attr("onclick", "removeMovieToSee(" + id + ", this, '" + csrf_token +"')");
+        }
+    });
+}
+
+// Remove a movie to list of user movies
+function removeMovieToSee(id, elemento, csrf_token){
+
+    var data = new FormData();
+    data.append('id', id);
+    data.append('title', $(elemento).attr("rel"));
+    data.append('poster_path', $(elemento).attr("alt"));
+    data.append('csrfmiddlewaretoken', csrf_token);
+    $.ajax({
+        url: '/removeMovieToSee/',
+        type: "POST",
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (response) {
+            M.toast({html: 'Has eliminado ' + $('#title').text() + " de tu lista de pendientes"})
+            $(elemento).attr("src", "/static/images/ToSee.png");
+            $(elemento).attr("onclick", "addMovieToSee(" + id + ", this, '" + csrf_token +"')");
+        }
+    });
+}
+
+function MyMoviesToSee(csrf_token, selector){
+    var data = new FormData();
+    data.append('csrfmiddlewaretoken', csrf_token);
+    $.ajax({
+        url: '/myMoviesToSee/',
+        type: "POST",
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (data) {
+            $('.gif-loading').fadeOut(100);
+            $("main").addClass("main-active");
+            if(data.results.length > 0) {
+                for (var i = 0; i < data.results.length; i++) {
+                    poster_i = data.results[i];
+
+                    var poster_str = "\
+                <a href='/movie/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
+                    <img src='https://image.tmdb.org/t/p/w300" + poster_i.poster_path + "' />\
+                 </a>\
+                ";
+                    $(selector).append(poster_str);
+                }
+                resizePosters();
+            }else{
+                $(selector).append("<p class='infoPeticion'>Aún no has añadido ninguna película a tu lista</p>");
+            }
+
+        }
+    });
+}
+

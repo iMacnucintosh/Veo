@@ -76,6 +76,11 @@ header .header-navBar .img-profile {
     color: white;
 }
 
+nav.header-navBar .search-field i {
+   color: white !important;
+}
+
+
 /* --------------- BOTTOM NAVBAR ----------- */
 nav {
     background-color: #3e3e3e;
@@ -118,6 +123,10 @@ footer .nav-active i, footer .nav-active p {
 /* --------------- TABS ----------- */
 .tabs .indicator {
     background-color: #2196f3;
+}
+
+.lds-ellipsis div {
+    background: #2196f3;
 }
 
 /* ---------- MOVIE STYLES ---------------- */

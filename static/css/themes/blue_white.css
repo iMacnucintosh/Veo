@@ -63,7 +63,7 @@ header .header-navBar .img-profile {
 }
 
 nav.header-navBar .search-field i {
-   color: #3e3e3e !important;
+    color: #3e3e3e !important;
 }
 
 
@@ -114,10 +114,20 @@ footer .nav-active i, footer .nav-active p {
     background-color: #2196f3;
 }
 
+.btn-floating {
+    background-color: #2196f3 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /* --------------- TABS ----------- */
 .tabs .indicator {
     background-color: #2196f3;
+}
+
+.lds-ellipsis div {
+    background: #2196f3;
 }
 
 /* ---------- MOVIE STYLES ---------------- */

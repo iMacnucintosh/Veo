@@ -13,14 +13,18 @@ $(document).ready(function(){
         indicators: true
     });
 
-    $("main").addClass("main-active");
-
     $('form input').addClass("validate");
 
     // ------- SCROLL EVENT -------
     $(window).scroll(function(){
 
         var scrollActual = $(window).scrollTop()
+
+        if(scrollActual == 0){
+            $('.btn-floating').removeClass("btn-floating-hidden");
+        }else{
+            $('.btn-floating').addClass("btn-floating-hidden");
+        }
 
         if($('.tabs').length > 0) {
             if (scrollActual >= 80) {
