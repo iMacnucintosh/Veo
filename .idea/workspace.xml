@@ -85,8 +85,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/js/movies_request.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="255" selection-start-line="8" selection-start-column="255" selection-end-line="8" selection-end-column="255" />
+            <state relative-caret-position="165">
+              <caret line="11" column="167" selection-start-line="11" selection-start-column="167" selection-end-line="11" selection-end-column="167" />
             </state>
           </provider>
         </entry>
@@ -766,8 +766,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/movies_request.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="255" selection-start-line="8" selection-start-column="255" selection-end-line="8" selection-end-column="255" />
+        <state relative-caret-position="165">
+          <caret line="11" column="167" selection-start-line="11" selection-start-column="167" selection-end-line="11" selection-end-column="167" />
         </state>
       </provider>
     </entry>
