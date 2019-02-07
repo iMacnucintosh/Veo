@@ -62,6 +62,11 @@ header .header-navBar .img-profile {
     color: #3e3e3e;
 }
 
+nav.header-navBar .search-field i {
+   color: #3e3e3e !important;
+}
+
+
 /* --------------- BOTTOM NAVBAR ----------- */
 nav {
     background-color: white;

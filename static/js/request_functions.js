@@ -412,12 +412,14 @@ function InformationShow(id, parameters, colorGenres) {
 
         for(var i=0; i<show.seasons.length; i++){
             var season = show.seasons[i];
-            seasons_str += '<div class="season-poster poster-item list col s4 m3 l2 no-padding" onclick="showSeasonInfo('+i+')">\
-                <img src="https://image.tmdb.org/t/p/w300/' + season.poster_path + '">\
-             </div>';
+            if(season.poster_path != null) {
+                seasons_str += '<div class="season-poster poster-item list col s4 m3 l2 no-padding" onclick="showSeasonInfo(' + i + ')">\
+                    <img src="https://image.tmdb.org/t/p/w300/' + season.poster_path + '">\
+                    </div>';
 
-            // Information for each season
-            InformationSeason(id, i, parameters);
+                // Information for each season
+                InformationSeason(id, i, parameters);
+            }
 
         }
 
@@ -580,12 +582,12 @@ function InformationSeason(id_show, num_season, parameters){
             <div class="close-season-details">\
                 <i class="material-icons">close</i>\
             </div>\
-            <div class="poster-item list col s4 m3 l2 no-padding">\
-                <img src="https://image.tmdb.org/t/p/w300/' + season_info.poster_path + '">\
+            <div class="col s4 m2 no-padding">\
+                <img class="season-poster shadow" src="https://image.tmdb.org/t/p/w300/' + season_info.poster_path + '">\
                 <h3 class="date-season">' + season_date_format + '</h3>\
                 <p class="num-episodes-season">' + season_info.episodes.length + ' Episodios</p>\
             </div>\
-            <div class="season-info col s8">\
+            <div class="season-info col s8 m10">\
                  <h5 class="col s12">' + season_info.name + '</h5>\
                  <div class="season-overview col s12">';
 
@@ -628,6 +630,7 @@ function InformationSeason(id_show, num_season, parameters){
 
 
         $('.close-season-details').click(function(){
+            $('body').css("overflow", "auto");
             $(this).parent().parent().fadeOut(150);
         });
 
@@ -639,6 +642,7 @@ function InformationSeason(id_show, num_season, parameters){
 }
 
 function showSeasonInfo(num){
+    $('body').css("overflow", "hidden");
     $('#season-details-' + num).fadeIn(150);
 }
 

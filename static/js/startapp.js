@@ -57,6 +57,7 @@ $(document).ready(function(){
         }
     });
 
+
     /* Abrimos el panel de Configuración */
     $('.img-profile').click(function(){
         $('#settings').fadeIn(150);
@@ -65,6 +66,14 @@ $(document).ready(function(){
     /* Cerramos el panel de Configuración */
     $('.close-settings-container').click(function() {
         $('#settings').fadeOut(150);
+    });
+
+    $('.search-container').click(function(){
+        $('.search-field').fadeIn(150);
+    });
+
+    $('.search-field i').click(function(){
+        $('.search-field').fadeOut(150);
     });
 
     /* Volvemos a la pagina anterior desde una película o serie */

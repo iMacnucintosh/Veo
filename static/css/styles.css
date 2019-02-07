@@ -71,6 +71,30 @@
 }
 
 /* HEADER NAVBAR */
+.header {
+    position: relative;
+}
+
+nav.header-navBar .search-field {
+    display: none;
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    background-color: white;
+}
+
+#search {
+    font-family: Google-Sans;
+}
+
+nav.header-navBar .search-field i {
+    right: 20px !important;
+    margin-top: 13px;
+}
+
 header .header-navBar {
     height: 80px;
     position: relative;
@@ -551,13 +575,22 @@ footer .bottom-navBar > a {
     padding-left: 10px;
 }
 
+.season-poster {
+    width: 100%;
+    border-radius: 6px;
+}
+
+.season-poster img {
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
 .season-details {
     border-radius: 6px;
     padding: 10px;
     display: none;
+    overflow: auto;
     position: fixed;
     height: 100%;
-    overflow-y: scroll;
     top: 0;
     right: 0;
     left: 0;
@@ -584,11 +617,6 @@ footer .bottom-navBar > a {
     text-align: justify;
     max-height: 170px;
     overflow: auto;
-}
-
-.season-episodes {
-    height: 100%;
-    overflow-y: scroll;
 }
 
 .episode-overview {
@@ -632,16 +660,4 @@ footer .bottom-navBar > a {
     margin: 0;
     font-size: 0.8rem;
     text-align: center;
-}
-
-/* ------------- CUSTOM STYLES FOR LANDSCAPE ORIENTATION --------------------- */
-@media all and (orientation:landscape) {
-    .season-details {
-        height: 100%;
-        overflow-y: scroll;
-    }
-    .season-episodes {
-        height: auto;
-        overflow-y: hidden;
-    }
 }
