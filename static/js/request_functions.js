@@ -181,8 +181,8 @@ function InformationMovie(id, parameters, colorGenres, csrf_token) {
         data: data,
         success: function (response) {
             if(response.result != "null"){
-                $('#toSee').attr("src", "/static/images/OnSeen.png");
-                $('#toSee').attr("onclick", "removeMovieToSee(" + id + ", this, '" + csrf_token +"')");
+                $('.toSee').text("playlist_add_check");
+                $('.toSee').attr("onclick", "removeMovieToSee(" + id + ", this, '" + csrf_token +"')");
             }
         }
     });
