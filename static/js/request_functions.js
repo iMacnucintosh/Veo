@@ -82,8 +82,8 @@ function InformationMovie(id, parameters, colorGenres, csrf_token) {
         $('title').text("Veo | " + movie.title);
         $('#title').text(movie.title);
         $('#backdrop-image').attr("style", "background-image: url(https://image.tmdb.org/t/p/w500" + movie.backdrop_path) + ")";
-        $('#toSee').attr("alt", movie.poster_path);
-        $('#toSee').attr("rel", movie.title);
+        $('.toSee').attr("alt", movie.poster_path);
+        $('.toSee').attr("rel", movie.title);
         $('#poster-img').attr("src", "https://image.tmdb.org/t/p/w300" + movie.poster_path);
         $('#sinopsis').text(movie.overview);
         $('#title').addClass('fadeIn');
