@@ -120,6 +120,10 @@ footer .nav-active i, footer .nav-active p {
     filter: brightness(100%);
 }
 
+.btn-floating.btn-large {
+    background-color: #2196f3 !important;
+}
+
 /* --------------- TABS ----------- */
 .tabs .indicator {
     background-color: #2196f3;

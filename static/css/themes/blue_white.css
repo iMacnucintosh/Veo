@@ -114,11 +114,8 @@ footer .nav-active i, footer .nav-active p {
     background-color: #2196f3;
 }
 
-.btn-floating {
+.btn-floating.btn-large {
     background-color: #2196f3 !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 /* --------------- TABS ----------- */

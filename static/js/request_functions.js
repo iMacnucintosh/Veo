@@ -314,7 +314,7 @@ function InformationShow(id, parameters, colorGenres) {
     }).done(function(show, textStatus, jqXHR) {
         $('.gif-loading').fadeOut(100);
         $("main").addClass("main-active");
-        if(show.name.length >= 17 && show.name.title.length <= 28){
+        if(show.name.length >= 17 && show.name.length <= 28){
             $('#title').css("font-size", "1.3em");
         }else if(show.name.length > 28){
             $('#title').css("font-size", "1em");
@@ -608,7 +608,7 @@ function addMovieToSee(id, elemento, csrf_token){
         data: data,
         success: function (response) {
             M.toast({html: 'Has añadido ' + $('#title').text() + " a tu lista de pendientes"})
-            $(elemento).attr("src", "/static/images/OnSeen.png");
+            $(elemento).text("playlist_add_check");
             $(elemento).attr("onclick", "removeMovieToSee(" + id + ", this, '" + csrf_token +"')");
         }
     });
@@ -632,7 +632,7 @@ function removeMovieToSee(id, elemento, csrf_token){
         data: data,
         success: function (response) {
             M.toast({html: 'Has eliminado ' + $('#title').text() + " de tu lista de pendientes"})
-            $(elemento).attr("src", "/static/images/ToSee.png");
+            $(elemento).text("playlist_add")
             $(elemento).attr("onclick", "addMovieToSee(" + id + ", this, '" + csrf_token +"')");
         }
     });
@@ -672,3 +672,56 @@ function MyMoviesToSee(csrf_token, selector){
     });
 }
 
+// Set a movie like seen
+function setMovieToSeen(id, elemento, csrf_token){
+    $(elemento).attr("src", "/static/images/on_list.png")
+    $(elemento).attr("onclick", "setMovieToNotSeen(" + id + ", this, '" + csrf_token +"')");
+/*
+    var data = new FormData();
+    data.append('id', id);
+    data.append('title', $(elemento).attr("rel"));
+    data.append('poster_path', $(elemento).attr("alt"));
+    data.append('csrfmiddlewaretoken', csrf_token);
+    $.ajax({
+        url: '/addMovieToSee/',
+        type: "POST",
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (response) {
+            M.toast({html: 'Has añadido ' + $('#title').text() + " a tu lista de pendientes"})
+            $(elemento).text("playlist_add_check");
+            $(elemento).attr("onclick", "removeMovieToSee(" + id + ", this, '" + csrf_token +"')");
+        }
+    });
+    */
+}
+
+// Set a movie like not seen
+function setMovieToNotSeen(id, elemento, csrf_token){
+    $(elemento).attr("src", "/static/images/not_on_list.png")
+    $(elemento).attr("onclick", "setMovieToSeen(" + id + ", this, '" + csrf_token +"')");
+/*
+    var data = new FormData();
+    data.append('id', id);
+    data.append('title', $(elemento).attr("rel"));
+    data.append('poster_path', $(elemento).attr("alt"));
+    data.append('csrfmiddlewaretoken', csrf_token);
+    $.ajax({
+        url: '/addMovieToSee/',
+        type: "POST",
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (response) {
+            M.toast({html: 'Has añadido ' + $('#title').text() + " a tu lista de pendientes"})
+            $(elemento).text("playlist_add_check");
+            $(elemento).attr("onclick", "removeMovieToSee(" + id + ", this, '" + csrf_token +"')");
+        }
+    });
+    */
+}

@@ -13,6 +13,10 @@ $(document).ready(function(){
         indicators: true
     });
 
+    $('.fixed-action-btn').floatingActionButton({
+        direction: 'left',
+    });
+
     $('form input').addClass("validate");
 
     // ------- SCROLL EVENT -------
@@ -21,9 +25,9 @@ $(document).ready(function(){
         var scrollActual = $(window).scrollTop()
 
         if(scrollActual == 0){
-            $('.btn-floating').removeClass("btn-floating-hidden");
+            $('.fixed-action-btn').removeClass("fixed-action-btn-hidden ");
         }else{
-            $('.btn-floating').addClass("btn-floating-hidden");
+            $('.fixed-action-btn').addClass("fixed-action-btn-hidden ");
         }
 
         if($('.tabs').length > 0) {

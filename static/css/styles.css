@@ -159,6 +159,10 @@ header .header-navBar .img-profile {
     font-size: 25px !important;
 }
 
+.search-container i:hover {
+    cursor:pointer;
+}
+
 .tabs-fixed {
     position: fixed;
     top: -1px;
@@ -624,24 +628,50 @@ footer .bottom-navBar > a {
     margin-left: 0px;
 }
 
-.btn-floating {
-    position: absolute;
+.fixed-action-btn {
     animation: scaleGelly-on .3s;
-    top: 16px;
-    right: 13px;
 }
 
-.btn-floating:hover {
-    cursor: pointer;
-}
-
-.btn-floating i {
-    font-size: 2rem;
-}
-
-.btn-floating-hidden {
+.fixed-action-btn-hidden {
     animation: scaleGelly-off .3s;
     transform: scale(0);
+}
+
+.btn-floating.btn-large {
+    width:50px;
+    height:50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;s
+}
+
+.btn-floating {
+    transition: .15s;
+
+}
+
+.backdrop-container .fixed-action-btn {
+    position: absolute;
+    top: 16px;
+    right: 13px;
+    bottom: auto;
+    z-index: 1;
+}
+
+.btn-floating.sub {
+
+}
+
+.toSee {
+    padding-left: 4px;
+}
+
+.seen {
+    width: 26px;
+    height: 33px;
+    margin: auto;
+    display: block;
+    padding-top: 7px;
 }
 
 /* ------------- SHOW --------------- */

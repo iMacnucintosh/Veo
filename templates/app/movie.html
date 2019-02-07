@@ -35,7 +35,18 @@
             <div id="backdrop-image"></div>
             <img id="poster-img" class="col s3" />
             <a class="btn-trailer waves-effect waves-light btn" target="_blank"><i class="material-icons left">theaters</i>Ver Tráiler</a>
-            <a class="btn-floating btn-large waves-effect waves-light red"><img id="toSee" src="/static/images/ToSee.png" onclick="addMovieToSee({{ id }}, this, '{{ csrf_token }}')" /></a>
+
+            <div class="fixed-action-btn ">
+                  <a class="btn-floating btn-large red">
+                        <i class="large material-icons">person_add</i>
+                  </a>
+                <ul>
+                    <li><a class="btn-floating green"><img class="seen" src="/static/images/not_on_list.png" onclick="setMovieToSeen({{ id }}, this, '{{ csrf_token }}')" /></a></li>
+                    <li><a class="btn-floating pink lighten-1"><i class="material-icons toSee" onclick="addMovieToSee({{ id }}, this, '{{ csrf_token }}')">playlist_add</i></a></li>
+                </ul>
+            </div>
+
+
         </div>
         <div class="primary-information">
             <p id="sinopsis"></p>
