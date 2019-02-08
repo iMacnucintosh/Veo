@@ -77,7 +77,7 @@ header .header-navBar .img-profile {
 }
 
 nav.header-navBar .search-field i {
-   color: white !important;
+    color: white !important;
 }
 
 
@@ -101,6 +101,10 @@ footer .nav-active i, footer .nav-active p {
 
 .close-settings-container i {
     color: white;
+}
+
+.log-out a {
+    background-color: #2196f3;
 }
 
 .theme .color-background {

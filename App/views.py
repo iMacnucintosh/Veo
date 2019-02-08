@@ -146,11 +146,19 @@ def changeGenreColors(request):
 
     return JsonResponse(data)
 
+# --------- Movie List ----------
 def addMovieToSee(request):
-    movie = Movie.objects.create(id_movie=request.POST["id"], user=request.user, title=request.POST["title"], poster_path=request.POST["poster_path"])
+    movie = Movie.objects.filter(id_movie=request.POST["id"], user=request.user)
+
+    if len(movie) == 0:
+        movie = Movie.objects.create(id_movie=request.POST["id"], user=request.user, title=request.POST["title"],
+                                     poster_path=request.POST["poster_path"])
+        movie.states.add(State.objects.get(id=2))
+    else:
+        movie.first().states.add(State.objects.get(id=2))
 
     data = {
-        'result': movie.id,
+        'result': request.POST["title"] + " añadida a la lista de pendientes",
     }
 
     return JsonResponse(data)
@@ -159,21 +167,31 @@ def isMovieOnMyList(request):
     movie = Movie.objects.filter(id_movie=request.POST["id"], user=request.user)
 
     if len(movie) > 0:
+        states = []
+        for state in movie.first().states.all():
+            states.append({"id": state.id, "state": state.name})
         data = {
-            'result': movie.first().id,
+            'states': states
         }
     else:
         data = {
-            'result': "null",
+            'states': "null",
         }
 
     return JsonResponse(data)
 
 def removeMovieToSee(request):
-    Movie.objects.filter(id_movie=request.POST["id"], user=request.user).delete()
+    movie = Movie.objects.filter(id_movie=request.POST["id"], user=request.user)
+
+    movie_title = movie.first().title
+
+    movie.first().states.remove(State.objects.get(id=2))
+
+    if(len(movie.first().states.all()) == 0):
+        movie.delete()
 
     data = {
-        'result': "ok",
+        'result': movie_title + " eliminada de mi lista de pendientes",
     }
 
     return JsonResponse(data)
@@ -188,6 +206,43 @@ def myMoviesToSee(request):
 
     data = {
         'results': results
+    }
+
+    return JsonResponse(data)
+
+
+# --------- Movie Seen ----------
+def setMovieToSeen(request):
+
+    movie = Movie.objects.filter(id_movie=request.POST["id"], user=request.user)
+
+    if len(movie) == 0:
+        movie = Movie.objects.create(id_movie=request.POST["id"], user=request.user, title=request.POST["title"],
+                                     poster_path=request.POST["poster_path"])
+        movie.states.add(State.objects.get(id=1))
+    else:
+        movie.first().states.add(State.objects.get(id=1))
+
+    data = {
+        'result': request.POST["title"] + " añadida a vistas",
+    }
+
+    return JsonResponse(data)
+
+# --------- Movie To not Seen ----------
+def setMovieToNotSeen(request):
+
+    movie = Movie.objects.filter(id_movie=request.POST["id"], user=request.user)
+
+    movie_title = movie.first().title
+
+    movie.first().states.remove(State.objects.get(id=1))
+
+    if(len(movie.first().states.all()) == 0):
+        movie.delete()
+
+    data = {
+        'result': movie_title + " eliminada de vistas",
     }
 
     return JsonResponse(data)

@@ -82,8 +82,10 @@ function InformationMovie(id, parameters, colorGenres, csrf_token) {
         $('title').text("Veo | " + movie.title);
         $('#title').text(movie.title);
         $('#backdrop-image').attr("style", "background-image: url(https://image.tmdb.org/t/p/w500" + movie.backdrop_path) + ")";
-        $('.toSee').attr("alt", movie.poster_path);
-        $('.toSee').attr("rel", movie.title);
+
+        localStorage.setItem("movie_poster_path", movie.poster_path);
+        localStorage.setItem("movie_title", movie.title);
+
         $('#poster-img').attr("src", "https://image.tmdb.org/t/p/w300" + movie.poster_path);
         $('#sinopsis').text(movie.overview);
         $('#title').addClass('fadeIn');
@@ -180,9 +182,22 @@ function InformationMovie(id, parameters, colorGenres, csrf_token) {
         contentType: false,
         data: data,
         success: function (response) {
-            if(response.result != "null"){
-                $('.toSee').text("playlist_add_check");
-                $('.toSee').attr("onclick", "removeMovieToSee(" + id + ", this, '" + csrf_token +"')");
+            console.log(response);
+            if(response.states != "null"){
+                for(var i=0; i < response.states.length; i++){
+                    var state = response.states[i];
+
+                    if(state.id == 2) {
+                        $('.toSee').text("playlist_add_check");
+                        $('.toSee').attr("onclick", "removeMovieToSee(" + id + ", this, '" + csrf_token + "')");
+                    }
+
+                    if(state.id == 1){
+                        $('.seen').attr("src", "/static/images/seen.png")
+                        $('.seen').attr("onclick", "setMovieToNotSeen(" + id + ", this, '" + csrf_token +"')");
+                    }
+
+                }
             }
         }
     });
@@ -591,12 +606,12 @@ function changeStateEpisode(elemento, id, season, episode){
 
 }
 
-// Add a movie to list of user movies
+// Add a movie to list of pending movies
 function addMovieToSee(id, elemento, csrf_token){
     var data = new FormData();
     data.append('id', id);
-    data.append('title', $(elemento).attr("rel"));
-    data.append('poster_path', $(elemento).attr("alt"));
+    data.append('title', localStorage.getItem("movie_title"));
+    data.append('poster_path', localStorage.getItem("movie_poster_path"));
     data.append('csrfmiddlewaretoken', csrf_token);
     $.ajax({
         url: '/addMovieToSee/',
@@ -610,17 +625,16 @@ function addMovieToSee(id, elemento, csrf_token){
             M.toast({html: 'Has añadido ' + $('#title').text() + " a tu lista de pendientes"})
             $(elemento).text("playlist_add_check");
             $(elemento).attr("onclick", "removeMovieToSee(" + id + ", this, '" + csrf_token +"')");
+
         }
     });
 }
 
-// Remove a movie to list of user movies
+// Remove a movie to list of pending movies
 function removeMovieToSee(id, elemento, csrf_token){
 
     var data = new FormData();
     data.append('id', id);
-    data.append('title', $(elemento).attr("rel"));
-    data.append('poster_path', $(elemento).attr("alt"));
     data.append('csrfmiddlewaretoken', csrf_token);
     $.ajax({
         url: '/removeMovieToSee/',
@@ -674,16 +688,14 @@ function MyMoviesToSee(csrf_token, selector){
 
 // Set a movie like seen
 function setMovieToSeen(id, elemento, csrf_token){
-    $(elemento).attr("src", "/static/images/on_list.png")
-    $(elemento).attr("onclick", "setMovieToNotSeen(" + id + ", this, '" + csrf_token +"')");
-/*
+
     var data = new FormData();
     data.append('id', id);
-    data.append('title', $(elemento).attr("rel"));
-    data.append('poster_path', $(elemento).attr("alt"));
+    data.append('title', localStorage.getItem("movie_title"));
+    data.append('poster_path', localStorage.getItem("movie_poster_path"));
     data.append('csrfmiddlewaretoken', csrf_token);
     $.ajax({
-        url: '/addMovieToSee/',
+        url: '/setMovieToSeen/',
         type: "POST",
         mimeType: "multipart/form-data",
         dataType: 'json',
@@ -691,26 +703,21 @@ function setMovieToSeen(id, elemento, csrf_token){
         contentType: false,
         data: data,
         success: function (response) {
-            M.toast({html: 'Has añadido ' + $('#title').text() + " a tu lista de pendientes"})
-            $(elemento).text("playlist_add_check");
-            $(elemento).attr("onclick", "removeMovieToSee(" + id + ", this, '" + csrf_token +"')");
+            M.toast({html: 'Has marcado ' + $('#title').text() + " como vista"})
+            $(elemento).attr("src", "/static/images/seen.png")
+            $(elemento).attr("onclick", "setMovieToNotSeen(" + id + ", this, '" + csrf_token +"')");
+
         }
     });
-    */
 }
 
 // Set a movie like not seen
 function setMovieToNotSeen(id, elemento, csrf_token){
-    $(elemento).attr("src", "/static/images/not_on_list.png")
-    $(elemento).attr("onclick", "setMovieToSeen(" + id + ", this, '" + csrf_token +"')");
-/*
     var data = new FormData();
     data.append('id', id);
-    data.append('title', $(elemento).attr("rel"));
-    data.append('poster_path', $(elemento).attr("alt"));
     data.append('csrfmiddlewaretoken', csrf_token);
     $.ajax({
-        url: '/addMovieToSee/',
+        url: '/setMovieToNotSeen/',
         type: "POST",
         mimeType: "multipart/form-data",
         dataType: 'json',
@@ -718,10 +725,9 @@ function setMovieToNotSeen(id, elemento, csrf_token){
         contentType: false,
         data: data,
         success: function (response) {
-            M.toast({html: 'Has añadido ' + $('#title').text() + " a tu lista de pendientes"})
-            $(elemento).text("playlist_add_check");
-            $(elemento).attr("onclick", "removeMovieToSee(" + id + ", this, '" + csrf_token +"')");
+            M.toast({html: 'Has eliminado ' + $('#title').text() + " como vista"})
+            $(elemento).attr("src", "/static/images/not_seen.png")
+            $(elemento).attr("onclick", "setMovieToSeen(" + id + ", this, '" + csrf_token +"')");
         }
     });
-    */
 }

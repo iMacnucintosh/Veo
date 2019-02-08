@@ -61,4 +61,11 @@ urlpatterns = [
     # List of my movies to see
     url(r'^myMoviesToSee/$', myMoviesToSee),
 
+    # Set movie like seen
+    url(r'^setMovieToSeen/$', setMovieToSeen),
+
+    # Set movie like not seen
+    url(r'^setMovieToNotSeen/$', setMovieToNotSeen),
+
+
 ]
