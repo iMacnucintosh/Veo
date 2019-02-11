@@ -20,8 +20,8 @@
 <main>
     <section id="shows_popularity" class="col s12 row no-margin"></section>
     <section id="shows_vote_count" class="col s12 row no-margin"></section>
-    <section id="shows_seeing" class="col s12 row no-margin">Todas las series que estoy viendo actualmente (Fecha modificacion reciente)</section>
-    <section id="shows_forgotten" class="col s12">Todas las series que estaba viendo pero las aparque</section>
+    <section id="shows_seeing" class="col s12 row no-margin"></section>
+    <section id="shows_forgotten" class="col s12 row no-margin"></section>
 </main>
 
 <div class="gif-loading">
@@ -40,6 +40,13 @@
         $('#nav-shows').addClass("nav-active");
 
         $('.search-field form').attr("action", "/search");
+
+        // Mis Series activas
+        MyActiveShows('{{ csrf_token }}', '#shows_seeing');
+
+        // Mis Películas por ver
+        MyForgottenShows('{{ csrf_token }}', '#shows_forgotten');
+
     });
 
 </script>

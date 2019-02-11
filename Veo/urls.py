@@ -20,7 +20,7 @@ from App.views import *
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
-    # ------------------------------------- APP -------------------------------
+    # ------------------------------------- APP ------------------------------------------------------------------------
     url(r'^login/$', log_in),
     url(r'^logout/$', log_out),
     url(r'^signin/$', sign_in),
@@ -52,20 +52,50 @@ urlpatterns = [
     # Change Genre Colors
     url(r'^changeGenreColors/$', changeGenreColors),
 
-    # Add movie to see
+    # ------------------------------------ MOVIE -----------------------------------------------------------------------
+
+    # Add Movie to see
     url(r'^addMovieToSee/$', addMovieToSee),
 
-    # Remove movie to see
+    # Remove Movie to see
     url(r'^removeMovieToSee/$', removeMovieToSee),
 
-    # List of my movies to see
+    # List of my Movies to see
     url(r'^myMoviesToSee/$', myMoviesToSee),
 
-    # Set movie like seen
+    # Set Movie like seen
     url(r'^setMovieToSeen/$', setMovieToSeen),
 
-    # Set movie like not seen
+    # Set Movie like not seen
     url(r'^setMovieToNotSeen/$', setMovieToNotSeen),
 
+    # ----------------------------------- SHOW -------------------------------------------------------------------------
+
+    # Add Show to see
+    url(r'^addShowToSee/$', addShowToSee),
+
+    # Is Show on my List
+    url(r'^isShowOnMyList/$', isShowOnMyList),
+
+    # Remove Show to see
+    url(r'^removeShowToSee/$', removeShowToSee),
+
+    # Set Show like seen
+    url(r'^setShowToSeen/$', setShowToSeen),
+
+    # Set Show like not seen
+    url(r'^setShowToNotSeen/$', setShowToNotSeen),
+
+    # List of active Shows
+    url(r'^myActiveShows/$', myActiveShows),
+
+    # List of Forgotten Shows
+    url(r'^myForgottenShows/$', myForgottenShows),
+
+    # Change State of episode
+    url(r'^changeEpisodeState/$', changeEpisodeState),
+
+    # Syncronize Episodes
+    url(r'^syncronizeEpisodes/$', syncronizeEpisodes),
 
 ]

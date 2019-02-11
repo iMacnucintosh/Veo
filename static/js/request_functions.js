@@ -57,6 +57,7 @@ function RecommendedMovies() {
     });
 }
 
+var _movie;
 // Get all information from Movie
 function InformationMovie(id, parameters, colorGenres, csrf_token) {
 
@@ -69,6 +70,7 @@ function InformationMovie(id, parameters, colorGenres, csrf_token) {
         dataType: "json",
         url: "https://api.themoviedb.org/3/movie/" + id,
     }).done(function(movie, textStatus, jqXHR) {
+        _movie = movie;
         $('.gif-loading').fadeOut(100);
         $("main").addClass("main-active");
         var backdrop_path_style = "style='background-image: url(https://image.tmdb.org/t/p/w500" + movie.backdrop_path + ")'";
@@ -182,19 +184,18 @@ function InformationMovie(id, parameters, colorGenres, csrf_token) {
         contentType: false,
         data: data,
         success: function (response) {
-            console.log(response);
             if(response.states != "null"){
                 for(var i=0; i < response.states.length; i++){
                     var state = response.states[i];
 
                     if(state.id == 2) {
                         $('.toSee').text("playlist_add_check");
-                        $('.toSee').attr("onclick", "removeMovieToSee(" + id + ", this, '" + csrf_token + "')");
+                        $('.toSee').attr("onclick", "removeMovieToSee(this, '" + csrf_token + "')");
                     }
 
                     if(state.id == 1){
                         $('.seen').attr("src", "/static/images/seen.png")
-                        $('.seen').attr("onclick", "setMovieToNotSeen(" + id + ", this, '" + csrf_token +"')");
+                        $('.seen').attr("onclick", "setMovieToNotSeen(this, '" + csrf_token +"')");
                     }
 
                 }
@@ -315,8 +316,10 @@ function InformationMovie(id, parameters, colorGenres, csrf_token) {
 
 }
 
+
+var _show;
 // Get all information from Show
-function InformationShow(id, parameters, colorGenres) {
+function InformationShow(id, parameters, colorGenres, csrf_token) {
 
     parameters["api_key"] = "f368d6c9a2c7d460dacc7cfd42809665";
 
@@ -327,6 +330,8 @@ function InformationShow(id, parameters, colorGenres) {
         dataType: "json",
         url: "https://api.themoviedb.org/3/tv/" + id,
     }).done(function(show, textStatus, jqXHR) {
+        console.log("Serie:", show);
+        _show = show;
         $('.gif-loading').fadeOut(100);
         $("main").addClass("main-active");
         if(show.name.length >= 17 && show.name.length <= 28){
@@ -374,7 +379,7 @@ function InformationShow(id, parameters, colorGenres) {
                     </div>';
 
                 // Information for each season
-                InformationSeason(id, i, parameters);
+                InformationSeason(id, i, parameters, csrf_token);
             }
 
         }
@@ -425,6 +430,40 @@ function InformationShow(id, parameters, colorGenres) {
 
     }).fail(function( jqXHR, textStatus, errorThrown ) {
         console.error('La solicitud: Trailer de Película, a fallado: ' +  textStatus);
+    });
+
+
+    // Check if is in my list of Shows
+    var data = new FormData();
+    data.append('id', id);
+    data.append('csrfmiddlewaretoken', csrf_token);
+    $.ajax({
+        url: '/isShowOnMyList/',
+        type: "POST",
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (response) {
+            console.log(response);
+            if(response.states != "null"){
+                for(var i=0; i < response.states.length; i++){
+                    var state = response.states[i];
+
+                    if(state.id == 2) {
+                        $('.toSee').text("playlist_add_check");
+                        $('.toSee').attr("onclick", "removeShowToSee(this, '" + csrf_token + "')");
+                    }
+
+                    if(state.id == 1){
+                        $('.seen').attr("src", "/static/images/seen.png")
+                        $('.seen').attr("onclick", "setShowToNotSeen(this, '" + csrf_token +"')");
+                    }
+
+                }
+            }
+        }
     });
 
     // Related Shows
@@ -513,7 +552,8 @@ function InformationShow(id, parameters, colorGenres) {
 
 }
 
-function InformationSeason(id_show, num_season, parameters){
+var _seasons = [];
+function InformationSeason(id_show, num_season, parameters, csrf_token){
     parameters["api_key"] = "f368d6c9a2c7d460dacc7cfd42809665";
 
     // Basic Information
@@ -523,6 +563,16 @@ function InformationSeason(id_show, num_season, parameters){
         dataType: "json",
         url: "https://api.themoviedb.org/3/tv/" + id_show + "/season/" + num_season,
     }).done(function(season_info, textStatus, jqXHR) {
+        episodes = []
+
+        for (var i=0; i<season_info.episodes.length; i++){
+            episodes.push({"id": season_info.episodes[i].id, "episode_number":season_info.episodes[i].episode_number})
+        }
+
+        season_JSON = {"season_number": season_info.season_number, episodes:episodes};
+
+        _seasons.push(season_JSON)
+
         /* Información de cada temporada */
         var season_date_str = season_info.air_date;
 
@@ -539,7 +589,7 @@ function InformationSeason(id_show, num_season, parameters){
             <div class="col s4 m2 no-padding">\
                 <img class="season-poster shadow" src="https://image.tmdb.org/t/p/w300/' + season_info.poster_path + '">\
                 <h3 class="date-season">' + season_date_format + '</h3>\
-                <p class="num-episodes-season">' + season_info.episodes.length + ' Episodios</p>\
+                <p class="num-episodes-season" id="num-episodes-season-'+num_season+'">' + season_info.episodes.length + ' Episodios</p>\
             </div>\
             <div class="season-info col s8 m10">\
                  <h5 class="col s12">' + season_info.name + '</h5>\
@@ -566,27 +616,49 @@ function InformationSeason(id_show, num_season, parameters){
             }
             season_info_str += '\
                         <li>\
-                            <div class="collapsible-header"><i class="material-icons" onclick="changeStateEpisode(this, ' + id_show + ','+ num_season + ',' + episode.episode_number + ')" id="' + id_show + '_' + num_season + '_' + episode.episode_number + '">radio_button_unchecked</i>' + episode.name + '</div>\                            <div class="collapsible-body row no-margin"><p class="date-last-episode col s6">' + episode.air_date + '</p><p class="col s6 last-episode-number">T' + episode.season_number + ' x E' + episode.episode_number+ '</p><p class="col s12 last-episode-overview">' + overview + '</p></div>\
+                            <div class="collapsible-header"><i class="material-icons" onclick="changeStateEpisode(this,' + id_show + ',' + num_season + ',' + episode.id + ',\''+ csrf_token +'\')" id="' + id_show + '_' + num_season + '_' + episode.episode_number + '">radio_button_unchecked</i>' + episode.name + '</div>\                            <div class="collapsible-body row no-margin"><p class="date-last-episode col s6">' + episode.air_date + '</p><p class="col s6 last-episode-number">T' + episode.season_number + ' x E' + episode.episode_number+ '</p><p class="col s12 last-episode-overview">' + overview + '</p></div>\
                         </li>'
         }
-
         season_info_str += '</ul></div></div>';
 
         $('#seasons').append(season_info_str);
 
         $('.collapsible').collapsible();
 
-
-        // Se marca muchas veces
         $('.season-episodes .collapsible-header i').click(function(e) {
             e.stopPropagation();
         });
-
 
         $('.close-season-details').click(function(){
             $('body').css("overflow", "auto");
             $(this).parent().parent().fadeOut(150);
         });
+
+
+        // Syncronize episodes seen
+        var data = new FormData();
+        data.append('id_show', id_show);
+        data.append('season_number', num_season);
+        data.append('csrfmiddlewaretoken', csrf_token);
+        $.ajax({
+            url: '/syncronizeEpisodes/',
+            type: "POST",
+            mimeType: "multipart/form-data",
+            dataType: 'json',
+            processData: false,
+            contentType: false,
+            data: data,
+            success: function (response) {
+                if(response.results.length > 0){
+                    $('#num-episodes-season-' + num_season).text(response.results.length + "/" + $('#num-episodes-season-' + num_season).text())
+                    for(var i=0; i<response.results.length; i++){
+                        $('#' + response.results[i].id).text("radio_button_checked")
+                    }
+                }
+            }
+        });
+
+
 
     }).fail(function( jqXHR, textStatus, errorThrown ) {
         console.error('La solicitud: Información de la Temporada, a fallado: ' +  textStatus);
@@ -595,23 +667,13 @@ function InformationSeason(id_show, num_season, parameters){
     });
 }
 
-// Check/Uncheck episode like seen
-function changeStateEpisode(elemento, id, season, episode){
-    // Pedición para cambiar el estado de visualización del capitulo
-    if($(elemento).text() == "radio_button_unchecked"){
-        $(elemento).text("radio_button_checked");
-    } else{
-        $(elemento).text("radio_button_unchecked");
-    }
-
-}
-
+/* ------------------------------ MOVIE ----------------------------------------------------------------------------- */
 // Add a movie to list of pending movies
-function addMovieToSee(id, elemento, csrf_token){
+function addMovieToSee(elemento, csrf_token){
     var data = new FormData();
-    data.append('id', id);
-    data.append('title', localStorage.getItem("movie_title"));
-    data.append('poster_path', localStorage.getItem("movie_poster_path"));
+    data.append('id', _movie.id);
+    data.append('title', _movie.title);
+    data.append('poster_path',  _movie.poster_path);
     data.append('csrfmiddlewaretoken', csrf_token);
     $.ajax({
         url: '/addMovieToSee/',
@@ -624,17 +686,17 @@ function addMovieToSee(id, elemento, csrf_token){
         success: function (response) {
             M.toast({html: 'Has añadido ' + $('#title').text() + " a tu lista de pendientes"})
             $(elemento).text("playlist_add_check");
-            $(elemento).attr("onclick", "removeMovieToSee(" + id + ", this, '" + csrf_token +"')");
+            $(elemento).attr("onclick", "removeMovieToSee(this, '" + csrf_token +"')");
 
         }
     });
 }
 
 // Remove a movie to list of pending movies
-function removeMovieToSee(id, elemento, csrf_token){
+function removeMovieToSee(elemento, csrf_token){
 
     var data = new FormData();
-    data.append('id', id);
+    data.append('id', _movie.id);
     data.append('csrfmiddlewaretoken', csrf_token);
     $.ajax({
         url: '/removeMovieToSee/',
@@ -647,7 +709,7 @@ function removeMovieToSee(id, elemento, csrf_token){
         success: function (response) {
             M.toast({html: 'Has eliminado ' + $('#title').text() + " de tu lista de pendientes"})
             $(elemento).text("playlist_add")
-            $(elemento).attr("onclick", "addMovieToSee(" + id + ", this, '" + csrf_token +"')");
+            $(elemento).attr("onclick", "addMovieToSee(this, '" + csrf_token +"')");
         }
     });
 }
@@ -687,12 +749,12 @@ function MyMoviesToSee(csrf_token, selector){
 }
 
 // Set a movie like seen
-function setMovieToSeen(id, elemento, csrf_token){
+function setMovieToSeen(elemento, csrf_token){
 
     var data = new FormData();
-    data.append('id', id);
-    data.append('title', localStorage.getItem("movie_title"));
-    data.append('poster_path', localStorage.getItem("movie_poster_path"));
+    data.append('id', _movie.id);
+    data.append('title', _movie.title);
+    data.append('poster_path', _movie.poster_path);
     data.append('csrfmiddlewaretoken', csrf_token);
     $.ajax({
         url: '/setMovieToSeen/',
@@ -705,16 +767,16 @@ function setMovieToSeen(id, elemento, csrf_token){
         success: function (response) {
             M.toast({html: 'Has marcado ' + $('#title').text() + " como vista"})
             $(elemento).attr("src", "/static/images/seen.png")
-            $(elemento).attr("onclick", "setMovieToNotSeen(" + id + ", this, '" + csrf_token +"')");
+            $(elemento).attr("onclick", "setMovieToNotSeen(this, '" + csrf_token +"')");
 
         }
     });
 }
 
 // Set a movie like not seen
-function setMovieToNotSeen(id, elemento, csrf_token){
+function setMovieToNotSeen(elemento, csrf_token){
     var data = new FormData();
-    data.append('id', id);
+    data.append('id', _movie.id);
     data.append('csrfmiddlewaretoken', csrf_token);
     $.ajax({
         url: '/setMovieToNotSeen/',
@@ -727,7 +789,260 @@ function setMovieToNotSeen(id, elemento, csrf_token){
         success: function (response) {
             M.toast({html: 'Has eliminado ' + $('#title').text() + " como vista"})
             $(elemento).attr("src", "/static/images/not_seen.png")
-            $(elemento).attr("onclick", "setMovieToSeen(" + id + ", this, '" + csrf_token +"')");
+            $(elemento).attr("onclick", "setMovieToSeen(this, '" + csrf_token +"')");
         }
     });
 }
+
+/* --------------------------------- SHOW --------------------------------------------------------------------------- */
+// Add a show to list of pending shows
+function addShowToSee(elemento, csrf_token){
+    var data = new FormData();
+    data.append('id', _show.id);
+    data.append('name', _show.name);
+    data.append('poster_path', _show.poster_path);
+    data.append('seasons', JSON.stringify(_seasons));
+    data.append('csrfmiddlewaretoken', csrf_token);
+    $.ajax({
+        url: '/addShowToSee/',
+        type: "POST",
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (response) {
+            M.toast({html: 'Has añadido ' + $('#title').text() + " a tu lista de pendientes"})
+            $(elemento).text("playlist_add_check");
+            $(elemento).attr("onclick", "removeShowToSee(this, '" + csrf_token +"')");
+
+        }
+    });
+}
+
+// Remove a show to list of pending shows
+function removeShowToSee(elemento, csrf_token){
+
+    var data = new FormData();
+    data.append('id', _show.id);
+    data.append('csrfmiddlewaretoken', csrf_token);
+    $.ajax({
+        url: '/removeShowToSee/',
+        type: "POST",
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (response) {
+            M.toast({html: 'Has eliminado ' + $('#title').text() + " de tu lista de pendientes"})
+            $(elemento).text("playlist_add")
+            $(elemento).attr("onclick", "addShowToSee(this, '" + csrf_token +"')");
+        }
+    });
+}
+
+// Set a movie like seen
+function setShowToSeen(elemento, csrf_token){
+    var data = new FormData();
+    data.append('id', _show.id);
+    data.append('name', _show.name);
+    data.append('poster_path', _show.poster_path);
+    data.append('seasons', JSON.stringify(_seasons));
+    data.append('csrfmiddlewaretoken', csrf_token);
+    $.ajax({
+        url: '/setShowToSeen/',
+        type: "POST",
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (response) {
+            M.toast({html: 'Has marcado ' + $('#title').text() + " como vista"})
+            $(elemento).attr("src", "/static/images/seen.png")
+            $(elemento).attr("onclick", "setShowToNotSeen(this, '" + csrf_token +"')");
+            $('.season-episodes i').text("radio_button_checked")
+        }
+    });
+}
+
+// Set a movie like not seen
+function setShowToNotSeen(elemento, csrf_token){
+    var data = new FormData();
+    data.append('id', _show.id);
+    data.append('csrfmiddlewaretoken', csrf_token);
+    $.ajax({
+        url: '/setShowToNotSeen/',
+        type: "POST",
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (response) {
+            M.toast({html: 'Has eliminado ' + $('#title').text() + " como vista"})
+            $(elemento).attr("src", "/static/images/not_seen.png")
+            $(elemento).attr("onclick", "setShowToSeen(this, '" + csrf_token +"')");
+            $('.season-episodes i').text("radio_button_unchecked")
+        }
+    });
+}
+
+// List of Active Shows
+function MyActiveShows(csrf_token, selector){
+    var data = new FormData();
+    data.append('csrfmiddlewaretoken', csrf_token);
+    $.ajax({
+        url: '/myActiveShows/',
+        type: "POST",
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (data) {
+            $('.gif-loading').fadeOut(100);
+            $("main").addClass("main-active");
+            if(data.results.length > 0) {
+                for (var i = 0; i < data.results.length; i++) {
+                    poster_i = data.results[i];
+                    var poster_str = "\
+                        <a href='/show/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
+                            <img src='https://image.tmdb.org/t/p/w300" + poster_i.poster_path + "' />\
+                         </a>\
+                        ";
+                    $(selector).append(poster_str);
+                }
+                resizePosters();
+            }else{
+                $(selector).append("<p class='infoPeticion'>Aún no has añadido ninguna serie a tu lista</p>");
+            }
+
+        }
+    });
+}
+
+// List of Forgotten
+function MyForgottenShows(csrf_token, selector){
+    var data = new FormData();
+    data.append('csrfmiddlewaretoken', csrf_token);
+    $.ajax({
+        url: '/myForgottenShows/',
+        type: "POST",
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (data) {
+            $('.gif-loading').fadeOut(100);
+            $("main").addClass("main-active");
+            if(data.results.length > 0) {
+                for (var i = 0; i < data.results.length; i++) {
+                    poster_i = data.results[i];
+                    var poster_str = "\
+                        <a href='/show/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
+                            <img src='https://image.tmdb.org/t/p/w300" + poster_i.poster_path + "' />\
+                         </a>\
+                        ";
+                    $(selector).append(poster_str);
+                }
+                resizePosters();
+            }else{
+                $(selector).append("<p class='infoPeticion'>Aún tienes ninguna serie en el olvido</p>");
+            }
+
+        }
+    });
+}
+
+// Check/Uncheck episode like seen
+function changeStateEpisode(elemento, id_show, num_season, id_episode, csrf_token){
+    var state;
+
+    var current_txt =  $('#num-episodes-season-' + num_season).text();
+    var episodes_count = "";
+    var episodes_seen = 0;
+
+    if(current_txt.indexOf("/") != -1){
+        episodes_current = parseInt(current_txt.split("/")[0]);
+        episodes_count = current_txt.split("/")[1];
+    }else{
+        episodes_seen = 0;
+        episodes_current = 0;
+        episodes_count = current_txt;
+    }
+
+
+    // Comprobamos si se va a marcar o desmarcar como visto
+    if($(elemento).text() == "radio_button_unchecked"){
+        state = 1;
+    } else{
+        state = 2;
+    }
+
+    // Petición para cambiar el estado de visualización del capitulo
+    var data = new FormData();
+    data.append('id_show', id_show);
+    data.append('name', _show.name);
+    data.append('poster_path', _show.poster_path);
+    data.append('id_episode', id_episode);
+    data.append('state', state);
+    data.append('seasons', _seasons);
+    data.append('csrfmiddlewaretoken', csrf_token);
+    $.ajax({
+        url: '/changeEpisodeState/',
+        type: "POST",
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (data) {
+            if(state==1){
+                episodes_seen = episodes_current + 1;
+                $('#num-episodes-season-' + num_season).text(episodes_seen + "/" + episodes_count)
+                $(elemento).text("radio_button_checked");
+            }else{
+                episodes_seen = episodes_current - 1;
+
+                if(episodes_seen <= 0){
+                    $('#num-episodes-season-' + num_season).text(episodes_count)
+                }else{
+                    $('#num-episodes-season-' + num_season).text(episodes_seen + "/" + episodes_count)
+                }
+
+                $(elemento).text("radio_button_unchecked");
+            }
+
+            all_seen = true;
+            num_seen = 0;
+            // Si todos los episodios estan marcados establecemos la serie como vista
+            $('.season-episodes i').each(function(){
+                if($(this).text() == "radio_button_unchecked"){
+                    all_seen = false;
+                }else{
+                    num_seen += 1;
+                }
+            });
+
+            if(all_seen){
+                M.toast({html: 'Acabas de ver todos los capitulos de esta serie'});
+                $('.seen').attr("src", "/static/images/seen.png")
+                $('.seen').attr("onclick", "setShowToNotSeen(this, '" + csrf_token +"')");
+
+            }else{
+                if((num_seen + 1) ==  $('.season-episodes i').length){
+                    M.toast({html: 'Te queda un capitulo para terminar la serie'});
+                }
+
+                $('.seen').attr("src", "/static/images/not_seen.png")
+                $('.seen').attr("onclick", "setShowToSeen(this, '" + csrf_token +"')");
+            }
+        }
+    });
+
+
+}
+

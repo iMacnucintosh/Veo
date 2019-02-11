@@ -32,7 +32,7 @@
 
     </section>
     <section id="home-movies-pending" class="col s12 row no-margin"></section>
-    <div id="home-shows-active" class="col s12 row no-margin">Series que estás viendo actualmente</div>
+    <div id="home-shows-active" class="col s12 row no-margin"></div>
 </main>
 
 <div class="gif-loading">
@@ -54,6 +54,9 @@
 
         // Mis Películas por ver
         MyMoviesToSee('{{ csrf_token }}', '#home-movies-pending');
+
+        // Mis Series activas
+        MyActiveShows('{{ csrf_token }}', '#home-shows-active');
 
     });
 

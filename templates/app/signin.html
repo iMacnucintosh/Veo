@@ -22,7 +22,7 @@
         </article>
         <article class="bottom-session col s12 m6">
             <div class="form-login-container">
-                <form class="col s12" action="/signin/" method="post">
+                <form class="col s12" action="/signin/" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="row">
 
@@ -37,6 +37,7 @@
                             {{ form.last_name }}
                             <label for="id_last_name">Apellidos</label>
                         </div>
+
                         <div class="input-field col s12">
                             <i class="material-icons prefix">email</i>
                             {{ form.email_address }}

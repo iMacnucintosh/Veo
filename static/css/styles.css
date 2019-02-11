@@ -500,7 +500,7 @@ footer .bottom-navBar > a {
     color: black;
 }
 
-#related {
+#related, #recommendations {
     padding: 10px;
 }
 
@@ -642,7 +642,7 @@ footer .bottom-navBar > a {
     height:50px;
     display: flex;
     justify-content: center;
-    align-items: center;s
+    align-items: center;
 }
 
 .btn-floating {
@@ -691,7 +691,7 @@ footer .bottom-navBar > a {
 
 
 .header-season {
-    padding-left: 10px;
+    padding-top: 10px !important;
 }
 
 .season-poster {

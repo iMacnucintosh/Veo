@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
+import ast
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 from App.models import *
 from App.forms import *
+from django.utils import timezone
 
 # --------------- APP --------------
 def log_in(request):
@@ -49,7 +51,6 @@ def sign_in(request):
                                                     email=form.cleaned_data["email_address"],
                                                     password=form.cleaned_data["password"], is_staff=True)
                     user.save()
-
 
                     profile = Profile.objects.create(user=user, theme=1)
                     profile.save()
@@ -108,7 +109,6 @@ def social(request):
     }
     return render(request, "app/social.html", context=context)
 
-
 def changeTheme(request, theme=None):
     Profile.objects.filter(user=request.user).update(theme=Theme.objects.get(id=theme))
     print(Theme.objects.get(id=theme))
@@ -146,7 +146,8 @@ def changeGenreColors(request):
 
     return JsonResponse(data)
 
-# --------- Movie List ----------
+
+# ------------------------------------- MOVIE --------------------------------------------------------------------------
 def addMovieToSee(request):
     movie = Movie.objects.filter(id_movie=request.POST["id"], user=request.user)
 
@@ -197,9 +198,8 @@ def removeMovieToSee(request):
     return JsonResponse(data)
 
 def myMoviesToSee(request):
-    movies = Movie.objects.filter(user=request.user, seen=False).order_by("date_add")
+    movies = Movie.objects.filter(user=request.user, states__in=[2]).order_by("date_add")
     results = []
-
 
     for movie in movies:
         results.append({"id": movie.id_movie, "poster_path": movie.poster_path})
@@ -210,8 +210,6 @@ def myMoviesToSee(request):
 
     return JsonResponse(data)
 
-
-# --------- Movie Seen ----------
 def setMovieToSeen(request):
 
     movie = Movie.objects.filter(id_movie=request.POST["id"], user=request.user)
@@ -229,7 +227,6 @@ def setMovieToSeen(request):
 
     return JsonResponse(data)
 
-# --------- Movie To not Seen ----------
 def setMovieToNotSeen(request):
 
     movie = Movie.objects.filter(id_movie=request.POST["id"], user=request.user)
@@ -243,6 +240,196 @@ def setMovieToNotSeen(request):
 
     data = {
         'result': movie_title + " eliminada de vistas",
+    }
+
+    return JsonResponse(data)
+
+
+# ------------------------------------- SHOW ---------------------------------------------------------------------------
+def addShowToSee(request):
+
+    show = Show.objects.filter(id_show=request.POST["id"], user=request.user)
+
+    if len(show) == 0:
+        show = Show.objects.create(id_show=request.POST["id"], user=request.user, name=request.POST["name"],
+                                   poster_path=request.POST["poster_path"])
+        show.states.add(State.objects.get(id=2))
+
+        seasons = ast.literal_eval(request.POST["seasons"])
+        for season in seasons:
+            for episode in season["episodes"]:
+                Episode.objects.create(show=show, id_episode=episode["id"], season_number=season["season_number"],
+                                       episode_number=episode["episode_number"], user=request.user)
+    else:
+        show.first().states.add(State.objects.get(id=2))
+
+
+    data = {
+        'result': request.POST["name"] + " añadida a la lista de pendientes",
+    }
+
+    return JsonResponse(data)
+
+def isShowOnMyList(request):
+    show = Show.objects.filter(id_show=request.POST["id"], user=request.user)
+
+    if len(show) > 0:
+        states = []
+        for state in show.first().states.all():
+            states.append({"id": state.id, "state": state.name})
+        data = {
+            'states': states
+        }
+    else:
+        data = {
+            'states': "null",
+        }
+
+    return JsonResponse(data)
+
+def removeShowToSee(request):
+    show = Show.objects.filter(id_show=request.POST["id"], user=request.user)
+
+    show_title = show.first().name
+
+    show.first().states.remove(State.objects.get(id=2))
+
+    if(len(show.first().states.all()) == 0):
+        show.delete()
+
+    data = {
+        'result': show_title + " eliminada de mi lista de pendientes",
+    }
+
+    return JsonResponse(data)
+
+def setShowToSeen(request):
+
+    show = Show.objects.filter(id_show=request.POST["id"], user=request.user)
+
+    if len(show) == 0:
+        show = Show.objects.create(id_show=request.POST["id"], user=request.user, name=request.POST["name"],
+                                   poster_path=request.POST["poster_path"])
+        show.states.add(State.objects.get(id=1))
+
+        seasons = ast.literal_eval(request.POST["seasons"])
+        for season in seasons:
+            for episode in season["episodes"]:
+                episode = Episode.objects.create(show=show, id_episode=episode["id"], season_number=season["season_number"],
+                                       episode_number=episode["episode_number"], user=request.user)
+                episode.states.add(State.objects.get(id=1))
+    else:
+        show.first().states.add(State.objects.get(id=1))
+        for episode in show.first().getEpisodes():
+            episode.states.add(State.objects.get(id=1))
+
+    data = {
+        'result': request.POST["name"] + " añadida a vistas",
+    }
+
+    return JsonResponse(data)
+
+def setShowToNotSeen(request):
+
+    show = Show.objects.filter(id_show=request.POST["id"], user=request.user)
+
+    show_name = show.first().name
+
+    show.first().states.remove(State.objects.get(id=1))
+
+    for episode in show.first().getEpisodes():
+        episode.states.remove(State.objects.get(id=1))
+
+    if(len(show.first().states.all()) == 0):
+        show.delete()
+
+    data = {
+        'result': show_name + " eliminada de vistas",
+    }
+
+    return JsonResponse(data)
+
+# List of Shows in active
+def myActiveShows(request):
+    one_month_ago = timezone.now() - timezone.timedelta(days=30)
+    shows = Show.objects.filter(user=request.user, date_update__gte=one_month_ago).order_by("date_update")
+
+    results = []
+
+    for show in shows:
+        results.append({"id": show.id_show, "poster_path": show.poster_path})
+
+    data = {
+        'results': results
+    }
+
+    return JsonResponse(data)
+
+# List of Shows in active
+def myForgottenShows(request):
+    one_month_ago = timezone.now() - timezone.timedelta(days=30)
+    shows = Show.objects.filter(user=request.user, date_update__lte=one_month_ago).order_by("date_update")
+
+    results = []
+
+    for show in shows:
+        results.append({"id": show.id_show, "poster_path": show.poster_path})
+
+    data = {
+        'results': results
+    }
+
+    return JsonResponse(data)
+
+# Change Episode State
+def changeEpisodeState(request): # Cambiar
+
+    show = Show.objects.filter(id_show=request.POST["id_show"], user=request.user)
+
+    if len(show) == 0:
+        show = Show.objects.create(id_show=request.POST["id"], user=request.user, name=request.POST["name"],
+                                   poster_path=request.POST["poster_path"])
+
+        seasons = ast.literal_eval(request.POST["seasons"])
+        for season in seasons:
+            for episode in season["episodes"]:
+                Episode.objects.create(show=show, id_episode=episode["id"], season_number=season["season_number"],
+                                       episode_number=episode["episode_number"], user=request.user)
+
+    result = ""
+    if request.POST["state"] == "1":
+
+        Episode.objects.get(id_episode=request.POST["id_episode"], user=request.user).states.add(State.objects.get(id=1))
+        if len(Episode.objects.filter(show=Episode.objects.get(id_episode=request.POST["id_episode"]).show, user=request.user, states__in=[1])) == len(Episode.objects.filter(show=Episode.objects.get(id_episode=request.POST["id_episode"]).show, user=request.user)):
+            show.first().states.add(State.objects.get(id=1))
+        else:
+            show.first().states.remove(State.objects.get(id=1))
+        result = "Episodio marcado como visto"
+    else:
+        Episode.objects.get(id_episode=request.POST["id_episode"], user=request.user).states.remove(State.objects.get(id=1))
+        show.first().states.remove(State.objects.get(id=1))
+        result = "Episodio marcado como no visto"
+
+    if len(show.first().states.all()) == 0:
+        show.delete()
+
+    data = {
+        'results': result
+    }
+
+    return JsonResponse(data)
+
+# Syncronize episodes Seen
+def syncronizeEpisodes(request):
+    episodes = Episode.objects.filter(show=Show.objects.get(id_show=request.POST["id_show"]), season_number=request.POST["season_number"], user=request.user, states__in=[1])
+
+    results = []
+
+    for episode in episodes:
+        results.append({"id": str(episode.show.id_show) + "_" + str(episode.season_number) + "_" + str(episode.episode_number)})
+
+    data = {
+        'results': results
     }
 
     return JsonResponse(data)
