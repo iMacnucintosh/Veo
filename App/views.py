@@ -123,12 +123,6 @@ def social(request):
 
 def changeAvatar(request):
 
-    print("\n")
-
-    print(request.POST["id_avatar"])
-
-    print("\n")
-
     Profile.objects.filter(user=request.user).update(avatar=Avatar.objects.get(id=request.POST["id_avatar"]))
 
     data = {
@@ -520,7 +514,7 @@ def allActivity(request):
             user_str = ""
             description = ""
 
-            if(activity.user == request.user):
+            if (activity.user == request.user):
                 description = "Has añadido <b>" + activity.movie.title + "</b> a tu lista de pendientes"
             else:
                 user_str = activity.user.username,
@@ -581,15 +575,17 @@ def allActivity(request):
             description = ""
 
             if (activity.user == request.user):
-                description = "Has visto el <b>E" + str(activity.episode.episode_number) + "xT" + str(activity.episode.season_number) + "</b> de <b>" + activity.episode.show.name + "</b>",
+                description = "Has visto el <b>E" + str(activity.episode.episode_number) + "xT" + str(
+                    activity.episode.season_number) + "</b> de <b>" + activity.episode.show.name + "</b>",
             else:
                 user_str = activity.user.username,
-                description = "ha visto el <b>E" + str(activity.episode.episode_number) + "xS" + str(activity.episode.season_number) + "</b> de <b>" + activity.episode.show.name + "</b>",
+                description = "ha visto el <b>E" + str(activity.episode.episode_number) + "xS" + str(
+                    activity.episode.season_number) + "</b> de <b>" + activity.episode.show.name + "</b>",
 
             results.append({"user": user_str,
                             "description": description,
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.episode.show.poster_path,
-                            "avatar": Profile.objects.get(user=request.user).avatar.src,
+                            "avatar": Profile.objects.get(user=activity.user).avatar.src,
                             "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
         if (activity.operation.id == 6):
             user_str = ""
@@ -695,7 +691,7 @@ def myFollowingsActivity(request):
             results.append({"user": user_str,
                             "description": description,
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.episode.show.poster_path,
-                            "avatar": Profile.objects.get(user=request.user).avatar.src,
+                            "avatar": Profile.objects.get(user=activity.user).avatar.src,
                             "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
         if (activity.operation.id == 6):
             user_str = ""

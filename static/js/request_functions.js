@@ -1182,7 +1182,7 @@ function MyFollowingsActivity(csrf_token, selector){
                     activity_i = data.results[i];
                     var activity_str = '<div class="activity-item row">\
                                             <div class="poster-activity">\
-                                                <img src="https://image.tmdb.org/t/p/w300/'+activity_i.poster_path+'" />\
+                                                <img src="'+activity_i.poster_path+'" />\
                                             </div>\
                                             <div class="information-activity">\
                                                 <div class="col s12 date-activity no-padding">\
