@@ -507,8 +507,6 @@ def myShowsSeen(request):
 def allActivity(request):
     activitys = Activity.objects.all().order_by("-date_add")[:150]
 
-
-
     results = []
 
     for activity in activitys:
@@ -525,7 +523,7 @@ def allActivity(request):
             results.append({"user": user_str,
                             "description": description,
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.movie.poster_path,
-                            "avatar": Profile.objects.get(user=activity.user).avatar.src,
+                            "avatar": Profile.objects.get(id=activity.movie.user).avatar.src,
                             "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
         if (activity.operation.id == 2):
             user_str = ""
@@ -540,7 +538,7 @@ def allActivity(request):
             results.append({"user": user_str,
                             "description": description,
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.movie.poster_path,
-                            "avatar": Profile.objects.get(user=activity.user).avatar.src,
+                            "avatar": Profile.objects.get(id=activity.movie.user).avatar.src,
                             "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
         if (activity.operation.id == 3):
             user_str = ""
@@ -555,7 +553,7 @@ def allActivity(request):
             results.append({"user": user_str,
                             "description": description,
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.show.poster_path,
-                            "avatar": Profile.objects.get(user=activity.user).avatar.src,
+                            "avatar": Profile.objects.get(id=activity.show.user).avatar.src,
                             "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
         if (activity.operation.id == 4):
             user_str = ""
@@ -570,7 +568,7 @@ def allActivity(request):
             results.append({"user": user_str,
                             "description": description,
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.show.poster_path,
-                            "avatar": Profile.objects.get(user=activity.user).avatar.src,
+                            "avatar": Profile.objects.get(id=activity.show.user).avatar.src,
                             "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
         if (activity.operation.id == 5):
             user_str = ""
@@ -587,7 +585,7 @@ def allActivity(request):
             results.append({"user": user_str,
                             "description": description,
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.episode.show.poster_path,
-                            "avatar": Profile.objects.get(user=activity.user).avatar.src,
+                             "avatar": Profile.objects.get(id=activity.episode.show.user).avatar.src,
                             "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
         if (activity.operation.id == 6):
             user_str = ""
@@ -602,7 +600,7 @@ def allActivity(request):
             results.append({"user": user_str,
                             "description": description,
                             "poster_path": Profile.objects.get(user=activity.follower).avatar.src,
-                            "avatar": Profile.objects.get(user=activity.user).avatar.src,
+                             "avatar": Profile.objects.get(id=activity.follower).avatar.src,
                             "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
 
     data = {
@@ -613,7 +611,7 @@ def allActivity(request):
 
 # My Followings Activity
 def myFollowingsActivity(request):
-    activitys = Activity.objects.filter(user__in=Profile.objects.get(user=request.user).followings.all()).order_by("date_add")[:150]
+    activitys = Activity.objects.filter(user__in=Profile.objects.get(user=request.user).followings.all()).order_by("-date_add")[:150]
 
     results = []
 
@@ -631,7 +629,7 @@ def myFollowingsActivity(request):
             results.append({"user": user_str,
                             "description": description,
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.movie.poster_path,
-                            "avatar": Profile.objects.get(user=activity.user).avatar.src,
+                            "avatar": Profile.objects.get(id=activity.movie.user).avatar.src,
                             "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
         if (activity.operation.id == 2):
             user_str = ""
@@ -646,7 +644,7 @@ def myFollowingsActivity(request):
             results.append({"user": user_str,
                             "description": description,
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.movie.poster_path,
-                            "avatar": Profile.objects.get(user=activity.user).avatar.src,
+                            "avatar": Profile.objects.get(id=activity.movie.user).avatar.src,
                             "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
         if (activity.operation.id == 3):
             user_str = ""
@@ -661,7 +659,7 @@ def myFollowingsActivity(request):
             results.append({"user": user_str,
                             "description": description,
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.show.poster_path,
-                            "avatar": Profile.objects.get(user=activity.user).avatar.src,
+                            "avatar": Profile.objects.get(id=activity.show.user).avatar.src,
                             "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
         if (activity.operation.id == 4):
             user_str = ""
@@ -676,7 +674,7 @@ def myFollowingsActivity(request):
             results.append({"user": user_str,
                             "description": description,
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.show.poster_path,
-                            "avatar": Profile.objects.get(user=activity.user).avatar.src,
+                            "avatar": Profile.objects.get(id=activity.show.user).avatar.src,
                             "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
         if (activity.operation.id == 5):
             user_str = ""
@@ -693,7 +691,7 @@ def myFollowingsActivity(request):
             results.append({"user": user_str,
                             "description": description,
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.episode.show.poster_path,
-                            "avatar": Profile.objects.get(user=activity.user).avatar.src,
+                             "avatar": Profile.objects.get(id=activity.episode.show.user).avatar.src,
                             "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
         if (activity.operation.id == 6):
             user_str = ""
@@ -708,7 +706,7 @@ def myFollowingsActivity(request):
             results.append({"user": user_str,
                             "description": description,
                             "poster_path": Profile.objects.get(user=activity.follower).avatar.src,
-                            "avatar": Profile.objects.get(user=activity.user).avatar.src,
+                             "avatar": Profile.objects.get(id=activity.follower).avatar.src,
                             "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
 
     data = {
