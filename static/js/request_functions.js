@@ -1146,9 +1146,6 @@ function AllActivity(csrf_token, selector){
                                                     <p><b class="username-activity">'+activity_i.user+'</b> '+activity_i.description+'</p>\
                                                 </div>\
                                             </div>\
-                                            <div class="user-avatar-activity">\
-                                                <img src="'+activity_i.avatar+'" />\
-                                            </div>\
                                         </div>';
                     $(selector).append(activity_str);
                 }
@@ -1191,9 +1188,6 @@ function MyFollowingsActivity(csrf_token, selector){
                                                 <div class="col s12 description-activity no-padding">\
                                                     <p><b class="username-activity">'+activity_i.user+'</b> '+activity_i.description+'</p>\
                                                 </div>\
-                                            </div>\
-                                            <div class="user-avatar-activity">\
-                                                <img src="'+activity_i.avatar+'" />\
                                             </div>\
                                         </div>';
                     $(selector).append(activity_str);

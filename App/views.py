@@ -523,7 +523,6 @@ def allActivity(request):
             results.append({"user": user_str,
                             "description": description,
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.movie.poster_path,
-                            "avatar": Profile.objects.get(user=activity.movie.user).avatar.src,
                             "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
         if (activity.operation.id == 2):
             user_str = ""
@@ -538,7 +537,6 @@ def allActivity(request):
             results.append({"user": user_str,
                             "description": description,
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.movie.poster_path,
-                            "avatar": Profile.objects.get(user=activity.movie.user).avatar.src,
                             "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
         if (activity.operation.id == 3):
             user_str = ""
@@ -553,7 +551,6 @@ def allActivity(request):
             results.append({"user": user_str,
                             "description": description,
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.show.poster_path,
-                            "avatar": Profile.objects.get(user=activity.show.user).avatar.src,
                             "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
         if (activity.operation.id == 4):
             user_str = ""
@@ -568,7 +565,6 @@ def allActivity(request):
             results.append({"user": user_str,
                             "description": description,
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.show.poster_path,
-                            "avatar": Profile.objects.get(user=activity.show.user).avatar.src,
                             "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
         if (activity.operation.id == 5):
             user_str = ""
@@ -585,7 +581,6 @@ def allActivity(request):
             results.append({"user": user_str,
                             "description": description,
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.episode.show.poster_path,
-                            "avatar": Profile.objects.get(user=activity.episode.show.user).avatar.src,
                             "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
         if (activity.operation.id == 6):
             user_str = ""
@@ -600,7 +595,6 @@ def allActivity(request):
             results.append({"user": user_str,
                             "description": description,
                             "poster_path": Profile.objects.get(user=activity.follower).avatar.src,
-                            "avatar": Profile.objects.get(user=activity.follower).avatar.src,
                             "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
 
     data = {
@@ -629,7 +623,6 @@ def myFollowingsActivity(request):
             results.append({"user": user_str,
                             "description": description,
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.movie.poster_path,
-                            "avatar": Profile.objects.get(user=activity.movie.user).avatar.src,
                             "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
         if (activity.operation.id == 2):
             user_str = ""
@@ -644,7 +637,6 @@ def myFollowingsActivity(request):
             results.append({"user": user_str,
                             "description": description,
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.movie.poster_path,
-                            "avatar": Profile.objects.get(user=activity.movie.user).avatar.src,
                             "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
         if (activity.operation.id == 3):
             user_str = ""
@@ -659,7 +651,6 @@ def myFollowingsActivity(request):
             results.append({"user": user_str,
                             "description": description,
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.show.poster_path,
-                            "avatar": Profile.objects.get(user=activity.show.user).avatar.src,
                             "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
         if (activity.operation.id == 4):
             user_str = ""
@@ -674,7 +665,6 @@ def myFollowingsActivity(request):
             results.append({"user": user_str,
                             "description": description,
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.show.poster_path,
-                            "avatar": Profile.objects.get(user=activity.show.user).avatar.src,
                             "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
         if (activity.operation.id == 5):
             user_str = ""
@@ -691,7 +681,6 @@ def myFollowingsActivity(request):
             results.append({"user": user_str,
                             "description": description,
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.episode.show.poster_path,
-                            "avatar": Profile.objects.get(user=activity.episode.show.user).avatar.src,
                             "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
         if (activity.operation.id == 6):
             user_str = ""
@@ -706,7 +695,6 @@ def myFollowingsActivity(request):
             results.append({"user": user_str,
                             "description": description,
                             "poster_path": Profile.objects.get(user=activity.follower).avatar.src,
-                            "avatar": Profile.objects.get(user=activity.follower).avatar.src,
                             "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
 
     data = {
