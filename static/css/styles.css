@@ -869,7 +869,7 @@ footer .bottom-navBar > a {
 .avatar-user img {
     width: 100%;
     height: auto;
-    max-width: 70px;
+    max-width: 60px;
 }
 
 .information-profile {
@@ -908,7 +908,7 @@ footer .bottom-navBar > a {
     align-items: center;
     justify-content: flex-end;
     width: 105px;
-    height: 70px;
+    height: 60px;
     transition: .3s;
 }
 
