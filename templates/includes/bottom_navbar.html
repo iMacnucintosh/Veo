@@ -7,15 +7,37 @@
         </div>
     </article>
     <article class="main-settings col s12">
-        <div class="log-out-container row no-margin">
+
+        <div class="user-item row">
+            <div class="information-profile">
+                <h1 class="username col s12 no-padding">{{ profile.user.username }}</h1>
+                <div class="col no-padding stadistics">
+                    <div class="col s4 no-padding">
+                        <div class="stadistics-item no-padding deep-purple tooltipped" data-position="bottom" data-tooltip="Películas Vistas">
+                            <i class="material-icons">movie</i><span>{{ profile.getMoviesSeen }}</span>
+                        </div>
+                    </div>
+                    <div class="col s4 no-padding">
+                        <div class="stadistics-item orange no-padding tooltipped" data-position="bottom" data-tooltip="Series Vistas">
+                            <i class="material-icons">subscriptions</i><span>{{ profile.getShowsSeen }}</span>
+                        </div>
+                    </div>
+                    <div class="col s4 no-padding">
+                        <div class="stadistics-item teal no-padding tooltipped" data-position="bottom" data-tooltip="Capitulos Vistos">
+                            <i class="material-icons">view_carousel</i><span>{{ profile.getEpisodesSeen }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="row log-out no-margin">
-                <a href="/logout" class="btn">Cerrar sesión</a>
+                <a href="/logout" class="btn">Salir</a>
             </div>
         </div>
+
         <div class="row no-margin">
             <h3 class="title-section col s6 no-padding">Avatar</h3>
         </div>
-        <div class="avatars-container row">
+        <div class="avatars-container row no-margin">
             {% for avatar in avatars %}
                 <div onclick="changeAvatar(this, {{ avatar.id }}, '{{ csrf_token }}')" class="avatar {% if profile.avatar == avatar %}active{% endif %}">
                     <img src="{{ avatar.src }}" />

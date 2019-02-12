@@ -874,8 +874,14 @@ footer .bottom-navBar > a {
 
 .information-profile {
     padding-left: 15px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+}
+
+.information-profile * {
+     font-size: 16px;
+}
+
+.information-profile i {
+    margin-right: 3px;
 }
 
 .stadistics {
@@ -917,3 +923,6 @@ footer .bottom-navBar > a {
     border-radius: 20px;
     font-size: 13px;
 }
+ .main-settings .stadistics-item {
+     width: 55px;
+ }
