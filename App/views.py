@@ -603,6 +603,7 @@ def allActivity(request):
                             "avatar": Profile.objects.get(user=activity.user).avatar.src,
                             "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
 
+
     data = {
         'results': results
     }
