@@ -507,6 +507,8 @@ def myShowsSeen(request):
 def allActivity(request):
     activitys = Activity.objects.all().order_by("-date_add")[:150]
 
+
+
     results = []
 
     for activity in activitys:
@@ -602,7 +604,6 @@ def allActivity(request):
                             "poster_path": Profile.objects.get(user=activity.follower).avatar.src,
                             "avatar": Profile.objects.get(user=activity.user).avatar.src,
                             "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
-
 
     data = {
         'results': results
