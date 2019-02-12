@@ -150,6 +150,14 @@ footer .nav-active i, footer .nav-active p {
 }
 
 /* -------------------------------------- SOCIAL PAGE --------------------------------------------------------------- */
+.activity-item {
+    border-bottom: 1px solid #ddd;
+}
+
+.user-item {
+    border-bottom: 1px solid #ddd;
+}
+
 .username-activity {
    color: #2196f3;
 }

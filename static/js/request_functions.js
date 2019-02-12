@@ -1263,9 +1263,7 @@ function changeAvatar(elemento, id_avatar, csrf_token){
         contentType: false,
         data: data,
         success: function (data) {
-            $('.avatar').removeClass("active");
-            $(elemento).addClass("active")
-             M.toast({html: "Has cambiado tu avatar"})
+            location.reload();
         }
     });
 }

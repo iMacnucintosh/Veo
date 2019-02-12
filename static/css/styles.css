@@ -815,7 +815,6 @@ footer .bottom-navBar > a {
 
 /* -------------------------------------- SOCIAL PAGE --------------------------------------------------------------- */
 .activity-item {
-    border-bottom: 1px solid #ddd;
     margin-bottom: 5px;
     display: flex;
     padding-left: 10px;
@@ -860,7 +859,6 @@ footer .bottom-navBar > a {
     padding-right: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
-    border-bottom: 1px solid #ddd;
     margin-bottom: 5px;
 }
 
@@ -886,7 +884,6 @@ footer .bottom-navBar > a {
 }
 
 .stadistics-item {
-    width: 58px;
     margin-right: 8px;
     margin-right: 8px;
     border-radius: 10px;
