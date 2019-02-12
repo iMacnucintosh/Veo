@@ -4,7 +4,6 @@
 
 // Return a list with Movies or Shows with the parameters you has specified
 function TmdbRequestFilter(selector_container, url, parameters, description_request, info_for){
-
     parameters["api_key"] = "f368d6c9a2c7d460dacc7cfd42809665";
 
     $.ajax({
@@ -315,7 +314,6 @@ function InformationMovie(id, parameters, colorGenres, csrf_token) {
     });
 
 }
-
 
 var _show;
 // Get all information from Show
@@ -674,6 +672,7 @@ function addMovieToSee(elemento, csrf_token){
     data.append('id', _movie.id);
     data.append('title', _movie.title);
     data.append('poster_path',  _movie.poster_path);
+    data.append('vote_average',  _movie.vote_average);
     data.append('csrfmiddlewaretoken', csrf_token);
     $.ajax({
         url: '/addMovieToSee/',
@@ -714,40 +713,6 @@ function removeMovieToSee(elemento, csrf_token){
     });
 }
 
-function MyMoviesToSee(csrf_token, selector){
-    var data = new FormData();
-    data.append('csrfmiddlewaretoken', csrf_token);
-    $.ajax({
-        url: '/myMoviesToSee/',
-        type: "POST",
-        mimeType: "multipart/form-data",
-        dataType: 'json',
-        processData: false,
-        contentType: false,
-        data: data,
-        success: function (data) {
-            $('.gif-loading').fadeOut(100);
-            $("main").addClass("main-active");
-            if(data.results.length > 0) {
-                for (var i = 0; i < data.results.length; i++) {
-                    poster_i = data.results[i];
-
-                    var poster_str = "\
-                <a href='/movie/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
-                    <img src='https://image.tmdb.org/t/p/w300" + poster_i.poster_path + "' />\
-                 </a>\
-                ";
-                    $(selector).append(poster_str);
-                }
-                resizePosters();
-            }else{
-                $(selector).append("<p class='infoPeticion'>Aún no has añadido ninguna película a tu lista</p>");
-            }
-
-        }
-    });
-}
-
 // Set a movie like seen
 function setMovieToSeen(elemento, csrf_token){
 
@@ -755,6 +720,7 @@ function setMovieToSeen(elemento, csrf_token){
     data.append('id', _movie.id);
     data.append('title', _movie.title);
     data.append('poster_path', _movie.poster_path);
+    data.append('vote_average',  _movie.vote_average);
     data.append('csrfmiddlewaretoken', csrf_token);
     $.ajax({
         url: '/setMovieToSeen/',
@@ -794,6 +760,74 @@ function setMovieToNotSeen(elemento, csrf_token){
     });
 }
 
+function MyMoviesToSee(csrf_token, selector){
+    var data = new FormData();
+    data.append('csrfmiddlewaretoken', csrf_token);
+    $.ajax({
+        url: '/myMoviesToSee/',
+        type: "POST",
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (data) {
+            $('.gif-loading').fadeOut(100);
+            $("main").addClass("main-active");
+            if(data.results.length > 0) {
+                for (var i = 0; i < data.results.length; i++) {
+                    poster_i = data.results[i];
+
+                    var poster_str = "\
+                <a href='/movie/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
+                    <img src='https://image.tmdb.org/t/p/w300" + poster_i.poster_path + "' />\
+                 </a>\
+                ";
+                    $(selector).append(poster_str);
+                }
+                resizePosters();
+            }else{
+                $(selector).append("<p class='infoPeticion'>Aún no has añadido ninguna película a tu lista</p>");
+            }
+
+        }
+    });
+}
+
+function MyMoviesSeen(csrf_token, selector){
+    var data = new FormData();
+    data.append('csrfmiddlewaretoken', csrf_token);
+    $.ajax({
+        url: '/myMoviesSeen/',
+        type: "POST",
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (data) {
+            $('.gif-loading').fadeOut(100);
+            $("main").addClass("main-active");
+            if(data.results.length > 0) {
+                for (var i = 0; i < data.results.length; i++) {
+                    poster_i = data.results[i];
+
+                    var poster_str = "\
+                <a href='/movie/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
+                    <img src='https://image.tmdb.org/t/p/w300" + poster_i.poster_path + "' />\
+                 </a>\
+                ";
+                    $(selector).append(poster_str);
+                }
+                resizePosters();
+            }else{
+                $(selector).append("<p class='infoPeticion'>Aún no has visto ninguna película</p>");
+            }
+
+        }
+    });
+}
+
 /* --------------------------------- SHOW --------------------------------------------------------------------------- */
 // Add a show to list of pending shows
 function addShowToSee(elemento, csrf_token){
@@ -801,6 +835,7 @@ function addShowToSee(elemento, csrf_token){
     data.append('id', _show.id);
     data.append('name', _show.name);
     data.append('poster_path', _show.poster_path);
+    data.append('vote_average',  _show.vote_average);
     data.append('seasons', JSON.stringify(_seasons));
     data.append('csrfmiddlewaretoken', csrf_token);
     $.ajax({
@@ -848,6 +883,7 @@ function setShowToSeen(elemento, csrf_token){
     data.append('id', _show.id);
     data.append('name', _show.name);
     data.append('poster_path', _show.poster_path);
+    data.append('vote_average',  _show.vote_average);
     data.append('seasons', JSON.stringify(_seasons));
     data.append('csrfmiddlewaretoken', csrf_token);
     $.ajax({
@@ -950,9 +986,8 @@ function MyForgottenShows(csrf_token, selector){
                 }
                 resizePosters();
             }else{
-                $(selector).append("<p class='infoPeticion'>Aún tienes ninguna serie en el olvido</p>");
+                $(selector).append("<p class='infoPeticion'>No tienes ninguna serie en el olvido</p>");
             }
-
         }
     });
 }
@@ -974,7 +1009,6 @@ function changeStateEpisode(elemento, id_show, num_season, id_episode, csrf_toke
         episodes_count = current_txt;
     }
 
-
     // Comprobamos si se va a marcar o desmarcar como visto
     if($(elemento).text() == "radio_button_unchecked"){
         state = 1;
@@ -989,7 +1023,7 @@ function changeStateEpisode(elemento, id_show, num_season, id_episode, csrf_toke
     data.append('poster_path', _show.poster_path);
     data.append('id_episode', id_episode);
     data.append('state', state);
-    data.append('seasons', _seasons);
+    data.append('seasons', JSON.stringify(_seasons));
     data.append('csrfmiddlewaretoken', csrf_token);
     $.ajax({
         url: '/changeEpisodeState/',
@@ -1046,3 +1080,192 @@ function changeStateEpisode(elemento, id_show, num_season, id_episode, csrf_toke
 
 }
 
+// List of Seen Shows
+function MyShowsSeen(csrf_token, selector){
+    var data = new FormData();
+    data.append('csrfmiddlewaretoken', csrf_token);
+    $.ajax({
+        url: '/myShowsSeen/',
+        type: "POST",
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (data) {
+            $('.gif-loading').fadeOut(100);
+            $("main").addClass("main-active");
+            if(data.results.length > 0) {
+                for (var i = 0; i < data.results.length; i++) {
+                    poster_i = data.results[i];
+                    var poster_str = "\
+                        <a href='/show/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
+                            <img src='https://image.tmdb.org/t/p/w300" + poster_i.poster_path + "' />\
+                         </a>\
+                        ";
+                    $(selector).append(poster_str);
+                }
+                resizePosters();
+            }else{
+                $(selector).append("<p class='infoPeticion'>Aún no has visto ninguna serie</p>");
+            }
+
+        }
+    });
+}
+
+// List of All Activity
+function AllActivity(csrf_token, selector){
+    var data = new FormData();
+    data.append('csrfmiddlewaretoken', csrf_token);
+    $.ajax({
+        url: '/allActivity/',
+        type: "POST",
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (data) {
+            $('.gif-loading').fadeOut(100);
+            $("main").addClass("main-active");
+            console.log(data);
+
+            if(data.results.length > 0) {
+                for (var i = 0; i < data.results.length; i++) {
+                    activity_i = data.results[i];
+                    var activity_str = '<div class="activity-item row">\
+                                            <div class="poster-activity">\
+                                                <img src="'+activity_i.poster_path+'" />\
+                                            </div>\
+                                            <div class="information-activity">\
+                                                <div class="col s12 date-activity no-padding">\
+                                                    <p>'+activity_i.date+'</p>\
+                                                </div>\
+                                                <div class="col s12 description-activity no-padding">\
+                                                    <p><b class="username-activity">'+activity_i.user+'</b> '+activity_i.description+'</p>\
+                                                </div>\
+                                            </div>\
+                                            <div class="user-avatar-activity">\
+                                                <img src="'+activity_i.avatar+'" />\
+                                            </div>\
+                                        </div>';
+                    $(selector).append(activity_str);
+                }
+            }else{
+                $(selector).append("<p class='infoPeticion'>Aún no hay actividad</p>");
+            }
+
+        }
+    });
+}
+
+// List of Following Activity
+function MyFollowingsActivity(csrf_token, selector){
+    var data = new FormData();
+    data.append('csrfmiddlewaretoken', csrf_token);
+    $.ajax({
+        url: '/myFollowingsActivity/',
+        type: "POST",
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (data) {
+            $('.gif-loading').fadeOut(100);
+            $("main").addClass("main-active");
+            console.log(data);
+
+            if(data.results.length > 0) {
+                for (var i = 0; i < data.results.length; i++) {
+                    activity_i = data.results[i];
+                    var activity_str = '<div class="activity-item row">\
+                                            <div class="poster-activity">\
+                                                <img src="https://image.tmdb.org/t/p/w300/'+activity_i.poster_path+'" />\
+                                            </div>\
+                                            <div class="information-activity">\
+                                                <div class="col s12 date-activity no-padding">\
+                                                    <p>'+activity_i.date+'</p>\
+                                                </div>\
+                                                <div class="col s12 description-activity no-padding">\
+                                                    <p><b class="username-activity">'+activity_i.user+'</b> '+activity_i.description+'</p>\
+                                                </div>\
+                                            </div>\
+                                            <div class="user-avatar-activity">\
+                                                <img src="'+activity_i.avatar+'" />\
+                                            </div>\
+                                        </div>';
+                    $(selector).append(activity_str);
+                }
+            }else{
+                $(selector).append("<p class='infoPeticion'>Aún no hay actividad</p>");
+            }
+
+
+        }
+    });
+}
+
+// Follow user
+function FollowUser(elemento, id_user, csrf_token){
+    var data = new FormData();
+    data.append('id_user', id_user);
+    data.append('csrfmiddlewaretoken', csrf_token);
+    $.ajax({
+        url: '/followUser/',
+        type: "POST",
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (data) {
+            $(elemento).attr("onclick", "UnFollowUser(this, "+id_user+", '"+csrf_token+"')");
+            $(elemento).addClass("red");
+            $(elemento).html("No Seguir");
+        }
+    });
+}
+
+// UnFollow user
+function UnFollowUser(elemento, id_user, csrf_token){
+    var data = new FormData();
+    data.append('id_user', id_user);
+    data.append('csrfmiddlewaretoken', csrf_token);
+    $.ajax({
+        url: '/unFollowUser/',
+        type: "POST",
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (data) {
+            $(elemento).attr("onclick", "FollowUser(this, "+id_user+", '"+csrf_token+"')");
+            $(elemento).removeClass("red");
+            $(elemento).text("Seguir");
+        }
+    });
+}
+
+// Change Avatar of user
+function changeAvatar(elemento, id_avatar, csrf_token){
+    var data = new FormData();
+    data.append('id_avatar', id_avatar);
+    data.append('csrfmiddlewaretoken', csrf_token);
+    $.ajax({
+        url: '/changeAvatar/',
+        type: "POST",
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (data) {
+            $('.avatar').removeClass("active");
+            $(elemento).addClass("active")
+             M.toast({html: "Has cambiado tu avatar"})
+        }
+    });
+}

@@ -7,10 +7,23 @@
         </div>
     </article>
     <article class="main-settings col s12">
-        <div class="themes-container row">
+        <div class="log-out-container row no-margin">
             <div class="row log-out no-margin">
                 <a href="/logout" class="btn">Cerrar sesión</a>
             </div>
+        </div>
+        <div class="row no-margin">
+            <h3 class="title-section col s6 no-padding">Avatar</h3>
+        </div>
+        <div class="avatars-container row">
+            {% for avatar in avatars %}
+                <div onclick="changeAvatar(this, {{ avatar.id }}, '{{ csrf_token }}')" class="avatar {% if profile.avatar == avatar %}active{% endif %}">
+                    <img src="{{ avatar.src }}" />
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="themes-container row">
             <h3 class="title-section">Tema</h3>
 
             {% for theme in themes %}

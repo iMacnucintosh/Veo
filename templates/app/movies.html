@@ -12,9 +12,10 @@
 <!-- Tabs -->
 <ul class="tabs">
     <li class="tab col s3"><a class="tab-btn active" href="#movies_popularity">Populares</a></li>
-    <li class="tab col s3"><a class="tab-btn" href="#movies_vote_count">Mejor Votadas</a></li>
+    <li class="tab col s3"><a class="tab-btn" href="#movies_vote_count">Mas Votadas</a></li>
     <li class="tab col s3"><a class="tab-btn" href="#movies_theatres">En cines</a></li>
     <li class="tab col s3"><a class="tab-btn" href="#movies_pending">Pendientes</a></li>
+    <li class="tab col s3"><a class="tab-btn" href="#movies_seen">Vistas</a></li>
 </ul>
 
 <main>
@@ -22,6 +23,7 @@
     <section id="movies_vote_count" class="col s12 row no-margin"></section>
     <section id="movies_theatres" class="col s12 row no-margin"></section>
     <section id="movies_pending" class="col s12 row no-margin"></section>
+    <section id="movies_seen" class="col s12 row no-margin"></section>
 </main>
 
 <div class="gif-loading">
@@ -43,6 +45,9 @@
 
         // Mis Películas por ver
         MyMoviesToSee('{{ csrf_token }}', '#movies_pending');
+
+        // Mis Películas Vistas
+        MyMoviesSeen('{{ csrf_token }}', '#movies_seen');
     });
 
 </script>

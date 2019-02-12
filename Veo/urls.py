@@ -60,14 +60,17 @@ urlpatterns = [
     # Remove Movie to see
     url(r'^removeMovieToSee/$', removeMovieToSee),
 
-    # List of my Movies to see
-    url(r'^myMoviesToSee/$', myMoviesToSee),
-
     # Set Movie like seen
     url(r'^setMovieToSeen/$', setMovieToSeen),
 
     # Set Movie like not seen
     url(r'^setMovieToNotSeen/$', setMovieToNotSeen),
+
+    # List of my Movies to see
+    url(r'^myMoviesToSee/$', myMoviesToSee),
+
+    # List of my Movies seen
+    url(r'^myMoviesSeen/$', myMoviesSeen),
 
     # ----------------------------------- SHOW -------------------------------------------------------------------------
 
@@ -97,5 +100,26 @@ urlpatterns = [
 
     # Syncronize Episodes
     url(r'^syncronizeEpisodes/$', syncronizeEpisodes),
+
+    # List of Seen Shows
+    url(r'^myShowsSeen/$', myShowsSeen),
+
+    # ----------------------------------- ACTIVITY ---------------------------------------------------------------------
+    # List of All Activity
+    url(r'^allActivity/$', allActivity),
+
+    # List of My Following Activity
+    url(r'^myFollowingsActivity/$', myFollowingsActivity),
+
+    # ---------------------------------- FOLLOWES ----------------------------------------------------------------------
+    # Follow User
+    url(r'^followUser/$', followUser),
+
+    # UnFollow User
+    url(r'^unFollowUser/$', unFollowUser),
+
+    # Change Avatar
+    url(r'^changeAvatar/$', changeAvatar),
+
 
 ]

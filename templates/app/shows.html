@@ -15,6 +15,7 @@
     <li class="tab col s3"><a class="tab-btn" href="#shows_vote_count">Mejor Votadas</a></li>
     <li class="tab col s3"><a class="tab-btn" href="#shows_seeing">Viendo</a></li>
     <li class="tab col s3"><a class="tab-btn" href="#shows_forgotten">Olvidadas</a></li>
+    <li class="tab col s3"><a class="tab-btn" href="#shows_seen">Vistas</a></li>
 </ul>
 
 <main>
@@ -22,6 +23,7 @@
     <section id="shows_vote_count" class="col s12 row no-margin"></section>
     <section id="shows_seeing" class="col s12 row no-margin"></section>
     <section id="shows_forgotten" class="col s12 row no-margin"></section>
+    <section id="shows_seen" class="col s12 row no-margin"></section>
 </main>
 
 <div class="gif-loading">
@@ -44,8 +46,11 @@
         // Mis Series activas
         MyActiveShows('{{ csrf_token }}', '#shows_seeing');
 
-        // Mis Películas por ver
+        // Mis Series Olvidadas
         MyForgottenShows('{{ csrf_token }}', '#shows_forgotten');
+
+        // Mis Series Vistas
+        MyShowsSeen('{{ csrf_token }}', '#shows_seen');
 
     });
 

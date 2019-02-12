@@ -17,6 +17,8 @@ $(document).ready(function(){
         direction: 'left',
     });
 
+    $('.tooltipped').tooltip();
+
     $('form input').addClass("validate");
 
     // ------- SCROLL EVENT -------

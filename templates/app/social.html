@@ -12,13 +12,50 @@
 
 <!-- Tabs -->
 <ul class="tabs">
-    <li class="tab col s3"><a class="tab-btn active" href="#myfriends">Mis Amigos</a></li>
+    <li class="tab col s3"><a class="tab-btn active" href="#myfollowings">Mis Amigos</a></li>
+    <li class="tab col s3"><a class="tab-btn active" href="#veoActivity">Actividad Veo</a></li>
     <li class="tab col s3"><a class="tab-btn" href="#community">Comunidad</a></li>
 </ul>
 
 <main>
-    <div id="myfriends" class="col s12">Puedo mostrar la actividad reciente de mis amigos</div>
-    <div id="community" class="col s12">Puedo mostrar cosas de la vida, no se que</div>
+    <div id="myfollowings" class="col s12"></div>
+    <div id="veoActivity" class="col s12"></div>
+    <div id="community" class="col s12 row no-margin">
+        {% for profileJSON in profilesJSON %}
+            <div class="user-item row">
+                <div class="avatar-user">
+                    <img src="{{ profileJSON.profile.avatar.src }}" />
+                </div>
+                <div class="information-profile">
+                    <h1 class="username col s12 no-padding">{{ profileJSON.profile.user.username }}</h1>
+                    <div class="col no-padding stadistics">
+                        <div class="col s4 no-padding">
+                            <div class="stadistics-item no-padding deep-purple tooltipped" data-position="bottom" data-tooltip="Películas Vistas">
+                                <i class="material-icons">movie</i>{{ profileJSON.profile.getMoviesSeen }}
+                            </div>
+                        </div>
+                        <div class="col s4 no-padding">
+                            <div class="stadistics-item orange no-padding tooltipped" data-position="bottom" data-tooltip="Series Vistas">
+                                <i class="material-icons">subscriptions</i>{{ profileJSON.profile.getShowsSeen }}
+                            </div>
+                        </div>
+                        <div class="col s4 no-padding">
+                            <div class="stadistics-item teal no-padding tooltipped" data-position="bottom" data-tooltip="Capitulos Vistos">
+                                <i class="material-icons">view_carousel</i>{{ profileJSON.profile.getEpisodesSeen }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-follow">
+                    {% if profileJSON.exists == True %}
+                        <button onclick="FollowUser(this, {{ profileJSON.profile.user.id }}, '{{ csrf_token }}')" class="btn waves waves-effect red">No Seguir</button>
+                    {% else %}
+                        <button onclick="UnFollowUser(this, {{ profileJSON.profile.user.id }}, '{{ csrf_token }}')" class="btn waves waves-effect">Seguir</button>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 </main>
 
 {% include "includes/bottom_navbar.html" %}
@@ -29,6 +66,13 @@
     $(document).ready(function(){
         $('#title').text("Amigos");
         $('#nav-social').addClass("nav-active");
+
+        // Registro de la actividad de las personas a las que sigo
+        MyFollowingsActivity('{{ csrf_token }}', '#myfollowings');
+
+        // Registro de toda la actividad
+        AllActivity('{{ csrf_token }}', '#veoActivity');
+
     });
 
 </script>

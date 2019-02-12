@@ -76,12 +76,12 @@ def sign_in(request):
     context["form"] = form
     return render(request, "app/signin.html", context=context)
 
-
 @login_required()
 def home(request):
     context = {
         "profile": Profile.objects.get(user=request.user),
-        "themes": Theme.objects.all()
+        "themes": Theme.objects.all(),
+        "avatars": Avatar.objects.all(),
     }
     return render(request, "app/home.html", context=context)
 
@@ -89,7 +89,8 @@ def home(request):
 def movies(request):
     context = {
         "profile": Profile.objects.get(user=request.user),
-        "themes": Theme.objects.all()
+        "themes": Theme.objects.all(),
+        "avatars": Avatar.objects.all(),
     }
     return render(request, "app/movies.html", context=context)
 
@@ -97,17 +98,45 @@ def movies(request):
 def shows(request):
     context = {
         "profile": Profile.objects.get(user=request.user),
-        "themes": Theme.objects.all()
+        "themes": Theme.objects.all(),
+        "avatars": Avatar.objects.all(),
     }
     return render(request, "app/shows.html", context=context)
 
 @login_required()
 def social(request):
+    profiles = []
+    for profile in Profile.objects.all():
+        if not request.user == profile.user:
+            if(profile.user in Profile.objects.get(user=request.user).followings.all()):
+                profiles.append({"exists": True, "profile": profile})
+            else:
+                profiles.append({"exists": False, "profile": profile})
     context = {
         "profile": Profile.objects.get(user=request.user),
-        "themes": Theme.objects.all()
+        "themes": Theme.objects.all(),
+        "avatars": Avatar.objects.all(),
+        "profilesJSON": profiles,
     }
     return render(request, "app/social.html", context=context)
+
+
+def changeAvatar(request):
+
+    print("\n")
+
+    print(request.POST["id_avatar"])
+
+    print("\n")
+
+    Profile.objects.filter(user=request.user).update(avatar=Avatar.objects.get(id=request.POST["id_avatar"]))
+
+    data = {
+        'result': "ok",
+    }
+
+    return JsonResponse(data)
+
 
 def changeTheme(request, theme=None):
     Profile.objects.filter(user=request.user).update(theme=Theme.objects.get(id=theme))
@@ -146,17 +175,20 @@ def changeGenreColors(request):
 
     return JsonResponse(data)
 
-
 # ------------------------------------- MOVIE --------------------------------------------------------------------------
 def addMovieToSee(request):
     movie = Movie.objects.filter(id_movie=request.POST["id"], user=request.user)
 
     if len(movie) == 0:
         movie = Movie.objects.create(id_movie=request.POST["id"], user=request.user, title=request.POST["title"],
-                                     poster_path=request.POST["poster_path"])
+                                     poster_path=request.POST["poster_path"], vote_average=request.POST["vote_average"])
         movie.states.add(State.objects.get(id=2))
+
+        Activity.objects.create(user=request.user, operation=Operation.objects.get(id=1), movie=movie)
+
     else:
         movie.first().states.add(State.objects.get(id=2))
+        Activity.objects.create(user=request.user, operation=Operation.objects.get(id=1), movie=movie.first())
 
     data = {
         'result': request.POST["title"] + " añadida a la lista de pendientes",
@@ -197,29 +229,18 @@ def removeMovieToSee(request):
 
     return JsonResponse(data)
 
-def myMoviesToSee(request):
-    movies = Movie.objects.filter(user=request.user, states__in=[2]).order_by("date_add")
-    results = []
-
-    for movie in movies:
-        results.append({"id": movie.id_movie, "poster_path": movie.poster_path})
-
-    data = {
-        'results': results
-    }
-
-    return JsonResponse(data)
-
 def setMovieToSeen(request):
 
     movie = Movie.objects.filter(id_movie=request.POST["id"], user=request.user)
 
     if len(movie) == 0:
         movie = Movie.objects.create(id_movie=request.POST["id"], user=request.user, title=request.POST["title"],
-                                     poster_path=request.POST["poster_path"])
+                                     poster_path=request.POST["poster_path"], vote_average=request.POST["vote_average"])
         movie.states.add(State.objects.get(id=1))
+        Activity.objects.create(user=request.user, operation=Operation.objects.get(id=2), movie=movie)
     else:
         movie.first().states.add(State.objects.get(id=1))
+        Activity.objects.create(user=request.user, operation=Operation.objects.get(id=2), movie=movie.first())
 
     data = {
         'result': request.POST["title"] + " añadida a vistas",
@@ -244,6 +265,32 @@ def setMovieToNotSeen(request):
 
     return JsonResponse(data)
 
+def myMoviesToSee(request):
+    movies = Movie.objects.filter(user=request.user, states__in=[2]).order_by("date_add")
+    results = []
+
+    for movie in movies:
+        results.append({"id": movie.id_movie, "poster_path": movie.poster_path})
+
+    data = {
+        'results': results
+    }
+
+    return JsonResponse(data)
+
+def myMoviesSeen(request):
+    movies = Movie.objects.filter(user=request.user, states__in=[1]).order_by("date_add")
+    results = []
+
+    for movie in movies:
+        results.append({"id": movie.id_movie, "poster_path": movie.poster_path})
+
+    data = {
+        'results': results
+    }
+
+    return JsonResponse(data)
+
 
 # ------------------------------------- SHOW ---------------------------------------------------------------------------
 def addShowToSee(request):
@@ -252,7 +299,7 @@ def addShowToSee(request):
 
     if len(show) == 0:
         show = Show.objects.create(id_show=request.POST["id"], user=request.user, name=request.POST["name"],
-                                   poster_path=request.POST["poster_path"])
+                                   poster_path=request.POST["poster_path"], vote_average=request.POST["vote_average"])
         show.states.add(State.objects.get(id=2))
 
         seasons = ast.literal_eval(request.POST["seasons"])
@@ -260,9 +307,10 @@ def addShowToSee(request):
             for episode in season["episodes"]:
                 Episode.objects.create(show=show, id_episode=episode["id"], season_number=season["season_number"],
                                        episode_number=episode["episode_number"], user=request.user)
+        Activity.objects.create(user=request.user, operation=Operation.objects.get(id=3), show=show)
     else:
         show.first().states.add(State.objects.get(id=2))
-
+        Activity.objects.create(user=request.user, operation=Operation.objects.get(id=3), show=show.first())
 
     data = {
         'result': request.POST["name"] + " añadida a la lista de pendientes",
@@ -294,7 +342,7 @@ def removeShowToSee(request):
 
     show.first().states.remove(State.objects.get(id=2))
 
-    if(len(show.first().states.all()) == 0):
+    if len(show.first().states.all()) == 0 and len(show.first().getEpisodesSeen()) == 0:
         show.delete()
 
     data = {
@@ -309,19 +357,22 @@ def setShowToSeen(request):
 
     if len(show) == 0:
         show = Show.objects.create(id_show=request.POST["id"], user=request.user, name=request.POST["name"],
-                                   poster_path=request.POST["poster_path"])
+                                   poster_path=request.POST["poster_path"], vote_average=request.POST["vote_average"])
         show.states.add(State.objects.get(id=1))
 
         seasons = ast.literal_eval(request.POST["seasons"])
         for season in seasons:
             for episode in season["episodes"]:
                 episode = Episode.objects.create(show=show, id_episode=episode["id"], season_number=season["season_number"],
-                                       episode_number=episode["episode_number"], user=request.user)
+                                                 episode_number=episode["episode_number"], user=request.user)
                 episode.states.add(State.objects.get(id=1))
+        Activity.objects.create(user=request.user, operation=Operation.objects.get(id=4), show=show)
     else:
         show.first().states.add(State.objects.get(id=1))
         for episode in show.first().getEpisodes():
             episode.states.add(State.objects.get(id=1))
+        Activity.objects.create(user=request.user, operation=Operation.objects.get(id=4), show=show.first())
+    show.update(date_update=datetime.now())
 
     data = {
         'result': request.POST["name"] + " añadida a vistas",
@@ -340,7 +391,7 @@ def setShowToNotSeen(request):
     for episode in show.first().getEpisodes():
         episode.states.remove(State.objects.get(id=1))
 
-    if(len(show.first().states.all()) == 0):
+    if len(show.first().states.all()) == 0 and len(show.first().getEpisodesSeen()) == 0:
         show.delete()
 
     data = {
@@ -352,7 +403,7 @@ def setShowToNotSeen(request):
 # List of Shows in active
 def myActiveShows(request):
     one_month_ago = timezone.now() - timezone.timedelta(days=30)
-    shows = Show.objects.filter(user=request.user, date_update__gte=one_month_ago).order_by("date_update")
+    shows = Show.objects.filter(user=request.user, date_update__gte=one_month_ago).exclude(states__in=[1]).order_by("date_update")
 
     results = []
 
@@ -368,7 +419,7 @@ def myActiveShows(request):
 # List of Shows in active
 def myForgottenShows(request):
     one_month_ago = timezone.now() - timezone.timedelta(days=30)
-    shows = Show.objects.filter(user=request.user, date_update__lte=one_month_ago).order_by("date_update")
+    shows = Show.objects.filter(user=request.user, date_update__lte=one_month_ago).exclude(states__in=[1]).order_by("date_update")
 
     results = []
 
@@ -387,7 +438,7 @@ def changeEpisodeState(request): # Cambiar
     show = Show.objects.filter(id_show=request.POST["id_show"], user=request.user)
 
     if len(show) == 0:
-        show = Show.objects.create(id_show=request.POST["id"], user=request.user, name=request.POST["name"],
+        show = Show.objects.create(id_show=request.POST["id_show"], user=request.user, name=request.POST["name"],
                                    poster_path=request.POST["poster_path"])
 
         seasons = ast.literal_eval(request.POST["seasons"])
@@ -396,21 +447,29 @@ def changeEpisodeState(request): # Cambiar
                 Episode.objects.create(show=show, id_episode=episode["id"], season_number=season["season_number"],
                                        episode_number=episode["episode_number"], user=request.user)
 
+        show = Show.objects.filter(id=show.id)
+
     result = ""
     if request.POST["state"] == "1":
-
         Episode.objects.get(id_episode=request.POST["id_episode"], user=request.user).states.add(State.objects.get(id=1))
+
+        Activity.objects.create(user=request.user, operation=Operation.objects.get(id=5), episode=Episode.objects.get(id_episode=request.POST["id_episode"], user=request.user))
+
         if len(Episode.objects.filter(show=Episode.objects.get(id_episode=request.POST["id_episode"]).show, user=request.user, states__in=[1])) == len(Episode.objects.filter(show=Episode.objects.get(id_episode=request.POST["id_episode"]).show, user=request.user)):
             show.first().states.add(State.objects.get(id=1))
+            Activity.objects.create(user=request.user, operation=Operation.objects.get(id=4), show=show.first())
+            show.update(date_update=datetime.now())
         else:
             show.first().states.remove(State.objects.get(id=1))
+
+        show.update(date_update=datetime.now())
         result = "Episodio marcado como visto"
     else:
         Episode.objects.get(id_episode=request.POST["id_episode"], user=request.user).states.remove(State.objects.get(id=1))
         show.first().states.remove(State.objects.get(id=1))
         result = "Episodio marcado como no visto"
 
-    if len(show.first().states.all()) == 0:
+    if len(show.first().states.all()) == 0 and len(show.first().getEpisodesSeen()) == 0:
         show.delete()
 
     data = {
@@ -421,7 +480,7 @@ def changeEpisodeState(request): # Cambiar
 
 # Syncronize episodes Seen
 def syncronizeEpisodes(request):
-    episodes = Episode.objects.filter(show=Show.objects.get(id_show=request.POST["id_show"]), season_number=request.POST["season_number"], user=request.user, states__in=[1])
+    episodes = Episode.objects.filter(show=Show.objects.filter(id_show=request.POST["id_show"]).first(), season_number=request.POST["season_number"], user=request.user, states__in=[1])
 
     results = []
 
@@ -430,6 +489,255 @@ def syncronizeEpisodes(request):
 
     data = {
         'results': results
+    }
+
+    return JsonResponse(data)
+
+# List of Shows seen
+def myShowsSeen(request):
+    shows = Show.objects.filter(user=request.user, states__in=[1]).order_by("date_update")
+
+    results = []
+
+    for show in shows:
+        results.append({"id": show.id_show, "poster_path": show.poster_path})
+
+    data = {
+        'results': results
+    }
+
+    return JsonResponse(data)
+
+# ---------------------------------------- ACTIVITY --------------------------------------------------------------------
+# All Activity
+def allActivity(request):
+    activitys = Activity.objects.all().order_by("-date_add")[:150]
+
+    results = []
+
+    for activity in activitys:
+        if (activity.operation.id == 1):
+            user_str = ""
+            description = ""
+
+            if(activity.user == request.user):
+                description = "Has añadido <b>" + activity.movie.title + "</b> a tu lista de pendientes"
+            else:
+                user_str = activity.user.username,
+                description = "ha añadido <b>" + activity.movie.title + "</b> a su lista de pendientes"
+
+            results.append({"user": user_str,
+                            "description": description,
+                            "poster_path": "https://image.tmdb.org/t/p/w300" + activity.movie.poster_path,
+                            "avatar": Profile.objects.get(user=request.user).avatar.src,
+                            "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
+        if (activity.operation.id == 2):
+            user_str = ""
+            description = ""
+
+            if (activity.user == request.user):
+                description = "Has visto <b>" + activity.movie.title + "</b>",
+            else:
+                user_str = activity.user.username,
+                description = "ha visto <b>" + activity.movie.title + "</b>",
+
+            results.append({"user": user_str,
+                            "description": description,
+                            "poster_path": "https://image.tmdb.org/t/p/w300" + activity.movie.poster_path,
+                            "avatar": Profile.objects.get(user=request.user).avatar.src,
+                            "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
+        if (activity.operation.id == 3):
+            user_str = ""
+            description = ""
+
+            if (activity.user == request.user):
+                description = "Has añadido <b>" + activity.show.name + "</b> a tu lista de pendientes",
+            else:
+                user_str = activity.user.username,
+                description = "ha añadido <b>" + activity.show.name + "</b> a su lista de pendientes",
+
+            results.append({"user": user_str,
+                            "description": description,
+                            "poster_path": "https://image.tmdb.org/t/p/w300" + activity.show.poster_path,
+                            "avatar": Profile.objects.get(user=request.user).avatar.src,
+                            "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
+        if (activity.operation.id == 4):
+            user_str = ""
+            description = ""
+
+            if (activity.user == request.user):
+                description = "Has visto <b>" + activity.show.name + "</b>",
+            else:
+                user_str = activity.user.username,
+                description = "ha visto <b>" + activity.show.name + "</b>",
+
+            results.append({"user": user_str,
+                            "description": description,
+                            "poster_path": "https://image.tmdb.org/t/p/w300" + activity.show.poster_path,
+                            "avatar": Profile.objects.get(user=request.user).avatar.src,
+                            "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
+        if (activity.operation.id == 5):
+            user_str = ""
+            description = ""
+
+            if (activity.user == request.user):
+                description = "Has visto el <b>E" + str(activity.episode.episode_number) + "xT" + str(activity.episode.season_number) + "</b> de <b>" + activity.episode.show.name + "</b>",
+            else:
+                user_str = activity.user.username,
+                description = "ha visto el <b>E" + str(activity.episode.episode_number) + "xS" + str(activity.episode.season_number) + "</b> de <b>" + activity.episode.show.name + "</b>",
+
+            results.append({"user": user_str,
+                            "description": description,
+                            "poster_path": "https://image.tmdb.org/t/p/w300" + activity.episode.show.poster_path,
+                            "avatar": Profile.objects.get(user=request.user).avatar.src,
+                            "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
+        if (activity.operation.id == 6):
+            user_str = ""
+            description = ""
+
+            if (activity.user == request.user):
+                description = "Has seguido a <b>" + activity.follower.username + "</b>",
+            else:
+                user_str = activity.user.username,
+                description = "ahora sigue a <b>" + activity.follower.username + "</b>",
+
+            results.append({"user": user_str,
+                            "description": description,
+                            "poster_path": Profile.objects.get(user=activity.follower).avatar.src,
+                            "avatar": Profile.objects.get(user=request.user).avatar.src,
+                            "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
+
+    data = {
+        'results': results
+    }
+
+    return JsonResponse(data)
+
+# My Followings Activity
+def myFollowingsActivity(request):
+    activitys = Activity.objects.filter(user__in=Profile.objects.get(user=request.user).followings.all()).order_by("date_add")[:150]
+
+    results = []
+
+    for activity in activitys:
+        if (activity.operation.id == 1):
+            user_str = ""
+            description = ""
+
+            if (activity.user == request.user):
+                description = "Has añadido <b>" + activity.movie.title + "</b> a tu lista de pendientes"
+            else:
+                user_str = activity.user.username,
+                description = "ha añadido <b>" + activity.movie.title + "</b> a su lista de pendientes"
+
+            results.append({"user": user_str,
+                            "description": description,
+                            "poster_path": "https://image.tmdb.org/t/p/w300" + activity.movie.poster_path,
+                            "avatar": Profile.objects.get(user=request.user).avatar.src,
+                            "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
+        if (activity.operation.id == 2):
+            user_str = ""
+            description = ""
+
+            if (activity.user == request.user):
+                description = "Has visto <b>" + activity.movie.title + "</b>",
+            else:
+                user_str = activity.user.username,
+                description = "ha visto <b>" + activity.movie.title + "</b>",
+
+            results.append({"user": user_str,
+                            "description": description,
+                            "poster_path": "https://image.tmdb.org/t/p/w300" + activity.movie.poster_path,
+                            "avatar": Profile.objects.get(user=request.user).avatar.src,
+                            "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
+        if (activity.operation.id == 3):
+            user_str = ""
+            description = ""
+
+            if (activity.user == request.user):
+                description = "Has añadido <b>" + activity.show.name + "</b> a tu lista de pendientes",
+            else:
+                user_str = activity.user.username,
+                description = "ha añadido <b>" + activity.show.name + "</b> a su lista de pendientes",
+
+            results.append({"user": user_str,
+                            "description": description,
+                            "poster_path": "https://image.tmdb.org/t/p/w300" + activity.show.poster_path,
+                            "avatar": Profile.objects.get(user=request.user).avatar.src,
+                            "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
+        if (activity.operation.id == 4):
+            user_str = ""
+            description = ""
+
+            if (activity.user == request.user):
+                description = "Has visto <b>" + activity.show.name + "</b>",
+            else:
+                user_str = activity.user.username,
+                description = "ha visto <b>" + activity.show.name + "</b>",
+
+            results.append({"user": user_str,
+                            "description": description,
+                            "poster_path": "https://image.tmdb.org/t/p/w300" + activity.show.poster_path,
+                            "avatar": Profile.objects.get(user=request.user).avatar.src,
+                            "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
+        if (activity.operation.id == 5):
+            user_str = ""
+            description = ""
+
+            if (activity.user == request.user):
+                description = "Has visto el <b>E" + str(activity.episode.episode_number) + "xT" + str(
+                    activity.episode.season_number) + "</b> de <b>" + activity.episode.show.name + "</b>",
+            else:
+                user_str = activity.user.username,
+                description = "ha visto el <b>E" + str(activity.episode.episode_number) + "xS" + str(
+                    activity.episode.season_number) + "</b> de <b>" + activity.episode.show.name + "</b>",
+
+            results.append({"user": user_str,
+                            "description": description,
+                            "poster_path": "https://image.tmdb.org/t/p/w300" + activity.episode.show.poster_path,
+                            "avatar": Profile.objects.get(user=request.user).avatar.src,
+                            "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
+        if (activity.operation.id == 6):
+            user_str = ""
+            description = ""
+
+            if (activity.user == request.user):
+                description = "Has seguido a <b>" + activity.follower.username + "</b>",
+            else:
+                user_str = activity.user.username,
+                description = "ahora sigue a <b>" + activity.follower.username + "</b>",
+
+            results.append({"user": user_str,
+                            "description": description,
+                            "poster_path": Profile.objects.get(user=activity.follower).avatar.src,
+                            "avatar": Profile.objects.get(user=request.user).avatar.src,
+                            "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
+
+    data = {
+        'results': results
+    }
+
+    return JsonResponse(data)
+
+# --------------------------------------- FOLLOWERS --------------------------------------------------------------------
+def followUser(request):
+
+    Profile.objects.get(user=request.user).followings.add(User.objects.get(id=request.POST["id_user"]))
+
+    Activity.objects.create(user=request.user, operation=Operation.objects.get(id=6), follower=User.objects.get(id=request.POST["id_user"]))
+
+    data = {
+        'result': "ok",
+    }
+
+    return JsonResponse(data)
+
+def unFollowUser(request):
+
+    Profile.objects.get(user=request.user).followings.remove(User.objects.get(id=request.POST["id_user"]))
+
+    data = {
+        'result': "ok",
     }
 
     return JsonResponse(data)

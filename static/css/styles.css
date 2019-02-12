@@ -125,11 +125,16 @@ header .header-navBar .img-profile {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-image: url(/static/images/profiles/user_1.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    /*background-image: url(/static/images/favicon.png);*/
+    /*background-position: center;*/
+    /*background-size: cover;*/
+    /*background-repeat: no-repeat;*/
     box-shadow: 0px 0px 5px 0px #b9b9b9;
+}
+
+.img-profile img {
+    width: 100%;
+    height: auto;
 }
 
 .header-title {
@@ -342,6 +347,10 @@ footer .bottom-navBar > a {
     font-size: 35px;
 }
 
+.log-out-container {
+    padding-top: 10px;
+}
+
 .log-out {
     padding: 10px;
     padding-right: 0;
@@ -352,6 +361,28 @@ footer .bottom-navBar > a {
 .log-out a {
     border-radius: 20px;
 }
+
+.avatars-container {
+    display: flex;
+    flex-flow:row wrap;
+}
+
+.avatar {
+    padding: 10px;
+    filter: brightness(80%);
+}
+
+.avatar.active {
+    transform: scale(1.2);
+    filter: brightness(100%);
+    pointer-events: none;
+}
+
+.avatar img {
+    width: 60px;
+    border-radius: 50%;
+}
+
 
 .themes-container {
     padding-top: 10px;
@@ -564,7 +595,7 @@ footer .bottom-navBar > a {
     display: flex;
     flex-flow: wrap;
     margin-top: 15px !important;
-    margin-bottom: 15px !important;
+    margin-bottom: 10px !important;
 }
 
 .genre {
@@ -575,6 +606,7 @@ footer .bottom-navBar > a {
     border-radius: 30px;
     color: white;
     margin-right: 5px;
+    margin-bottom: 5px;
     text-align: center;
 }
 
@@ -779,4 +811,112 @@ footer .bottom-navBar > a {
     margin: 0;
     font-size: 0.8rem;
     text-align: center;
+}
+
+/* -------------------------------------- SOCIAL PAGE --------------------------------------------------------------- */
+.activity-item {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 5px;
+    display: flex;
+    padding-left: 10px;
+    padding-right: 20px;
+}
+
+.information-activity {
+    flex: 1;
+    padding: 5px;
+    padding-left: 10px;
+}
+
+.poster-activity img {
+    border-radius: 3px;
+    width: 50px;
+}
+
+.date-activity p {
+    margin: 0;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.description-activity p {
+    margin: 0;
+}
+
+.user-avatar-activity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-avatar-activity img {
+    width: 40px;
+}
+
+/* ----------- PEOPLE ------------ */
+.user-item {
+    display: flex;
+    padding-left: 10px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 5px;
+}
+
+.information-profile {
+    flex: 1;
+}
+
+.avatar-user img {
+    width: 100%;
+    height: auto;
+    max-width: 70px;
+}
+
+.information-profile {
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.stadistics {
+    padding-top: 10px !important;
+    padding-right: 5px !important;
+}
+
+.stadistics-item {
+    width: 58px;
+    margin-right: 8px;
+    margin-right: 8px;
+    border-radius: 10px;
+    padding: 5px !important;
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+    background-color: #2196f3;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+}
+
+.username {
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0;
+}
+
+.btn-follow {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 105px;
+    height: 70px;
+    transition: .3s;
+}
+
+.btn-follow button {
+    font-family: Google-Sans;
+    border-radius: 20px;
+    font-size: 13px;
 }
