@@ -903,6 +903,10 @@ footer .bottom-navBar > a {
     color: white;
 }
 
+.stadistics-item * {
+    font-size: 14px;
+}
+
 .username {
     font-weight: bold;
     font-size: 16px;
