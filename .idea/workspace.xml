@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="07020f31-8a76-45f1-a7cb-86f3cab66ea4" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/themes/blue_black.css" afterPath="$PROJECT_DIR$/static/css/themes/blue_black.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/themes/blue_dark.css" afterPath="$PROJECT_DIR$/static/css/themes/blue_dark.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/themes/orange_black.css" afterPath="$PROJECT_DIR$/static/css/themes/orange_black.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/themes/orange_dark.css" afterPath="$PROJECT_DIR$/static/css/themes/orange_dark.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/themes/orange_white.css" afterPath="$PROJECT_DIR$/static/css/themes/orange_white.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/themes/red_black.css" afterPath="$PROJECT_DIR$/static/css/themes/red_black.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/themes/red_dark.css" afterPath="$PROJECT_DIR$/static/css/themes/red_dark.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/themes/red_white.css" afterPath="$PROJECT_DIR$/static/css/themes/red_white.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,75 +24,22 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="request_functions.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/request_functions.js">
+      <file leaf-file-name="blue_white.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/css/themes/blue_white.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-34">
-              <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#43#0" expanded="false" />
-                <marker date="1550069871650" expanded="true" signature="828:946" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="5082:5227" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="5890:5908" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="8577:8809" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="9659:9777" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="10759:10877" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="14121:14139" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="14650:14770" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="15621:16211" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="15643:16192" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="18782:18900" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="19875:19993" ph="..." />
-                <marker date="1550069871650" expanded="false" signature="22596:23342" ph="..." />
-                <marker date="1550069871650" expanded="false" signature="22646:23342" ph="..." />
-                <marker date="1550069871650" expanded="false" signature="22694:22767" ph="..." />
-                <marker date="1550069871650" expanded="false" signature="22815:22979" ph="..." />
-                <marker date="1550069871650" expanded="false" signature="22815:23083" ph="..." />
-                <marker date="1550069871650" expanded="false" signature="22815:23168" ph="..." />
-                <marker date="1550069871650" expanded="false" signature="23218:23342" ph="..." />
-                <marker date="1550069871650" expanded="false" signature="23657:23716" ph="..." />
-                <marker date="1550069871650" expanded="false" signature="23705:23716" ph="..." />
-                <marker date="1550069871650" expanded="false" signature="24090:24211" ph="..." />
-                <marker date="1550069871650" expanded="false" signature="24090:24212" ph="..." />
-                <marker date="1550069871650" expanded="false" signature="24090:24228" ph="..." />
-                <marker date="1550069871650" expanded="false" signature="24090:24263" ph="..." />
-                <marker date="1550069871650" expanded="false" signature="24090:24265" ph="..." />
-                <marker date="1550069871650" expanded="false" signature="24090:24309" ph="..." />
-                <marker date="1550069871650" expanded="false" signature="24090:24328" ph="..." />
-                <marker date="1550069871650" expanded="false" signature="24090:24751" ph="..." />
-                <marker date="1550069871650" expanded="false" signature="30409:30527" ph="..." />
-                <marker date="1550069871650" expanded="false" signature="31580:31698" ph="..." />
-                <marker date="1550069871650" expanded="false" signature="36216:36350" ph="..." />
-                <marker date="1550069871650" expanded="false" signature="37443:37577" ph="..." />
-                <marker date="1550069871650" expanded="false" signature="41712:41846" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="42875:42930" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="42875:43036" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="42875:43060" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="42875:43780" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="42875:43826" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="43195:43778" ph="..." />
-                <marker date="1550069871650" expanded="false" signature="43291:43348" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="43291:43427" ph="..." />
-                <marker date="1550069871650" expanded="false" signature="43530:43590" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="43530:43726" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="44812:44835" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="44812:45762" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="44911:45051" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="45131:45714" ph="..." />
-                <marker date="1550069871650" expanded="false" signature="45227:45363" ph="..." />
-                <marker date="1550069871650" expanded="false" signature="45466:45662" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="48826:48827" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="48826:48854" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="48826:48929" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="48826:48930" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="48826:48960" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="48826:48966" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="48826:48992" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="48826:48995" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="48826:49020" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="48826:49047" ph="..." />
-                <marker date="1550069871650" expanded="true" signature="49861:49987" ph="..." />
-              </folding>
+            <state relative-caret-position="321">
+              <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="102" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="blue_dark.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/css/themes/blue_dark.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="111" column="1" lean-forward="false" selection-start-line="111" selection-start-column="1" selection-end-line="111" selection-end-column="1" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -96,37 +48,7 @@
         <entry file="file://$PROJECT_DIR$/static/css/themes/blue_black.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="408">
-              <caret line="114" column="30" lean-forward="false" selection-start-line="114" selection-start-column="22" selection-end-line="114" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Veo/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="109" column="19" lean-forward="false" selection-start-line="109" selection-start-column="19" selection-end-line="109" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="red_white.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/css/themes/red_white.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2805">
-              <caret line="165" column="29" lean-forward="false" selection-start-line="165" selection-start-column="29" selection-end-line="165" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="red_dark.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/css/themes/red_dark.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="29" lean-forward="false" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="29" />
+              <caret line="111" column="1" lean-forward="false" selection-start-line="111" selection-start-column="1" selection-end-line="111" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -135,8 +57,8 @@
       <file leaf-file-name="orange_black.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/css/themes/orange_black.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2913">
-              <caret line="172" column="29" lean-forward="false" selection-start-line="172" selection-start-column="29" selection-end-line="172" selection-end-column="29" />
+            <state relative-caret-position="371">
+              <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="111" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -145,8 +67,8 @@
       <file leaf-file-name="orange_dark.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/css/themes/orange_dark.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2777">
-              <caret line="172" column="29" lean-forward="false" selection-start-line="172" selection-start-column="29" selection-end-line="172" selection-end-column="29" />
+            <state relative-caret-position="303">
+              <caret line="111" column="1" lean-forward="false" selection-start-line="111" selection-start-column="1" selection-end-line="111" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -155,28 +77,8 @@
       <file leaf-file-name="orange_white.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/css/themes/orange_white.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2805">
-              <caret line="165" column="29" lean-forward="false" selection-start-line="165" selection-start-column="29" selection-end-line="165" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="red_black.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/css/themes/red_black.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2924">
-              <caret line="172" column="29" lean-forward="false" selection-start-line="172" selection-start-column="29" selection-end-line="172" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/css/styles.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="608" column="21" lean-forward="false" selection-start-line="608" selection-start-column="21" selection-end-line="608" selection-end-column="21" />
+            <state relative-caret-position="286">
+              <caret line="97" column="1" lean-forward="false" selection-start-line="97" selection-start-column="1" selection-end-line="97" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -195,7 +97,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>genre</find>
       <find>show.delete()</find>
       <find>syncroni</find>
       <find>datetime.now</find>
@@ -225,6 +126,7 @@
       <find>#3e3e3e</find>
       <find>#2196f3</find>
       <find>#f44336</find>
+      <find>settings</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -272,7 +174,6 @@
         <option value="$PROJECT_DIR$/templates/includes/header_navbar.html" />
         <option value="$PROJECT_DIR$/templates/app/home.html" />
         <option value="$PROJECT_DIR$/templates/app/shows.html" />
-        <option value="$PROJECT_DIR$/static/css/themes/blue_dark.css" />
         <option value="$PROJECT_DIR$/static/css/themes/blue_white.css" />
         <option value="$PROJECT_DIR$/static/js/startapp.js" />
         <option value="$PROJECT_DIR$/templates/app/search.html" />
@@ -280,14 +181,15 @@
         <option value="$PROJECT_DIR$/templates/includes/bottom_navbar.html" />
         <option value="$PROJECT_DIR$/static/css/styles.css" />
         <option value="$PROJECT_DIR$/static/js/request_functions.js" />
-        <option value="$PROJECT_DIR$/static/css/themes/blue_black.css" />
         <option value="$PROJECT_DIR$/Veo/settings.py" />
-        <option value="$PROJECT_DIR$/static/css/themes/red_white.css" />
-        <option value="$PROJECT_DIR$/static/css/themes/red_dark.css" />
-        <option value="$PROJECT_DIR$/static/css/themes/red_black.css" />
+        <option value="$PROJECT_DIR$/static/css/themes/blue_dark.css" />
+        <option value="$PROJECT_DIR$/static/css/themes/blue_black.css" />
         <option value="$PROJECT_DIR$/static/css/themes/orange_black.css" />
         <option value="$PROJECT_DIR$/static/css/themes/orange_dark.css" />
         <option value="$PROJECT_DIR$/static/css/themes/orange_white.css" />
+        <option value="$PROJECT_DIR$/static/css/themes/red_black.css" />
+        <option value="$PROJECT_DIR$/static/css/themes/red_dark.css" />
+        <option value="$PROJECT_DIR$/static/css/themes/red_white.css" />
       </list>
     </option>
   </component>
@@ -1098,22 +1000,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/themes/blue_dark.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="173" column="1" lean-forward="false" selection-start-line="173" selection-start-column="1" selection-end-line="173" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/themes/blue_white.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="172" column="36" lean-forward="false" selection-start-line="172" selection-start-column="36" selection-end-line="172" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/startapp.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
@@ -1277,42 +1163,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/themes/blue_black.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="114" column="30" lean-forward="false" selection-start-line="114" selection-start-column="22" selection-end-line="114" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Veo/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="277">
           <caret line="109" column="19" lean-forward="false" selection-start-line="109" selection-start-column="19" selection-end-line="109" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/themes/red_white.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2805">
-          <caret line="165" column="29" lean-forward="false" selection-start-line="165" selection-start-column="29" selection-end-line="165" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/themes/red_black.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2924">
-          <caret line="172" column="29" lean-forward="false" selection-start-line="172" selection-start-column="29" selection-end-line="172" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/themes/red_dark.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="29" lean-forward="false" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -1388,26 +1242,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/themes/orange_black.css">
+    <entry file="file://$PROJECT_DIR$/static/css/themes/blue_white.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2913">
-          <caret line="172" column="29" lean-forward="false" selection-start-line="172" selection-start-column="29" selection-end-line="172" selection-end-column="29" />
+        <state relative-caret-position="321">
+          <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="102" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/themes/blue_dark.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="111" column="1" lean-forward="false" selection-start-line="111" selection-start-column="1" selection-end-line="111" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/themes/blue_black.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="111" column="1" lean-forward="false" selection-start-line="111" selection-start-column="1" selection-end-line="111" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/themes/orange_dark.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2777">
-          <caret line="172" column="29" lean-forward="false" selection-start-line="172" selection-start-column="29" selection-end-line="172" selection-end-column="29" />
+        <state relative-caret-position="303">
+          <caret line="111" column="1" lean-forward="false" selection-start-line="111" selection-start-column="1" selection-end-line="111" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/themes/orange_black.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="111" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/themes/red_white.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="98" column="0" lean-forward="true" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/themes/red_dark.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/themes/red_black.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="110" column="30" lean-forward="false" selection-start-line="110" selection-start-column="30" selection-end-line="110" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/themes/orange_white.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2805">
-          <caret line="165" column="29" lean-forward="false" selection-start-line="165" selection-start-column="29" selection-end-line="165" selection-end-column="29" />
+        <state relative-caret-position="286">
+          <caret line="97" column="1" lean-forward="false" selection-start-line="97" selection-start-column="1" selection-end-line="97" selection-end-column="1" />
           <folding />
         </state>
       </provider>
