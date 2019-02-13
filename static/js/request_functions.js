@@ -1324,6 +1324,8 @@ function Search(query){
             resizePosters();
         }else{
             $('#movie-show-results').append("<p class='infoPeticion'>No hay ningún resultado</p>");
+            $('#person-results').hide();
+            $('#movie-show-results').css("padding-top", "0");
         }
 
     }).fail(function( jqXHR, textStatus, errorThrown ) {
