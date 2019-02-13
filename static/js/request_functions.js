@@ -1274,7 +1274,7 @@ function Search(query){
         $('.gif-loading').fadeOut(100);
         $("main").addClass("main-active");
 
-        if(data.results.length > 0) {
+        if(data.total_results > 0) {
 
             var count_persons = 0;
             // Persons
@@ -1322,6 +1322,8 @@ function Search(query){
                 }
             }
             resizePosters();
+        }else{
+            $('#movie-show-results').append("<p class='infoPeticion'>No hay ningún resultado</p>");
         }
 
     }).fail(function( jqXHR, textStatus, errorThrown ) {
