@@ -2,9 +2,11 @@
  * Created by mlopez on 30/01/2019.
  */
 
+var api_key = "f368d6c9a2c7d460dacc7cfd42809665";
+
 // Return a list with Movies or Shows with the parameters you has specified
 function TmdbRequestFilter(selector_container, url, parameters, description_request, info_for){
-    parameters["api_key"] = "f368d6c9a2c7d460dacc7cfd42809665";
+    parameters["api_key"] = api_key;
 
     $.ajax({
         data: parameters,
@@ -37,7 +39,7 @@ function TmdbRequestFilter(selector_container, url, parameters, description_requ
 function RecommendedMovies() {
     $.ajax({
         data: {
-            "api_key":"f368d6c9a2c7d460dacc7cfd42809665",
+            "api_key":api_key,
             "language": "es-ES"
         },
         type: "GET",
@@ -60,7 +62,7 @@ var _movie;
 // Get all information from Movie
 function InformationMovie(id, parameters, colorGenres, csrf_token) {
 
-    parameters["api_key"] = "f368d6c9a2c7d460dacc7cfd42809665";
+    parameters["api_key"] = api_key;
 
     // Basic Information
     $.ajax({
@@ -289,7 +291,7 @@ function InformationMovie(id, parameters, colorGenres, csrf_token) {
 
     // Images from Movie
     $.ajax({
-        data: {"api_key":"f368d6c9a2c7d460dacc7cfd42809665"},
+        data: {"api_key":api_key},
         type: "GET",
         dataType: "json",
         url: "https://api.themoviedb.org/3/movie/" + id + "/images"
@@ -319,7 +321,7 @@ var _show;
 // Get all information from Show
 function InformationShow(id, parameters, colorGenres, csrf_token) {
 
-    parameters["api_key"] = "f368d6c9a2c7d460dacc7cfd42809665";
+    parameters["api_key"] = api_key;
 
     // Basic Information
     $.ajax({
@@ -524,7 +526,7 @@ function InformationShow(id, parameters, colorGenres, csrf_token) {
 
     // Images from Show
     $.ajax({
-        data: {"api_key":"f368d6c9a2c7d460dacc7cfd42809665"},
+        data: {"api_key":api_key},
         type: "GET",
         dataType: "json",
         url: "https://api.themoviedb.org/3/tv/" + id + "/images"
@@ -552,7 +554,7 @@ function InformationShow(id, parameters, colorGenres, csrf_token) {
 
 var _seasons = [];
 function InformationSeason(id_show, num_season, parameters, csrf_token){
-    parameters["api_key"] = "f368d6c9a2c7d460dacc7cfd42809665";
+    parameters["api_key"] = api_key;
 
     // Basic Information
     $.ajax({
@@ -1135,9 +1137,9 @@ function AllActivity(csrf_token, selector){
                 for (var i = 0; i < data.results.length; i++) {
                     activity_i = data.results[i];
                     var activity_str = '<div class="activity-item row">\
-                                            <div class="poster-activity">\
+                                            <a href="'+activity_i.href+'" class="poster-activity">\
                                                 <img src="'+activity_i.poster_path+'" />\
-                                            </div>\
+                                            </a>\
                                             <div class="information-activity">\
                                                 <div class="col s12 date-activity no-padding">\
                                                     <p>'+activity_i.date+'</p>\
@@ -1178,9 +1180,9 @@ function MyFollowingsActivity(csrf_token, selector){
                 for (var i = 0; i < data.results.length; i++) {
                     activity_i = data.results[i];
                     var activity_str = '<div class="activity-item row">\
-                                            <div class="poster-activity">\
+                                           <a href="'+activity_i.href+'" class="poster-activity">\
                                                 <img src="'+activity_i.poster_path+'" />\
-                                            </div>\
+                                            </a>\
                                             <div class="information-activity">\
                                                 <div class="col s12 date-activity no-padding">\
                                                     <p>'+activity_i.date+'</p>\
@@ -1268,9 +1270,8 @@ function Search(query){
     $.ajax({
         type: "GET",
         dataType: "json",
-        url: "https://api.themoviedb.org/3/search/multi?api_key=f368d6c9a2c7d460dacc7cfd42809665&language=es-ES&query=" + query.replace("_","%20") + "&page=1&include_adult=false",
+        url: "https://api.themoviedb.org/3/search/multi?api_key=f368d6c9a2c7d460dacc7cfd42809665&language=es-ES&query=" + query.replace(/_/g, "%20") + "&page=1&include_adult=false",
     }).done(function(data, textStatus, jqXHR) {
-        console.log(data);
         $('.gif-loading').fadeOut(100);
         $("main").addClass("main-active");
 

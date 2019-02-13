@@ -31,7 +31,7 @@
 <script>
 
     $(document).ready(function(){
-        var title = "{{ query }}".replace("_", " ");
+        var title = "{{ query }}".replace(/_/g, " ");
         var first_char = title.charAt(0).toUpperCase();
         var less_title = title.substring(1);
 

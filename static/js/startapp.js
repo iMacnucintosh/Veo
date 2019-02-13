@@ -22,7 +22,7 @@ $(document).ready(function(){
     $('form input').addClass("validate");
 
     $('#search').submit(function() {
-        $(this).attr("action", "/search/" + $(this).find('input').val().replace(" ", "_"));
+        $(this).attr("action", "/search/" + $(this).find('input').val().replace(/ /g, "_"));
     });
 
 
