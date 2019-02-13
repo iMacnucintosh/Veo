@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="07020f31-8a76-45f1-a7cb-86f3cab66ea4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/css/themes/blue_black.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/css/themes/red_black.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/css/themes/red_dark.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/css/themes/red_white.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/views.py" afterPath="$PROJECT_DIR$/App/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/styles.css" afterPath="$PROJECT_DIR$/static/css/styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/request_functions.js" afterPath="$PROJECT_DIR$/static/js/request_functions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/startapp.js" afterPath="$PROJECT_DIR$/static/js/startapp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/app/search.html" afterPath="$PROJECT_DIR$/templates/app/search.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/includes/bottom_navbar.html" afterPath="$PROJECT_DIR$/templates/includes/bottom_navbar.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Veo/settings.py" afterPath="$PROJECT_DIR$/Veo/settings.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,21 +21,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="search.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/app/search.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="33" column="50" lean-forward="false" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="request_functions.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/request_functions.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-34">
-              <caret line="6" column="21" lean-forward="true" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+              <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
               <folding>
                 <element signature="e#0#43#0" expanded="false" />
                 <marker date="1550069871650" expanded="true" signature="828:946" ph="..." />
@@ -205,11 +191,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="blue_black.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="blue_black.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/css/themes/blue_black.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="408">
-              <caret line="114" column="30" lean-forward="true" selection-start-line="114" selection-start-column="22" selection-end-line="114" selection-end-column="30" />
+              <caret line="114" column="30" lean-forward="false" selection-start-line="114" selection-start-column="22" selection-end-line="114" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Veo/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="277">
+              <caret line="109" column="19" lean-forward="false" selection-start-line="109" selection-start-column="19" selection-end-line="109" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="red_white.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/css/themes/red_white.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2805">
+              <caret line="165" column="29" lean-forward="false" selection-start-line="165" selection-start-column="29" selection-end-line="165" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="red_dark.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/css/themes/red_dark.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2924">
+              <caret line="172" column="29" lean-forward="false" selection-start-line="172" selection-start-column="29" selection-end-line="172" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="red_black.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/css/themes/red_black.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2924">
+              <caret line="172" column="29" lean-forward="false" selection-start-line="172" selection-start-column="29" selection-end-line="172" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -219,7 +245,7 @@
         <entry file="file://$PROJECT_DIR$/App/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="354">
-              <caret line="710" column="0" lean-forward="true" selection-start-line="710" selection-start-column="0" selection-end-line="710" selection-end-column="0" />
+              <caret line="710" column="0" lean-forward="false" selection-start-line="710" selection-start-column="0" selection-end-line="710" selection-end-column="0" />
               <folding>
                 <element signature="e#394#1044#0" expanded="false" />
                 <element signature="e#431#945#0" expanded="false" />
@@ -342,7 +368,7 @@
         <entry file="file://$PROJECT_DIR$/templates/includes/body_end.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
-              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -368,38 +394,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="blue_dark.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/css/themes/blue_dark.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="173" column="1" lean-forward="false" selection-start-line="173" selection-start-column="1" selection-end-line="173" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="startapp.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/startapp.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="24" column="72" lean-forward="true" selection-start-line="24" selection-start-column="72" selection-end-line="24" selection-end-column="90" />
-              <folding>
-                <element signature="e#674#1478#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="blue_white.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/css/themes/blue_white.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="172" column="36" lean-forward="false" selection-start-line="172" selection-start-column="36" selection-end-line="172" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -413,7 +407,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>states_in</find>
       <find>show</find>
       <find>genre</find>
       <find>show.delete()</find>
@@ -443,12 +436,12 @@
       <find>.genre</find>
       <find>&quot;f368d6c9a2c7d460dacc7cfd42809665&quot;</find>
       <find>#3e3e3e</find>
+      <find>#2196f3</find>
     </findStrings>
     <replaceStrings>
       <replace />
       <replace>#3e3e3e</replace>
       <replace>#2196f3</replace>
-      <replace>#f44336</replace>
       <replace>#4caf50</replace>
       <replace>search</replace>
       <replace>changeStateEpisode</replace>
@@ -456,6 +449,7 @@
       <replace>seen.png</replace>
       <replace>api_key</replace>
       <replace>black</replace>
+      <replace>#f44336</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -464,13 +458,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Veo/settings.py" />
         <option value="$PROJECT_DIR$/static/js/functions.js" />
         <option value="$PROJECT_DIR$/static/js/jquery.stayInWebApp.js" />
         <option value="$PROJECT_DIR$/templates/includes/head.html" />
         <option value="$PROJECT_DIR$/static/js/movie_request.js" />
-        <option value="$PROJECT_DIR$/static/css/themes/red_white.css" />
-        <option value="$PROJECT_DIR$/static/css/themes/red_dark.css" />
         <option value="$PROJECT_DIR$/static/css/themes/green_dark.css" />
         <option value="$PROJECT_DIR$/static/css/themes/green_white.css" />
         <option value="$PROJECT_DIR$/static/js/general_functions.js" />
@@ -501,6 +492,10 @@
         <option value="$PROJECT_DIR$/static/css/styles.css" />
         <option value="$PROJECT_DIR$/static/js/request_functions.js" />
         <option value="$PROJECT_DIR$/static/css/themes/blue_black.css" />
+        <option value="$PROJECT_DIR$/Veo/settings.py" />
+        <option value="$PROJECT_DIR$/static/css/themes/red_white.css" />
+        <option value="$PROJECT_DIR$/static/css/themes/red_dark.css" />
+        <option value="$PROJECT_DIR$/static/css/themes/red_black.css" />
       </list>
     </option>
   </component>
@@ -963,30 +958,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/App/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="46" column="53" lean-forward="false" selection-start-line="46" selection-start-column="53" selection-end-line="46" selection-end-column="53" />
-          <folding>
-            <element signature="e#160#434#0" expanded="false" />
-            <element signature="e#376#434#0" expanded="false" />
-            <element signature="e#468#783#0" expanded="false" />
-            <element signature="e#1709#1824#0" expanded="false" />
-            <element signature="e#1780#1824#0" expanded="false" />
-            <element signature="e#1857#2344#0" expanded="false" />
-            <element signature="e#2376#3042#0" expanded="false" />
-            <element signature="e#2759#2850#0" expanded="false" />
-            <element signature="e#2887#2936#0" expanded="false" />
-            <element signature="e#2977#3042#0" expanded="false" />
-            <element signature="e#3077#3541#0" expanded="false" />
-            <element signature="e#3406#3541#0" expanded="false" />
-            <element signature="e#3578#4033#0" expanded="false" />
-            <element signature="e#3617#3728#0" expanded="false" />
-            <element signature="e#3948#4033#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/app/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
@@ -1526,8 +1497,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/movies_request.js" />
     <entry file="file://$PROJECT_DIR$/static/js/movie_request.js" />
-    <entry file="file://$PROJECT_DIR$/static/css/themes/red_white.css" />
-    <entry file="file://$PROJECT_DIR$/static/css/themes/red_dark.css" />
     <entry file="file://$PROJECT_DIR$/static/css/themes/green_dark.css" />
     <entry file="file://$PROJECT_DIR$/static/css/themes/green_white.css" />
     <entry file="file://$PROJECT_DIR$/templates/app/login.html">
@@ -1672,14 +1641,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Veo/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-306">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/general_functions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1952">
@@ -1707,7 +1668,7 @@
     <entry file="file://$PROJECT_DIR$/static/js/startapp.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
-          <caret line="24" column="72" lean-forward="true" selection-start-line="24" selection-start-column="72" selection-end-line="24" selection-end-column="90" />
+          <caret line="24" column="72" lean-forward="false" selection-start-line="24" selection-start-column="72" selection-end-line="24" selection-end-column="90" />
           <folding>
             <element signature="e#674#1478#0" expanded="false" />
           </folding>
@@ -1725,7 +1686,7 @@
     <entry file="file://$PROJECT_DIR$/App/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="354">
-          <caret line="710" column="0" lean-forward="true" selection-start-line="710" selection-start-column="0" selection-end-line="710" selection-end-column="0" />
+          <caret line="710" column="0" lean-forward="false" selection-start-line="710" selection-start-column="0" selection-end-line="710" selection-end-column="0" />
           <folding>
             <element signature="e#394#1044#0" expanded="false" />
             <element signature="e#431#945#0" expanded="false" />
@@ -1846,7 +1807,7 @@
     <entry file="file://$PROJECT_DIR$/templates/includes/body_end.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1870,7 +1831,7 @@
     <entry file="file://$PROJECT_DIR$/static/js/request_functions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-34">
-          <caret line="6" column="21" lean-forward="true" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+          <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
           <folding>
             <element signature="e#0#43#0" expanded="false" />
             <marker date="1550069871650" expanded="true" signature="828:946" ph="..." />
@@ -2038,7 +1999,39 @@
     <entry file="file://$PROJECT_DIR$/static/css/themes/blue_black.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
-          <caret line="114" column="30" lean-forward="true" selection-start-line="114" selection-start-column="22" selection-end-line="114" selection-end-column="30" />
+          <caret line="114" column="30" lean-forward="false" selection-start-line="114" selection-start-column="22" selection-end-line="114" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Veo/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="109" column="19" lean-forward="false" selection-start-line="109" selection-start-column="19" selection-end-line="109" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/themes/red_white.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2805">
+          <caret line="165" column="29" lean-forward="false" selection-start-line="165" selection-start-column="29" selection-end-line="165" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/themes/red_dark.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2924">
+          <caret line="172" column="29" lean-forward="false" selection-start-line="172" selection-start-column="29" selection-end-line="172" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/themes/red_black.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2924">
+          <caret line="172" column="29" lean-forward="false" selection-start-line="172" selection-start-column="29" selection-end-line="172" selection-end-column="29" />
           <folding />
         </state>
       </provider>
