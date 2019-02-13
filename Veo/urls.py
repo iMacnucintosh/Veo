@@ -121,5 +121,8 @@ urlpatterns = [
     # Change Avatar
     url(r'^changeAvatar/$', changeAvatar),
 
+    # ---------------------------------- QUERY -------------------------------------------------------------------------
+    # Search by query
+    url(r'^search/(?P<query>\w+)/$', search),
 
 ]

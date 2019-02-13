@@ -33,8 +33,6 @@
 {% include "includes/bottom_navbar.html" %}
 {% include "includes/body_end.html" %}
 
-<script type="text/javascript" src="/static/js/movies_request.js"></script>
-
 <script>
 
     $(document).ready(function(){
@@ -42,6 +40,20 @@
         $('#nav-movies').addClass("nav-active");
 
         $('.search-field form').attr("action", "/search");
+
+        /* --------------------------------- THE MOVIE DATABASE ----------------------------------------------------- */
+
+        // Más Populares
+        TmdbRequestFilter('#movies_popularity', "https://api.themoviedb.org/3/discover/movie", {"languaje":"es-ES", "sort_by":"popularity.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":"1"}, "Peliculas Populares","movie");
+
+        // Más Votadas
+        TmdbRequestFilter('#movies_vote_count', "https://api.themoviedb.org/3/discover/movie", {"languaje":"es-ES", "sort_by":"vote_count.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":"1"}, "Peliculas mejor Votadas","movie");
+
+        // En Cines
+        TmdbRequestFilter('#movies_theatres', "https://api.themoviedb.org/3/movie/now_playing", {"language":"es-ES", "page":"1"}, "Peliculas En Cartelera de Cines", "movie");
+
+
+        /* ---------------------------------- PERSONAL DATABASE ----------------------------------------------------- */
 
         // Mis Películas por ver
         MyMoviesToSee('{{ csrf_token }}', '#movies_pending');

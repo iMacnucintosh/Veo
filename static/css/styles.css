@@ -877,7 +877,7 @@ footer .bottom-navBar > a {
 }
 
 .information-profile * {
-     font-size: 16px;
+    font-size: 16px;
 }
 
 .information-profile i {
@@ -927,6 +927,41 @@ footer .bottom-navBar > a {
     border-radius: 20px;
     font-size: 13px;
 }
- .main-settings .stadistics-item {
-     width: 55px;
- }
+.main-settings .stadistics-item {
+    width: 55px;
+}
+
+/* ------------------------------------------ SEARCH PAGE----------------------------------------------------------- */
+
+#person-results {
+    display: flex;
+    flex-flow: row;
+    padding: 10px;
+    padding-bottom: 0;
+    overflow: auto;
+}
+
+.person-item {
+    margin: auto;
+    margin-top: 0;
+    padding-right: 20px;
+}
+
+.person-item .img {
+    width: 80px;
+    height: 80px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.person-item p {
+    font-weight: bold;
+    text-align: center;
+    font-size: 12px;
+}
+
+#movie-show-results {
+    padding-top: 10px;
+}

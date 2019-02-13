@@ -33,7 +33,6 @@
 {% include "includes/bottom_navbar.html" %}
 {% include "includes/body_end.html" %}
 
-<script type="text/javascript" src="/static/js/shows_request.js"></script>
 
 <script>
 
@@ -41,7 +40,15 @@
         $('#title').text("Series");
         $('#nav-shows').addClass("nav-active");
 
-        $('.search-field form').attr("action", "/search");
+        /* --------------------------------- THE MOVIE DATABASE ----------------------------------------------------- */
+
+        // Más Populares
+        TmdbRequestFilter('#shows_popularity', "https://api.themoviedb.org/3/discover/tv", {"languaje":"es-ES", "sort_by":"popularity.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":"1"}, "Series Populares", "show");
+
+        // Más Votadas
+        TmdbRequestFilter('#shows_vote_count', "https://api.themoviedb.org/3/discover/tv", {"languaje":"es-ES", "sort_by":"vote_count.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":"1"}, "Series mejor Votadas", "show");
+
+        /* ---------------------------------- PERSONAL DATABASE ----------------------------------------------------- */
 
         // Mis Series activas
         MyActiveShows('{{ csrf_token }}', '#shows_seeing');

@@ -1261,3 +1261,70 @@ function changeAvatar(elemento, id_avatar, csrf_token){
         }
     });
 }
+
+// Search Movies, Shows or Actors
+// Return a list with Movies or Shows with the parameters you has specified
+function Search(query){
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: "https://api.themoviedb.org/3/search/multi?api_key=f368d6c9a2c7d460dacc7cfd42809665&language=es-ES&query=" + query.replace("_","%20") + "&page=1&include_adult=false",
+    }).done(function(data, textStatus, jqXHR) {
+        console.log(data);
+        $('.gif-loading').fadeOut(100);
+        $("main").addClass("main-active");
+
+        if(data.results.length > 0) {
+
+            var count_persons = 0;
+            // Persons
+            for (var i = 0; i < data.results.length; i++) {
+                poster_i = data.results[i];
+
+                if(poster_i.media_type == "person" && poster_i.profile_path != null) {
+                    count_persons ++;
+                    var info_for = "";
+                    var name = poster_i.name.replace(" ", "+");
+
+                    var poster_str = "\
+                    <a href='https://www.google.es/search?q="+name+"' target='_blank' class='person-item'>\
+                        <div class='img' style='background-image: url(https://image.tmdb.org/t/p/w300" + poster_i.profile_path + ")'></div>\
+                        <p>" + poster_i.name + "</p>\
+                    </a>\
+                    ";
+
+                    $('#person-results').append(poster_str);
+                }
+            }
+
+            if(count_persons == 0){
+                $('#person-results').hide();
+                $('#movie-show-results').css("padding-top", "0");
+            }
+
+            // Movies and Shows
+            for (var i = 0; i < data.results.length; i++) {
+                poster_i = data.results[i];
+
+                if(poster_i.poster_path != null) {
+                    var info_for = "";
+
+                    if (poster_i.media_type == "movie") info_for = "movie"
+                    if (poster_i.media_type == "tv") info_for = "show"
+
+                    var poster_str = "\
+                    <a href='/" + info_for + "/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
+                        <img src='https://image.tmdb.org/t/p/w300" + poster_i.poster_path + "' />\
+                     </a>\
+                    ";
+
+                    $('#movie-show-results').append(poster_str);
+                }
+            }
+            resizePosters();
+        }
+
+    }).fail(function( jqXHR, textStatus, errorThrown ) {
+        console.error('La solicitud; Búsqueda de: "' + query + ', a fallado: ' +  textStatus);
+    });
+}

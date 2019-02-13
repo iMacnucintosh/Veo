@@ -725,3 +725,15 @@ def unFollowUser(request):
     }
 
     return JsonResponse(data)
+
+
+# ---------------------------------------- SEARCH ----------------------------------------------------------------------
+@login_required()
+def search(request, query=None):
+    context = {
+        "profile": Profile.objects.get(user=request.user),
+        "themes": Theme.objects.all(),
+        "avatars": Avatar.objects.all(),
+        "query": query
+    }
+    return render(request, "app/search.html", context=context)

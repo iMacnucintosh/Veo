@@ -159,9 +159,24 @@ footer .nav-active i, footer .nav-active p {
 }
 
 .username-activity {
-   color: #2196f3;
+    color: #2196f3;
 }
 
 .btn-follow button {
     background-color: #2196f3;
+}
+
+
+/* ------------------------------------------ SEARCH PAGE----------------------------------------------------------- */
+
+#person-results {
+    border-bottom: 1px solid #f7f7f7
+}
+
+.person-item .img {
+    box-shadow: 0px 0px 5px 0px #b9b9b9;
+}
+
+.person-item p {
+    color: #333333;
 }

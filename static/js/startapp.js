@@ -21,6 +21,11 @@ $(document).ready(function(){
 
     $('form input').addClass("validate");
 
+    $('#search').submit(function() {
+        $(this).attr("action", "/search/" + $(this).find('input').val().replace(" ", "_"));
+    });
+
+
     // ------- SCROLL EVENT -------
     $(window).scroll(function(){
 
@@ -67,7 +72,6 @@ $(document).ready(function(){
         }
     });
 
-
     /* Abrimos el panel de Configuración */
     $('.img-profile').click(function(){
         $('#settings').fadeIn(150);
@@ -90,6 +94,4 @@ $(document).ready(function(){
     $('.btn-back-list').click(function(){
         history.back();
     });
-
-
 });
