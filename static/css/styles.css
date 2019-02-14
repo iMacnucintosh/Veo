@@ -324,10 +324,11 @@ footer .bottom-navBar > a {
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
+    min-height: 100%;
 }
 
 .header-settings {
+    position: fixed;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05), 0 3px 1px -2px rgba(0, 0, 0, 0.05), 0 1px 5px 0 rgba(0, 0, 0, 0.05);
 }
 
@@ -364,17 +365,18 @@ footer .bottom-navBar > a {
 
 .avatars-container {
     display: flex;
-    flex-flow:row wrap;
+    flex-flow: row nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-top: 10px;
 }
 
 .avatar {
     padding: 10px;
-    filter: brightness(80%);
 }
 
 .avatar.active {
     transform: scale(1.2);
-    filter: brightness(100%);
     pointer-events: none;
 }
 
@@ -385,7 +387,9 @@ footer .bottom-navBar > a {
 
 
 .themes-container {
-    padding-top: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    overflow: scroll;
 }
 
 .switch label {
@@ -395,11 +399,15 @@ footer .bottom-navBar > a {
 #settings .main-settings {
     padding-left: 30px;
     padding-right: 30px;
+    padding-top: 82px;
 }
 
 .theme {
     position: relative;
     padding: 10px !important;
+    width: 100px;
+    min-width: 100px;
+    height: 100px;
 }
 
 .theme .color-background {
@@ -420,24 +428,48 @@ footer .bottom-navBar > a {
 
 .theme .color-accent {
     position: absolute;
-    width: 50px;
-    height: 50px;
-    bottom: 1em;
-    right: 1em;
+    width: 30px;
+    height: 30px;
+    bottom: 3px;
+    right: 5px;
     border-radius: 50%;
     box-shadow: 0px 0px 13px -1px rgba(29, 29, 29, 0.749019607);
 }
 
 
 /* ------------------ HOME STYLES ------------------- */
-.poster-item.landscape {
-    height: 88px !important;
-    border-radius: 6px;
-    margin-bottom: 5px;
-    margin-left: 5px;
-    background-repeat: no-repeat;
+#recommended {
+    height: 235px;
+    position: relative;
+    transition: 1s;
+    filter: brightness(0%);
+}
+
+#recommended .backdrop-recommend {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-position: center;
     background-size: cover;
-    background-position: top;
+    background-repeat: no-repeat;
+    filter: brightness(68%);
+    z-index: -1;
+}
+
+.recommended-info {
+    padding-top: 20px !important;
+    padding-right: 20px !important;
+}
+
+.recommended-info h1 {
+    color: white;
+    text-shadow: 0px 0px 9px black;
+    font-size: 2em;
+    text-align: right;
+}
+
+#home-movies-pending, #home-shows-active {
+    padding: 10px;
 }
 
 /* ------------------ MOVIES STYLES ------------------- */
@@ -964,4 +996,15 @@ footer .bottom-navBar > a {
 
 #movie-show-results {
     padding-top: 10px;
+}
+
+/* ------------------------------ HOME STYLES IMPORTANT ------------------------------------------------------------- */
+.recommended-poster {
+    position: absolute !important;
+    bottom: 10px;
+    left: 10px !important;
+}
+
+.recommended-poster img {
+    border-radius: 6px !important;
 }

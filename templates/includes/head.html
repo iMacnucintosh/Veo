@@ -27,7 +27,11 @@
 
 <!-- THEMES CONFIGURATION FOR USERS -->
 {% if profile.user.is_authenticated %}
-    <link rel="stylesheet" href="/static/css/themes/{{ profile.theme.cssFile }}.css">
+    {% if not profile.theme == None %}
+        <link rel="stylesheet" href="/static/css/themes/{{ profile.theme.cssFile }}.css">
+    {% else %}
+        <link rel="stylesheet" href="/static/css/themes/blue_white.css">
+    {% endif %}
 {% else %}
     <link rel="stylesheet" href="/static/css/themes/blue_white.css">
 {% endif %}

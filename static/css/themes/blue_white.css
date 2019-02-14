@@ -85,6 +85,14 @@ footer .nav-active i, footer .nav-active p {
     background-color: white;
 }
 
+.header-settings {
+    background-color: white;
+}
+
+#settings .title-section a {
+   color: #2196f3;
+}
+
 .close-settings-container i {
     color: #3e3e3e;
 }

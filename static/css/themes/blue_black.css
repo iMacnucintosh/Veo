@@ -99,6 +99,15 @@ footer .nav-active i, footer .nav-active p {
     background-color: black;
 }
 
+.header-settings {
+    background-color: black;
+}
+
+
+#settings .title-section a {
+    color: #2196f3;
+}
+
 .close-settings-container i {
     color: white;
 }

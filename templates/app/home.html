@@ -16,21 +16,13 @@
     <li class="tab col s3"><a class="tab-btn" href="#home-shows-active">Series Activas</a></li>
 </ul>
 
-<main>
+<main class="no-padding">
     <section id="home_portada" class="col s12 row no-margin ">
-        <article class="col s12 no-padding">
-            <div class="primary-recommended col s6">
-                <a href='/movie/424694' class='poster-item recommended col s12 no-padding box-shadow' style="background-image: url(https://image.tmdb.org/t/p/w300/sVmTZxuXhSGYmNL8gbv2XcKTFUy.jpg)"></a>
-            </div>
-            <div class="seconds-recommended col s6">
-                <a href='/movie/450465' class='col s12 m4 no-padding poster-item landscape box-shadow' style="background-image: url(https://image.tmdb.org/t/p/w500/lvjscO8wmpEbIfOEZi92Je8Ktlg.jpg)"></a>
-                <a href='/movie/480530' class='col s12 m4 no-padding poster-item landscape box-shadow' style="background-image: url(https://image.tmdb.org/t/p/w500/8yqLPNwNCtpOPc3XkOlkSMnghzw.jpg)"></a>
-                <a href='/movie/428078' class='col s12 m4 no-padding poster-item landscape box-shadow' style="background-image: url(https://image.tmdb.org/t/p/w500/rxYG6Sj95as9rv9wKIHUx6ATWd3.jpg)"></a>
-            </div>
+        <article id="recommended" class="col s12 no-padding brightness-fade">
+
         </article>
-
-
     </section>
+
     <section id="home-movies-pending" class="col s12 row no-margin"></section>
     <div id="home-shows-active" class="col s12 row no-margin"></div>
 </main>
@@ -56,6 +48,10 @@
         // Mis Series activas
         MyActiveShows('{{ csrf_token }}', '#home-shows-active');
 
+        Recommendations();
+{#        setInterval(function(){#}
+{#            Recommendations();#}
+{#        }, 5000);#}
     });
 
 </script>

@@ -36,26 +36,40 @@ function TmdbRequestFilter(selector_container, url, parameters, description_requ
 }
 
 // Return a specific number of random movies from your list
-function RecommendedMovies() {
-    $.ajax({
-        data: {
-            "api_key":api_key,
-            "language": "es-ES"
-        },
-        type: "GET",
-        dataType: "json",
-        url: "https://api.themoviedb.org/3/movie/424783?api_key=&language=es",
-    }).done(function(data, textStatus, jqXHR) {
-        var recommended_movie = data;
-        var backdrop_path_style = "style='background-image: url(https://image.tmdb.org/t/p/w500" + recommended_movie.backdrop_path + ")'";
-        var recommended_movie_str = "\
-                <a href='/movie/" + recommended_movie.id + "' class='poster-item recommended col s12 no-padding' " + backdrop_path_style +"></a>";
+function Recommendations() {
+    $("#recommended").css("filter","brightness(0%)");
+    setTimeout(function(){
+        $.ajax({
+            data: {
+                "api_key":api_key,
+                "language": "es-ES"
+            },
+            type: "GET",
+            dataType: "json",
+            url: "https://api.themoviedb.org/3/trending/movie/day",
+        }).done(function(data, textStatus, jqXHR) {
+            var randomIndex = Math.floor(Math.random() * 18);
+            var movie = data.results[randomIndex];
 
-        $("#home_portada").append(recommended_movie_str);
-
-    }).fail(function( jqXHR, textStatus, errorThrown ) {
-        console.error('La solicitud: Pelicula Recomendada, a fallado: ' +  textStatus);
-    });
+            console.log(data);
+            if(movie.backdrop_path != undefined && movie.poster_path != null)
+            {
+                var recommended_movie_str = '<div class="backdrop-recommend"  style="background-image: url(https://image.tmdb.org/t/p/w500' + movie.backdrop_path + ')"></div>\
+            <a href="/movie/' + movie.id + '" class="poster-item list recommended-poster col s4 m3 l2 no-padding box-shadow">\
+                <img src="https://image.tmdb.org/t/p/w300' + movie.poster_path + '" class="shadow"/>\
+            </a>\
+            <div class="recommended-info col s8 m9 l10 offset-s4 offset-m3 offset-l2">\
+                <h1>' + movie.title + '</h1>\
+            </div>';
+                $("#recommended").html(recommended_movie_str);
+            }else{
+                Recommendations();
+            }
+            $("#recommended").css("filter","brightness(100%)");
+        }).fail(function( jqXHR, textStatus, errorThrown ) {
+            console.error('La solicitud: Pelicula Recomendada, a fallado: ' +  textStatus);
+        });
+    },1000)
 }
 
 var _movie;

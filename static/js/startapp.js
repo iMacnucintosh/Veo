@@ -19,12 +19,13 @@ $(document).ready(function(){
 
     $('.tooltipped').tooltip();
 
+    $('.modal').modal();
+
     $('form input').addClass("validate");
 
     $('#search').submit(function() {
         $(this).attr("action", "/search/" + $(this).find('input').val().replace(/ /g, "_"));
     });
-
 
     // ------- SCROLL EVENT -------
     $(window).scroll(function(){

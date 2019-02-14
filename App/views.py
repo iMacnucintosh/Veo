@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 import ast
+import os
+
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, JsonResponse
@@ -8,7 +10,14 @@ from App.models import *
 from App.forms import *
 from django.utils import timezone
 
-# --------------- APP --------------
+
+# --------------------------------------- GENERAL FUNCTIONS ------------------------------------------------------------
+def createAvatars():
+    for avatar_file in os.listdir("static/images/avatars"):
+        if len(Avatar.objects.filter(src="/static/images/avatars/" + avatar_file)) == 0:
+            Avatar.objects.create(name=avatar_file.split(".")[0], src="/static/images/avatars/" + avatar_file)
+
+# ---------------------------------------------- APP -------------------------------------------------------------------
 def log_in(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -78,6 +87,7 @@ def sign_in(request):
 
 @login_required()
 def home(request):
+    createAvatars()
     context = {
         "profile": Profile.objects.get(user=request.user),
         "themes": Theme.objects.all(),
@@ -120,7 +130,6 @@ def social(request):
     }
     return render(request, "app/social.html", context=context)
 
-
 def changeAvatar(request):
 
     Profile.objects.filter(user=request.user).update(avatar=Avatar.objects.get(id=request.POST["id_avatar"]))
@@ -130,7 +139,6 @@ def changeAvatar(request):
     }
 
     return JsonResponse(data)
-
 
 def changeTheme(request, theme=None):
     Profile.objects.filter(user=request.user).update(theme=Theme.objects.get(id=theme))
@@ -749,3 +757,4 @@ def search(request, query=None):
         "query": query
     }
     return render(request, "app/search.html", context=context)
+

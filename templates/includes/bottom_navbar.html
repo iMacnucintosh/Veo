@@ -37,19 +37,30 @@
         <div class="row no-margin">
             <h3 class="title-section col s6 no-padding">Avatar</h3>
         </div>
-        <div class="avatars-container row no-margin">
+        <div class="avatars-container">
+
             {% for avatar in avatars %}
-                <div onclick="changeAvatar(this, {{ avatar.id }}, '{{ csrf_token }}')" class="avatar {% if profile.avatar == avatar %}active{% endif %}">
-                    <img src="{{ avatar.src }}" />
-                </div>
+                {% if avatar == profile.avatar %}
+                    <div onclick="changeAvatar(this, {{ avatar.id }}, '{{ csrf_token }}')" class="avatar {% if profile.avatar == avatar %}active{% endif %}">
+                        <img src="{{ avatar.src }}" />
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+            {% for avatar in avatars %}
+                {% if not avatar == profile.avatar %}
+                    <div onclick="changeAvatar(this, {{ avatar.id }}, '{{ csrf_token }}')" class="avatar {% if profile.avatar == avatar %}active{% endif %}">
+                        <img src="{{ avatar.src }}" />
+                    </div>
+                {% endif %}
             {% endfor %}
         </div>
 
-        <div class="themes-container row">
-            <h3 class="title-section">Tema</h3>
+        <h3 class="title-section row">Tema</h3>
 
+        <div class="themes-container">
             {% for theme in themes %}
-                <a href="/changeTheme/{{ theme.id }}" class="theme col s4 m3 l2">
+                <a href="/changeTheme/{{ theme.id }}" class="theme">
                     <div class="color-background {% if theme.id == profile.theme.id %} active-theme{% endif %}" style="background-color: {{ theme.bg_color }}">
                         <div class="color-accent" style="background-color: {{ theme.accent_color }}"></div>
                     </div>
@@ -57,7 +68,7 @@
             {% endfor %}
         </div>
         <div class="row">
-            <h3 class="title-section col s12">Asociar géneros a colores</h3>
+            <h3 class="title-section col s12">Asociar géneros a colores  <a class="waves-effect waves-light modal-trigger" href="#colorGenresModal"><i class="material-icons">info</i></a></h3>
             <div class="col s12">
                 <div class="switch">
                     <label>
@@ -67,7 +78,20 @@
                         Si
                     </label>
                 </div>
+
             </div>
+
+            <!-- Modal Structure -->
+            <div id="colorGenresModal" class="modal">
+                <div class="modal-content">
+                    <h4>Géneros de colores</h4>
+                    <p>Puedes asociar los generos de las películas y series a colores predeterminados para que te sea más sencillo reconocerlos.</p>
+                </div>
+                <div class="modal-footer">
+                    <a class="modal-close waves-effect waves-green btn-flat">Aceptar</a>
+                </div>
+            </div>
+
         </div>
     </article>
 </section>

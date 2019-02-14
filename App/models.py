@@ -18,23 +18,17 @@ class Avatar(models.Model):
     name = models.CharField(max_length=100)
     src = models.CharField(max_length=500)
 
-    genres_types = (
-        ('male', 'Male'),
-        ('female', 'Female'),
-    )
-    genre = models.CharField(choices=genres_types, max_length=30)
-
     def __str__(self):
         return str(self.name) + " (" + str(self.src) + ")"
 
 class Profile(models.Model):
     user = models.ForeignKey(User, related_name="user", blank=True, null=True)
-    theme = models.ForeignKey(Theme, blank=True, null=True)
+    theme = models.ForeignKey(Theme, blank=True, null=True, on_delete=models.SET_NULL)
     colorGenres = models.BooleanField(default=True)
     width_image = models.IntegerField(default=0)
     height_image = models.IntegerField(default=0)
     followings = models.ManyToManyField(User, related_name="following", blank=True)
-    avatar = models.ForeignKey(Avatar, blank=True, null=True)
+    avatar = models.ForeignKey(Avatar, blank=True, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return str(self.user.first_name) + " " + str(self.user.last_name)
