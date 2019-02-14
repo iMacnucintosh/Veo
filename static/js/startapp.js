@@ -40,16 +40,27 @@ $(document).ready(function(){
 
         if($('.tabs').length > 0) {
             if (scrollActual >= 80) {
-                $('.tabs').addClass("tabs-fixed");
-                if(!$('main').hasClass("main-info")){
-                    $('main').addClass("main-tabs");
-                }else {
-                    $('main').addClass("main-tabs-info");
+                if($('main').hasClass("main-home")){
+                    $('.tabs').addClass("tabs-fixed");
+                    $('main').addClass("home-main-tabs");
+                }else
+                {
+                    $('.tabs').addClass("tabs-fixed");
+                    if (!$('main').hasClass("main-info")) {
+                        $('main').addClass("main-tabs");
+                    } else {
+                        $('main').addClass("main-tabs-info");
+                    }
                 }
             } else {
-                $('.tabs').removeClass("tabs-fixed");
-                $('main').removeClass("main-tabs");
-                $('main').removeClass("main-tabs-info");
+                if($('main').hasClass("main-home")){
+                    $('.tabs').removeClass("tabs-fixed");
+                    $('main').removeClass("home-main-tabs");
+                }else {
+                    $('.tabs').removeClass("tabs-fixed");
+                    $('main').removeClass("main-tabs");
+                    $('main').removeClass("main-tabs-info");
+                }
             }
         }
     });

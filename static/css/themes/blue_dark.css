@@ -104,7 +104,7 @@ footer .nav-active i, footer .nav-active p {
 }
 
 #settings .title-section a {
-   color: #2196f3;
+    color: #2196f3;
 }
 
 .close-settings-container i {
@@ -148,6 +148,12 @@ footer .nav-active i, footer .nav-active p {
 .lds-ellipsis div {
     background: #2196f3;
 }
+
+/* ------------- HOME STYLES -------------- */
+.circle {
+    stroke: #2196f3;
+}
+
 
 /* ---------- MOVIE STYLES ---------------- */
 .btn-trailer {

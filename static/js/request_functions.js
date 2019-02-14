@@ -37,39 +37,49 @@ function TmdbRequestFilter(selector_container, url, parameters, description_requ
 
 // Return a specific number of random movies from your list
 function Recommendations() {
-    $("#recommended").css("filter","brightness(0%)");
-    setTimeout(function(){
-        $.ajax({
-            data: {
-                "api_key":api_key,
-                "language": "es-ES"
-            },
-            type: "GET",
-            dataType: "json",
-            url: "https://api.themoviedb.org/3/trending/movie/day",
-        }).done(function(data, textStatus, jqXHR) {
-            var randomIndex = Math.floor(Math.random() * 18);
-            var movie = data.results[randomIndex];
+    $.ajax({
+        data: {
+            "api_key":api_key,
+            "language": "es-ES",
+            "without_genres": "16",
+        },
+        type: "GET",
+        dataType: "json",
+        url: "https://api.themoviedb.org/3/trending/movie/day",
+    }).done(function(data, textStatus, jqXHR) {
+        var randomIndex = Math.floor(Math.random() * 18);
+        var movie = data.results[randomIndex];
 
-            console.log(data);
-            if(movie.backdrop_path != undefined && movie.poster_path != null)
-            {
-                var recommended_movie_str = '<div class="backdrop-recommend"  style="background-image: url(https://image.tmdb.org/t/p/w500' + movie.backdrop_path + ')"></div>\
-            <a href="/movie/' + movie.id + '" class="poster-item list recommended-poster col s4 m3 l2 no-padding box-shadow">\
-                <img src="https://image.tmdb.org/t/p/w300' + movie.poster_path + '" class="shadow"/>\
-            </a>\
-            <div class="recommended-info col s8 m9 l10 offset-s4 offset-m3 offset-l2">\
-                <h1>' + movie.title + '</h1>\
-            </div>';
-                $("#recommended").html(recommended_movie_str);
-            }else{
-                Recommendations();
+        console.log(data);
+        if(movie.backdrop_path != undefined && movie.poster_path != null)
+        {
+            var title_style = "";
+
+            if(movie.title.length > 20){
+                title_style = "font-size: 1.6em";
             }
-            $("#recommended").css("filter","brightness(100%)");
-        }).fail(function( jqXHR, textStatus, errorThrown ) {
-            console.error('La solicitud: Pelicula Recomendada, a fallado: ' +  textStatus);
-        });
-    },1000)
+
+            var recommended_movie_str = '<div class="backdrop-recommend"  style="background-image: url(https://image.tmdb.org/t/p/w500' + movie.backdrop_path + ')"></div>\
+                    <a href="/movie/' + movie.id + '" class="poster-item list recommended-poster col s4 m3 l2 no-padding box-shadow">\
+                        <img src="https://image.tmdb.org/t/p/w300' + movie.poster_path + '" class="shadow"/>\
+                    </a>\
+                    <div class="recommended-info col s8 m9 l10 offset-s4 offset-m3 offset-l2">\
+                        <h1 style="'+title_style+'">' + movie.title + '</h1>\
+                        <div class="circle-average">\
+                            <svg viewBox="0 0 36 36" class="circular-chart">\
+                                <path class="circle" stroke-dasharray="'+(movie.vote_average*10)+', 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />\
+                            </svg>\
+                            <p>'+movie.vote_average+'</p>\
+                        </div>\
+                    </div>';
+            $("#recommended").html(recommended_movie_str);
+        }else{
+            Recommendations();
+        }
+
+    }).fail(function( jqXHR, textStatus, errorThrown ) {
+        console.error('La solicitud: Pelicula Recomendada, a fallado: ' +  textStatus);
+    });
 }
 
 var _movie;
@@ -1216,6 +1226,51 @@ function MyFollowingsActivity(csrf_token, selector){
         }
     });
 }
+
+// List of Following Activity
+function MyFollowingsRecientActivity(csrf_token, selector){
+    var data = new FormData();
+    data.append('csrfmiddlewaretoken', csrf_token);
+    $.ajax({
+        url: '/myFollowingsRecientActivity/',
+        type: "POST",
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (data) {
+            $('.gif-loading').fadeOut(100);
+            $("main").addClass("main-active");
+            console.log(data);
+
+            if(data.results.length > 0) {
+                for (var i = 0; i < data.results.length; i++) {
+                    activity_i = data.results[i];
+                    var activity_str = '<div class="activity-item row">\
+                                           <a href="'+activity_i.href+'" class="poster-activity">\
+                                                <img src="'+activity_i.poster_path+'" />\
+                                            </a>\
+                                            <div class="information-activity">\
+                                                <div class="col s12 date-activity no-padding">\
+                                                    <p>'+activity_i.date+'</p>\
+                                                </div>\
+                                                <div class="col s12 description-activity no-padding">\
+                                                    <p><b class="username-activity">'+activity_i.user+'</b> '+activity_i.description+'</p>\
+                                                </div>\
+                                            </div>\
+                                        </div>';
+                    $(selector).append(activity_str);
+                }
+            }else{
+                $(selector).append("<p class='infoPeticion'>Aún no hay actividad</p>");
+            }
+
+
+        }
+    });
+}
+
 
 // Follow user
 function FollowUser(elemento, id_user, csrf_token){

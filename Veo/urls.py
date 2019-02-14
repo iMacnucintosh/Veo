@@ -111,6 +111,9 @@ urlpatterns = [
     # List of My Following Activity
     url(r'^myFollowingsActivity/$', myFollowingsActivity),
 
+    # List of My Following Recient Activity
+    url(r'^myFollowingsRecientActivity/$', myFollowingsRecientActivity),
+
     # ---------------------------------- FOLLOWES ----------------------------------------------------------------------
     # Follow User
     url(r'^followUser/$', followUser),

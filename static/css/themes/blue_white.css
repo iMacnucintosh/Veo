@@ -139,6 +139,11 @@ footer .nav-active i, footer .nav-active p {
     background: #2196f3;
 }
 
+/* ------------- HOME STYLES -------------- */
+.circle {
+    stroke: #2196f3;
+}
+
 /* ---------- MOVIE STYLES ---------------- */
 .btn-trailer {
     background-color: #2196f3;

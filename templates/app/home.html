@@ -16,11 +16,11 @@
     <li class="tab col s3"><a class="tab-btn" href="#home-shows-active">Series Activas</a></li>
 </ul>
 
-<main class="no-padding">
+<main class="main-home">
     <section id="home_portada" class="col s12 row no-margin ">
-        <article id="recommended" class="col s12 no-padding brightness-fade">
+        <article id="recommended" class="col s12 no-padding"></article>
 
-        </article>
+        <article id="recient-activity" class="col s12 no-padding"></article>
     </section>
 
     <section id="home-movies-pending" class="col s12 row no-margin"></section>
@@ -49,9 +49,11 @@
         MyActiveShows('{{ csrf_token }}', '#home-shows-active');
 
         Recommendations();
-{#        setInterval(function(){#}
-{#            Recommendations();#}
-{#        }, 5000);#}
+        setInterval(function(){
+            Recommendations();
+        }, 15000);
+
+        MyFollowingsRecientActivity('{{ csrf_token }}', '#recient-activity');
     });
 
 </script>

@@ -193,11 +193,18 @@ header .header-navBar .img-profile {
 main {
     opacity: 0;
     padding: 10px;
+    padding-bottom: 56px;
 }
 
 .main-active {
     animation: fadeIn .15s;
     opacity: 1;
+}
+
+.main-home {
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .main-info {
@@ -210,7 +217,7 @@ main {
 
 .main-tabs {
     padding-top: 58px;
-    padding-bottom: 69px;
+    padding-bottom: 56px;
 }
 
 .main-tabs-info {
@@ -218,6 +225,10 @@ main {
     padding-bottom: 69px;
 }
 
+.home-main-tabs {
+    padding-top: 48px;
+    padding-bottom: 56px;
+}
 
 /* CSS Loading */
 .gif-loading {
@@ -441,8 +452,6 @@ footer .bottom-navBar > a {
 #recommended {
     height: 235px;
     position: relative;
-    transition: 1s;
-    filter: brightness(0%);
 }
 
 #recommended .backdrop-recommend {
@@ -452,7 +461,7 @@ footer .bottom-navBar > a {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    filter: brightness(68%);
+    filter: brightness(50%);
     z-index: -1;
 }
 
@@ -464,13 +473,70 @@ footer .bottom-navBar > a {
 .recommended-info h1 {
     color: white;
     text-shadow: 0px 0px 9px black;
-    font-size: 2em;
+    font-size: 1.8em;
     text-align: right;
+    margin-top: 20px;
+    margin-bottom: 0;
+    padding-left: 10px;
+}
+
+.recommended-info p {
+    color: white;
+    text-shadow: 0px 0px 9px black;
+    text-align: justify;
+    max-height: 150px;
+    overflow: auto;
 }
 
 #home-movies-pending, #home-shows-active {
     padding: 10px;
 }
+
+.circle-average {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    right: 20px;
+    bottom: 40px;
+}
+
+.circle-average p {
+    position: absolute;
+    text-shadow: 0px 0px 9px black;
+    margin: 0;
+    top: 17px;
+    left: 0;
+    right: 16px;
+    text-align: center;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.circular-chart {
+    display: block;
+    max-width: 80%;
+    max-height: 250px;
+}
+
+.circle {
+    fill: none;
+    transform: scale(1);
+    stroke-width: 3.3px;
+    stroke-linecap: round;
+    animation: progress .5s ease-out forwards;
+}
+
+
+@keyframes progress {
+    0% {
+        stroke-dasharray: 0 100;
+    }
+}
+
+#recient-activity {
+    padding: 10px !important;
+}
+
 
 /* ------------------ MOVIES STYLES ------------------- */
 .infoPeticion {
@@ -1008,3 +1074,10 @@ footer .bottom-navBar > a {
 .recommended-poster img {
     border-radius: 6px !important;
 }
+
+@media only screen and (min-width: 435px) {
+    #recommended {
+        height: 380px;
+    }
+}
+
