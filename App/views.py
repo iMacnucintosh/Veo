@@ -17,6 +17,7 @@ def createAvatars():
         for avatar_file in os.listdir(" "):
             if len(Avatar.objects.filter(src="static/images/avatars/" + avatar_file)) == 0:
                 Avatar.objects.create(name=avatar_file.split(".")[0], src="static/images/avatars/" + avatar_file)
+                
     except:
         print("No se encuentra la ruta static/images/avatars")
 # ---------------------------------------------- APP -------------------------------------------------------------------
