@@ -14,9 +14,9 @@ from django.utils import timezone
 # --------------------------------------- GENERAL FUNCTIONS ------------------------------------------------------------
 def createAvatars():
     try:
-        for avatar_file in os.listdir("static/images/avatars/"):
-            if len(Avatar.objects.filter(src="static/images/avatars/" + avatar_file)) == 0:
-                Avatar.objects.create(name=avatar_file.split(".")[0], src="static/images/avatars/" + avatar_file)
+        for avatar_file in os.listdir("/static/images/avatars"):
+            if len(Avatar.objects.filter(src="/static/images/avatars/" + avatar_file)) == 0:
+                Avatar.objects.create(name=avatar_file.split(".")[0], src="/static/images/avatars/" + avatar_file)
 
     except:
         print("No se encuentra la ruta static/images/avatars")
