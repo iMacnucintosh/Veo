@@ -7,7 +7,7 @@ var api_key = "f368d6c9a2c7d460dacc7cfd42809665";
 // Return a list with Movies or Shows with the parameters you has specified
 function TmdbRequestFilter(selector_container, url, parameters, description_request, info_for){
     parameters["api_key"] = api_key;
-
+    console.log(parameters);
     $.ajax({
         data: parameters,
         type: "GET",
@@ -28,7 +28,24 @@ function TmdbRequestFilter(selector_container, url, parameters, description_requ
 
                 $(selector_container).append(poster_str);
             }
+
+            if(parameters["sort_by"]){
+                switch(parameters["sort_by"]){
+                    case "popularity.desc":
+                        page_request_movies_popularity += 1;
+                        break;
+                    case "vote_count.desc":
+                        page_request_movies_vote_count += 1;
+                        break;
+                }
+            }
+            if(url == "https://api.themoviedb.org/3/movie/now_playing"){
+                page_request_movies_now_playing +=1
+            }
+
+            allowRequest = true;
             resizePosters();
+
         }
     }).fail(function( jqXHR, textStatus, errorThrown ) {
         console.error('La solicitud: "' + description_request + '", a fallado: ' +  textStatus);

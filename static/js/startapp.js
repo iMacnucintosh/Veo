@@ -1,6 +1,7 @@
 /**
  * Created by mlopez on 29/01/2019.
  */
+
 $(document).ready(function(){
     $('ul.tabs').tabs({
         swipeable: false,
@@ -27,8 +28,15 @@ $(document).ready(function(){
         $(this).attr("action", "/search/" + $(this).find('input').val().replace(/ /g, "_"));
     });
 
+    allowRequest = true;
+
     // ------- SCROLL EVENT -------
     $(window).scroll(function(){
+
+        if(scrollPercent() >= 90 && allowRequest){
+            setTimeout(function(){nextPageRequest()}, 150);
+            allowRequest = false;
+        }
 
         var scrollActual = $(window).scrollTop()
 
@@ -63,6 +71,9 @@ $(document).ready(function(){
                 }
             }
         }
+
+        saveScrollTab()
+
     });
 
     // Resize del tamaño de los posters si cambiamos la orientación del smartphone
@@ -73,15 +84,57 @@ $(document).ready(function(){
     // AutoZoomIn-Out to Backdrop image
     //setInterval(zoomBackdrop, 15);
 
+    if(localStorage.getItem("active_tab") != null){
+        $('.tabs').tabs('select', localStorage.getItem("active_tab").replace("#",""));
+    }
+
     // ------------------------ CLICK EVENTS ------------------------------
 
     /* Scroll al inicio si clickamos en una tab */
     $('.tab-btn').click(function(){
-        if($(window).scrollTop() >= 80){
-            $('html, body').animate({
-                scrollTop: 80
-            },400);
+
+        var tab = $(this);
+
+        localStorage.setItem("active_tab", $(tab).attr("href"));
+
+        switch($(tab).attr("href")){
+
+            case "#movies_popularity":
+                if(scroll_movies_popularity >= 80){
+                    console.log(scroll_movies_popularity);
+                    $('html, body').animate({
+                        scrollTop: scroll_movies_popularity
+                    },0);
+                }else{
+                    $('html, body').animate({
+                        scrollTop: 0
+                    },0);
+                }
+                break;
+            case "#movies_vote_count":
+                if(scroll_movies_vote_count >= 80){
+                    $('html, body').animate({
+                        scrollTop: scroll_movies_vote_count
+                    },0);
+                }else{
+                    $('html, body').animate({
+                        scrollTop: 0
+                    },0);
+                }
+                break;
+            case "#movies_theatres":
+                if(scroll_movies_now_playing >= 80){
+                    $('html, body').animate({
+                        scrollTop: scroll_movies_now_playing
+                    },0);
+                }else{
+                    $('html, body').animate({
+                        scrollTop: 0
+                    },0);
+                }
+                break;
         }
+
     });
 
     /* Abrimos el panel de Configuración */

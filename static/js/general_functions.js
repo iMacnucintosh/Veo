@@ -150,3 +150,47 @@ function showSeasonInfo(num){
     $('#season-details-' + num).fadeIn(150);
 }
 
+function scrollPercent(){
+    var total = $('body').outerHeight();
+    var scroll = $(window).scrollTop() + window.innerHeight;
+
+    var percent = (scroll/total)*100;
+    return percent;
+}
+
+var page_request_movies_popularity = 1;
+var page_request_movies_vote_count = 1;
+var page_request_movies_now_playing = 1;
+
+function nextPageRequest(){
+    switch(localStorage.getItem("active_tab")){
+        case "#movies_popularity":
+            TmdbRequestFilter('#movies_popularity', "https://api.themoviedb.org/3/discover/movie", {"languaje":"es-ES", "sort_by":"popularity.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":page_request_movies_popularity}, "Peliculas Populares","movie");
+            break;
+        case "#movies_vote_count":
+            TmdbRequestFilter('#movies_vote_count', "https://api.themoviedb.org/3/discover/movie", {"languaje":"es-ES", "sort_by":"vote_count.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":page_request_movies_vote_count}, "Peliculas mejor Votadas","movie");
+            break;
+        case "#movies_theatres":
+            TmdbRequestFilter('#movies_theatres', "https://api.themoviedb.org/3/movie/now_playing", {"language":"es-ES", "page":page_request_movies_now_playing}, "Peliculas En Cartelera de Cines", "movie");
+            break;
+    }
+}
+
+var scroll_movies_popularity = 0;
+var scroll_movies_vote_count = 0;
+var scroll_movies_now_playing = 0;
+
+
+function saveScrollTab(){
+    switch(localStorage.getItem("active_tab")){
+        case "#movies_popularity":
+            scroll_movies_popularity = $(window).scrollTop();
+            break;
+        case "#movies_vote_count":
+            scroll_movies_vote_count = $(window).scrollTop();
+            break;
+        case "#movies_theatres":
+            scroll_movies_now_playing = $(window).scrollTop();
+            break;
+    }
+}
