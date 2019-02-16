@@ -162,6 +162,10 @@ var page_request_movies_popularity = 1;
 var page_request_movies_vote_count = 1;
 var page_request_movies_now_playing = 1;
 
+var page_request_shows_popularity = 1;
+var page_request_shows_vote_count = 1;
+var page_request_shows_now_playing = 1;
+
 function nextPageRequest(){
     switch(localStorage.getItem("active_tab")){
         case "#movies_popularity":
@@ -173,12 +177,21 @@ function nextPageRequest(){
         case "#movies_theatres":
             TmdbRequestFilter('#movies_theatres', "https://api.themoviedb.org/3/movie/now_playing", {"language":"es-ES", "page":page_request_movies_now_playing}, "Peliculas En Cartelera de Cines", "movie");
             break;
+        case "#shows_popularity":
+            TmdbRequestFilter('#shows_popularity', "https://api.themoviedb.org/3/discover/tv", {"languaje":"es-ES", "sort_by":"popularity.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":page_request_shows_popularity}, "Series Populares", "show");
+            break;
+         case "#shows_vote_count":
+            TmdbRequestFilter('#shows_vote_count', "https://api.themoviedb.org/3/discover/tv", {"languaje":"es-ES", "sort_by":"vote_count.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":page_request_shows_vote_count}, "Series mejor Votadas", "show");
+            break;
     }
 }
 
 var scroll_movies_popularity = 0;
 var scroll_movies_vote_count = 0;
 var scroll_movies_now_playing = 0;
+
+var scroll_shows_popularity = 0;
+var scroll_shows_vote_count = 0;
 
 
 function saveScrollTab(){
@@ -192,5 +205,15 @@ function saveScrollTab(){
         case "#movies_theatres":
             scroll_movies_now_playing = $(window).scrollTop();
             break;
+        case "#shows_popularity":
+            scroll_shows_popularity = $(window).scrollTop();
+            break;
+        case "#shows_vote_count":
+            scroll_shows_vote_count = $(window).scrollTop();
+            break;
+
     }
 }
+
+
+

@@ -133,7 +133,30 @@ $(document).ready(function(){
                     },0);
                 }
                 break;
+            case "#shows_popularity":
+                if(scroll_shows_popularity >= 80){
+                    $('html, body').animate({
+                        scrollTop: scroll_shows_popularity
+                    },0);
+                }else{
+                    $('html, body').animate({
+                        scrollTop: 0
+                    },0);
+                }
+                break;
+            case "#shows_vote_count":
+                if(scroll_shows_vote_count >= 80){
+                    $('html, body').animate({
+                        scrollTop: scroll_shows_vote_count
+                    },0);
+                }else{
+                    $('html, body').animate({
+                        scrollTop: 0
+                    },0);
+                }
+                break;
         }
+        allowRequest = true;
 
     });
 
