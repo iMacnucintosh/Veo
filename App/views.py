@@ -9,7 +9,7 @@ from django.shortcuts import render
 from App.models import *
 from App.forms import *
 from django.utils import timezone
-
+from datetime import timedelta
 
 # --------------------------------------- GENERAL FUNCTIONS ------------------------------------------------------------
 def createAvatars():
@@ -378,7 +378,7 @@ def setShowToSeen(request):
         for episode in show.first().getEpisodes():
             episode.states.add(State.objects.get(id=1))
         Activity.objects.create(user=request.user, operation=Operation.objects.get(id=4), show=show.first())
-    show.update(date_update=datetime.now())
+    show.update(date_update=datetime.now() + timedelta(hours=1) + timedelta(hours=1))
 
     data = {
         'result': request.POST["name"] + " añadida a vistas",
@@ -464,11 +464,11 @@ def changeEpisodeState(request): # Cambiar
         if len(Episode.objects.filter(show=Episode.objects.get(id_episode=request.POST["id_episode"]).show, user=request.user, states__in=[1])) == len(Episode.objects.filter(show=Episode.objects.get(id_episode=request.POST["id_episode"]).show, user=request.user)):
             show.first().states.add(State.objects.get(id=1))
             Activity.objects.create(user=request.user, operation=Operation.objects.get(id=4), show=show.first())
-            show.update(date_update=datetime.now())
+            show.update(date_update=datetime.now() + timedelta(hours=1) + timedelta(hours=1))
         else:
             show.first().states.remove(State.objects.get(id=1))
 
-        show.update(date_update=datetime.now())
+        show.update(date_update=datetime.now() + timedelta(hours=1) + timedelta(hours=1))
         result = "Episodio marcado como visto"
     else:
         Episode.objects.get(id_episode=request.POST["id_episode"], user=request.user).states.remove(State.objects.get(id=1))
@@ -536,7 +536,7 @@ def allActivity(request):
                             "description": description,
                             "href": "/movie/" + str(activity.movie.id_movie),
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.movie.poster_path,
-                            "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
+                            "date": (activity.date_add + timedelta(hours=1)).strftime("%d-%m-%Y %H:%M:%S")})
         if (activity.operation.id == 2):
             user_str = ""
             description = ""
@@ -551,7 +551,7 @@ def allActivity(request):
                             "description": description,
                             "href": "/movie/" + str(activity.movie.id_movie),
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.movie.poster_path,
-                            "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
+                            "date": (activity.date_add + timedelta(hours=1)).strftime("%d-%m-%Y %H:%M:%S")})
         if (activity.operation.id == 3):
             user_str = ""
             description = ""
@@ -566,7 +566,7 @@ def allActivity(request):
                             "description": description,
                             "href": "/show/" + str(activity.show.id_show),
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.show.poster_path,
-                            "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
+                            "date": (activity.date_add + timedelta(hours=1)).strftime("%d-%m-%Y %H:%M:%S")})
         if (activity.operation.id == 4):
             user_str = ""
             description = ""
@@ -581,7 +581,7 @@ def allActivity(request):
                             "description": description,
                             "href": "/show/" + str(activity.show.id_show),
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.show.poster_path,
-                            "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
+                            "date": (activity.date_add + timedelta(hours=1)).strftime("%d-%m-%Y %H:%M:%S")})
         if (activity.operation.id == 5):
             user_str = ""
             description = ""
@@ -598,7 +598,7 @@ def allActivity(request):
                             "description": description,
                             "href": "/show/" + str(activity.episode.show.id_show),
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.episode.show.poster_path,
-                            "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
+                            "date": (activity.date_add + timedelta(hours=1)).strftime("%d-%m-%Y %H:%M:%S")})
         if (activity.operation.id == 6):
             user_str = ""
             description = ""
@@ -617,7 +617,7 @@ def allActivity(request):
                             "description": description,
                             "href": "",
                             "poster_path": poster_path,
-                            "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
+                            "date": (activity.date_add + timedelta(hours=1)).strftime("%d-%m-%Y %H:%M:%S")})
 
     data = {
         'results': results
@@ -646,7 +646,7 @@ def myFollowingsActivity(request):
                             "description": description,
                             "href": "/movie/" + str(activity.movie.id_movie),
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.movie.poster_path,
-                            "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
+                            "date": (activity.date_add + timedelta(hours=1)).strftime("%d-%m-%Y %H:%M:%S")})
         if (activity.operation.id == 2):
             user_str = ""
             description = ""
@@ -661,7 +661,7 @@ def myFollowingsActivity(request):
                             "description": description,
                             "href": "/movie/" + str(activity.movie.id_movie),
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.movie.poster_path,
-                            "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
+                            "date": (activity.date_add + timedelta(hours=1)).strftime("%d-%m-%Y %H:%M:%S")})
         if (activity.operation.id == 3):
             user_str = ""
             description = ""
@@ -676,7 +676,7 @@ def myFollowingsActivity(request):
                             "description": description,
                             "href": "/show/" + str(activity.show.id_show),
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.show.poster_path,
-                            "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
+                            "date": (activity.date_add + timedelta(hours=1)).strftime("%d-%m-%Y %H:%M:%S")})
         if (activity.operation.id == 4):
             user_str = ""
             description = ""
@@ -691,7 +691,7 @@ def myFollowingsActivity(request):
                             "description": description,
                             "href": "/show/" + str(activity.show.id_show),
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.show.poster_path,
-                            "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
+                            "date": (activity.date_add + timedelta(hours=1)).strftime("%d-%m-%Y %H:%M:%S")})
         if (activity.operation.id == 5):
             user_str = ""
             description = ""
@@ -708,7 +708,7 @@ def myFollowingsActivity(request):
                             "description": description,
                             "href": "/show/" + str(activity.episode.show.id_show),
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.episode.show.poster_path,
-                            "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
+                            "date": (activity.date_add + timedelta(hours=1)).strftime("%d-%m-%Y %H:%M:%S")})
         if (activity.operation.id == 6):
             user_str = ""
             description = ""
@@ -727,7 +727,7 @@ def myFollowingsActivity(request):
                             "description": description,
                             "href": "",
                             "poster_path": poster_path,
-                            "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
+                            "date": (activity.date_add + timedelta(hours=1)).strftime("%d-%m-%Y %H:%M:%S")})
 
     data = {
         'results': results
@@ -756,7 +756,7 @@ def myFollowingsRecientActivity(request):
                             "description": description,
                             "href": "/movie/" + str(activity.movie.id_movie),
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.movie.poster_path,
-                            "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
+                            "date": (activity.date_add + timedelta(hours=1)).strftime("%d-%m-%Y %H:%M:%S")})
         if (activity.operation.id == 2):
             user_str = ""
             description = ""
@@ -771,7 +771,7 @@ def myFollowingsRecientActivity(request):
                             "description": description,
                             "href": "/movie/" + str(activity.movie.id_movie),
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.movie.poster_path,
-                            "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
+                            "date": (activity.date_add + timedelta(hours=1)).strftime("%d-%m-%Y %H:%M:%S")})
         if (activity.operation.id == 3):
             user_str = ""
             description = ""
@@ -786,7 +786,7 @@ def myFollowingsRecientActivity(request):
                             "description": description,
                             "href": "/show/" + str(activity.show.id_show),
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.show.poster_path,
-                            "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
+                            "date": (activity.date_add + timedelta(hours=1)).strftime("%d-%m-%Y %H:%M:%S")})
         if (activity.operation.id == 4):
             user_str = ""
             description = ""
@@ -801,7 +801,7 @@ def myFollowingsRecientActivity(request):
                             "description": description,
                             "href": "/show/" + str(activity.show.id_show),
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.show.poster_path,
-                            "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
+                            "date": (activity.date_add + timedelta(hours=1)).strftime("%d-%m-%Y %H:%M:%S")})
         if (activity.operation.id == 5):
             user_str = ""
             description = ""
@@ -818,7 +818,7 @@ def myFollowingsRecientActivity(request):
                             "description": description,
                             "href": "/show/" + str(activity.episode.show.id_show),
                             "poster_path": "https://image.tmdb.org/t/p/w300" + activity.episode.show.poster_path,
-                            "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
+                            "date": (activity.date_add + timedelta(hours=1)).strftime("%d-%m-%Y %H:%M:%S")})
         if (activity.operation.id == 6):
             user_str = ""
             description = ""
@@ -837,7 +837,7 @@ def myFollowingsRecientActivity(request):
                             "description": description,
                             "href": "",
                             "poster_path": poster_path,
-                            "date": activity.date_add.strftime("%m-%d-%Y %H:%M:%S")})
+                            "date": (activity.date_add + timedelta(hours=1)).strftime("%d-%m-%Y %H:%M:%S")})
 
     data = {
         'results': results
