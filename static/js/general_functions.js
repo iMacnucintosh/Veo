@@ -193,7 +193,6 @@ var scroll_movies_now_playing = 0;
 var scroll_shows_popularity = 0;
 var scroll_shows_vote_count = 0;
 
-
 function saveScrollTab(){
     switch(localStorage.getItem("active_tab")){
         case "#movies_popularity":

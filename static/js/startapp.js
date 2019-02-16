@@ -157,7 +157,6 @@ $(document).ready(function(){
                 break;
         }
         allowRequest = true;
-
     });
 
     /* Abrimos el panel de Configuración */
