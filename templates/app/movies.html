@@ -60,6 +60,11 @@
 
         // Mis Películas Vistas
         MyMoviesSeen('{{ csrf_token }}', '#movies_seen');
+
+        if(localStorage.getItem("active_tab") == null){
+            localStorage.setItem("active_tab", "#movies_popularity");
+        }
+
     });
 
 </script>

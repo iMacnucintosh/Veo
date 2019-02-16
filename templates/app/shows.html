@@ -58,6 +58,10 @@
         // Mis Series Vistas
         MyShowsSeen('{{ csrf_token }}', '#shows_seen');
 
+        if(localStorage.getItem("active_tab") == null){
+            localStorage.setItem("active_tab", "#shows_popularity");
+        }
+
     });
 
 </script>
