@@ -718,6 +718,7 @@ def myFollowingsActivity(request):
             else:
                 user_str = activity.user.username,
                 description = "ahora sigue a <b>" + activity.follower.username + "</b>",
+                
 
             poster_path = ""
             if not Profile.objects.get(user=activity.follower).avatar == None:

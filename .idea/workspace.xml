@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="07020f31-8a76-45f1-a7cb-86f3cab66ea4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Veo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Veo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/App/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="729" column="83" selection-start-line="729" selection-start-column="36" selection-end-line="729" selection-end-column="83" />
+            <state relative-caret-position="196">
+              <caret line="720" column="16" selection-start-line="720" selection-start-column="16" selection-end-line="720" selection-end-column="16" />
               <folding>
                 <element signature="e#24#34#0" expanded="true" />
               </folding>
@@ -68,7 +64,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>#f44336</find>
       <find>2196f3</find>
       <find>3e3e3e</find>
       <find>theme</find>
@@ -98,6 +93,7 @@
       <find>datetime.now</find>
       <find>datetime.now()</find>
       <find>añadida a v</find>
+      <find>activity.date_add.strftime(&quot;%d-%m-%Y %H:%M:%S&quot;)</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -115,6 +111,7 @@
       <replace>4CAF50</replace>
       <replace>datetime.now() + timedelta(hours=1)</replace>
       <replace>%d-%m-%Y %H:%M:%S</replace>
+      <replace>(activity.date_add + timedelta(hours=1)).strftime(&quot;%d-%m-%Y %H:%M:%S&quot;)</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -695,8 +692,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/App/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="729" column="83" selection-start-line="729" selection-start-column="36" selection-end-line="729" selection-end-column="83" />
+        <state relative-caret-position="196">
+          <caret line="720" column="16" selection-start-line="720" selection-start-column="16" selection-end-line="720" selection-end-column="16" />
           <folding>
             <element signature="e#24#34#0" expanded="true" />
           </folding>
