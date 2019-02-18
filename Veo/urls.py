@@ -128,7 +128,4 @@ urlpatterns = [
     # Search by query
     url(r'^search/(?P<query>\w+)/$', search),
 
-
-    url(r'^updateDate/$', updateDate),
-
 ]

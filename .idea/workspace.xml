@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="07020f31-8a76-45f1-a7cb-86f3cab66ea4" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/App/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Veo/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Veo/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Veo/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Veo/urls.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="564" column="45" lean-forward="true" selection-start-line="564" selection-start-column="45" selection-end-line="564" selection-end-column="45" />
+            <state relative-caret-position="873">
+              <caret line="882" lean-forward="true" selection-start-line="882" selection-end-line="882" />
               <folding>
                 <element signature="e#24#34#0" expanded="true" />
               </folding>
@@ -27,11 +29,20 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Veo/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="565">
+              <caret line="108" lean-forward="true" selection-start-line="108" selection-end-line="108" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Veo/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="895">
-              <caret line="131" column="36" selection-start-line="131" selection-start-column="36" selection-end-line="131" selection-end-column="36" />
+            <state relative-caret-position="850">
+              <caret line="128" column="45" selection-start-line="128" selection-start-column="45" selection-end-line="128" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -122,7 +133,6 @@
         <option value="$PROJECT_DIR$/templates/includes/body_end.html" />
         <option value="$PROJECT_DIR$/templates/includes/header_navbar.html" />
         <option value="$PROJECT_DIR$/templates/app/search.html" />
-        <option value="$PROJECT_DIR$/Veo/settings.py" />
         <option value="$PROJECT_DIR$/static/css/themes/orange_black.css" />
         <option value="$PROJECT_DIR$/static/css/themes/orange_dark.css" />
         <option value="$PROJECT_DIR$/static/css/themes/orange_white.css" />
@@ -146,8 +156,9 @@
         <option value="$PROJECT_DIR$/static/js/general_functions.js" />
         <option value="$PROJECT_DIR$/templates/app/shows.html" />
         <option value="$PROJECT_DIR$/templates/app/movies.html" />
-        <option value="$PROJECT_DIR$/Veo/urls.py" />
         <option value="$PROJECT_DIR$/App/views.py" />
+        <option value="$PROJECT_DIR$/Veo/urls.py" />
+        <option value="$PROJECT_DIR$/Veo/settings.py" />
       </list>
     </option>
   </component>
@@ -545,13 +556,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Veo/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="109" column="19" selection-start-line="109" selection-start-column="19" selection-end-line="109" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/css/themes/orange_dark.css" />
     <entry file="file://$PROJECT_DIR$/static/css/themes/orange_black.css" />
     <entry file="file://$PROJECT_DIR$/static/css/themes/red_white.css" />
@@ -691,18 +695,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Veo/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="895">
-          <caret line="131" column="36" selection-start-line="131" selection-start-column="36" selection-end-line="131" selection-end-column="36" />
+        <state relative-caret-position="850">
+          <caret line="128" column="45" selection-start-line="128" selection-start-column="45" selection-end-line="128" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="564" column="45" lean-forward="true" selection-start-line="564" selection-start-column="45" selection-end-line="564" selection-end-column="45" />
+        <state relative-caret-position="873">
+          <caret line="882" lean-forward="true" selection-start-line="882" selection-end-line="882" />
           <folding>
             <element signature="e#24#34#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Veo/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="565">
+          <caret line="108" lean-forward="true" selection-start-line="108" selection-end-line="108" />
         </state>
       </provider>
     </entry>
