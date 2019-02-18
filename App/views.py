@@ -883,7 +883,6 @@ def search(request, query=None):
 
 
 def updateDate(request):
-
     for activity in Activity.objects.all():
         date_activity = activity.date_add + timedelta(hours=1)
         Activity.objects.filter(id=activity.id).update(date_add=date_activity)
