@@ -40,6 +40,9 @@ urlpatterns = [
     # Change Theme
     url(r'^changeTheme/(?P<theme>\d+)/$', changeTheme),
 
+    # Change Celular Data Savings
+    url(r'^changeCelularSavings/$', changeCelularSavings),
+
     # Movie
     url(r'^movie/(?P<id>\d+)/$', movie),
 

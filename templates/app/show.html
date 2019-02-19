@@ -89,6 +89,8 @@
     $(document).ready(function(){
         $('#nav-shows').addClass("nav-active");
 
+        {% if profile.celularDataSavings == True %} localStorage.setItem("width_poster", "200"); {% else %} localStorage.setItem("width_poster", "400"); {% endif %}
+
         // Información de la Serie
         InformationShow({{id}}, {"language":"es-ES"}, {% if profile.colorGenres == True %}true{% else %}false{% endif %}, '{{ csrf_token }}');
     });

@@ -38,26 +38,6 @@ function zoomBackdrop(){
     }
 }
 
-function changeColorGenres(toogle, csrf_token) {
-
-    var status = $(toogle).is(':checked');
-
-    var data = new FormData();
-    data.append('status', status);
-    data.append('csrfmiddlewaretoken', csrf_token);
-    $.ajax({
-        url: '/changeGenreColors/',
-        type: "POST",
-        mimeType: "multipart/form-data",
-        dataType: 'json',
-        processData: false,
-        contentType: false,
-        data: data,
-        success: function (response) {
-            //console.log(response);
-        }
-    });
-}
 
 function getGenreColor(id){
     var code = "";
@@ -169,19 +149,19 @@ var page_request_shows_now_playing = 1;
 function nextPageRequest(){
     switch(localStorage.getItem("active_tab")){
         case "#movies_popularity":
-            TmdbRequestFilter('#movies_popularity', "https://api.themoviedb.org/3/discover/movie", {"languaje":"es-ES", "sort_by":"popularity.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":page_request_movies_popularity}, "Peliculas Populares","movie");
+            TmdbRequestFilter('#movies_popularity', "https://api.themoviedb.org/3/discover/movie", {"languaje":"es-ES", "sort_by":"popularity.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":page_request_movies_popularity}, "Peliculas Populares","movie", localStorage.getItem("width_poster"));
             break;
         case "#movies_vote_count":
-            TmdbRequestFilter('#movies_vote_count', "https://api.themoviedb.org/3/discover/movie", {"languaje":"es-ES", "sort_by":"vote_count.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":page_request_movies_vote_count}, "Peliculas mejor Votadas","movie");
+            TmdbRequestFilter('#movies_vote_count', "https://api.themoviedb.org/3/discover/movie", {"languaje":"es-ES", "sort_by":"vote_count.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":page_request_movies_vote_count}, "Peliculas mejor Votadas","movie", localStorage.getItem("width_poster"));
             break;
         case "#movies_theatres":
-            TmdbRequestFilter('#movies_theatres', "https://api.themoviedb.org/3/movie/now_playing", {"language":"es-ES", "page":page_request_movies_now_playing}, "Peliculas En Cartelera de Cines", "movie");
+            TmdbRequestFilter('#movies_theatres', "https://api.themoviedb.org/3/movie/now_playing", {"language":"es-ES", "page":page_request_movies_now_playing}, "Peliculas En Cartelera de Cines", "movie", localStorage.getItem("width_poster"));
             break;
         case "#shows_popularity":
-            TmdbRequestFilter('#shows_popularity', "https://api.themoviedb.org/3/discover/tv", {"languaje":"es-ES", "sort_by":"popularity.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":page_request_shows_popularity}, "Series Populares", "show");
+            TmdbRequestFilter('#shows_popularity', "https://api.themoviedb.org/3/discover/tv", {"languaje":"es-ES", "sort_by":"popularity.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":page_request_shows_popularity}, "Series Populares", "show", localStorage.getItem("width_poster"));
             break;
          case "#shows_vote_count":
-            TmdbRequestFilter('#shows_vote_count', "https://api.themoviedb.org/3/discover/tv", {"languaje":"es-ES", "sort_by":"vote_count.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":page_request_shows_vote_count}, "Series mejor Votadas", "show");
+            TmdbRequestFilter('#shows_vote_count', "https://api.themoviedb.org/3/discover/tv", {"languaje":"es-ES", "sort_by":"vote_count.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":page_request_shows_vote_count}, "Series mejor Votadas", "show", localStorage.getItem("width_poster"));
             break;
     }
 }

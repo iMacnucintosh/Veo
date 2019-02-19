@@ -93,6 +93,34 @@
             </div>
 
         </div>
+
+        <div class="row">
+            <h3 class="title-section col s12">Ahorro de Datos  <a class="waves-effect waves-light modal-trigger" href="#celularSavingsModal"><i class="material-icons">info</i></a></h3>
+            <div class="col s12">
+                <div class="switch">
+                    <label>
+                        No
+                        <input {% if profile.celularDataSavings == True %} checked {% endif %} type="checkbox" id="swtCelularSavings" onchange="changeCelularDataSavings(this, '{{ csrf_token }}')">
+                        <span class="lever"></span>
+                        Si
+                    </label>
+                </div>
+
+            </div>
+
+            <!-- Modal Structure -->
+            <div id="celularSavingsModal" class="modal">
+                <div class="modal-content">
+                    <h4>Ahorro de Datos</h4>
+                    <p>Activalo para disminuir la calidad de las imágenes y así ahorrar datos.</p>
+                </div>
+                <div class="modal-footer">
+                    <a class="modal-close waves-effect waves-green btn-flat">Aceptar</a>
+                </div>
+            </div>
+
+        </div>
+
     </article>
 </section>
 

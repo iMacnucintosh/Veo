@@ -5,7 +5,7 @@
 var api_key = "f368d6c9a2c7d460dacc7cfd42809665";
 
 // Return a list with Movies or Shows with the parameters you has specified
-function TmdbRequestFilter(selector_container, url, parameters, description_request, info_for){
+function TmdbRequestFilter(selector_container, url, parameters, description_request, info_for, width_poster){
     parameters["api_key"] = api_key;
     console.log(parameters);
     $.ajax({
@@ -22,7 +22,7 @@ function TmdbRequestFilter(selector_container, url, parameters, description_requ
 
                 var poster_str = "\
                 <a href='/"+info_for+"/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
-                    <img src='https://image.tmdb.org/t/p/w300" + poster_i.poster_path + "' />\
+                    <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
                  </a>\
                 ";
 
@@ -53,7 +53,7 @@ function TmdbRequestFilter(selector_container, url, parameters, description_requ
 }
 
 // Return a specific number of random movies from your list
-function Recommendations() {
+function Recommendations(width_poster) {
     $.ajax({
         data: {
             "api_key":api_key,
@@ -78,7 +78,7 @@ function Recommendations() {
 
             var recommended_movie_str = '<div class="backdrop-recommend"  style="background-image: url(https://image.tmdb.org/t/p/w500' + movie.backdrop_path + ')"></div>\
                     <a href="/movie/' + movie.id + '" class="poster-item list recommended-poster col s4 m3 l2 no-padding box-shadow">\
-                        <img src="https://image.tmdb.org/t/p/w300' + movie.poster_path + '" class="shadow"/>\
+                        <img src="https://image.tmdb.org/t/p/w' + width_poster + movie.poster_path + '" class="shadow"/>\
                     </a>\
                     <div class="recommended-info col s8 m9 l10 offset-s4 offset-m3 offset-l2">\
                         <h1 style="'+title_style+'">' + movie.title + '</h1>\
@@ -101,7 +101,7 @@ function Recommendations() {
 
 var _movie;
 // Get all information from Movie
-function InformationMovie(id, parameters, colorGenres, csrf_token) {
+function InformationMovie(id, parameters, colorGenres, csrf_token, width_poster) {
 
     parameters["api_key"] = api_key;
 
@@ -130,7 +130,7 @@ function InformationMovie(id, parameters, colorGenres, csrf_token) {
         localStorage.setItem("movie_poster_path", movie.poster_path);
         localStorage.setItem("movie_title", movie.title);
 
-        $('#poster-img').attr("src", "https://image.tmdb.org/t/p/w300" + movie.poster_path);
+        $('#poster-img').attr("src", "https://image.tmdb.org/t/p/w" + width_poster + movie.poster_path);
         $('#sinopsis').text(movie.overview);
         $('#title').addClass('fadeIn');
 
@@ -164,7 +164,7 @@ function InformationMovie(id, parameters, colorGenres, csrf_token) {
                         {
                             parts_str += "\
                                 <a href='/movie/" + part.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
-                                    <img src='https://image.tmdb.org/t/p/w300" + part.poster_path + "' />\
+                                    <img src='https://image.tmdb.org/t/p/w" + width_poster + part.poster_path + "' />\
                                 </a>\
                             ";
                         }
@@ -287,7 +287,7 @@ function InformationMovie(id, parameters, colorGenres, csrf_token) {
 
                 var poster_str = "\
                 <a href='/movie/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
-                    <img src='https://image.tmdb.org/t/p/w300" + poster_i.poster_path + "' />\
+                    <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
                  </a>\
                 ";
 
@@ -316,7 +316,7 @@ function InformationMovie(id, parameters, colorGenres, csrf_token) {
 
                 var poster_str = "\
                 <a href='/show/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
-                    <img src='https://image.tmdb.org/t/p/w300" + poster_i.poster_path + "' />\
+                    <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
                  </a>\
                 ";
 
@@ -360,7 +360,7 @@ function InformationMovie(id, parameters, colorGenres, csrf_token) {
 
 var _show;
 // Get all information from Show
-function InformationShow(id, parameters, colorGenres, csrf_token) {
+function InformationShow(id, parameters, colorGenres, csrf_token, width_poster) {
 
     parameters["api_key"] = api_key;
 
@@ -385,7 +385,7 @@ function InformationShow(id, parameters, colorGenres, csrf_token) {
         $('#title').text(show.name);
 
         $('#backdrop-image').attr("style", "background-image: url(https://image.tmdb.org/t/p/w500" + show.backdrop_path) + ")";
-        $('#poster-img').attr("src", "https://image.tmdb.org/t/p/w300" + show.poster_path);
+        $('#poster-img').attr("src", "https://image.tmdb.org/t/p/w" + width_poster + show.poster_path);
         $('#sinopsis').text(show.overview);
         $('#title').addClass('fadeIn');
 
@@ -416,11 +416,11 @@ function InformationShow(id, parameters, colorGenres, csrf_token) {
             var season = show.seasons[i];
             if(season.poster_path != null) {
                 seasons_str += '<div class="season-poster poster-item list col s4 m3 l2 no-padding" onclick="showSeasonInfo(' + i + ')">\
-                    <img src="https://image.tmdb.org/t/p/w300/' + season.poster_path + '">\
+                    <img src="https://image.tmdb.org/t/p/w/' + width_poster + season.poster_path + '">\
                     </div>';
 
                 // Information for each season
-                InformationSeason(id, i, parameters, csrf_token);
+                InformationSeason(id, i, parameters, csrf_token, width_poster);
             }
 
         }
@@ -522,7 +522,7 @@ function InformationShow(id, parameters, colorGenres, csrf_token) {
 
                 var poster_str = "\
                 <a href='/show/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
-                    <img src='https://image.tmdb.org/t/p/w300" + poster_i.poster_path + "' />\
+                    <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
                  </a>\
                 ";
 
@@ -551,7 +551,7 @@ function InformationShow(id, parameters, colorGenres, csrf_token) {
 
                 var poster_str = "\
                 <a href='/show/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
-                    <img src='https://image.tmdb.org/t/p/w300" + poster_i.poster_path + "' />\
+                    <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
                  </a>\
                 ";
 
@@ -594,7 +594,7 @@ function InformationShow(id, parameters, colorGenres, csrf_token) {
 }
 
 var _seasons = [];
-function InformationSeason(id_show, num_season, parameters, csrf_token){
+function InformationSeason(id_show, num_season, parameters, csrf_token, width_poster){
     parameters["api_key"] = api_key;
 
     // Basic Information
@@ -628,7 +628,7 @@ function InformationSeason(id_show, num_season, parameters, csrf_token){
                 <i class="material-icons">close</i>\
             </div>\
             <div class="col s4 m2 no-padding">\
-                <img class="season-poster shadow" src="https://image.tmdb.org/t/p/w300/' + season_info.poster_path + '">\
+                <img class="season-poster shadow" src="https://image.tmdb.org/t/p/w/' + width_poster + season_info.poster_path + '">\
                 <h3 class="date-season">' + season_date_format + '</h3>\
                 <p class="num-episodes-season" id="num-episodes-season-'+num_season+'">' + season_info.episodes.length + ' Episodios</p>\
             </div>\
@@ -803,7 +803,7 @@ function setMovieToNotSeen(elemento, csrf_token){
     });
 }
 
-function MyMoviesToSee(csrf_token, selector){
+function MyMoviesToSee(csrf_token, selector, width_poster){
     var data = new FormData();
     data.append('csrfmiddlewaretoken', csrf_token);
     $.ajax({
@@ -823,7 +823,7 @@ function MyMoviesToSee(csrf_token, selector){
 
                     var poster_str = "\
                 <a href='/movie/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
-                    <img src='https://image.tmdb.org/t/p/w300" + poster_i.poster_path + "' />\
+                    <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
                  </a>\
                 ";
                     $(selector).append(poster_str);
@@ -837,7 +837,7 @@ function MyMoviesToSee(csrf_token, selector){
     });
 }
 
-function MyMoviesSeen(csrf_token, selector){
+function MyMoviesSeen(csrf_token, selector, width_poster){
     var data = new FormData();
     data.append('csrfmiddlewaretoken', csrf_token);
     $.ajax({
@@ -857,7 +857,7 @@ function MyMoviesSeen(csrf_token, selector){
 
                     var poster_str = "\
                 <a href='/movie/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
-                    <img src='https://image.tmdb.org/t/p/w300" + poster_i.poster_path + "' />\
+                    <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
                  </a>\
                 ";
                     $(selector).append(poster_str);
@@ -969,7 +969,7 @@ function setShowToNotSeen(elemento, csrf_token){
 }
 
 // List of Active Shows
-function MyActiveShows(csrf_token, selector){
+function MyActiveShows(csrf_token, selector, width_poster){
     var data = new FormData();
     data.append('csrfmiddlewaretoken', csrf_token);
     $.ajax({
@@ -988,7 +988,7 @@ function MyActiveShows(csrf_token, selector){
                     poster_i = data.results[i];
                     var poster_str = "\
                         <a href='/show/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
-                            <img src='https://image.tmdb.org/t/p/w300" + poster_i.poster_path + "' />\
+                            <img src='https://image.tmdb.org/t/p/w"+ width_poster + poster_i.poster_path + "' />\
                          </a>\
                         ";
                     $(selector).append(poster_str);
@@ -1003,7 +1003,7 @@ function MyActiveShows(csrf_token, selector){
 }
 
 // List of Forgotten
-function MyForgottenShows(csrf_token, selector){
+function MyForgottenShows(csrf_token, selector, width_poster){
     var data = new FormData();
     data.append('csrfmiddlewaretoken', csrf_token);
     $.ajax({
@@ -1022,7 +1022,7 @@ function MyForgottenShows(csrf_token, selector){
                     poster_i = data.results[i];
                     var poster_str = "\
                         <a href='/show/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
-                            <img src='https://image.tmdb.org/t/p/w300" + poster_i.poster_path + "' />\
+                            <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
                          </a>\
                         ";
                     $(selector).append(poster_str);
@@ -1124,7 +1124,7 @@ function changeStateEpisode(elemento, id_show, num_season, id_episode, csrf_toke
 }
 
 // List of Seen Shows
-function MyShowsSeen(csrf_token, selector){
+function MyShowsSeen(csrf_token, selector, width_poster){
     var data = new FormData();
     data.append('csrfmiddlewaretoken', csrf_token);
     $.ajax({
@@ -1143,7 +1143,7 @@ function MyShowsSeen(csrf_token, selector){
                     poster_i = data.results[i];
                     var poster_str = "\
                         <a href='/show/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
-                            <img src='https://image.tmdb.org/t/p/w300" + poster_i.poster_path + "' />\
+                            <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
                          </a>\
                         ";
                     $(selector).append(poster_str);
@@ -1331,6 +1331,27 @@ function UnFollowUser(elemento, id_user, csrf_token){
     });
 }
 
+function changeColorGenres(toogle, csrf_token) {
+
+    var status = $(toogle).is(':checked');
+
+    var data = new FormData();
+    data.append('status', status);
+    data.append('csrfmiddlewaretoken', csrf_token);
+    $.ajax({
+        url: '/changeGenreColors/',
+        type: "POST",
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (response) {
+            //console.log(response);
+        }
+    });
+}
+
 // Change Avatar of user
 function changeAvatar(elemento, id_avatar, csrf_token){
     var data = new FormData();
@@ -1350,9 +1371,31 @@ function changeAvatar(elemento, id_avatar, csrf_token){
     });
 }
 
+// Change Avatar of user
+function changeCelularDataSavings(toogle, csrf_token){
+
+    var status = $(toogle).is(':checked');
+
+    var data = new FormData();
+    data.append('status', status);
+    data.append('csrfmiddlewaretoken', csrf_token);
+    $.ajax({
+        url: '/changeCelularSavings/',
+        type: "POST",
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (response) {
+            location.reload();
+        }
+    });
+}
+
 // Search Movies, Shows or Actors
 // Return a list with Movies or Shows with the parameters you has specified
-function Search(query){
+function Search(query, width_poster){
     $.ajax({
         type: "GET",
         dataType: "json",
@@ -1375,7 +1418,7 @@ function Search(query){
 
                     var poster_str = "\
                     <a href='https://www.google.es/search?q="+name+"' target='_blank' class='person-item'>\
-                        <div class='img' style='background-image: url(https://image.tmdb.org/t/p/w300" + poster_i.profile_path + ")'></div>\
+                        <div class='img' style='background-image: url(https://image.tmdb.org/t/p/" + width_poster + poster_i.profile_path + ")'></div>\
                         <p>" + poster_i.name + "</p>\
                     </a>\
                     ";
@@ -1401,7 +1444,7 @@ function Search(query){
 
                     var poster_str = "\
                     <a href='/" + info_for + "/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
-                        <img src='https://image.tmdb.org/t/p/w300" + poster_i.poster_path + "' />\
+                        <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
                      </a>\
                     ";
 

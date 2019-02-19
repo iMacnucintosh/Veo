@@ -40,17 +40,19 @@
         $('#title').text("Hola {{ user.first_name }}");
         $('#nav-home').addClass("nav-active");
 
+        {% if profile.celularDataSavings == True %} localStorage.setItem("width_poster", "200"); {% else %} localStorage.setItem("width_poster", "400"); {% endif %}
+
         /* ---------------------------------- PERSONAL DATABASE ----------------------------------------------------- */
 
         // Mis Películas por ver
-        MyMoviesToSee('{{ csrf_token }}', '#home-movies-pending');
+        MyMoviesToSee('{{ csrf_token }}', '#home-movies-pending', {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
 
         // Mis Series activas
-        MyActiveShows('{{ csrf_token }}', '#home-shows-active');
+        MyActiveShows('{{ csrf_token }}', '#home-shows-active', {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
 
-        Recommendations();
+        Recommendations({% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
         setInterval(function(){
-            Recommendations();
+            Recommendations({% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
         }, 15000);
 
         MyFollowingsRecientActivity('{{ csrf_token }}', '#recient-activity');

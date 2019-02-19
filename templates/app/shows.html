@@ -40,23 +40,25 @@
         $('#title').text("Series");
         $('#nav-shows').addClass("nav-active");
 
+        {% if profile.celularDataSavings == True %} localStorage.setItem("width_poster", "200"); {% else %} localStorage.setItem("width_poster", "400"); {% endif %}
+
         /* --------------------------------- THE MOVIE DATABASE ----------------------------------------------------- */
         // Más Populares
-        TmdbRequestFilter('#shows_popularity', "https://api.themoviedb.org/3/discover/tv", {"languaje":"es-ES", "sort_by":"popularity.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":page_request_shows_popularity}, "Series Populares", "show");
+        TmdbRequestFilter('#shows_popularity', "https://api.themoviedb.org/3/discover/tv", {"languaje":"es-ES", "sort_by":"popularity.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":page_request_shows_popularity}, "Series Populares", "show", {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
 
         // Más Votadas
-        TmdbRequestFilter('#shows_vote_count', "https://api.themoviedb.org/3/discover/tv", {"languaje":"es-ES", "sort_by":"vote_count.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":page_request_shows_vote_count}, "Series mejor Votadas", "show");
+        TmdbRequestFilter('#shows_vote_count', "https://api.themoviedb.org/3/discover/tv", {"languaje":"es-ES", "sort_by":"vote_count.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":page_request_shows_vote_count}, "Series mejor Votadas", "show", {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
 
         /* ---------------------------------- PERSONAL DATABASE ----------------------------------------------------- */
 
         // Mis Series activas
-        MyActiveShows('{{ csrf_token }}', '#shows_seeing');
+        MyActiveShows('{{ csrf_token }}', '#shows_seeing', {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
 
         // Mis Series Olvidadas
-        MyForgottenShows('{{ csrf_token }}', '#shows_forgotten');
+        MyForgottenShows('{{ csrf_token }}', '#shows_forgotten', {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
 
         // Mis Series Vistas
-        MyShowsSeen('{{ csrf_token }}', '#shows_seen');
+        MyShowsSeen('{{ csrf_token }}', '#shows_seen', {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
 
         if(localStorage.getItem("active_tab") == null){
             localStorage.setItem("active_tab", "#shows_popularity");

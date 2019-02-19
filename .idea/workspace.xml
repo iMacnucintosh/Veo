@@ -2,9 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="07020f31-8a76-45f1-a7cb-86f3cab66ea4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Veo/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Veo/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/startapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/startapp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/general_functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/general_functions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/request_functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/request_functions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/app/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/app/movie.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/movie.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/app/movies.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/movies.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/app/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/app/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/show.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/app/shows.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/shows.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/includes/bottom_navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/bottom_navbar.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,19 +28,48 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/request_functions.js">
+        <entry file="file://$PROJECT_DIR$/App/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-12509">
-              <caret line="136" column="29" selection-start-line="136" selection-start-column="29" selection-end-line="136" selection-end-column="29" />
+            <state relative-caret-position="725">
+              <caret line="892" column="4" selection-start-line="892" selection-start-column="4" selection-end-line="892" selection-end-column="4" />
+              <folding>
+                <element signature="e#24#34#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/static/js/startapp.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/app/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="741">
-              <caret line="151" column="25" selection-start-line="151" selection-start-column="25" selection-end-line="151" selection-end-column="25" />
+            <state relative-caret-position="588">
+              <caret line="42" column="8" lean-forward="true" selection-start-line="42" selection-start-column="8" selection-end-line="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/js/request_functions.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-8838">
+              <caret line="261" column="76" selection-start-line="261" selection-start-column="65" selection-end-line="261" selection-end-column="76" />
+              <folding>
+                <element signature="e#0#54243#0" />
+                <element signature="e#0#54243#0" />
+                <element signature="e#0#54243#0" />
+                <element signature="e#0#54243#0" />
+                <element signature="e#0#54243#0" />
+                <element signature="e#0#54243#0" />
+                <element signature="e#0#54243#0" />
+                <element signature="e#0#54243#0" />
+                <element signature="e#0#54243#0" />
+                <element signature="e#0#54243#0" />
+                <element signature="e#0#54243#0" />
+                <element signature="e#0#54243#0" />
+                <element signature="e#0#54243#0" />
+                <element signature="e#0#54243#0" />
+                <element signature="e#0#54243#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -38,13 +77,62 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/general_functions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1605">
-              <caret line="168" column="26" selection-start-line="168" selection-start-column="26" selection-end-line="168" selection-end-column="26" />
-              <folding>
-                <element signature="e#0#6817#0" />
-                <element signature="e#0#6817#0" />
-                <element signature="e#0#6817#0" />
-              </folding>
+            <state relative-caret-position="280">
+              <caret line="157" column="242" selection-start-line="157" selection-start-column="242" selection-end-line="157" selection-end-column="242" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/app/shows.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="469">
+              <caret line="42" column="164" selection-start-line="42" selection-start-column="164" selection-end-line="42" selection-end-column="164" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/app/social.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="933">
+              <caret line="80" column="7" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/app/movie.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="798">
+              <caret line="91" column="164" selection-start-line="91" selection-start-column="164" selection-end-line="91" selection-end-column="164" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/app/movies.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="460">
+              <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/app/search.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="600">
+              <caret line="40" column="164" selection-start-line="40" selection-start-column="164" selection-end-line="40" selection-end-column="164" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/app/show.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="805">
+              <caret line="91" column="164" selection-start-line="91" selection-start-column="164" selection-end-line="91" selection-end-column="164" />
             </state>
           </provider>
         </entry>
@@ -62,36 +150,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>recommen</find>
-      <find>68</find>
-      <find>circle</find>
-      <find>recommended-po</find>
-      <find>recommended</find>
-      <find>M</find>
-      <find>My F</find>
-      <find>My</find>
-      <find>MyF</find>
-      <find>MyFo</find>
-      <find>MyFol</find>
-      <find>MyFollow</find>
-      <find>home</find>
-      <find>main</find>
-      <find>*</find>
-      <find>* {</find>
-      <find>settings</find>
-      <find>h</find>
-      <find>datetime.now</find>
-      <find>datetime.now()</find>
-      <find>añadida a v</find>
-      <find>activity.date_add.strftime(&quot;%d-%m-%Y %H:%M:%S&quot;)</find>
-      <find>allow</find>
       <find>page_request</find>
       <find>pageRequest</find>
       <find>localStorage.setItem(&quot;active</find>
       <find>timedelta</find>
       <find>(activity.date_add + timedelta(hours=1))</find>
       <find>active_tab</find>
+      <find>&quot;poster_path&quot;: &quot;https://image.tmdb.org/t/p/w300&quot;</find>
       <find>next</find>
+      <find>https://image.tmdb.org/t/p/w300</find>
+      <find>genres</find>
+      <find>change</find>
+      <find>theme</find>
+      <find>changeGenreColors</find>
+      <find>Colors</find>
+      <find>MyMovies</find>
+      <find>MyActiveShows</find>
+      <find>Recommendations</find>
+      <find>My</find>
+      <find>MyMoviesSeen</find>
+      <find>Search</find>
+      <find>MyForgottenShows</find>
+      <find>MyShowsSeen</find>
+      <find>MyMoviesToSee</find>
+      <find>InformationSeason</find>
+      <find>w300</find>
+      <find>actor.</find>
+      <find>actor.profi</find>
+      <find>{% else %} 300 {% endif %}</find>
+      <find>nextPageRequest</find>
+      <find>if status == &quot;true&quot;:</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -111,6 +199,8 @@
       <replace>%d-%m-%Y %H:%M:%S</replace>
       <replace>(activity.date_add + timedelta(hours=1)).strftime(&quot;%d-%m-%Y %H:%M:%S&quot;)</replace>
       <replace>activity.date_add</replace>
+      <replace>{% else %} 400 {% endif %}</replace>
+      <replace>&quot;poster_path&quot;: &quot;https://image.tmdb.org/t/p/200&quot;</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -123,8 +213,6 @@
         <option value="$PROJECT_DIR$/static/js/jquery.stayInWebApp.js" />
         <option value="$PROJECT_DIR$/static/js/movie_request.js" />
         <option value="$PROJECT_DIR$/templates/app/login.html" />
-        <option value="$PROJECT_DIR$/templates/app/show.html" />
-        <option value="$PROJECT_DIR$/templates/app/movie.html" />
         <option value="$PROJECT_DIR$/App/forms.py" />
         <option value="$PROJECT_DIR$/templates/app/signin.html" />
         <option value="$PROJECT_DIR$/App/admin.py" />
@@ -134,7 +222,6 @@
         <option value="$PROJECT_DIR$/static/js/home_request.js" />
         <option value="$PROJECT_DIR$/templates/includes/body_end.html" />
         <option value="$PROJECT_DIR$/templates/includes/header_navbar.html" />
-        <option value="$PROJECT_DIR$/templates/app/search.html" />
         <option value="$PROJECT_DIR$/static/css/themes/orange_black.css" />
         <option value="$PROJECT_DIR$/static/css/themes/orange_dark.css" />
         <option value="$PROJECT_DIR$/static/css/themes/orange_white.css" />
@@ -144,23 +231,26 @@
         <option value="$PROJECT_DIR$/static/css/themes/green_white.css" />
         <option value="$PROJECT_DIR$/static/css/themes/green_dark.css" />
         <option value="$PROJECT_DIR$/static/css/themes/green_black.css" />
-        <option value="$PROJECT_DIR$/templates/includes/bottom_navbar.html" />
-        <option value="$PROJECT_DIR$/App/models.py" />
         <option value="$PROJECT_DIR$/templates/includes/head.html" />
         <option value="$PROJECT_DIR$/static/css/themes/blue_white.css" />
         <option value="$PROJECT_DIR$/static/css/themes/blue_dark.css" />
         <option value="$PROJECT_DIR$/static/css/themes/blue_black.css" />
-        <option value="$PROJECT_DIR$/templates/app/home.html" />
         <option value="$PROJECT_DIR$/static/css/general_styles.css" />
         <option value="$PROJECT_DIR$/static/css/styles.css" />
+        <option value="$PROJECT_DIR$/Veo/settings.py" />
+        <option value="$PROJECT_DIR$/static/js/startapp.js" />
+        <option value="$PROJECT_DIR$/App/models.py" />
+        <option value="$PROJECT_DIR$/Veo/urls.py" />
+        <option value="$PROJECT_DIR$/App/views.py" />
+        <option value="$PROJECT_DIR$/templates/includes/bottom_navbar.html" />
         <option value="$PROJECT_DIR$/static/js/request_functions.js" />
         <option value="$PROJECT_DIR$/static/js/general_functions.js" />
-        <option value="$PROJECT_DIR$/templates/app/shows.html" />
+        <option value="$PROJECT_DIR$/templates/app/home.html" />
+        <option value="$PROJECT_DIR$/templates/app/movie.html" />
         <option value="$PROJECT_DIR$/templates/app/movies.html" />
-        <option value="$PROJECT_DIR$/Veo/urls.py" />
-        <option value="$PROJECT_DIR$/Veo/settings.py" />
-        <option value="$PROJECT_DIR$/App/views.py" />
-        <option value="$PROJECT_DIR$/static/js/startapp.js" />
+        <option value="$PROJECT_DIR$/templates/app/search.html" />
+        <option value="$PROJECT_DIR$/templates/app/show.html" />
+        <option value="$PROJECT_DIR$/templates/app/shows.html" />
       </list>
     </option>
   </component>
@@ -212,6 +302,12 @@
               <item name="Veo" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Veo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Veo" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="includes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Veo" type="b2602c69:ProjectViewProjectNode" />
@@ -504,32 +600,11 @@
     <entry file="file://$PROJECT_DIR$/static/images/not_seen.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/app/movie.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="40" column="20" lean-forward="true" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/app/signin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="38" column="30" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/app/show.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="92" column="136" selection-start-line="92" selection-start-column="136" selection-end-line="92" selection-end-column="136" />
         </state>
       </provider>
     </entry>
@@ -547,14 +622,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/app/search.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="33" column="50" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -564,14 +631,6 @@
     <entry file="file://$PROJECT_DIR$/static/css/themes/red_dark.css" />
     <entry file="file://$PROJECT_DIR$/static/css/themes/red_black.css" />
     <entry file="file://$PROJECT_DIR$/static/css/themes/orange_white.css" />
-    <entry file="file://$PROJECT_DIR$/templates/includes/body_end.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="48" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/css/themes/green_black.css" />
     <entry file="file://$PROJECT_DIR$/static/css/themes/green_dark.css" />
     <entry file="file://$PROJECT_DIR$/static/css/themes/green_white.css" />
@@ -579,13 +638,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
           <caret line="30" column="16" lean-forward="true" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/includes/bottom_navbar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="70" column="186" selection-start-line="70" selection-start-column="186" selection-end-line="70" selection-end-column="186" />
         </state>
       </provider>
     </entry>
@@ -624,24 +676,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/app/social.html">
+    <entry file="file://$PROJECT_DIR$/Veo/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="933">
-          <caret line="80" column="7" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
+        <state relative-caret-position="558">
+          <caret line="109" column="27" selection-start-line="109" selection-start-column="27" selection-end-line="109" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/app/home.html">
+    <entry file="file://$PROJECT_DIR$/templates/includes/body_end.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+        <state relative-caret-position="135">
+          <caret line="9" column="48" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="67" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="25" column="85" selection-start-line="25" selection-start-column="85" selection-end-line="25" selection-end-column="85" />
+        <state relative-caret-position="240">
+          <caret line="27" column="22" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="22" />
           <folding>
             <element signature="e#160#434#0" />
             <element signature="e#376#434#0" />
@@ -660,67 +712,124 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/app/movies.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
-          <caret line="64" column="66" selection-start-line="64" selection-start-column="66" selection-end-line="64" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/app/shows.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="805">
-          <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="62" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="882" selection-start-line="882" selection-end-line="882" />
-          <folding>
-            <element signature="e#24#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Veo/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="109" column="27" selection-start-line="109" selection-start-column="27" selection-end-line="109" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Veo/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="128" column="45" selection-start-line="128" selection-start-column="45" selection-end-line="128" selection-end-column="45" />
+        <state relative-caret-position="48">
+          <caret line="43" column="31" selection-start-line="43" selection-start-column="11" selection-end-line="43" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/request_functions.js">
+    <entry file="file://$PROJECT_DIR$/templates/includes/bottom_navbar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-12509">
-          <caret line="136" column="29" selection-start-line="136" selection-start-column="29" selection-end-line="136" selection-end-column="29" />
+        <state relative-caret-position="579">
+          <caret line="102" column="168" selection-start-line="102" selection-start-column="168" selection-end-line="102" selection-end-column="168" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/general_functions.js">
+    <entry file="file://$PROJECT_DIR$/templates/app/signin.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1605">
-          <caret line="168" column="26" selection-start-line="168" selection-start-column="26" selection-end-line="168" selection-end-column="26" />
+        <state relative-caret-position="150">
+          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
           <folding>
-            <element signature="e#0#6817#0" />
-            <element signature="e#0#6817#0" />
-            <element signature="e#0#6817#0" />
+            <element signature="n#main#0;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/startapp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="741">
-          <caret line="151" column="25" selection-start-line="151" selection-start-column="25" selection-end-line="151" selection-end-column="25" />
+        <state relative-caret-position="328">
+          <caret line="36" column="34" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/request_functions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8838">
+          <caret line="261" column="76" selection-start-line="261" selection-start-column="65" selection-end-line="261" selection-end-column="76" />
+          <folding>
+            <element signature="e#0#54243#0" />
+            <element signature="e#0#54243#0" />
+            <element signature="e#0#54243#0" />
+            <element signature="e#0#54243#0" />
+            <element signature="e#0#54243#0" />
+            <element signature="e#0#54243#0" />
+            <element signature="e#0#54243#0" />
+            <element signature="e#0#54243#0" />
+            <element signature="e#0#54243#0" />
+            <element signature="e#0#54243#0" />
+            <element signature="e#0#54243#0" />
+            <element signature="e#0#54243#0" />
+            <element signature="e#0#54243#0" />
+            <element signature="e#0#54243#0" />
+            <element signature="e#0#54243#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/general_functions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="157" column="242" selection-start-line="157" selection-start-column="242" selection-end-line="157" selection-end-column="242" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="725">
+          <caret line="892" column="4" selection-start-line="892" selection-start-column="4" selection-end-line="892" selection-end-column="4" />
+          <folding>
+            <element signature="e#24#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/app/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="42" column="8" lean-forward="true" selection-start-line="42" selection-start-column="8" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/app/movie.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="91" column="164" selection-start-line="91" selection-start-column="164" selection-end-line="91" selection-end-column="164" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/app/movies.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/app/search.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" column="164" selection-start-line="40" selection-start-column="164" selection-end-line="40" selection-end-column="164" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/app/show.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="805">
+          <caret line="91" column="164" selection-start-line="91" selection-start-column="164" selection-end-line="91" selection-end-column="164" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/app/shows.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="42" column="164" selection-start-line="42" selection-start-column="164" selection-end-line="42" selection-end-column="164" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/app/social.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="933">
+          <caret line="80" column="7" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
         </state>
       </provider>
     </entry>
