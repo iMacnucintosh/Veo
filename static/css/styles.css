@@ -193,7 +193,7 @@ header .header-navBar .img-profile {
 main {
     opacity: 0;
     padding: 10px;
-    padding-bottom: 56px;
+    padding-bottom: 66px !important;
 }
 
 .main-active {
@@ -465,7 +465,7 @@ footer .bottom-navBar > a {
     background-size: cover;
     background-repeat: no-repeat;
     filter: brightness(50%);
-    z-index: -1;
+    z-index: 0;
 }
 
 .recommended-info {
