@@ -416,7 +416,7 @@ function InformationShow(id, parameters, colorGenres, csrf_token, width_poster) 
             var season = show.seasons[i];
             if(season.poster_path != null) {
                 seasons_str += '<div class="season-poster poster-item list col s4 m3 l2 no-padding" onclick="showSeasonInfo(' + i + ')">\
-                    <img src="https://image.tmdb.org/t/p/w/' + width_poster + season.poster_path + '">\
+                    <img src="https://image.tmdb.org/t/p/w' + width_poster + season.poster_path + '">\
                     </div>';
 
                 // Information for each season
@@ -628,7 +628,7 @@ function InformationSeason(id_show, num_season, parameters, csrf_token, width_po
                 <i class="material-icons">close</i>\
             </div>\
             <div class="col s4 m2 no-padding">\
-                <img class="season-poster shadow" src="https://image.tmdb.org/t/p/w/' + width_poster + season_info.poster_path + '">\
+                <img class="season-poster shadow" src="https://image.tmdb.org/t/p/w' + width_poster + season_info.poster_path + '">\
                 <h3 class="date-season">' + season_date_format + '</h3>\
                 <p class="num-episodes-season" id="num-episodes-season-'+num_season+'">' + season_info.episodes.length + ' Episodios</p>\
             </div>\
