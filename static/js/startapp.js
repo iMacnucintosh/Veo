@@ -84,7 +84,8 @@ $(document).ready(function(){
     // AutoZoomIn-Out to Backdrop image
     //setInterval(zoomBackdrop, 15);
 
-    if(localStorage.getItem("active_tab") != null){
+
+    if(localStorage.getItem("active_tab") != null && localStorage.getItem("active_tab") != "#related" && localStorage.getItem("active_tab") != "#recommendations"){
         $('.tabs').tabs('select', localStorage.getItem("active_tab").replace("#",""));
     }
 
@@ -104,7 +105,7 @@ $(document).ready(function(){
                     console.log(scroll_movies_popularity);
                     $('html, body').animate({
                         scrollTop: scroll_movies_popularity
-                    },0);
+                    },100);
                 }else{
                     $('html, body').animate({
                         scrollTop: 0
@@ -115,7 +116,7 @@ $(document).ready(function(){
                 if(scroll_movies_vote_count >= 80){
                     $('html, body').animate({
                         scrollTop: scroll_movies_vote_count
-                    },0);
+                    },100);
                 }else{
                     $('html, body').animate({
                         scrollTop: 0
@@ -126,7 +127,7 @@ $(document).ready(function(){
                 if(scroll_movies_now_playing >= 80){
                     $('html, body').animate({
                         scrollTop: scroll_movies_now_playing
-                    },0);
+                    },100);
                 }else{
                     $('html, body').animate({
                         scrollTop: 0
@@ -137,7 +138,7 @@ $(document).ready(function(){
                 if(scroll_shows_popularity >= 80){
                     $('html, body').animate({
                         scrollTop: scroll_shows_popularity
-                    },0);
+                    },100);
                 }else{
                     $('html, body').animate({
                         scrollTop: 0
@@ -148,7 +149,7 @@ $(document).ready(function(){
                 if(scroll_shows_vote_count >= 80){
                     $('html, body').animate({
                         scrollTop: scroll_shows_vote_count
-                    },0);
+                    },100);
                 }else{
                     $('html, body').animate({
                         scrollTop: 0
