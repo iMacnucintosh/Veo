@@ -1340,7 +1340,7 @@ function changeColorGenres(toogle, csrf_token) {
         contentType: false,
         data: data,
         success: function (response) {
-            
+
         }
     });
 }

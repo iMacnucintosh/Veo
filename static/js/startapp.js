@@ -85,7 +85,7 @@ $(document).ready(function(){
     //setInterval(zoomBackdrop, 15);
 
 
-    if(localStorage.getItem("active_tab") != null && localStorage.getItem("active_tab") != "#related" && localStorage.getItem("active_tab") != "#recommendations"){
+    if(localStorage.getItem("active_tab") != null && localStorage.getItem("active_tab") != "#related" && localStorage.getItem("active_tab") != "#recommendations" && localStorage.getItem("active_tab") != "#home-movies-pending" && localStorage.getItem("active_tab") != "#home-shows-active"){
         $('.tabs').tabs('select', localStorage.getItem("active_tab").replace("#",""));
     }
 
