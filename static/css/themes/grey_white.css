@@ -1,0 +1,195 @@
+/* Session Page */
+.input-field .prefix.active {
+    color: #607d8b;
+}
+
+.tabs .tab a:hover, .tabs .tab a.active {
+    color: #607d8b;
+}
+
+form label.active {
+    color: #3e3e3e;
+}
+
+input.valid:not([type]), input.valid:not([type]):focus, input.valid[type=text]:not(.browser-default), input.valid[type=text]:not(.browser-default):focus, input.valid[type=password]:not(.browser-default), input.valid[type=password]:not(.browser-default):focus, input.valid[type=email]:not(.browser-default), input.valid[type=email]:not(.browser-default):focus, input.valid[type=url]:not(.browser-default), input.valid[type=url]:not(.browser-default):focus, input.valid[type=time]:not(.browser-default), input.valid[type=time]:not(.browser-default):focus, input.valid[type=date]:not(.browser-default), input.valid[type=date]:not(.browser-default):focus, input.valid[type=datetime]:not(.browser-default), input.valid[type=datetime]:not(.browser-default):focus, input.valid[type=datetime-local]:not(.browser-default), input.valid[type=datetime-local]:not(.browser-default):focus, input.valid[type=tel]:not(.browser-default), input.valid[type=tel]:not(.browser-default):focus, input.valid[type=number]:not(.browser-default), input.valid[type=number]:not(.browser-default):focus, input.valid[type=search]:not(.browser-default), input.valid[type=search]:not(.browser-default):focus, textarea.materialize-textarea.valid, textarea.materialize-textarea.valid:focus, .select-wrapper.valid>input.select-dropdown {
+    border-bottom: 1px solid #607d8b;
+}
+input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #607d8b;
+    box-shadow: 0 1px 0 0 #607d8b;
+}
+
+input:not([type]):focus:not([readonly])+label, input[type=text]:not(.browser-default):focus:not([readonly])+label, input[type=password]:not(.browser-default):focus:not([readonly])+label, input[type=email]:not(.browser-default):focus:not([readonly])+label, input[type=url]:not(.browser-default):focus:not([readonly])+label, input[type=time]:not(.browser-default):focus:not([readonly])+label, input[type=date]:not(.browser-default):focus:not([readonly])+label, input[type=datetime]:not(.browser-default):focus:not([readonly])+label, input[type=datetime-local]:not(.browser-default):focus:not([readonly])+label, input[type=tel]:not(.browser-default):focus:not([readonly])+label, input[type=number]:not(.browser-default):focus:not([readonly])+label, input[type=search]:not(.browser-default):focus:not([readonly])+label, textarea.materialize-textarea:focus:not([readonly])+label {
+    color: #3e3e3e;
+}
+
+.btn-submit-login button  {
+    background-color: #607d8b;
+}
+
+.btn:focus, .btn-large:focus, .btn-small:focus, .btn-floating:focus {
+    background-color: #607d8b;
+}
+
+.btn:hover, .btn-large:hover, .btn-small:hover {
+    background-color: #607d8b;
+    filter: brightness(90%);
+}
+
+.account-change-mode a {
+    color: #607d8b;
+}
+
+/* ---------------- TOP NAVBAR -------------------------- */
+header .header-navBar .img-profile {
+    /*box-shadow: 0px 0px 5px 0px #b9b9b9;*/
+}
+
+.header-title h1 {
+    color: #3e3e3e;
+}
+
+.tabs .tab a {
+    color: #3e3e3e;
+}
+
+.search-container i {
+    color: #3e3e3e;
+}
+
+/* Navbar Movie */
+.header-navBar .btn-back-list i {
+    color: #3e3e3e;
+}
+
+nav.header-navBar .search-field i {
+    color: #3e3e3e !important;
+}
+
+
+/* --------------- BOTTOM NAVBAR ----------- */
+nav {
+    background-color: white;
+}
+
+footer * {
+    color: #3e3e3e;
+}
+
+footer .nav-active i, footer .nav-active p {
+    color: #607d8b;
+}
+
+/* --------------- SETTINGS CONTAINER ----------- */
+#settings {
+    background-color: white;
+}
+
+.header-settings {
+    background-color: white;
+}
+
+#settings .title-section a {
+   color: #607d8b;
+}
+
+.close-settings-container i {
+    color: #3e3e3e;
+}
+
+.log-out a {
+    background-color: #607d8b;
+}
+
+.log-out button:hover {
+    background-color: #607d8b;
+    filter: brightness(90%);
+}
+
+.avatar.active img {
+    border: 3px solid #607d8b;
+}
+
+.theme .color-background {
+    box-shadow: 0px 0px 5px 0px #b9b9b9;
+}
+
+.active-theme {
+    border: 3px solid #607d8b;
+}
+
+.switch label input[type=checkbox]:checked+.lever {
+    background-color: #dadada;
+}
+
+.switch label input[type=checkbox]:checked+.lever:after {
+    background-color: #607d8b;
+}
+
+.btn-floating.btn-large {
+    background-color: #607d8b !important;
+}
+
+/* --------------- TABS ----------- */
+.tabs .indicator {
+    background-color: #607d8b;
+}
+
+.lds-ellipsis div {
+    background: #607d8b;
+}
+
+/* ------------- HOME STYLES -------------- */
+.circle {
+    stroke: #607d8b;
+}
+
+/* ---------- MOVIE STYLES ---------------- */
+.btn-trailer {
+    background-color: #607d8b;
+}
+
+.genre {
+    background-color: #607d8b;
+}
+
+.primary-information {
+    background-color: white;
+}
+
+/* --------- SHOW STYLES ---------------- */
+.season-details {
+    background-color: white;
+}
+
+/* -------------------------------------- SOCIAL PAGE --------------------------------------------------------------- */
+.activity-item {
+    border-bottom: 1px solid #ddd;
+}
+
+.user-item {
+    border-bottom: 1px solid #ddd;
+}
+
+.username-activity {
+    color: #607d8b;
+}
+
+.btn-follow button {
+    background-color: #607d8b;
+}
+
+
+/* ------------------------------------------ SEARCH PAGE----------------------------------------------------------- */
+
+#person-results {
+    border-bottom: 1px solid #f7f7f7
+}
+
+.person-item .img {
+    box-shadow: 0px 0px 5px 0px #b9b9b9;
+}
+
+.person-item p {
+    color: #333333;
+}
