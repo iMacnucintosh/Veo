@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="07020f31-8a76-45f1-a7cb-86f3cab66ea4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/request_functions.js" afterPath="$PROJECT_DIR$/static/js/request_functions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/startapp.js" afterPath="$PROJECT_DIR$/static/js/startapp.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/css/themes/red_black.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/css/themes/red_dark.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/css/themes/red_white.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -89,11 +90,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="startapp.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="startapp.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/startapp.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="193">
               <caret line="87" column="286" lean-forward="false" selection-start-line="87" selection-start-column="286" selection-end-line="87" selection-end-column="286" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="red_white.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/css/themes/red_white.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3026">
+              <caret line="178" column="29" lean-forward="false" selection-start-line="178" selection-start-column="29" selection-end-line="178" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="red_dark.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/css/themes/red_dark.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3230">
+              <caret line="190" column="29" lean-forward="false" selection-start-line="190" selection-start-column="29" selection-end-line="190" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="red_black.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/css/themes/red_black.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3230">
+              <caret line="190" column="30" lean-forward="false" selection-start-line="190" selection-start-column="30" selection-end-line="190" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -142,9 +173,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>timedelta</find>
-      <find>(activity.date_add + timedelta(hours=1))</find>
-      <find>active_tab</find>
       <find>&quot;poster_path&quot;: &quot;https://image.tmdb.org/t/p/w300&quot;</find>
       <find>next</find>
       <find>https://image.tmdb.org/t/p/w300</find>
@@ -172,6 +200,9 @@
       <find>InformationMovie</find>
       <find>/w/</find>
       <find>console.log</find>
+      <find>&amp;&amp;</find>
+      <find>#2196f3</find>
+      <find>#2196f3;</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -184,7 +215,6 @@
       <replace>seen.png</replace>
       <replace>api_key</replace>
       <replace>black</replace>
-      <replace>#f44336</replace>
       <replace>#ff5722</replace>
       <replace>4CAF50</replace>
       <replace>datetime.now() + timedelta(hours=1)</replace>
@@ -193,6 +223,8 @@
       <replace>activity.date_add</replace>
       <replace>{% else %} 400 {% endif %}</replace>
       <replace>&quot;poster_path&quot;: &quot;https://image.tmdb.org/t/p/200&quot;</replace>
+      <replace>#f44336</replace>
+      <replace>#f44336;</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -217,9 +249,6 @@
         <option value="$PROJECT_DIR$/static/css/themes/orange_black.css" />
         <option value="$PROJECT_DIR$/static/css/themes/orange_dark.css" />
         <option value="$PROJECT_DIR$/static/css/themes/orange_white.css" />
-        <option value="$PROJECT_DIR$/static/css/themes/red_black.css" />
-        <option value="$PROJECT_DIR$/static/css/themes/red_dark.css" />
-        <option value="$PROJECT_DIR$/static/css/themes/red_white.css" />
         <option value="$PROJECT_DIR$/static/css/themes/green_white.css" />
         <option value="$PROJECT_DIR$/static/css/themes/green_dark.css" />
         <option value="$PROJECT_DIR$/static/css/themes/green_black.css" />
@@ -243,6 +272,9 @@
         <option value="$PROJECT_DIR$/static/css/styles.css" />
         <option value="$PROJECT_DIR$/static/js/request_functions.js" />
         <option value="$PROJECT_DIR$/static/js/startapp.js" />
+        <option value="$PROJECT_DIR$/static/css/themes/red_white.css" />
+        <option value="$PROJECT_DIR$/static/css/themes/red_dark.css" />
+        <option value="$PROJECT_DIR$/static/css/themes/red_black.css" />
       </list>
     </option>
   </component>
@@ -298,8 +330,22 @@
               <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="Veo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Veo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -314,6 +360,14 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -732,9 +786,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/themes/orange_dark.css" />
     <entry file="file://$PROJECT_DIR$/static/css/themes/orange_black.css" />
-    <entry file="file://$PROJECT_DIR$/static/css/themes/red_white.css" />
-    <entry file="file://$PROJECT_DIR$/static/css/themes/red_dark.css" />
-    <entry file="file://$PROJECT_DIR$/static/css/themes/red_black.css" />
+    <entry file="file://$PROJECT_DIR$/static/css/themes/blue_white.css" />
     <entry file="file://$PROJECT_DIR$/static/css/themes/orange_white.css" />
     <entry file="file://$PROJECT_DIR$/static/css/themes/green_black.css" />
     <entry file="file://$PROJECT_DIR$/static/css/themes/green_dark.css" />
@@ -958,6 +1010,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
           <caret line="87" column="286" lean-forward="false" selection-start-line="87" selection-start-column="286" selection-end-line="87" selection-end-column="286" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/themes/red_white.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3026">
+          <caret line="178" column="29" lean-forward="false" selection-start-line="178" selection-start-column="29" selection-end-line="178" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/themes/red_black.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3230">
+          <caret line="190" column="30" lean-forward="false" selection-start-line="190" selection-start-column="30" selection-end-line="190" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/themes/red_dark.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3230">
+          <caret line="190" column="29" lean-forward="false" selection-start-line="190" selection-start-column="29" selection-end-line="190" selection-end-column="29" />
           <folding />
         </state>
       </provider>
