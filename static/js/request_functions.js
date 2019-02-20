@@ -7,7 +7,6 @@ var api_key = "f368d6c9a2c7d460dacc7cfd42809665";
 // Return a list with Movies or Shows with the parameters you has specified
 function TmdbRequestFilter(selector_container, url, parameters, description_request, info_for, width_poster){
     parameters["api_key"] = api_key;
-    console.log(parameters);
     $.ajax({
         data: parameters,
         type: "GET",
@@ -67,7 +66,6 @@ function Recommendations(width_poster) {
         var randomIndex = Math.floor(Math.random() * 18);
         var movie = data.results[randomIndex];
 
-        console.log(data);
         if(movie.backdrop_path != undefined && movie.poster_path != null)
         {
             var title_style = "";
@@ -371,7 +369,6 @@ function InformationShow(id, parameters, colorGenres, csrf_token, width_poster) 
         dataType: "json",
         url: "https://api.themoviedb.org/3/tv/" + id,
     }).done(function(show, textStatus, jqXHR) {
-        console.log("Serie:", show);
         _show = show;
         $('.gif-loading').fadeOut(100);
         $("main").addClass("main-active");
@@ -487,7 +484,6 @@ function InformationShow(id, parameters, colorGenres, csrf_token, width_poster) 
         contentType: false,
         data: data,
         success: function (response) {
-            console.log(response);
             if(response.states != "null"){
                 for(var i=0; i < response.states.length; i++){
                     var state = response.states[i];
@@ -1172,7 +1168,6 @@ function AllActivity(csrf_token, selector){
         success: function (data) {
             $('.gif-loading').fadeOut(100);
             $("main").addClass("main-active");
-            console.log(data);
 
             if(data.results.length > 0) {
                 for (var i = 0; i < data.results.length; i++) {
@@ -1215,7 +1210,6 @@ function MyFollowingsActivity(csrf_token, selector){
         success: function (data) {
             $('.gif-loading').fadeOut(100);
             $("main").addClass("main-active");
-            console.log(data);
 
             if(data.results.length > 0) {
                 for (var i = 0; i < data.results.length; i++) {
@@ -1259,7 +1253,6 @@ function MyFollowingsRecientActivity(csrf_token, selector){
         success: function (data) {
             $('.gif-loading').fadeOut(100);
             $("main").addClass("main-active");
-            console.log(data);
 
             if(data.results.length > 0) {
                 for (var i = 0; i < data.results.length; i++) {
@@ -1347,7 +1340,7 @@ function changeColorGenres(toogle, csrf_token) {
         contentType: false,
         data: data,
         success: function (response) {
-            //console.log(response);
+            
         }
     });
 }

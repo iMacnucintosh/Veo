@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="07020f31-8a76-45f1-a7cb-86f3cab66ea4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/styles.css" afterDir="false" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/request_functions.js" afterPath="$PROJECT_DIR$/static/js/request_functions.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,13 +14,14 @@
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="545" selection-start-line="545" selection-end-line="545" />
+            <state relative-caret-position="9418">
+              <caret line="563" column="0" lean-forward="false" selection-start-line="563" selection-start-column="0" selection-end-line="563" selection-end-column="0" />
               <folding>
                 <element signature="e#24#34#0" expanded="true" />
               </folding>
@@ -27,47 +29,91 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file leaf-file-name="request_functions.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/js/request_functions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6305">
-              <caret line="630" column="83" lean-forward="true" selection-start-line="630" selection-start-column="83" selection-end-line="630" selection-end-column="83" />
+            <state relative-caret-position="193">
+              <caret line="1342" column="12" lean-forward="false" selection-start-line="1342" selection-start-column="12" selection-end-line="1342" selection-end-column="12" />
+              <folding>
+                <marker date="1550679377190" expanded="true" signature="841:971" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="2647:2728" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="2870:3018" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="3114:3670" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="3246:3642" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="3324:3551" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="6862:7019" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="7682:7700" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="10369:10601" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="11451:11581" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="12563:12693" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="15926:15944" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="16455:16586" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="17451:18041" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="17473:18022" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="20577:20707" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="21682:21812" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="24429:25186" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="24479:25186" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="24527:24600" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="24648:25012" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="25062:25186" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="25501:25560" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="25549:25560" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="25934:26595" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="32267:32397" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="33464:33594" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="38126:38271" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="39378:39524" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="43673:43819" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="44817:45768" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="44917:45057" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="45137:45720" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="45233:45369" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="45472:45668" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="46723:47673" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="46822:46962" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="47042:47625" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="47138:47274" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="47377:47573" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="48643:49593" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="48742:48882" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="48962:49545" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="49058:49194" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="49297:49493" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="53722:53954" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="53773:53867" ph="..." />
+                <marker date="1550679377190" expanded="true" signature="54768:54906" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/static/css/styles.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="505">
-              <caret line="467" column="14" selection-start-line="467" selection-start-column="14" selection-end-line="467" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file leaf-file-name="movie.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/app/movie.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="798">
-              <caret line="94" column="217" selection-start-line="94" selection-start-column="217" selection-end-line="94" selection-end-column="217" />
+            <state relative-caret-position="1598">
+              <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file leaf-file-name="show.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/app/show.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="850">
-              <caret line="94" column="216" selection-start-line="94" selection-start-column="216" selection-end-line="94" selection-end-column="216" />
+            <state relative-caret-position="1598">
+              <caret line="96" column="9" lean-forward="false" selection-start-line="96" selection-start-column="9" selection-end-line="96" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file leaf-file-name="movies.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/app/movies.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="730">
-              <caret line="61" column="135" selection-start-line="61" selection-start-column="59" selection-end-line="61" selection-end-column="135" />
+            <state relative-caret-position="1173">
+              <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -85,7 +131,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>localStorage.setItem(&quot;active</find>
       <find>timedelta</find>
       <find>(activity.date_add + timedelta(hours=1))</find>
       <find>active_tab</find>
@@ -115,6 +160,7 @@
       <find>if status == &quot;true&quot;:</find>
       <find>InformationMovie</find>
       <find>/w/</find>
+      <find>console.log</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -184,8 +230,8 @@
         <option value="$PROJECT_DIR$/App/views.py" />
         <option value="$PROJECT_DIR$/templates/app/movie.html" />
         <option value="$PROJECT_DIR$/templates/app/show.html" />
-        <option value="$PROJECT_DIR$/static/js/request_functions.js" />
         <option value="$PROJECT_DIR$/static/css/styles.css" />
+        <option value="$PROJECT_DIR$/static/js/request_functions.js" />
       </list>
     </option>
   </component>
@@ -195,71 +241,30 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1920" />
-    <option name="height" value="1080" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane" />
       <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Veo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Veo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Veo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Veo" type="462c0819:PsiDirectoryNode" />
-              <item name="App" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Veo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Veo" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Veo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Veo" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Veo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Veo" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Veo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Veo" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Veo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Veo" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Veo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Veo" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="includes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Veo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Veo" type="462c0819:PsiDirectoryNode" />
-              <item name="Veo" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -377,6 +382,38 @@
       <option name="customRunCommand" value="" />
       <method />
     </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Veo" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <module name="Veo" />
+      <method />
+    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -393,27 +430,41 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="Veo" />
+    <configuration default="true" type="tests" factoryName="Doctests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
+      <envs />
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Veo" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Veo" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method />
     </configuration>
     <configuration default="false" name="Veo" type="Python.DjangoServer" factoryName="Django server">
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -438,52 +489,12 @@
       <option name="customRunCommand" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="Tox" factoryName="Tox">
-      <module name="Veo" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Doctests">
-      <module name="Veo" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Unittests">
-      <module name="Veo" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;.&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Django server.Veo" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -503,48 +514,145 @@
     <option name="totallyTimeSpent" value="19636000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13045794" />
-      <window_info id="Favorites" order="1" side_tool="true" />
-      <window_info id="Structure" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="TODO" order="0" />
-      <window_info anchor="bottom" id="Version Control" order="1" />
-      <window_info anchor="bottom" id="Python Console" order="2" />
-      <window_info anchor="bottom" id="Run" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="4" />
-      <window_info anchor="bottom" id="Find" order="5" weight="0.329653" />
-      <window_info anchor="bottom" id="Debug" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.329653" />
-      <window_info anchor="right" id="Database" order="0" />
-      <window_info anchor="right" id="Data View" order="1" />
-      <window_info anchor="right" id="R Graphics" order="2" />
-      <window_info anchor="right" id="R Packages" order="3" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.215959" sideWeight="0.5" order="-1" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
   </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/App/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9112">
+          <caret line="545" column="0" lean-forward="false" selection-start-line="545" selection-start-column="0" selection-end-line="545" selection-end-column="0" />
+          <folding>
+            <element signature="e#24#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/request_functions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10710">
+          <caret line="630" column="47" lean-forward="true" selection-start-line="630" selection-start-column="47" selection-end-line="630" selection-end-column="47" />
+          <folding>
+            <marker date="1550679377190" expanded="true" signature="841:971" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="2647:2728" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="2870:3018" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="3114:3670" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="3246:3642" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="3324:3551" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="6862:7019" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="7682:7700" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="10369:10601" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="11451:11581" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="12563:12693" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="15926:15944" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="16455:16586" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="17451:18041" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="17473:18022" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="20577:20707" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="21682:21812" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="24429:25186" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="24479:25186" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="24527:24600" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="24648:25012" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="25062:25186" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="25501:25560" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="25549:25560" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="25934:26595" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="32267:32397" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="33464:33594" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="38126:38271" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="39378:39524" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="43673:43819" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="44817:45768" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="44917:45057" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="45137:45720" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="45233:45369" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="45472:45668" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="46723:47673" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="46822:46962" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="47042:47625" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="47138:47274" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="47377:47573" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="48643:49593" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="48742:48882" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="48962:49545" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="49058:49194" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="49297:49493" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="53722:53954" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="53773:53867" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="54768:54906" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/app/movie.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1598">
+          <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/app/show.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1598">
+          <caret line="94" column="9" lean-forward="true" selection-start-line="94" selection-start-column="9" selection-end-line="94" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/app/movies.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1037">
+          <caret line="61" column="57" lean-forward="true" selection-start-line="61" selection-start-column="57" selection-end-line="61" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7939">
+          <caret line="467" column="14" lean-forward="false" selection-start-line="467" selection-start-column="14" selection-end-line="467" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/movie_request.js" />
     <entry file="file://$PROJECT_DIR$/templates/app/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="840">
-          <caret line="56" selection-start-line="56" selection-end-line="60" selection-end-column="9" />
+          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="60" selection-end-column="9" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/images/seen.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/images/not_seen.png">
-      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/App/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+          <caret line="8" column="33" lean-forward="false" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -552,7 +660,7 @@
     <entry file="file://$PROJECT_DIR$/App/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+          <caret line="5" column="26" lean-forward="false" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -562,7 +670,7 @@
     <entry file="file://$PROJECT_DIR$/templates/includes/header_navbar.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+          <caret line="4" column="28" lean-forward="false" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -585,63 +693,52 @@
     <entry file="file://$PROJECT_DIR$/static/css/themes/blue_white.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="144" column="1" selection-start-line="144" selection-start-column="1" selection-end-line="144" selection-end-column="1" />
+          <caret line="144" column="1" lean-forward="false" selection-start-line="144" selection-start-column="1" selection-end-line="144" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/themes/blue_dark.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
-          <caret line="155" lean-forward="true" selection-end-line="205" selection-end-column="1" />
+          <caret line="155" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="205" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/themes/blue_black.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="277">
-          <caret line="155" column="1" selection-start-line="155" selection-start-column="1" selection-end-line="155" selection-end-column="1" />
+          <caret line="155" column="1" lean-forward="false" selection-start-line="155" selection-start-column="1" selection-end-line="155" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/general_styles.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
-          <caret line="97" column="6" selection-start-line="97" selection-start-column="5" selection-end-line="97" selection-end-column="6" />
+          <caret line="97" column="6" lean-forward="false" selection-start-line="97" selection-start-column="5" selection-end-line="97" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Veo/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="558">
-          <caret line="109" column="27" selection-start-line="109" selection-start-column="27" selection-end-line="109" selection-end-column="27" />
+          <caret line="109" column="27" lean-forward="false" selection-start-line="109" selection-start-column="27" selection-end-line="109" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/includes/body_end.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="9" column="48" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="67" />
+          <caret line="9" column="48" lean-forward="false" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="67" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="27" column="22" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="22" />
+          <caret line="27" column="22" lean-forward="false" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="22" />
           <folding>
-            <element signature="e#160#434#0" />
-            <element signature="e#376#434#0" />
-            <element signature="e#1613#1728#0" />
-            <element signature="e#1684#1728#0" />
-            <element signature="e#2280#2946#0" />
-            <element signature="e#2663#2754#0" />
-            <element signature="e#2791#2840#0" />
-            <element signature="e#2881#2946#0" />
-            <element signature="e#2981#3445#0" />
-            <element signature="e#3310#3445#0" />
-            <element signature="e#3482#3937#0" />
-            <element signature="e#3521#3632#0" />
-            <element signature="e#3852#3937#0" />
+            <element signature="e#160#434#0" expanded="false" />
+            <element signature="e#376#434#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -649,66 +746,63 @@
     <entry file="file://$PROJECT_DIR$/Veo/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
-          <caret line="43" column="31" selection-start-line="43" selection-start-column="11" selection-end-line="43" selection-end-column="31" />
+          <caret line="43" column="31" lean-forward="false" selection-start-line="43" selection-start-column="11" selection-end-line="43" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/includes/bottom_navbar.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="579">
-          <caret line="102" column="168" selection-start-line="102" selection-start-column="168" selection-end-line="102" selection-end-column="168" />
+          <caret line="102" column="168" lean-forward="false" selection-start-line="102" selection-start-column="168" selection-end-line="102" selection-end-column="168" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/app/signin.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
-          <folding>
-            <element signature="n#main#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
+          <caret line="10" column="30" lean-forward="false" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/startapp.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
-          <caret line="36" column="34" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
+          <caret line="36" column="34" lean-forward="false" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/app/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="588">
-          <caret line="42" column="8" lean-forward="true" selection-start-line="42" selection-start-column="8" selection-end-line="43" />
+          <caret line="42" column="8" lean-forward="true" selection-start-line="42" selection-start-column="8" selection-end-line="43" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/app/social.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1200">
-          <caret line="80" column="7" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
+          <caret line="80" column="7" lean-forward="false" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/app/shows.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="469">
-          <caret line="42" column="164" selection-start-line="42" selection-start-column="164" selection-end-line="42" selection-end-column="164" />
+          <caret line="42" column="164" lean-forward="false" selection-start-line="42" selection-start-column="164" selection-end-line="42" selection-end-column="164" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/app/search.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
-          <caret line="40" column="164" selection-start-line="40" selection-start-column="164" selection-end-line="40" selection-end-column="164" />
+          <caret line="40" column="164" lean-forward="false" selection-start-line="40" selection-start-column="164" selection-end-line="40" selection-end-column="164" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="545" selection-start-line="545" selection-end-line="545" />
+        <state relative-caret-position="9418">
+          <caret line="563" column="0" lean-forward="false" selection-start-line="563" selection-start-column="0" selection-end-line="563" selection-end-column="0" />
           <folding>
             <element signature="e#24#34#0" expanded="true" />
           </folding>
@@ -718,42 +812,96 @@
     <entry file="file://$PROJECT_DIR$/static/js/general_functions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2355">
-          <caret line="157" column="242" selection-start-line="157" selection-start-column="242" selection-end-line="157" selection-end-column="242" />
+          <caret line="157" column="242" lean-forward="false" selection-start-line="157" selection-start-column="242" selection-end-line="157" selection-end-column="242" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/app/movies.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="730">
-          <caret line="61" column="135" selection-start-line="61" selection-start-column="59" selection-end-line="61" selection-end-column="135" />
+        <state relative-caret-position="1173">
+          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/app/movie.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="94" column="217" selection-start-line="94" selection-start-column="217" selection-end-line="94" selection-end-column="217" />
+        <state relative-caret-position="1598">
+          <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/app/show.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="94" column="216" selection-start-line="94" selection-start-column="216" selection-end-line="94" selection-end-column="216" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/request_functions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6305">
-          <caret line="630" column="83" lean-forward="true" selection-start-line="630" selection-start-column="83" selection-end-line="630" selection-end-column="83" />
+        <state relative-caret-position="1598">
+          <caret line="96" column="9" lean-forward="false" selection-start-line="96" selection-start-column="9" selection-end-line="96" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/styles.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="505">
-          <caret line="467" column="14" selection-start-line="467" selection-start-column="14" selection-end-line="467" selection-end-column="14" />
+          <caret line="467" column="14" lean-forward="false" selection-start-line="467" selection-start-column="14" selection-end-line="467" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/request_functions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="1342" column="12" lean-forward="false" selection-start-line="1342" selection-start-column="12" selection-end-line="1342" selection-end-column="12" />
+          <folding>
+            <marker date="1550679377190" expanded="true" signature="841:971" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="2647:2728" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="2870:3018" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="3114:3670" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="3246:3642" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="3324:3551" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="6862:7019" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="7682:7700" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="10369:10601" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="11451:11581" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="12563:12693" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="15926:15944" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="16455:16586" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="17451:18041" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="17473:18022" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="20577:20707" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="21682:21812" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="24429:25186" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="24479:25186" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="24527:24600" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="24648:25012" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="25062:25186" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="25501:25560" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="25549:25560" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="25934:26595" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="32267:32397" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="33464:33594" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="38126:38271" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="39378:39524" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="43673:43819" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="44817:45768" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="44917:45057" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="45137:45720" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="45233:45369" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="45472:45668" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="46723:47673" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="46822:46962" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="47042:47625" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="47138:47274" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="47377:47573" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="48643:49593" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="48742:48882" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="48962:49545" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="49058:49194" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="49297:49493" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="53722:53954" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="53773:53867" ph="..." />
+            <marker date="1550679377190" expanded="true" signature="54768:54906" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
