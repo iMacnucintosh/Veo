@@ -135,6 +135,7 @@ header .header-navBar .img-profile {
 .img-profile img {
     width: 100%;
     height: auto;
+    border-radius: 50%;
 }
 
 .header-title {
