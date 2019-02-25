@@ -837,7 +837,7 @@ def myFollowingsRecientActivity(request):
                             "description": description,
                             "href": "/show/" + str(activity.episode.show.id_show),
                             "poster_path": "https://image.tmdb.org/t/p/w200" + activity.episode.show.poster_path,
-                            "date": activity.date_addstrftime("%d-%m-%Y %H:%M:%S")})
+                            "date": activity.date_add.strftime("%d-%m-%Y %H:%M:%S")})
         if (activity.operation.id == 6):
             user_str = ""
             description = ""
