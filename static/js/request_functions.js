@@ -15,17 +15,59 @@ function TmdbRequestFilter(selector_container, url, parameters, description_requ
     }).done(function(data, textStatus, jqXHR) {
         $('.gif-loading').fadeOut(100);
         $("main").addClass("main-active");
+        console.log(data);
         if(data.results.length > 0) {
             for (var i = 0; i < data.results.length; i++) {
                 poster_i = data.results[i];
 
                 var poster_str = "\
-                <a href='/"+info_for+"/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
+                <a href='/"+info_for+"/" + poster_i.id + "' class='"+poster_i.id+" poster-item list col s4 m3 l2 no-padding'>\
                     <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
+                    <i class='material-icons i-vista'>visibility</i>\
+                    <i class='material-icons i-pendiente'>playlist_add_check</i>\
                  </a>\
                 ";
 
                 $(selector_container).append(poster_str);
+
+                console.log(parameters);
+
+                if(info_for=="movie") {
+                    urlCheck = "/isMovieOnMyList/";
+                }
+                else{
+                    urlCheck = "/isShowOnMyList/";
+                }
+                // Check if is in my list
+                var dataMovie = new FormData();
+                dataMovie.append('id', poster_i.id);
+                $.ajax({
+                    url: urlCheck,
+                    type: "POST",
+                    mimeType: "multipart/form-data",
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false,
+                    data: dataMovie,
+                    success: function (response) {
+                        if (response.states != "null") {
+
+                            for (var i = 0; i < response.states.length; i++) {
+                                var state = response.states[i];
+
+                                if (state.id == 2) {
+                                    $('.' + response.id).addClass("pendiente")
+                                }
+
+                                if (state.id == 1) {
+                                    $('.' + response.id).addClass("vista")
+                                }
+
+                            }
+
+                        }
+                    }
+                });
             }
 
             if(parameters["sort_by"]){

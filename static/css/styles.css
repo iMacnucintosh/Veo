@@ -298,7 +298,29 @@ main {
     }
 }
 
+.i-vista {
+    display: none;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    text-shadow: 0px 0px 6px black;
+}
 
+.vista .i-vista {
+    display: block;
+}
+
+.i-pendiente {
+    display: none;
+    position: absolute;
+    bottom: 5px;
+    left: 10px;
+    text-shadow: 0px 0px 6px black;
+}
+
+.pendiente .i-pendiente {
+    display: block;
+}
 
 /* --------------------- BOTTOM NAVBAR ---------------------- */
 footer nav {

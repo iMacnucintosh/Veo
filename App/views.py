@@ -228,10 +228,12 @@ def isMovieOnMyList(request):
         for state in movie.first().states.all():
             states.append({"id": state.id, "state": state.name})
         data = {
+            'id': request.POST["id"],
             'states': states
         }
     else:
         data = {
+            'id': request.POST["id"],
             'states': "null",
         }
 
@@ -350,10 +352,12 @@ def isShowOnMyList(request):
         for state in show.first().states.all():
             states.append({"id": state.id, "state": state.name})
         data = {
+            'id': request.POST["id"],
             'states': states
         }
     else:
         data = {
+            'id': request.POST["id"],
             'states': "null",
         }
 
@@ -736,7 +740,7 @@ def myFollowingsActivity(request):
             else:
                 user_str = activity.user.username,
                 description = "ahora sigue a <b>" + activity.follower.username + "</b>",
-                
+
 
             poster_path = ""
             if not Profile.objects.get(user=activity.follower).avatar == None:
