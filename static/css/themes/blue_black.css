@@ -173,6 +173,10 @@ footer .nav-active i, footer .nav-active p {
     background-color: black;
 }
 
+.close-season-details {
+    background-color: black;
+}
+
 /* -------------------------------------- SOCIAL PAGE --------------------------------------------------------------- */
 .activity-item {
     border-bottom: 1px solid #333333
@@ -202,5 +206,10 @@ footer .nav-active i, footer .nav-active p {
 }
 
 .person-item p {
+    color: white;
+}
+
+nav.header-navBar .search-field, #search {
+    background-color: black;
     color: white;
 }

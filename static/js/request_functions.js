@@ -408,18 +408,16 @@ function InformationShow(id, parameters, colorGenres, csrf_token, width_poster) 
         $('#genres').append(genres_str);
 
         var seasons_str = '';
-
         for(var i=0; i<show.seasons.length; i++){
             var season = show.seasons[i];
             if(season.poster_path != null) {
-                seasons_str += '<div class="season-poster poster-item list col s4 m3 l2 no-padding" onclick="showSeasonInfo(' + i + ')">\
+                seasons_str += '<div class="season-poster poster-item list col s4 m3 l2 no-padding" onclick="showSeasonInfo(' + season.season_number + ')">\
                     <img src="https://image.tmdb.org/t/p/w' + width_poster + season.poster_path + '">\
                     </div>';
 
                 // Information for each season
-                InformationSeason(id, i, parameters, csrf_token, width_poster);
+                InformationSeason(id, season.season_number, parameters, csrf_token, width_poster);
             }
-
         }
 
         $('#seasons-posters-list').append(seasons_str);
@@ -600,6 +598,7 @@ function InformationSeason(id_show, num_season, parameters, csrf_token, width_po
         dataType: "json",
         url: "https://api.themoviedb.org/3/tv/" + id_show + "/season/" + num_season,
     }).done(function(season_info, textStatus, jqXHR) {
+
         episodes = []
 
         for (var i=0; i<season_info.episodes.length; i++){
@@ -702,6 +701,7 @@ function InformationSeason(id_show, num_season, parameters, csrf_token, width_po
         $('#season-details-' + num_season).remove();
         $(".season-poster[onclick='showSeasonInfo(" + num_season + ")']").remove();
     });
+
 }
 
 /* ------------------------------ MOVIE ----------------------------------------------------------------------------- */
