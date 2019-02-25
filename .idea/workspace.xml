@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="07020f31-8a76-45f1-a7cb-86f3cab66ea4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/request_functions.js" afterPath="$PROJECT_DIR$/static/js/request_functions.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/styles.css" afterPath="$PROJECT_DIR$/static/css/styles.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,7 +27,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="request_functions.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="styles.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/css/styles.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="319" column="28" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1119" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="request_functions.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/request_functions.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="193">
@@ -354,7 +364,6 @@
       <find>if status == &quot;true&quot;:</find>
       <find>InformationMovie</find>
       <find>/w/</find>
-      <find>console.log</find>
       <find>#2196f3</find>
       <find>#2196f3;</find>
       <find>&amp;&amp;</find>
@@ -374,6 +383,7 @@
       <find>states</find>
       <find>ins</find>
       <find>isShow</find>
+      <find>console.log</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -452,9 +462,9 @@
         <option value="$PROJECT_DIR$/templates/app/shows.html" />
         <option value="$PROJECT_DIR$/templates/app/movies.html" />
         <option value="$PROJECT_DIR$/Veo/settings.py" />
-        <option value="$PROJECT_DIR$/static/css/styles.css" />
         <option value="$PROJECT_DIR$/App/views.py" />
         <option value="$PROJECT_DIR$/static/js/request_functions.js" />
+        <option value="$PROJECT_DIR$/static/css/styles.css" />
       </list>
     </option>
   </component>
@@ -1179,14 +1189,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="317" column="35" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1117" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="406">
@@ -1492,6 +1494,14 @@
             <marker date="1551113759362" expanded="false" signature="55436:55530" ph="..." />
             <marker date="1551113759362" expanded="false" signature="56431:56569" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="319" column="28" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1119" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
