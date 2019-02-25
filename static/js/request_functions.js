@@ -1051,10 +1051,10 @@ function changeStateEpisode(elemento, id_show, num_season, id_episode, csrf_toke
     // Comprobamos si se va a marcar o desmarcar como visto
     if($(elemento).text() == "radio_button_unchecked"){
         state = 1;
-        M.toast({html: 'Marcando como Visto...', displayLength:700});
+        M.toast({html: 'Marcando como Visto...'});
     } else{
         state = 2;
-        M.toast({html: 'Desmarcando como Visto...', displayLength:700});
+        M.toast({html: 'Desmarcando como Visto...'});
 
     }
 
