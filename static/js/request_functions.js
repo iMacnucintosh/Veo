@@ -1051,8 +1051,11 @@ function changeStateEpisode(elemento, id_show, num_season, id_episode, csrf_toke
     // Comprobamos si se va a marcar o desmarcar como visto
     if($(elemento).text() == "radio_button_unchecked"){
         state = 1;
+        M.toast({html: 'Marcando como Visto...', displayLength:700});
     } else{
         state = 2;
+        M.toast({html: 'Desmarcando como Visto...', displayLength:700});
+
     }
 
     // Petición para cambiar el estado de visualización del capitulo
@@ -1073,6 +1076,7 @@ function changeStateEpisode(elemento, id_show, num_season, id_episode, csrf_toke
         contentType: false,
         data: data,
         success: function (data) {
+            M.Toast.dismissAll();
             if(state==1){
                 episodes_seen = episodes_current + 1;
                 $('#num-episodes-season-' + num_season).text(episodes_seen + "/" + episodes_count)
