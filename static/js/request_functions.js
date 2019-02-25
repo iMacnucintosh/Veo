@@ -15,7 +15,6 @@ function TmdbRequestFilter(selector_container, url, parameters, description_requ
     }).done(function(data, textStatus, jqXHR) {
         $('.gif-loading').fadeOut(100);
         $("main").addClass("main-active");
-        console.log(data);
         if(data.results.length > 0) {
             for (var i = 0; i < data.results.length; i++) {
                 poster_i = data.results[i];
