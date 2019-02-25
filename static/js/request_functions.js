@@ -29,8 +29,6 @@ function TmdbRequestFilter(selector_container, url, parameters, description_requ
 
                 $(selector_container).append(poster_str);
 
-                console.log(parameters);
-
                 if(info_for=="movie") {
                     urlCheck = "/isMovieOnMyList/";
                 }
