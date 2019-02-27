@@ -4,6 +4,7 @@ import os
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 from App.models import *
@@ -764,7 +765,7 @@ def myFollowingsActivity(request):
 
 # My Followings Recient Activity
 def myFollowingsRecientActivity(request):
-    activitys = Activity.objects.filter(user__in=Profile.objects.get(user=request.user).followings.all()).order_by("-date_add")[:10]
+    activitys = Activity.objects.filter(Q(user__in=Profile.objects.get(user=request.user).followings.all()) | Q(user=request.user)).order_by("-date_add")[:10]
 
     results = []
 
