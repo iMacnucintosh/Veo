@@ -292,7 +292,7 @@ def setMovieToNotSeen(request):
     return JsonResponse(data)
 
 def myMoviesToSee(request):
-    movies = Movie.objects.filter(user=request.user, states__in=[2]).order_by("date_add")
+    movies = Movie.objects.filter(user=request.user, states__in=[2]).order_by("-date_add")
     results = []
 
     for movie in movies:
@@ -305,7 +305,7 @@ def myMoviesToSee(request):
     return JsonResponse(data)
 
 def myMoviesSeen(request):
-    movies = Movie.objects.filter(user=request.user, states__in=[1]).order_by("date_add")
+    movies = Movie.objects.filter(user=request.user, states__in=[1]).order_by("-date_add")
     results = []
 
     for movie in movies:
@@ -394,13 +394,16 @@ def setShowToSeen(request):
                 episode = Episode.objects.create(show=show, id_episode=episode["id"], season_number=season["season_number"],
                                                  episode_number=episode["episode_number"], user=request.user)
                 episode.states.add(State.objects.get(id=1))
+
+        Show.objects.filter(id=request.POST["id"]).update(date_update=datetime.now())
         Activity.objects.create(user=request.user, operation=Operation.objects.get(id=4), show=show)
     else:
         show.first().states.add(State.objects.get(id=1))
         for episode in show.first().getEpisodes():
             episode.states.add(State.objects.get(id=1))
+
+        show.first().update(date_update=datetime.now())
         Activity.objects.create(user=request.user, operation=Operation.objects.get(id=4), show=show.first())
-    show.update(date_update=datetime.now() + timedelta(hours=1) + timedelta(hours=1))
 
     data = {
         'result': request.POST["name"] + " añadida a vistas",
@@ -431,7 +434,7 @@ def setShowToNotSeen(request):
 # List of Shows in active
 def myActiveShows(request):
     one_month_ago = timezone.now() - timezone.timedelta(days=30)
-    shows = Show.objects.filter(user=request.user, date_update__gte=one_month_ago).exclude(states__in=[1]).order_by("date_update")
+    shows = Show.objects.filter(user=request.user, date_update__gte=one_month_ago).exclude(states__in=[1]).order_by("-date_update")
 
     results = []
 
@@ -447,7 +450,7 @@ def myActiveShows(request):
 # List of Shows in active
 def myForgottenShows(request):
     one_month_ago = timezone.now() - timezone.timedelta(days=30)
-    shows = Show.objects.filter(user=request.user, date_update__lte=one_month_ago).exclude(states__in=[1]).order_by("date_update")
+    shows = Show.objects.filter(user=request.user, date_update__lte=one_month_ago).exclude(states__in=[1]).order_by("-date_update")
 
     results = []
 
@@ -486,11 +489,11 @@ def changeEpisodeState(request): # Cambiar
         if len(Episode.objects.filter(show=Episode.objects.get(id_episode=request.POST["id_episode"]).show, user=request.user, states__in=[1])) == len(Episode.objects.filter(show=Episode.objects.get(id_episode=request.POST["id_episode"]).show, user=request.user)):
             show.first().states.add(State.objects.get(id=1))
             Activity.objects.create(user=request.user, operation=Operation.objects.get(id=4), show=show.first())
-            show.update(date_update=datetime.now() + timedelta(hours=1) + timedelta(hours=1))
+            show.update(date_update=datetime.now())
         else:
             show.first().states.remove(State.objects.get(id=1))
 
-        show.update(date_update=datetime.now() + timedelta(hours=1) + timedelta(hours=1))
+        show.update(date_update=datetime.now())
         result = "Episodio marcado como visto"
     else:
         Episode.objects.get(id_episode=request.POST["id_episode"], user=request.user).states.remove(State.objects.get(id=1))
@@ -523,7 +526,7 @@ def syncronizeEpisodes(request):
 
 # List of Shows seen
 def myShowsSeen(request):
-    shows = Show.objects.filter(user=request.user, states__in=[1]).order_by("date_update")
+    shows = Show.objects.filter(user=request.user, states__in=[1]).order_by("-date_update")
 
     results = []
 

@@ -19,71 +19,87 @@ function TmdbRequestFilter(selector_container, url, parameters, description_requ
             for (var i = 0; i < data.results.length; i++) {
                 poster_i = data.results[i];
 
-                var poster_str = "\
-                <a href='/"+info_for+"/" + poster_i.id + "' class='"+poster_i.id+" poster-item list col s4 m3 l2 no-padding'>\
+                if (poster_i.poster_path != null) {
+                    var poster_str = "\
+                <a href='/" + info_for + "/" + poster_i.id + "' class='" + poster_i.id + " poster-item list col s4 m3 l2 no-padding'>\
                     <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
                     <i class='material-icons i-vista'>visibility</i>\
                     <i class='material-icons i-pendiente'>playlist_add_check</i>\
                  </a>\
                 ";
 
-                $(selector_container).append(poster_str);
+                    $(selector_container).append(poster_str);
 
-                if(info_for=="movie") {
-                    urlCheck = "/isMovieOnMyList/";
-                }
-                else{
-                    urlCheck = "/isShowOnMyList/";
-                }
-                // Check if is in my list
-                var dataMovie = new FormData();
-                dataMovie.append('id', poster_i.id);
-                $.ajax({
-                    url: urlCheck,
-                    type: "POST",
-                    mimeType: "multipart/form-data",
-                    dataType: 'json',
-                    processData: false,
-                    contentType: false,
-                    data: dataMovie,
-                    success: function (response) {
-                        if (response.states != "null") {
+                    if (info_for == "movie") {
+                        urlCheck = "/isMovieOnMyList/";
+                    }
+                    else {
+                        urlCheck = "/isShowOnMyList/";
+                    }
+                    // Check if is in my list
+                    var dataMovie = new FormData();
+                    dataMovie.append('id', poster_i.id);
+                    $.ajax({
+                        url: urlCheck,
+                        type: "POST",
+                        mimeType: "multipart/form-data",
+                        dataType: 'json',
+                        processData: false,
+                        contentType: false,
+                        data: dataMovie,
+                        success: function (response) {
+                            if (response.states != "null") {
 
-                            for (var i = 0; i < response.states.length; i++) {
-                                var state = response.states[i];
+                                for (var i = 0; i < response.states.length; i++) {
+                                    var state = response.states[i];
 
-                                if (state.id == 2) {
-                                    $('.' + response.id).addClass("pendiente")
-                                }
+                                    if (state.id == 2) {
+                                        $('.' + response.id).addClass("pendiente")
+                                    }
 
-                                if (state.id == 1) {
-                                    $('.' + response.id).addClass("vista")
+                                    if (state.id == 1) {
+                                        $('.' + response.id).addClass("vista")
+                                    }
+
                                 }
 
                             }
-
                         }
-                    }
-                });
-            }
-
-            if(parameters["sort_by"]){
-                switch(parameters["sort_by"]){
-                    case "popularity.desc":
-                        page_request_movies_popularity += 1;
-                        break;
-                    case "vote_count.desc":
-                        page_request_movies_vote_count += 1;
-                        break;
+                    });
                 }
             }
-            if(url == "https://api.themoviedb.org/3/movie/now_playing"){
-                page_request_movies_now_playing +=1
+            if (info_for == "movie") {
+                if (parameters["sort_by"]) {
+                    switch (parameters["sort_by"]) {
+                        case "popularity.desc":
+                            page_request_movies_popularity += 1;
+                            break;
+                        case "vote_count.desc":
+                            page_request_movies_vote_count += 1;
+                            break;
+                    }
+                }
+            }
+            else {
+                if (parameters["sort_by"]) {
+                    switch (parameters["sort_by"]) {
+                        case "popularity.desc":
+                            page_request_shows_popularity += 1;
+                            break;
+                        case "vote_count.desc":
+                            page_request_shows_vote_count += 1;
+                            break;
+                    }
+                }
+            }
+
+
+            if (url == "https://api.themoviedb.org/3/movie/now_playing") {
+                page_request_movies_now_playing += 1
             }
 
             allowRequest = true;
             resizePosters();
-
         }
     }).fail(function( jqXHR, textStatus, errorThrown ) {
         console.error('La solicitud: "' + description_request + '", a fallado: ' +  textStatus);
@@ -957,6 +973,8 @@ function removeShowToSee(elemento, csrf_token){
 
 // Set a movie like seen
 function setShowToSeen(elemento, csrf_token){
+    $('.loading-container').css("display", "flex").hide().fadeIn();
+    $('main').addClass("main-blur");
     var data = new FormData();
     data.append('id', _show.id);
     data.append('name', _show.name);
@@ -973,6 +991,8 @@ function setShowToSeen(elemento, csrf_token){
         contentType: false,
         data: data,
         success: function (response) {
+            $('.loading-container').hide();
+            $('main').removeClass("main-blur");
             M.toast({html: 'Has marcado ' + $('#title').text() + " como vista"})
             $(elemento).attr("src", "/static/images/seen.png")
             $(elemento).attr("onclick", "setShowToNotSeen(this, '" + csrf_token +"')");
@@ -983,6 +1003,8 @@ function setShowToSeen(elemento, csrf_token){
 
 // Set a movie like not seen
 function setShowToNotSeen(elemento, csrf_token){
+    $('.loading-container').css("display", "flex").hide().fadeIn();
+    $('main').addClass("main-blur");
     var data = new FormData();
     data.append('id', _show.id);
     data.append('csrfmiddlewaretoken', csrf_token);
@@ -995,6 +1017,8 @@ function setShowToNotSeen(elemento, csrf_token){
         contentType: false,
         data: data,
         success: function (response) {
+            $('.loading-container').hide();
+            $('main').removeClass("main-blur");
             M.toast({html: 'Has eliminado ' + $('#title').text() + " como vista"})
             $(elemento).attr("src", "/static/images/not_seen.png")
             $(elemento).attr("onclick", "setShowToSeen(this, '" + csrf_token +"')");

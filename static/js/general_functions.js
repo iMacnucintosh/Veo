@@ -144,7 +144,6 @@ var page_request_movies_now_playing = 1;
 
 var page_request_shows_popularity = 1;
 var page_request_shows_vote_count = 1;
-var page_request_shows_now_playing = 1;
 
 function nextPageRequest(){
     switch(localStorage.getItem("active_tab")){

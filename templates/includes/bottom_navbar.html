@@ -132,11 +132,11 @@
             <i class="material-icons">home</i>
             <p>Inicio</p>
         </a>
-        <a href="/movies" id="nav-movies" class="col s3">
+        <a href="/movies" id="nav-movies" class="col s3" onclick="localStorage.setItem('active_tab', '#movies_popularity')">
             <i class="material-icons">movie</i>
             <p>Películas</p>
         </a>
-        <a href="/shows" id="nav-shows" class="col s3">
+        <a href="/shows" id="nav-shows" class="col s3" onclick="localStorage.setItem('active_tab', '#shows_popularity')">
             <i class="material-icons">subscriptions</i>
             <p>Series</p>
         </a>
@@ -146,3 +146,9 @@
         </a>
     </nav>
 </footer>
+
+
+<!-- Loading Gif -->
+<section class="loading-container">
+    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+</section>
