@@ -196,10 +196,10 @@ main {
     opacity: 0;
     padding: 10px;
     padding-bottom: 66px !important;
-    transition: .4s;
 }
 
 .main-blur {
+    transition: .4s;
     filter: blur(6px)
 }
 

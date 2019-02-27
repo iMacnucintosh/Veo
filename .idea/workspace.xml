@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="07020f31-8a76-45f1-a7cb-86f3cab66ea4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/request_functions.js" afterPath="$PROJECT_DIR$/static/js/request_functions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/app/movies.html" afterPath="$PROJECT_DIR$/templates/app/movies.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/app/social.html" afterPath="$PROJECT_DIR$/templates/app/social.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/styles.css" afterPath="$PROJECT_DIR$/static/css/styles.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,24 +22,13 @@
       <file leaf-file-name="request_functions.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/request_functions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="1242" column="69" lean-forward="false" selection-start-line="1242" selection-start-column="65" selection-end-line="1242" selection-end-column="69" />
+            <state relative-caret-position="159">
+              <caret line="53" column="55" lean-forward="true" selection-start-line="53" selection-start-column="55" selection-end-line="53" selection-end-column="55" />
               <folding>
                 <element signature="e#0#43#0" expanded="false" />
-                <element signature="n#!!block;n#TmdbRequestFilter#0" expanded="false" />
                 <element signature="e#330#428#0" expanded="false" />
-                <element signature="e#469#3969#0" expanded="false" />
-                <element signature="e#590#3963#0" expanded="false" />
-                <element signature="e#650#2795#0" expanded="false" />
-                <element signature="e#747#2781#0" expanded="false" />
                 <element signature="e#1358#1437#0" expanded="false" />
                 <element signature="e#1463#1541#0" expanded="false" />
-                <element signature="e#1724#2761#0" expanded="false" />
-                <element signature="e#2084#2739#0" expanded="false" />
-                <element signature="e#2145#2713#0" expanded="false" />
-                <element signature="e#2228#2683#0" expanded="false" />
-                <element signature="e#2353#2475#0" expanded="false" />
-                <element signature="e#2531#2649#0" expanded="false" />
                 <element signature="e#2833#3282#0" expanded="false" />
                 <element signature="e#2878#3268#0" expanded="false" />
                 <element signature="e#2900#3250#0" expanded="false" />
@@ -237,6 +225,11 @@
                 <element signature="e#44873#45427#0" expanded="false" />
                 <element signature="e#44937#45380#0" expanded="false" />
                 <element signature="e#45431#45544#0" expanded="false" />
+                <element signature="n#!!block;n#myActivity#0" expanded="false" />
+                <element signature="e#45665#47388#0" expanded="false" />
+                <element signature="e#45894#47382#0" expanded="false" />
+                <element signature="e#46028#47264#0" expanded="false" />
+                <element signature="e#46092#47250#0" expanded="false" />
                 <element signature="e#47268#47371#0" expanded="false" />
                 <element signature="n#!!block;n#MyFollowingsActivity#0" expanded="false" />
                 <element signature="e#47508#49241#0" expanded="false" />
@@ -307,11 +300,11 @@
                 <marker date="1551271549984" expanded="false" signature="39679:39824" ph="..." />
                 <marker date="1551271549984" expanded="false" signature="40868:41014" ph="..." />
                 <marker date="1551271549984" expanded="false" signature="45135:45281" ph="..." />
-                <marker date="1551271549984" expanded="true" signature="46224:47175" ph="..." />
+                <marker date="1551271549984" expanded="false" signature="46224:47175" ph="..." />
                 <marker date="1551271549984" expanded="false" signature="46324:46464" ph="..." />
-                <marker date="1551271549984" expanded="true" signature="46544:47127" ph="..." />
+                <marker date="1551271549984" expanded="false" signature="46544:47127" ph="..." />
                 <marker date="1551271549984" expanded="false" signature="46640:46776" ph="..." />
-                <marker date="1551271549984" expanded="true" signature="46879:47075" ph="..." />
+                <marker date="1551271549984" expanded="false" signature="46879:47075" ph="..." />
                 <marker date="1551271549984" expanded="false" signature="48077:49027" ph="..." />
                 <marker date="1551271549984" expanded="false" signature="48176:48316" ph="..." />
                 <marker date="1551271549984" expanded="false" signature="48396:48979" ph="..." />
@@ -330,7 +323,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="social.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="styles.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/css/styles.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="236">
+              <caret line="201" column="20" lean-forward="true" selection-start-line="201" selection-start-column="20" selection-end-line="201" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="social.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/app/social.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="203">
@@ -363,7 +366,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>activity.date_add .strftime(&quot;%d-%m-%Y %H:%M:%S&quot;)</find>
       <find>i</find>
       <find>inform</find>
       <find>informati</find>
@@ -393,6 +395,7 @@
       <find>user-</find>
       <find>user-i</find>
       <find>user-ite</find>
+      <find>addClass(&quot;viendo</find>
     </findStrings>
     <replaceStrings>
       <replace>#3e3e3e</replace>
@@ -472,10 +475,10 @@
         <option value="$PROJECT_DIR$/templates/app/show.html" />
         <option value="$PROJECT_DIR$/templates/app/shows.html" />
         <option value="$PROJECT_DIR$/App/views.py" />
-        <option value="$PROJECT_DIR$/static/css/styles.css" />
         <option value="$PROJECT_DIR$/templates/app/movies.html" />
         <option value="$PROJECT_DIR$/static/js/request_functions.js" />
         <option value="$PROJECT_DIR$/templates/app/social.html" />
+        <option value="$PROJECT_DIR$/static/css/styles.css" />
       </list>
     </option>
   </component>
@@ -1420,14 +1423,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="1025" column="23" lean-forward="false" selection-start-line="1025" selection-start-column="23" selection-end-line="1025" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/app/movies.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="127">
@@ -1436,26 +1431,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/app/social.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="24" column="47" lean-forward="false" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/request_functions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="1242" column="69" lean-forward="false" selection-start-line="1242" selection-start-column="65" selection-end-line="1242" selection-end-column="69" />
+        <state relative-caret-position="159">
+          <caret line="53" column="55" lean-forward="true" selection-start-line="53" selection-start-column="55" selection-end-line="53" selection-end-column="55" />
           <folding>
             <element signature="e#0#43#0" expanded="false" />
-            <element signature="n#!!block;n#TmdbRequestFilter#0" expanded="false" />
             <element signature="e#330#428#0" expanded="false" />
-            <element signature="e#469#3969#0" expanded="false" />
-            <element signature="e#590#3963#0" expanded="false" />
-            <element signature="e#650#2795#0" expanded="false" />
-            <element signature="e#747#2781#0" expanded="false" />
             <element signature="e#1358#1437#0" expanded="false" />
             <element signature="e#1463#1541#0" expanded="false" />
-            <element signature="e#1724#2761#0" expanded="false" />
-            <element signature="e#2084#2739#0" expanded="false" />
-            <element signature="e#2145#2713#0" expanded="false" />
-            <element signature="e#2228#2683#0" expanded="false" />
-            <element signature="e#2353#2475#0" expanded="false" />
-            <element signature="e#2531#2649#0" expanded="false" />
             <element signature="e#2833#3282#0" expanded="false" />
             <element signature="e#2878#3268#0" expanded="false" />
             <element signature="e#2900#3250#0" expanded="false" />
@@ -1652,6 +1644,11 @@
             <element signature="e#44873#45427#0" expanded="false" />
             <element signature="e#44937#45380#0" expanded="false" />
             <element signature="e#45431#45544#0" expanded="false" />
+            <element signature="n#!!block;n#myActivity#0" expanded="false" />
+            <element signature="e#45665#47388#0" expanded="false" />
+            <element signature="e#45894#47382#0" expanded="false" />
+            <element signature="e#46028#47264#0" expanded="false" />
+            <element signature="e#46092#47250#0" expanded="false" />
             <element signature="e#47268#47371#0" expanded="false" />
             <element signature="n#!!block;n#MyFollowingsActivity#0" expanded="false" />
             <element signature="e#47508#49241#0" expanded="false" />
@@ -1722,11 +1719,11 @@
             <marker date="1551271549984" expanded="false" signature="39679:39824" ph="..." />
             <marker date="1551271549984" expanded="false" signature="40868:41014" ph="..." />
             <marker date="1551271549984" expanded="false" signature="45135:45281" ph="..." />
-            <marker date="1551271549984" expanded="true" signature="46224:47175" ph="..." />
+            <marker date="1551271549984" expanded="false" signature="46224:47175" ph="..." />
             <marker date="1551271549984" expanded="false" signature="46324:46464" ph="..." />
-            <marker date="1551271549984" expanded="true" signature="46544:47127" ph="..." />
+            <marker date="1551271549984" expanded="false" signature="46544:47127" ph="..." />
             <marker date="1551271549984" expanded="false" signature="46640:46776" ph="..." />
-            <marker date="1551271549984" expanded="true" signature="46879:47075" ph="..." />
+            <marker date="1551271549984" expanded="false" signature="46879:47075" ph="..." />
             <marker date="1551271549984" expanded="false" signature="48077:49027" ph="..." />
             <marker date="1551271549984" expanded="false" signature="48176:48316" ph="..." />
             <marker date="1551271549984" expanded="false" signature="48396:48979" ph="..." />
@@ -1744,10 +1741,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/app/social.html">
+    <entry file="file://$PROJECT_DIR$/static/css/styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="24" column="47" lean-forward="false" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
+        <state relative-caret-position="236">
+          <caret line="201" column="20" lean-forward="true" selection-start-line="201" selection-start-column="20" selection-end-line="201" selection-end-column="20" />
           <folding />
         </state>
       </provider>
