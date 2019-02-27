@@ -53,7 +53,7 @@
         TmdbRequestFilter('#movies_vote_count', "https://api.themoviedb.org/3/discover/movie", {"languaje":"es-ES", "sort_by":"vote_count.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":page_request_movies_vote_count}, "Peliculas mejor Votadas","movie", {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
 
         // En Cines
-        TmdbRequestFilter('#movies_theatres', "https://api.themoviedb.org/3/movie/now_playing", {"language":"es-ES", "page":page_request_movies_now_playing}, "Peliculas En Cartelera de Cines", "movie", {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
+        TmdbRequestFilter('#movies_theatres', "https://api.themoviedb.org/3/movie/now_playing", {"language":"es-ES", "page":page_request_movies_now_playing, "region": "ES"}, "Peliculas En Cartelera de Cines", "movie", {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
 
 
         /* ---------------------------------- PERSONAL DATABASE ----------------------------------------------------- */

@@ -1231,7 +1231,7 @@ function myActivity(selector){
             if(data.results.length > 0) {
                 for (var i = 0; i < data.results.length; i++) {
                     activity_i = data.results[i];
-                    var activity_str = '<div class="activity-item row">\
+                    var activity_str = '<div class="activity-item row no-margin">\
                                             <a href="'+activity_i.href+'" class="poster-activity">\
                                                 <img src="'+activity_i.poster_path+'" />\
                                             </a>\
@@ -1273,7 +1273,7 @@ function MyFollowingsActivity(selector){
             if(data.results.length > 0) {
                 for (var i = 0; i < data.results.length; i++) {
                     activity_i = data.results[i];
-                    var activity_str = '<div class="activity-item row">\
+                    var activity_str = '<div class="activity-item row no-margin">\
                                            <a href="'+activity_i.href+'" class="poster-activity">\
                                                 <img src="'+activity_i.poster_path+'" />\
                                             </a>\
@@ -1315,7 +1315,7 @@ function MyFollowingsRecientActivity(selector){
             if(data.results.length > 0) {
                 for (var i = 0; i < data.results.length; i++) {
                     activity_i = data.results[i];
-                    var activity_str = '<div class="activity-item row">\
+                    var activity_str = '<div class="activity-item row no-margin">\
                                            <a href="'+activity_i.href+'" class="poster-activity">\
                                                 <img src="'+activity_i.poster_path+'" />\
                                             </a>\
