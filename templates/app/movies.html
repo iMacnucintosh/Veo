@@ -59,10 +59,10 @@
         /* ---------------------------------- PERSONAL DATABASE ----------------------------------------------------- */
 
         // Mis Películas por ver
-        MyMoviesToSee('{{ csrf_token }}', '#movies_pending', {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
+        MyMoviesToSee('#movies_pending', {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
 
         // Mis Películas Vistas
-        MyMoviesSeen('{{ csrf_token }}', '#movies_seen', {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
+        MyMoviesSeen('#movies_seen', {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
 
         if(localStorage.getItem("active_tab") == null){
             localStorage.setItem("active_tab", "#movies_popularity");

@@ -96,6 +96,7 @@ def home(request):
         "profile": Profile.objects.get(user=request.user),
         "themes": Theme.objects.all(),
         "avatars": Avatar.objects.all(),
+        "activitys": Activity.objects.filter(user__in=Profile.objects.get(user=request.user).followings.all()).order_by("-date_add")[:10]
     }
     return render(request, "app/home.html", context=context)
 

@@ -21,12 +21,12 @@ function TmdbRequestFilter(selector_container, url, parameters, description_requ
 
                 if (poster_i.poster_path != null) {
                     var poster_str = "\
-                <a href='/" + info_for + "/" + poster_i.id + "' class='" + poster_i.id + " poster-item list col s4 m3 l2 no-padding'>\
-                    <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
-                    <i class='material-icons i-vista'>visibility</i>\
-                    <i class='material-icons i-pendiente'>playlist_add_check</i>\
-                 </a>\
-                ";
+                    <a href='/" + info_for + "/" + poster_i.id + "' class='" + poster_i.id + " poster-item list col s4 m3 l2 no-padding'>\
+                        <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
+                        <i class='material-icons i-vista'>visibility</i>\
+                        <i class='material-icons i-pendiente'>playlist_add_check</i>\
+                     </a>\
+                    ";
 
                     $(selector_container).append(poster_str);
 
@@ -49,20 +49,15 @@ function TmdbRequestFilter(selector_container, url, parameters, description_requ
                         data: dataMovie,
                         success: function (response) {
                             if (response.states != "null") {
-
                                 for (var i = 0; i < response.states.length; i++) {
                                     var state = response.states[i];
-
                                     if (state.id == 2) {
                                         $('.' + response.id).addClass("pendiente")
                                     }
-
                                     if (state.id == 1) {
                                         $('.' + response.id).addClass("vista")
                                     }
-
                                 }
-
                             }
                         }
                     });
@@ -92,7 +87,6 @@ function TmdbRequestFilter(selector_container, url, parameters, description_requ
                     }
                 }
             }
-
 
             if (url == "https://api.themoviedb.org/3/movie/now_playing") {
                 page_request_movies_now_playing += 1
@@ -154,7 +148,7 @@ function Recommendations(width_poster) {
 
 var _movie;
 // Get all information from Movie
-function InformationMovie(id, parameters, colorGenres, csrf_token, width_poster) {
+function InformationMovie(id, parameters, colorGenres, width_poster) {
 
     parameters["api_key"] = api_key;
 
@@ -269,7 +263,6 @@ function InformationMovie(id, parameters, colorGenres, csrf_token, width_poster)
     // Check if is in my list of Movies
     var data = new FormData();
     data.append('id', id);
-    data.append('csrfmiddlewaretoken', csrf_token);
     $.ajax({
         url: '/isMovieOnMyList/',
         type: "POST",
@@ -285,12 +278,12 @@ function InformationMovie(id, parameters, colorGenres, csrf_token, width_poster)
 
                     if(state.id == 2) {
                         $('.toSee').text("playlist_add_check");
-                        $('.toSee').attr("onclick", "removeMovieToSee(this, '" + csrf_token + "')");
+                        $('.toSee').attr("onclick", "removeMovieToSee(this)");
                     }
 
                     if(state.id == 1){
                         $('.seen').attr("src", "/static/images/seen.png")
-                        $('.seen').attr("onclick", "setMovieToNotSeen(this, '" + csrf_token +"')");
+                        $('.seen').attr("onclick", "setMovieToNotSeen(this)");
                     }
 
                 }
@@ -413,7 +406,7 @@ function InformationMovie(id, parameters, colorGenres, csrf_token, width_poster)
 
 var _show;
 // Get all information from Show
-function InformationShow(id, parameters, colorGenres, csrf_token, width_poster) {
+function InformationShow(id, parameters, colorGenres, width_poster) {
 
     parameters["api_key"] = api_key;
 
@@ -471,7 +464,7 @@ function InformationShow(id, parameters, colorGenres, csrf_token, width_poster) 
                     </div>';
 
                 // Information for each season
-                InformationSeason(id, season.season_number, parameters, csrf_token, width_poster);
+                InformationSeason(id, season.season_number, parameters,  width_poster);
             }
         }
 
@@ -527,7 +520,6 @@ function InformationShow(id, parameters, colorGenres, csrf_token, width_poster) 
     // Check if is in my list of Shows
     var data = new FormData();
     data.append('id', id);
-    data.append('csrfmiddlewaretoken', csrf_token);
     $.ajax({
         url: '/isShowOnMyList/',
         type: "POST",
@@ -543,12 +535,12 @@ function InformationShow(id, parameters, colorGenres, csrf_token, width_poster) 
 
                     if(state.id == 2) {
                         $('.toSee').text("playlist_add_check");
-                        $('.toSee').attr("onclick", "removeShowToSee(this, '" + csrf_token + "')");
+                        $('.toSee').attr("onclick", "removeShowToSee(this,)");
                     }
 
                     if(state.id == 1){
                         $('.seen').attr("src", "/static/images/seen.png")
-                        $('.seen').attr("onclick", "setShowToNotSeen(this, '" + csrf_token +"')");
+                        $('.seen').attr("onclick", "setShowToNotSeen(this)");
                     }
 
                 }
@@ -643,7 +635,7 @@ function InformationShow(id, parameters, colorGenres, csrf_token, width_poster) 
 }
 
 var _seasons = [];
-function InformationSeason(id_show, num_season, parameters, csrf_token, width_poster){
+function InformationSeason(id_show, num_season, parameters, width_poster){
     parameters["api_key"] = api_key;
 
     // Basic Information
@@ -707,7 +699,7 @@ function InformationSeason(id_show, num_season, parameters, csrf_token, width_po
             }
             season_info_str += '\
                         <li>\
-                            <div class="collapsible-header"><i class="material-icons" onclick="changeStateEpisode(this,' + id_show + ',' + num_season + ',' + episode.id + ',\''+ csrf_token +'\')" id="' + id_show + '_' + num_season + '_' + episode.episode_number + '">radio_button_unchecked</i>' + episode.name + '</div>\                            <div class="collapsible-body row no-margin"><p class="date-last-episode col s6">' + episode.air_date + '</p><p class="col s6 last-episode-number">T' + episode.season_number + ' x E' + episode.episode_number+ '</p><p class="col s12 last-episode-overview">' + overview + '</p></div>\
+                            <div class="collapsible-header"><i class="material-icons" onclick="changeStateEpisode(this,' + id_show + ',' + num_season + ',' + episode.id + ')" id="' + id_show + '_' + num_season + '_' + episode.episode_number + '">radio_button_unchecked</i>' + episode.name + '</div>\                            <div class="collapsible-body row no-margin"><p class="date-last-episode col s6">' + episode.air_date + '</p><p class="col s6 last-episode-number">T' + episode.season_number + ' x E' + episode.episode_number+ '</p><p class="col s12 last-episode-overview">' + overview + '</p></div>\
                         </li>'
         }
         season_info_str += '</ul></div></div>';
@@ -730,7 +722,7 @@ function InformationSeason(id_show, num_season, parameters, csrf_token, width_po
         var data = new FormData();
         data.append('id_show', id_show);
         data.append('season_number', num_season);
-        data.append('csrfmiddlewaretoken', csrf_token);
+
         $.ajax({
             url: '/syncronizeEpisodes/',
             type: "POST",
@@ -761,13 +753,13 @@ function InformationSeason(id_show, num_season, parameters, csrf_token, width_po
 
 /* ------------------------------ MOVIE ----------------------------------------------------------------------------- */
 // Add a movie to list of pending movies
-function addMovieToSee(elemento, csrf_token){
+function addMovieToSee(elemento){
     var data = new FormData();
     data.append('id', _movie.id);
     data.append('title', _movie.title);
     data.append('poster_path',  _movie.poster_path);
     data.append('vote_average',  _movie.vote_average);
-    data.append('csrfmiddlewaretoken', csrf_token);
+
     $.ajax({
         url: '/addMovieToSee/',
         type: "POST",
@@ -779,18 +771,18 @@ function addMovieToSee(elemento, csrf_token){
         success: function (response) {
             M.toast({html: 'Has añadido ' + $('#title').text() + " a tu lista de pendientes"})
             $(elemento).text("playlist_add_check");
-            $(elemento).attr("onclick", "removeMovieToSee(this, '" + csrf_token +"')");
+            $(elemento).attr("onclick", "removeMovieToSee(this)");
 
         }
     });
 }
 
 // Remove a movie to list of pending movies
-function removeMovieToSee(elemento, csrf_token){
+function removeMovieToSee(elemento){
 
     var data = new FormData();
     data.append('id', _movie.id);
-    data.append('csrfmiddlewaretoken', csrf_token);
+
     $.ajax({
         url: '/removeMovieToSee/',
         type: "POST",
@@ -802,20 +794,20 @@ function removeMovieToSee(elemento, csrf_token){
         success: function (response) {
             M.toast({html: 'Has eliminado ' + $('#title').text() + " de tu lista de pendientes"})
             $(elemento).text("playlist_add")
-            $(elemento).attr("onclick", "addMovieToSee(this, '" + csrf_token +"')");
+            $(elemento).attr("onclick", "addMovieToSee(this)");
         }
     });
 }
 
 // Set a movie like seen
-function setMovieToSeen(elemento, csrf_token){
+function setMovieToSeen(elemento){
 
     var data = new FormData();
     data.append('id', _movie.id);
     data.append('title', _movie.title);
     data.append('poster_path', _movie.poster_path);
     data.append('vote_average',  _movie.vote_average);
-    data.append('csrfmiddlewaretoken', csrf_token);
+
     $.ajax({
         url: '/setMovieToSeen/',
         type: "POST",
@@ -827,17 +819,17 @@ function setMovieToSeen(elemento, csrf_token){
         success: function (response) {
             M.toast({html: 'Has marcado ' + $('#title').text() + " como vista"})
             $(elemento).attr("src", "/static/images/seen.png")
-            $(elemento).attr("onclick", "setMovieToNotSeen(this, '" + csrf_token +"')");
+            $(elemento).attr("onclick", "setMovieToNotSeen(this)");
 
         }
     });
 }
 
 // Set a movie like not seen
-function setMovieToNotSeen(elemento, csrf_token){
+function setMovieToNotSeen(elemento){
     var data = new FormData();
     data.append('id', _movie.id);
-    data.append('csrfmiddlewaretoken', csrf_token);
+
     $.ajax({
         url: '/setMovieToNotSeen/',
         type: "POST",
@@ -849,14 +841,14 @@ function setMovieToNotSeen(elemento, csrf_token){
         success: function (response) {
             M.toast({html: 'Has eliminado ' + $('#title').text() + " como vista"})
             $(elemento).attr("src", "/static/images/not_seen.png")
-            $(elemento).attr("onclick", "setMovieToSeen(this, '" + csrf_token +"')");
+            $(elemento).attr("onclick", "setMovieToSeen(this)");
         }
     });
 }
 
-function MyMoviesToSee(csrf_token, selector, width_poster){
+function MyMoviesToSee(selector, width_poster){
     var data = new FormData();
-    data.append('csrfmiddlewaretoken', csrf_token);
+
     $.ajax({
         url: '/myMoviesToSee/',
         type: "POST",
@@ -888,9 +880,9 @@ function MyMoviesToSee(csrf_token, selector, width_poster){
     });
 }
 
-function MyMoviesSeen(csrf_token, selector, width_poster){
+function MyMoviesSeen(selector, width_poster){
     var data = new FormData();
-    data.append('csrfmiddlewaretoken', csrf_token);
+
     $.ajax({
         url: '/myMoviesSeen/',
         type: "POST",
@@ -924,14 +916,14 @@ function MyMoviesSeen(csrf_token, selector, width_poster){
 
 /* --------------------------------- SHOW --------------------------------------------------------------------------- */
 // Add a show to list of pending shows
-function addShowToSee(elemento, csrf_token){
+function addShowToSee(elemento){
     var data = new FormData();
     data.append('id', _show.id);
     data.append('name', _show.name);
     data.append('poster_path', _show.poster_path);
     data.append('vote_average',  _show.vote_average);
     data.append('seasons', JSON.stringify(_seasons));
-    data.append('csrfmiddlewaretoken', csrf_token);
+
     $.ajax({
         url: '/addShowToSee/',
         type: "POST",
@@ -943,18 +935,18 @@ function addShowToSee(elemento, csrf_token){
         success: function (response) {
             M.toast({html: 'Has añadido ' + $('#title').text() + " a tu lista de pendientes"})
             $(elemento).text("playlist_add_check");
-            $(elemento).attr("onclick", "removeShowToSee(this, '" + csrf_token +"')");
+            $(elemento).attr("onclick", "removeShowToSee(this)");
 
         }
     });
 }
 
 // Remove a show to list of pending shows
-function removeShowToSee(elemento, csrf_token){
+function removeShowToSee(elemento){
 
     var data = new FormData();
     data.append('id', _show.id);
-    data.append('csrfmiddlewaretoken', csrf_token);
+
     $.ajax({
         url: '/removeShowToSee/',
         type: "POST",
@@ -966,13 +958,13 @@ function removeShowToSee(elemento, csrf_token){
         success: function (response) {
             M.toast({html: 'Has eliminado ' + $('#title').text() + " de tu lista de pendientes"})
             $(elemento).text("playlist_add")
-            $(elemento).attr("onclick", "addShowToSee(this, '" + csrf_token +"')");
+            $(elemento).attr("onclick", "addShowToSee(this)");
         }
     });
 }
 
 // Set a movie like seen
-function setShowToSeen(elemento, csrf_token){
+function setShowToSeen(elemento){
     $('.loading-container').css("display", "flex").hide().fadeIn();
     $('main').addClass("main-blur");
     var data = new FormData();
@@ -981,7 +973,7 @@ function setShowToSeen(elemento, csrf_token){
     data.append('poster_path', _show.poster_path);
     data.append('vote_average',  _show.vote_average);
     data.append('seasons', JSON.stringify(_seasons));
-    data.append('csrfmiddlewaretoken', csrf_token);
+
     $.ajax({
         url: '/setShowToSeen/',
         type: "POST",
@@ -995,19 +987,19 @@ function setShowToSeen(elemento, csrf_token){
             $('main').removeClass("main-blur");
             M.toast({html: 'Has marcado ' + $('#title').text() + " como vista"})
             $(elemento).attr("src", "/static/images/seen.png")
-            $(elemento).attr("onclick", "setShowToNotSeen(this, '" + csrf_token +"')");
+            $(elemento).attr("onclick", "setShowToNotSeen(this)");
             $('.season-episodes i').text("radio_button_checked")
         }
     });
 }
 
 // Set a movie like not seen
-function setShowToNotSeen(elemento, csrf_token){
+function setShowToNotSeen(elemento){
     $('.loading-container').css("display", "flex").hide().fadeIn();
     $('main').addClass("main-blur");
     var data = new FormData();
     data.append('id', _show.id);
-    data.append('csrfmiddlewaretoken', csrf_token);
+
     $.ajax({
         url: '/setShowToNotSeen/',
         type: "POST",
@@ -1021,16 +1013,16 @@ function setShowToNotSeen(elemento, csrf_token){
             $('main').removeClass("main-blur");
             M.toast({html: 'Has eliminado ' + $('#title').text() + " como vista"})
             $(elemento).attr("src", "/static/images/not_seen.png")
-            $(elemento).attr("onclick", "setShowToSeen(this, '" + csrf_token +"')");
+            $(elemento).attr("onclick", "setShowToSeen(this)");
             $('.season-episodes i').text("radio_button_unchecked")
         }
     });
 }
 
 // List of Active Shows
-function MyActiveShows(csrf_token, selector, width_poster){
+function MyActiveShows(selector, width_poster){
     var data = new FormData();
-    data.append('csrfmiddlewaretoken', csrf_token);
+
     $.ajax({
         url: '/myActiveShows/',
         type: "POST",
@@ -1062,9 +1054,9 @@ function MyActiveShows(csrf_token, selector, width_poster){
 }
 
 // List of Forgotten
-function MyForgottenShows(csrf_token, selector, width_poster){
+function MyForgottenShows(selector, width_poster){
     var data = new FormData();
-    data.append('csrfmiddlewaretoken', csrf_token);
+
     $.ajax({
         url: '/myForgottenShows/',
         type: "POST",
@@ -1095,7 +1087,7 @@ function MyForgottenShows(csrf_token, selector, width_poster){
 }
 
 // Check/Uncheck episode like seen
-function changeStateEpisode(elemento, id_show, num_season, id_episode, csrf_token){
+function changeStateEpisode(elemento, id_show, num_season, id_episode){
     var state;
 
     var current_txt =  $('#num-episodes-season-' + num_season).text();
@@ -1129,7 +1121,7 @@ function changeStateEpisode(elemento, id_show, num_season, id_episode, csrf_toke
     data.append('id_episode', id_episode);
     data.append('state', state);
     data.append('seasons', JSON.stringify(_seasons));
-    data.append('csrfmiddlewaretoken', csrf_token);
+
     $.ajax({
         url: '/changeEpisodeState/',
         type: "POST",
@@ -1170,7 +1162,7 @@ function changeStateEpisode(elemento, id_show, num_season, id_episode, csrf_toke
             if(all_seen){
                 M.toast({html: 'Acabas de ver todos los capitulos de esta serie'});
                 $('.seen').attr("src", "/static/images/seen.png")
-                $('.seen').attr("onclick", "setShowToNotSeen(this, '" + csrf_token +"')");
+                $('.seen').attr("onclick", "setShowToNotSeen(this)");
 
             }else{
                 if((num_seen + 1) ==  $('.season-episodes i').length){
@@ -1178,7 +1170,7 @@ function changeStateEpisode(elemento, id_show, num_season, id_episode, csrf_toke
                 }
 
                 $('.seen').attr("src", "/static/images/not_seen.png")
-                $('.seen').attr("onclick", "setShowToSeen(this, '" + csrf_token +"')");
+                $('.seen').attr("onclick", "setShowToSeen(this)");
             }
         }
     });
@@ -1187,9 +1179,9 @@ function changeStateEpisode(elemento, id_show, num_season, id_episode, csrf_toke
 }
 
 // List of Seen Shows
-function MyShowsSeen(csrf_token, selector, width_poster){
+function MyShowsSeen(selector, width_poster){
     var data = new FormData();
-    data.append('csrfmiddlewaretoken', csrf_token);
+
     $.ajax({
         url: '/myShowsSeen/',
         type: "POST",
@@ -1221,9 +1213,9 @@ function MyShowsSeen(csrf_token, selector, width_poster){
 }
 
 // List of All Activity
-function myActivity(csrf_token, selector){
+function myActivity(selector){
     var data = new FormData();
-    data.append('csrfmiddlewaretoken', csrf_token);
+
     $.ajax({
         url: '/myActivity/',
         type: "POST",
@@ -1263,9 +1255,9 @@ function myActivity(csrf_token, selector){
 }
 
 // List of Following Activity
-function MyFollowingsActivity(csrf_token, selector){
+function MyFollowingsActivity(selector){
     var data = new FormData();
-    data.append('csrfmiddlewaretoken', csrf_token);
+
     $.ajax({
         url: '/myFollowingsActivity/',
         type: "POST",
@@ -1306,9 +1298,8 @@ function MyFollowingsActivity(csrf_token, selector){
 }
 
 // List of Following Activity
-function MyFollowingsRecientActivity(csrf_token, selector){
+function MyFollowingsRecientActivity(selector){
     var data = new FormData();
-    data.append('csrfmiddlewaretoken', csrf_token);
     $.ajax({
         url: '/myFollowingsRecientActivity/',
         type: "POST",
@@ -1350,10 +1341,10 @@ function MyFollowingsRecientActivity(csrf_token, selector){
 
 
 // Follow user
-function FollowUser(elemento, id_user, csrf_token){
+function FollowUser(elemento, id_user){
     var data = new FormData();
     data.append('id_user', id_user);
-    data.append('csrfmiddlewaretoken', csrf_token);
+
     $.ajax({
         url: '/followUser/',
         type: "POST",
@@ -1363,7 +1354,7 @@ function FollowUser(elemento, id_user, csrf_token){
         contentType: false,
         data: data,
         success: function (data) {
-            $(elemento).attr("onclick", "UnFollowUser(this, "+id_user+", '"+csrf_token+"')");
+            $(elemento).attr("onclick", "UnFollowUser(this, "+id_user+")");
             $(elemento).addClass("red");
             $(elemento).html("No Seguir");
         }
@@ -1371,10 +1362,10 @@ function FollowUser(elemento, id_user, csrf_token){
 }
 
 // UnFollow user
-function UnFollowUser(elemento, id_user, csrf_token){
+function UnFollowUser(elemento, id_user){
     var data = new FormData();
     data.append('id_user', id_user);
-    data.append('csrfmiddlewaretoken', csrf_token);
+
     $.ajax({
         url: '/unFollowUser/',
         type: "POST",
@@ -1384,20 +1375,20 @@ function UnFollowUser(elemento, id_user, csrf_token){
         contentType: false,
         data: data,
         success: function (data) {
-            $(elemento).attr("onclick", "FollowUser(this, "+id_user+", '"+csrf_token+"')");
+            $(elemento).attr("onclick", "FollowUser(this, "+id_user+")");
             $(elemento).removeClass("red");
             $(elemento).text("Seguir");
         }
     });
 }
 
-function changeColorGenres(toogle, csrf_token) {
+function changeColorGenres(toogle) {
 
     var status = $(toogle).is(':checked');
 
     var data = new FormData();
     data.append('status', status);
-    data.append('csrfmiddlewaretoken', csrf_token);
+
     $.ajax({
         url: '/changeGenreColors/',
         type: "POST",
@@ -1413,10 +1404,10 @@ function changeColorGenres(toogle, csrf_token) {
 }
 
 // Change Avatar of user
-function changeAvatar(elemento, id_avatar, csrf_token){
+function changeAvatar(elemento, id_avatar){
     var data = new FormData();
     data.append('id_avatar', id_avatar);
-    data.append('csrfmiddlewaretoken', csrf_token);
+
     $.ajax({
         url: '/changeAvatar/',
         type: "POST",
@@ -1432,13 +1423,13 @@ function changeAvatar(elemento, id_avatar, csrf_token){
 }
 
 // Change Avatar of user
-function changeCelularDataSavings(toogle, csrf_token){
+function changeCelularDataSavings(toogle){
 
     var status = $(toogle).is(':checked');
 
     var data = new FormData();
     data.append('status', status);
-    data.append('csrfmiddlewaretoken', csrf_token);
+
     $.ajax({
         url: '/changeCelularSavings/',
         type: "POST",

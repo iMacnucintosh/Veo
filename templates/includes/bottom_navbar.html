@@ -41,7 +41,7 @@
 
             {% for avatar in avatars %}
                 {% if avatar == profile.avatar %}
-                    <div onclick="changeAvatar(this, {{ avatar.id }}, '{{ csrf_token }}')" class="avatar {% if profile.avatar == avatar %}active{% endif %}">
+                    <div onclick="changeAvatar(this, {{ avatar.id }})" class="avatar {% if profile.avatar == avatar %}active{% endif %}">
                         <img src="{{ avatar.src }}" />
                     </div>
                 {% endif %}
@@ -49,7 +49,7 @@
 
             {% for avatar in avatars %}
                 {% if not avatar == profile.avatar %}
-                    <div onclick="changeAvatar(this, {{ avatar.id }}, '{{ csrf_token }}')" class="avatar {% if profile.avatar == avatar %}active{% endif %}">
+                    <div onclick="changeAvatar(this, {{ avatar.id }})" class="avatar {% if profile.avatar == avatar %}active{% endif %}">
                         <img src="{{ avatar.src }}" />
                     </div>
                 {% endif %}
@@ -73,7 +73,7 @@
                 <div class="switch">
                     <label>
                         No
-                        <input {% if profile.colorGenres == True %} checked {% endif %} type="checkbox" id="swtColorGenres" onchange="changeColorGenres(this, '{{ csrf_token }}')">
+                        <input {% if profile.colorGenres == True %} checked {% endif %} type="checkbox" id="swtColorGenres" onchange="changeColorGenres(this)">
                         <span class="lever"></span>
                         Si
                     </label>
@@ -100,7 +100,7 @@
                 <div class="switch">
                     <label>
                         No
-                        <input {% if profile.celularDataSavings == True %} checked {% endif %} type="checkbox" id="swtCelularSavings" onchange="changeCelularDataSavings(this, '{{ csrf_token }}')">
+                        <input {% if profile.celularDataSavings == True %} checked {% endif %} type="checkbox" id="swtCelularSavings" onchange="changeCelularDataSavings(this)">
                         <span class="lever"></span>
                         Si
                     </label>

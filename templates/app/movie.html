@@ -40,8 +40,8 @@
                     <i class="large material-icons">person_add</i>
                 </a>
                 <ul>
-                    <li><a class="btn-floating green"><img class="seen" src="/static/images/not_seen.png" onclick="setMovieToSeen(this, '{{ csrf_token }}')" /></a></li>
-                    <li><a class="btn-floating pink lighten-1"><i class="material-icons toSee" onclick="addMovieToSee(this, '{{ csrf_token }}')">playlist_add</i></a></li>
+                    <li><a class="btn-floating green"><img class="seen" src="/static/images/not_seen.png" onclick="setMovieToSeen(this)" /></a></li>
+                    <li><a class="btn-floating pink lighten-1"><i class="material-icons toSee" onclick="addMovieToSee(this)">playlist_add</i></a></li>
                 </ul>
             </div>
 
@@ -92,7 +92,7 @@
         {% if profile.celularDataSavings == True %} localStorage.setItem("width_poster", "200"); {% else %} localStorage.setItem("width_poster", "400"); {% endif %}
 
         // Información de la Película
-        InformationMovie({{id}}, {"language":"es-ES"}, {% if profile.colorGenres == True %}true{% else %}false{% endif %}, '{{ csrf_token }}', {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
+        InformationMovie({{id}}, {"language":"es-ES"}, {% if profile.colorGenres == True %}true{% else %}false{% endif %}, {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
     });
 </script>
 
