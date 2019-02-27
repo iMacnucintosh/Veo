@@ -1221,11 +1221,11 @@ function MyShowsSeen(csrf_token, selector, width_poster){
 }
 
 // List of All Activity
-function AllActivity(csrf_token, selector){
+function myActivity(csrf_token, selector){
     var data = new FormData();
     data.append('csrfmiddlewaretoken', csrf_token);
     $.ajax({
-        url: '/allActivity/',
+        url: '/myActivity/',
         type: "POST",
         mimeType: "multipart/form-data",
         dataType: 'json',

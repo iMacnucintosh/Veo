@@ -109,7 +109,7 @@ urlpatterns = [
 
     # ----------------------------------- ACTIVITY ---------------------------------------------------------------------
     # List of All Activity
-    url(r'^allActivity/$', allActivity),
+    url(r'^myActivity/$', myActivity),
 
     # List of My Following Activity
     url(r'^myFollowingsActivity/$', myFollowingsActivity),

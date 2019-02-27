@@ -13,13 +13,13 @@
 <!-- Tabs -->
 <ul class="tabs">
     <li class="tab col s3"><a class="tab-btn active" href="#myfollowings">Mis Amigos</a></li>
-    <li class="tab col s3"><a class="tab-btn active" href="#veoActivity">Actividad Veo</a></li>
+    <li class="tab col s3"><a class="tab-btn active" href="#myActivity">Mi Actividad</a></li>
     <li class="tab col s3"><a class="tab-btn" href="#community">Comunidad</a></li>
 </ul>
 
 <main>
     <div id="myfollowings" class="col s12"></div>
-    <div id="veoActivity" class="col s12"></div>
+    <div id="myActivity" class="col s12"></div>
     <div id="community" class="col s12 row no-margin">
         {% for profileJSON in profilesJSON %}
             <div class="user-item row">
@@ -71,7 +71,7 @@
         MyFollowingsActivity('{{ csrf_token }}', '#myfollowings');
 
         // Registro de toda la actividad
-        AllActivity('{{ csrf_token }}', '#veoActivity');
+        myActivity('{{ csrf_token }}', '#myActivity');
 
     });
 
