@@ -488,7 +488,7 @@ def changeEpisodeState(request): # Cambiar
 
         Activity.objects.create(user=request.user, operation=Operation.objects.get(id=5), episode=Episode.objects.get(id_episode=request.POST["id_episode"], user=request.user))
 
-        if len(Episode.objects.filter(show=Episode.objects.get(id_episode=request.POST["id_episode"]).show, user=request.user, states__in=[1])) == len(Episode.objects.filter(show=Episode.objects.get(id_episode=request.POST["id_episode"]).show, user=request.user)):
+        if len(Episode.objects.filter(show=Episode.objects.get(id_episode=request.POST["id_episode"], user=request.user).show, user=request.user, states__in=[1])) == len(Episode.objects.filter(show=Episode.objects.get(id_episode=request.POST["id_episode"], user=request.user).show, user=request.user)):
             show.first().states.add(State.objects.get(id=1))
             Activity.objects.create(user=request.user, operation=Operation.objects.get(id=4), show=show.first())
             show.update(date_update=datetime.now())
