@@ -404,7 +404,7 @@ def setShowToSeen(request):
         for episode in show.first().getEpisodes():
             episode.states.add(State.objects.get(id=1))
 
-        show.first().update(date_update=datetime.now())
+        show.update(date_update=datetime.now())
         Activity.objects.create(user=request.user, operation=Operation.objects.get(id=4), show=show.first())
 
     data = {
