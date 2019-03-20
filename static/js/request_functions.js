@@ -701,16 +701,16 @@ function InformationSeason(id_show, num_season, parameters, width_poster){
                         <li>\
                             <div class="collapsible-header">\
                                 <i class="material-icons" onclick="changeStateEpisode(this,' + id_show + ',' + num_season + ',' + episode.id + ')" id="' + id_show + '_' + num_season + '_' + episode.episode_number + '">radio_button_unchecked</i>' +
-                                '' + episode.name + '' + '\
+                '' + episode.name + '' + '\
                                 <div class="spinner hiddenFade">\
                                   <div class="dot1"></div>\
                                   <div class="dot2"></div>\
                                 </div>'+
-                            '</div>' +
-                            '<div class="collapsible-body row no-margin">' +
-                                '<p class="date-last-episode col s6">' + episode.air_date + '</p>' +
-                                '<p class="col s6 last-episode-number">T' + episode.season_number + ' x E' + episode.episode_number+ '</p>' +
-                                '<p class="col s12 last-episode-overview">' + overview + '</p>\
+                '</div>' +
+                '<div class="collapsible-body row no-margin">' +
+                '<p class="date-last-episode col s6">' + episode.air_date + '</p>' +
+                '<p class="col s6 last-episode-number">T' + episode.season_number + ' x E' + episode.episode_number+ '</p>' +
+                '<p class="col s12 last-episode-overview">' + overview + '</p>\
                             </div>\
                         </li>'
         }
@@ -1146,7 +1146,7 @@ function changeStateEpisode(elemento, id_show, num_season, id_episode){
         data: data,
         success: function (data) {
 
-            setTimeout(function(){$(elemento).next().addClass("hiddenFade")}, 400);
+            $(elemento).next().addClass("hiddenFade");
 
             M.Toast.dismissAll();
             if(state==1){
