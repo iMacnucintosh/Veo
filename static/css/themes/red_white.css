@@ -166,6 +166,10 @@ footer .nav-active i, footer .nav-active p {
     background-color: white;
 }
 
+.dot1, .dot2 {
+    background-color: #333333;
+}
+
 /* -------------------------------------- SOCIAL PAGE --------------------------------------------------------------- */
 .activity-item {
     border-bottom: 1px solid #ddd;

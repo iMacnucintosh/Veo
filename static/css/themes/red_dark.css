@@ -177,6 +177,9 @@ footer .nav-active i, footer .nav-active p {
     background-color: #3e3e3e;
 }
 
+.dot1, .dot2 {
+    background-color: white;
+}
 
 /* -------------------------------------- SOCIAL PAGE --------------------------------------------------------------- */
 .activity-item {

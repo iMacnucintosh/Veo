@@ -90,7 +90,7 @@ footer .nav-active i, footer .nav-active p {
 }
 
 #settings .title-section a {
-   color: #ffc107;
+    color: #ffc107;
 }
 
 .close-settings-container i {
@@ -164,6 +164,10 @@ footer .nav-active i, footer .nav-active p {
 
 .close-season-details {
     background-color: white;
+}
+
+.dot1, .dot2 {
+    background-color: #333333;
 }
 
 /* -------------------------------------- SOCIAL PAGE --------------------------------------------------------------- */
