@@ -744,6 +744,7 @@ function InformationSeason(id_show, num_season, parameters, width_poster){
             contentType: false,
             data: data,
             success: function (response) {
+                console.log(response);
                 if(response.results.length > 0){
                     $('#num-episodes-season-' + num_season).text(response.results.length + "/" + $('#num-episodes-season-' + num_season).text())
                     for(var i=0; i<response.results.length; i++){
