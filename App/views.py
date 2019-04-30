@@ -619,7 +619,7 @@ def myActivity(request):
                     activity.episode.season_number) + "</b> de <b>" + activity.episode.show.name + "</b>",
             else:
                 user_str = activity.user.username,
-                description = "ha visto el <b>E" + str(activity.episode.episode_number) + "xS" + str(
+                description = "ha visto el <b>E" + str(activity.episode.episode_number) + "xT" + str(
                     activity.episode.season_number) + "</b> de <b>" + activity.episode.show.name + "</b>",
 
             results.append({"user": user_str,
@@ -729,7 +729,7 @@ def myFollowingsActivity(request):
                     activity.episode.season_number) + "</b> de <b>" + activity.episode.show.name + "</b>",
             else:
                 user_str = activity.user.username,
-                description = "ha visto el <b>E" + str(activity.episode.episode_number) + "xS" + str(
+                description = "ha visto el <b>E" + str(activity.episode.episode_number) + "xT" + str(
                     activity.episode.season_number) + "</b> de <b>" + activity.episode.show.name + "</b>",
 
             results.append({"user": user_str,
@@ -840,7 +840,7 @@ def myFollowingsRecientActivity(request):
                     activity.episode.season_number) + "</b> de <b>" + activity.episode.show.name + "</b>",
             else:
                 user_str = activity.user.username,
-                description = "ha visto el <b>E" + str(activity.episode.episode_number) + "xS" + str(
+                description = "ha visto el <b>E" + str(activity.episode.episode_number) + "xT" + str(
                     activity.episode.season_number) + "</b> de <b>" + activity.episode.show.name + "</b>",
 
             results.append({"user": user_str,

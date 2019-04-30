@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="07020f31-8a76-45f1-a7cb-86f3cab66ea4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/app/profile.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/apps.py" afterPath="$PROJECT_DIR$/App/apps.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/models.py" afterPath="$PROJECT_DIR$/App/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/views.py" afterPath="$PROJECT_DIR$/App/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Veo/urls.py" afterPath="$PROJECT_DIR$/Veo/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/styles.css" afterPath="$PROJECT_DIR$/static/css/styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/includes/header_navbar.html" afterPath="$PROJECT_DIR$/templates/includes/header_navbar.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,8 +21,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/App/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="266" column="28" lean-forward="false" selection-start-line="266" selection-start-column="28" selection-end-line="266" selection-end-column="28" />
+            <state relative-caret-position="143">
+              <caret line="621" column="91" lean-forward="false" selection-start-line="621" selection-start-column="91" selection-end-line="621" selection-end-column="91" />
               <folding>
                 <element signature="e#24#34#0" expanded="true" />
                 <element signature="e#551#905#0" expanded="false" />
@@ -127,8 +120,6 @@
                 <element signature="e#18952#19237#0" expanded="false" />
                 <element signature="e#19172#19206#0" expanded="false" />
                 <element signature="e#19239#19359#0" expanded="false" />
-                <element signature="e#19404#24712#0" expanded="false" />
-                <element signature="e#19545#24634#0" expanded="false" />
                 <element signature="e#19590#20356#0" expanded="false" />
                 <element signature="e#19821#19959#0" expanded="false" />
                 <element signature="e#19988#20355#0" expanded="false" />
@@ -141,11 +132,8 @@
                 <element signature="e#21992#22698#0" expanded="false" />
                 <element signature="e#22195#22305#0" expanded="false" />
                 <element signature="e#22334#22697#0" expanded="false" />
-                <element signature="e#22752#23740#0" expanded="false" />
                 <element signature="e#22860#23053#0" expanded="false" />
                 <element signature="e#22874#23053#0" expanded="false" />
-                <element signature="e#23088#23331#0" expanded="false" />
-                <element signature="e#23153#23331#0" expanded="false" />
                 <element signature="e#23360#23739#0" expanded="false" />
                 <element signature="e#23794#24634#0" expanded="false" />
                 <element signature="e#24009#24132#0" expanded="false" />
@@ -225,8 +213,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>user-i</find>
-      <find>user-ite</find>
       <find>addClass(&quot;viendo</find>
       <find>main {</find>
       <find>episodes</find>
@@ -255,6 +241,8 @@
       <find>append</find>
       <find>#title</find>
       <find>user</find>
+      <find>ex</find>
+      <find>xS</find>
     </findStrings>
     <replaceStrings>
       <replace>#3e3e3e</replace>
@@ -282,6 +270,7 @@
       <replace>myActivity</replace>
       <replace>(activity.date_add + timedelta(hours=1)).strftime(&quot;%d-%m-%Y %H:%M:%S&quot;)</replace>
       <replace />
+      <replace>xT</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -752,19 +741,19 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19692533" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19692533" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1096,8 +1085,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/App/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="266" column="28" lean-forward="false" selection-start-line="266" selection-start-column="28" selection-end-line="266" selection-end-column="28" />
+        <state relative-caret-position="143">
+          <caret line="621" column="91" lean-forward="false" selection-start-line="621" selection-start-column="91" selection-end-line="621" selection-end-column="91" />
           <folding>
             <element signature="e#24#34#0" expanded="true" />
             <element signature="e#551#905#0" expanded="false" />
@@ -1195,8 +1184,6 @@
             <element signature="e#18952#19237#0" expanded="false" />
             <element signature="e#19172#19206#0" expanded="false" />
             <element signature="e#19239#19359#0" expanded="false" />
-            <element signature="e#19404#24712#0" expanded="false" />
-            <element signature="e#19545#24634#0" expanded="false" />
             <element signature="e#19590#20356#0" expanded="false" />
             <element signature="e#19821#19959#0" expanded="false" />
             <element signature="e#19988#20355#0" expanded="false" />
@@ -1209,11 +1196,8 @@
             <element signature="e#21992#22698#0" expanded="false" />
             <element signature="e#22195#22305#0" expanded="false" />
             <element signature="e#22334#22697#0" expanded="false" />
-            <element signature="e#22752#23740#0" expanded="false" />
             <element signature="e#22860#23053#0" expanded="false" />
             <element signature="e#22874#23053#0" expanded="false" />
-            <element signature="e#23088#23331#0" expanded="false" />
-            <element signature="e#23153#23331#0" expanded="false" />
             <element signature="e#23360#23739#0" expanded="false" />
             <element signature="e#23794#24634#0" expanded="false" />
             <element signature="e#24009#24132#0" expanded="false" />
