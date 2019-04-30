@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% include "includes/head.html" %}
+
+    <title>Veo | Perfil</title>
+
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/material.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+</head>
+<body>
+
+<header>
+    <nav class="header-navBar">
+
+        <div class="nav-wrapper search-field">
+            <form id="search">
+                <div class="input-field">
+                    <input id="search" type="search" placeholder="Introduce el título a buscar" autofocus required>
+                    <i class="material-icons">close</i>
+                </div>
+            </form>
+        </div>
+
+        <div class="header-title">
+            <h1 id="title">{{ profile_visited.user.username }}</h1>
+        </div>
+
+        <div class="img-profile-container">
+            <div class="img-profile"><img src="{{ profile_visited.avatar.src }}" /></div>
+        </div>
+
+        <div class="search-container">
+            <a>
+                <i class="material-icons">search</i>
+            </a>
+        </div>
+
+    </nav>
+</header>
+<!-- Tabs -->
+<ul class="tabs">
+    <li class="tab col s3"><a class="tab-btn active" href="#home_profile">Resumen</a></li>
+    <li class="tab col s3"><a class="tab-btn" href="#activity">Actividad</a></li>
+    <li class="tab col s3"><a class="tab-btn" href="#lists">Listas</a></li>
+</ul>
+
+<main class="main-home">
+    <section id="home_profile" class="col s12 row no-margin">
+        <article class="stadistics-profile row no-margin">
+            <div class="col s6 m3">
+                <a class="statistic-profile-item deep-purple row no-margin tooltipped" data-position="bottom" data-tooltip="Películas Vistas">
+                    <span>{{ profile_visited.getMoviesSeen }}</span>
+                    <i class="material-icons">movie</i>
+                </a>
+            </div>
+
+            <div class="col s6 m3">
+                <a class="statistic-profile-item orange row no-margin tooltipped" data-position="bottom" data-tooltip="Series Vistas">
+                    <span>{{ profile_visited.getShowsSeen }}</span>
+                    <i class="material-icons">subscriptions</i>
+                </a>
+            </div>
+
+            <div class="col s6 m3">
+                <a class="statistic-profile-item teal row no-margin tooltipped" data-position="bottom" data-tooltip="Capítulos Vistos">
+                    <span>{{ profile_visited.getEpisodesSeen }}</span>
+                    <i class="material-icons">view_carousel</i>
+                </a>
+            </div>
+
+            <div class="col s6 m3">
+                <a class="statistic-profile-item blue row no-margin">
+                    <span>0</span>
+                    <i class="material-icons">list</i>
+                </a>
+            </div>
+        </article>
+
+        <article class="chart-stadistics row">
+            <!-- HTML -->
+            <div id="chartdiv"></div>
+        </article>
+
+    </section>
+
+    <section id="activity" class="col s12 row no-margin"></section>
+    <section id="lists" class="col s12 row no-margin">
+        <p class="infoPeticion">Disponible próximamente...</p>
+    </section>
+
+    <div id="home-shows-active" class="col s12 row no-margin"></div>
+</main>
+
+<div class="gif-loading">
+    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+</div>
+
+
+<!-- Button navbar-->
+<footer>
+    <nav class="bottom-navBar row no-margin">
+        <a href="/" id="nav-home" class="col s3">
+            <i class="material-icons">home</i>
+            <p>Inicio</p>
+        </a>
+        <a href="/movies" id="nav-movies" class="col s3" onclick="localStorage.setItem('active_tab', '#movies_popularity')">
+            <i class="material-icons">movie</i>
+            <p>Películas</p>
+        </a>
+        <a href="/shows" id="nav-shows" class="col s3" onclick="localStorage.setItem('active_tab', '#shows_popularity')">
+            <i class="material-icons">subscriptions</i>
+            <p>Series</p>
+        </a>
+        <a href="/social" id="nav-social" class="col s3">
+            <i class="material-icons">group</i>
+            <p>Amigos</p>
+        </a>
+    </nav>
+</footer>
+
+
+<!-- Loading Gif -->
+<section class="loading-container">
+    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+</section>
+
+{% include "includes/body_end.html" %}
+
+<script>
+
+    $(document).ready(function(){
+        // $('#nav-home').addClass("nav-active");
+
+        {% if profile.celularDataSavings == True %} localStorage.setItem("width_poster", "200"); {% else %} localStorage.setItem("width_poster", "400"); {% endif %}
+
+        /* ---------------------------------- PERSONAL DATABASE ----------------------------------------------------- */
+        $('.gif-loading').fadeOut(100);
+        $("main").addClass("main-active");
+
+        // Themes begin
+        am4core.useTheme(am4themes_animated);
+
+        // Themes end
+
+        // Create chart instance
+        var chart = am4core.create("chartdiv", am4charts.XYChart);
+        chart.scrollbarX = new am4core.Scrollbar();
+
+        // Add data
+        chart.data = [{
+            "country": "USA",
+            "visits": 3025
+        }, {
+            "country": "China",
+            "visits": 1882
+        }, {
+            "country": "Japan",
+            "visits": 1809
+        }, {
+            "country": "Germany",
+            "visits": 1322
+        }, {
+            "country": "UK",
+            "visits": 1122
+        }, {
+            "country": "France",
+            "visits": 1114
+        }, {
+            "country": "India",
+            "visits": 984
+        }, {
+            "country": "Spain",
+            "visits": 711
+        }, {
+            "country": "Netherlands",
+            "visits": 665
+        }, {
+            "country": "Russia",
+            "visits": 580
+        }, {
+            "country": "South Korea",
+            "visits": 443
+        }, {
+            "country": "Canada",
+            "visits": 441
+        }];
+
+        // Create axes
+        var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+        categoryAxis.dataFields.category = "country";
+        categoryAxis.renderer.grid.template.location = 0;
+        categoryAxis.renderer.minGridDistance = 30;
+        categoryAxis.renderer.labels.template.horizontalCenter = "right";
+        categoryAxis.renderer.labels.template.verticalCenter = "middle";
+        categoryAxis.renderer.labels.template.rotation = 270;
+        categoryAxis.tooltip.disabled = true;
+        categoryAxis.renderer.minHeight = 110;
+
+        var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+        valueAxis.renderer.minWidth = 50;
+
+        // Create series
+        var series = chart.series.push(new am4charts.ColumnSeries());
+        series.sequencedInterpolation = true;
+        series.dataFields.valueY = "visits";
+        series.dataFields.categoryX = "country";
+        series.tooltipText = "[{categoryX}: bold]{valueY}[/]";
+        series.columns.template.strokeWidth = 0;
+
+        series.tooltip.pointerOrientation = "vertical";
+
+        series.columns.template.column.cornerRadiusTopLeft = 10;
+        series.columns.template.column.cornerRadiusTopRight = 10;
+        series.columns.template.column.fillOpacity = 0.8;
+
+        // On hover, make corner radiuses bigger
+        var hoverState = series.columns.template.column.states.create("hover");
+        hoverState.properties.cornerRadiusTopLeft = 0;
+        hoverState.properties.cornerRadiusTopRight = 0;
+        hoverState.properties.fillOpacity = 1;
+
+        series.columns.template.adapter.add("fill", function(fill, target) {
+            return chart.colors.getIndex(target.dataItem.index);
+        });
+
+        // Cursor
+        chart.cursor = new am4charts.XYCursor();
+
+    });
+
+</script>
+
+</body>
+</html>

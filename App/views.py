@@ -264,6 +264,7 @@ def setMovieToSeen(request):
     if len(movie) == 0:
         movie = Movie.objects.create(id_movie=request.POST["id"], user=request.user, title=request.POST["title"],
                                      poster_path=request.POST["poster_path"], vote_average=request.POST["vote_average"])
+        movie.states.clear()
         movie.states.add(State.objects.get(id=1))
         Activity.objects.create(user=request.user, operation=Operation.objects.get(id=2), movie=movie)
     else:
@@ -896,7 +897,6 @@ def unFollowUser(request):
 
     return JsonResponse(data)
 
-
 # ---------------------------------------- SEARCH ----------------------------------------------------------------------
 @login_required()
 def search(request, query=None):
@@ -907,3 +907,15 @@ def search(request, query=None):
         "query": query
     }
     return render(request, "app/search.html", context=context)
+
+# ---------------------------------------- SEARCH ----------------------------------------------------------------------
+@login_required()
+def profile(request, id=None):
+    context = {
+        "profile_visited": Profile.objects.get(user=User.objects.get(id=id)),
+        "profile": Profile.objects.get(user=request.user),
+        "themes": Theme.objects.all(),
+        "avatars": Avatar.objects.all(),
+    }
+
+    return render(request, "app/profile.html", context=context)
