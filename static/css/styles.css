@@ -880,15 +880,12 @@ footer .bottom-navBar > a {
 .info-popup-main {
     width: 350px;
     min-height: 180px;
-    background-color: white;
     padding: 20px;
     border-radius: 3px;
 }
 
 .info-popup-overview {
     text-align: justify;
-    /*max-height: 130px;*/
-    /*overflow: auto;*/
 }
 
 /* ------------- SHOW --------------- */

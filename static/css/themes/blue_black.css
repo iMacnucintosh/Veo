@@ -164,6 +164,15 @@ footer .nav-active i, footer .nav-active p {
     background-color: #2196f3;
 }
 
+/* -------- MOVIES STYLES --------------- */
+.info-popup-main {
+    background-color: black;
+}
+
+.info-popup-btn {
+    color: #2196f3;
+}
+
 /* --------- SHOW STYLES ---------------- */
 .season-details {
     background-color: black;

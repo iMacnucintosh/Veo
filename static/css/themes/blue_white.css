@@ -90,7 +90,7 @@ footer .nav-active i, footer .nav-active p {
 }
 
 #settings .title-section a {
-   color: #2196f3;
+    color: #2196f3;
 }
 
 .close-settings-container i {
@@ -155,6 +155,15 @@ footer .nav-active i, footer .nav-active p {
 
 .primary-information {
     background-color: white;
+}
+
+/* -------- MOVIES STYLES --------------- */
+.info-popup-main {
+    background-color: white;
+}
+
+.info-popup-btn {
+    color: #2196f3;
 }
 
 /* --------- SHOW STYLES ---------------- */
