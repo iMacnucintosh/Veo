@@ -13,22 +13,45 @@ function TmdbRequestFilter(selector_container, url, parameters, description_requ
         dataType: "json",
         url: url,
     }).done(function(data, textStatus, jqXHR) {
+        console.log(url);
         $('.gif-loading').fadeOut(100);
         $("main").addClass("main-active");
         if(data.results.length > 0) {
             for (var i = 0; i < data.results.length; i++) {
                 poster_i = data.results[i];
 
+                var title;
+                if(info_for == "movie"){
+                    title = poster_i.title;
+                }else{
+                    title = poster_i.name;
+                }
+                var overview = poster_i.overview;
+                if(poster_i.over == ""){
+                    overview = "No hay ninguna descripción disponible"
+                }
+
+                title = title.replace(/'/g, "");
+
+                overview = overview.replace(/'/g, "");
+
+
                 if (poster_i.poster_path != null) {
                     var poster_str = "\
-                    <a href='/" + info_for + "/" + poster_i.id + "' class='" + poster_i.id + " poster-item list col s4 m3 l2 no-padding'>\
+                    <div class='" + poster_i.id + " poster-item list col s4 m3 l2 no-padding'>\
+                        <i class='material-icons i-info' onclick=\"showInfoPopup(\'" + title+"\',\'" + overview + "\')\">help_outline</i>\
                         <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
                         <i class='material-icons i-vista'>visibility</i>\
                         <i class='material-icons i-pendiente'>playlist_add_check</i>\
-                     </a>\
+                    </div>\
                     ";
 
                     $(selector_container).append(poster_str);
+
+                    $('.' + poster_i.id).find('img').click(function() {
+                        location.assign("/" + info_for + "/" + poster_i.id);
+                    });
+
 
                     if (info_for == "movie") {
                         urlCheck = "/isMovieOnMyList/";
@@ -705,11 +728,11 @@ function InformationSeason(id_show, num_season, parameters, width_poster){
                                 <div class="spinner hiddenFade">\
                                   <div class="dot1"></div>\
                                   <div class="dot2"></div>\
-                                </div>'+
+                                </div><p class="season-episode-number no-margin">E' + episode.episode_number + '</p>'+
                 '</div>' +
                 '<div class="collapsible-body row no-margin">' +
                 '<p class="date-last-episode col s6">' + episode.air_date + '</p>' +
-                '<p class="col s6 last-episode-number">T' + episode.season_number + ' x E' + episode.episode_number+ '</p>' +
+                '<!--<p class="col s6 last-episode-number">T' + episode.season_number + ' x E' + episode.episode_number + '</p>-->' +
                 '<p class="col s12 last-episode-overview">' + overview + '</p>\
                             </div>\
                         </li>'

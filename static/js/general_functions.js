@@ -159,7 +159,7 @@ function nextPageRequest(){
         case "#shows_popularity":
             TmdbRequestFilter('#shows_popularity', "https://api.themoviedb.org/3/discover/tv", {"languaje":"es-ES", "sort_by":"popularity.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":page_request_shows_popularity}, "Series Populares", "show", localStorage.getItem("width_poster"));
             break;
-         case "#shows_vote_count":
+        case "#shows_vote_count":
             TmdbRequestFilter('#shows_vote_count', "https://api.themoviedb.org/3/discover/tv", {"languaje":"es-ES", "sort_by":"vote_count.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":page_request_shows_vote_count}, "Series mejor Votadas", "show", localStorage.getItem("width_poster"));
             break;
     }
@@ -193,5 +193,8 @@ function saveScrollTab(){
     }
 }
 
-
-
+function showInfoPopup(title, overview){
+    $('.info-popup-title').text(title);
+    $('.info-popup-overview').text(overview);
+    $('.info-popup').css("display", "flex").hide().fadeIn(100);
+}

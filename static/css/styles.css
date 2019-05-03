@@ -310,11 +310,19 @@ main {
     bottom: 5px;
     right: 10px;
     text-shadow: 0px 0px 6px black;
-    color: white !important;
+    color: rgba(255, 255, 255, 0.69) !important;
 }
 
 .vista .i-vista {
     display: block;
+}
+
+.i-info {
+    position: absolute;
+    top:9px;
+    left:10px;
+    color: rgba(255, 255, 255, 0.40) !important;
+    text-shadow: 0px 0px 6px black;
 }
 
 .i-pendiente {
@@ -731,7 +739,6 @@ footer .bottom-navBar > a {
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-
 .primary-information {
     padding: 10px;
     padding-top: 40px;
@@ -857,6 +864,33 @@ footer .bottom-navBar > a {
     padding-top: 7px;
 }
 
+.info-popup {
+    display: none;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0px;
+    background-color: rgba(0, 0, 0, 0.50);
+    justify-content: center;
+    align-items: center;
+}
+
+.info-popup-main {
+    width: 350px;
+    min-height: 180px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 3px;
+}
+
+.info-popup-overview {
+    text-align: justify;
+    /*max-height: 130px;*/
+    /*overflow: auto;*/
+}
+
 /* ------------- SHOW --------------- */
 #seasons-posters-list {
     padding: 10px;
@@ -930,7 +964,7 @@ footer .bottom-navBar > a {
 
 .spinner {
     position: absolute;
-    right:25px;
+    right:63px;
     width: 25px;
     height: 25px;
     text-align: center;
@@ -938,6 +972,14 @@ footer .bottom-navBar > a {
 
     -webkit-animation: sk-rotate 2.0s infinite linear;
     animation: sk-rotate 2.0s infinite linear;
+}
+
+.season-episode-number {
+    position: absolute;
+    right:25px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
 }
 
 .dot1, .dot2 {

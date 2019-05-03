@@ -182,4 +182,10 @@ $(document).ready(function(){
     $('.btn-back-list').click(function(){
         history.back();
     });
+
+
+    $('.info-popup').click(function(){
+        $(this).fadeOut(100);
+    });
+
 });
