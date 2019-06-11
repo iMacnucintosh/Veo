@@ -4,6 +4,11 @@
 
 var api_key = "f368d6c9a2c7d460dacc7cfd42809665";
 
+function infoFor(type, id){
+    location.assign("/" + type + "/" + id);
+}
+
+
 // Return a list with Movies or Shows with the parameters you has specified
 function TmdbRequestFilter(selector_container, url, parameters, description_request, info_for, width_poster){
     parameters["api_key"] = api_key;
@@ -34,24 +39,20 @@ function TmdbRequestFilter(selector_container, url, parameters, description_requ
                 title = title.replace(/'/g, "");
 
                 overview = overview.replace(/'/g, "");
+                overview = overview.replace(/"/g, "");
 
 
                 if (poster_i.poster_path != null) {
                     var poster_str = "\
                     <div class='" + poster_i.id + " poster-item list col s4 m3 l2 no-padding'>\
-                        <i class='material-icons i-info' onclick=\"showInfoPopup(\'" + title+"\',\'" + overview + "\')\">help_outline</i>\
-                        <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
+                        <i class='material-icons i-info' onclick=\"showInfoPopup(\'" + title+"\',\'" + overview + "\')\">short_text</i>\
+                        <img onclick='infoFor(\"" + info_for + "\", " + poster_i.id + ")' src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
                         <i class='material-icons i-vista'>visibility</i>\
                         <i class='material-icons i-pendiente'>playlist_add_check</i>\
                     </div>\
                     ";
 
                     $(selector_container).append(poster_str);
-
-                    $('.' + poster_i.id).find('img').click(function() {
-                        location.assign("/" + info_for + "/" + poster_i.id);
-                    });
-
 
                     if (info_for == "movie") {
                         urlCheck = "/isMovieOnMyList/";
