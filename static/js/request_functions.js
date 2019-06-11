@@ -12,13 +12,13 @@ function infoFor(type, id){
 // Return a list with Movies or Shows with the parameters you has specified
 function TmdbRequestFilter(selector_container, url, parameters, description_request, info_for, width_poster){
     parameters["api_key"] = api_key;
+
     $.ajax({
         data: parameters,
-        type: "GET",
+        type: "POST",
         dataType: "json",
         url: url,
     }).done(function(data, textStatus, jqXHR) {
-        console.log(url);
         $('.gif-loading').fadeOut(100);
         $("main").addClass("main-active");
         if(data.results.length > 0) {

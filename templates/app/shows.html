@@ -51,10 +51,10 @@
 
         /* --------------------------------- THE MOVIE DATABASE ----------------------------------------------------- */
         // Más Populares
-        TmdbRequestFilter('#shows_popularity', "https://api.themoviedb.org/3/discover/tv", {"languaje":"es-ES", "sort_by":"popularity.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":page_request_shows_popularity}, "Series Populares", "show", {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
+        TmdbRequestFilter('#shows_popularity', "https://api.themoviedb.org/3/discover/tv", {"language":"es-ES", "sort_by":"popularity.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":page_request_shows_popularity}, "Series Populares", "show", {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
 
         // Más Votadas
-        TmdbRequestFilter('#shows_vote_count', "https://api.themoviedb.org/3/discover/tv", {"languaje":"es-ES", "sort_by":"vote_count.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":page_request_shows_vote_count}, "Series mejor Votadas", "show", {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
+        TmdbRequestFilter('#shows_vote_count', "https://api.themoviedb.org/3/discover/tv", {"language":"es-ES", "sort_by":"vote_count.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":page_request_shows_vote_count}, "Series mejor Votadas", "show", {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
 
         /* ---------------------------------- PERSONAL DATABASE ----------------------------------------------------- */
 
