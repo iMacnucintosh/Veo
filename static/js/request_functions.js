@@ -11,11 +11,11 @@ function infoFor(type, id){
 
 // Return a list with Movies or Shows with the parameters you has specified
 function TmdbRequestFilter(selector_container, url, parameters, description_request, info_for, width_poster){
+    
     parameters["api_key"] = api_key;
 
     $.ajax({
         data: parameters,
-        type: "POST",
         dataType: "json",
         url: url,
     }).done(function(data, textStatus, jqXHR) {
@@ -65,7 +65,6 @@ function TmdbRequestFilter(selector_container, url, parameters, description_requ
                     dataMovie.append('id', poster_i.id);
                     $.ajax({
                         url: urlCheck,
-                        type: "POST",
                         mimeType: "multipart/form-data",
                         dataType: 'json',
                         processData: false,
@@ -120,7 +119,8 @@ function TmdbRequestFilter(selector_container, url, parameters, description_requ
             resizePosters();
         }
     }).fail(function( jqXHR, textStatus, errorThrown ) {
-        console.error('La solicitud: "' + description_request + '", a fallado: ' +  textStatus);
+        console.log(jqXHR);
+        console.error('La solicitud: "' + description_request + '", a fallado: ' +  jqXHR.responseText);
     });
 }
 
@@ -289,7 +289,6 @@ function InformationMovie(id, parameters, colorGenres, width_poster) {
     data.append('id', id);
     $.ajax({
         url: '/isMovieOnMyList/',
-        type: "POST",
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -546,7 +545,6 @@ function InformationShow(id, parameters, colorGenres, width_poster) {
     data.append('id', id);
     $.ajax({
         url: '/isShowOnMyList/',
-        type: "POST",
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -761,7 +759,6 @@ function InformationSeason(id_show, num_season, parameters, width_poster){
 
         $.ajax({
             url: '/syncronizeEpisodes/',
-            type: "POST",
             mimeType: "multipart/form-data",
             dataType: 'json',
             processData: false,
@@ -799,7 +796,6 @@ function addMovieToSee(elemento){
 
     $.ajax({
         url: '/addMovieToSee/',
-        type: "POST",
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -822,7 +818,6 @@ function removeMovieToSee(elemento){
 
     $.ajax({
         url: '/removeMovieToSee/',
-        type: "POST",
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -847,7 +842,6 @@ function setMovieToSeen(elemento){
 
     $.ajax({
         url: '/setMovieToSeen/',
-        type: "POST",
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -869,7 +863,6 @@ function setMovieToNotSeen(elemento){
 
     $.ajax({
         url: '/setMovieToNotSeen/',
-        type: "POST",
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -888,7 +881,6 @@ function MyMoviesToSee(selector, width_poster){
 
     $.ajax({
         url: '/myMoviesToSee/',
-        type: "POST",
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -922,7 +914,6 @@ function MyMoviesSeen(selector, width_poster){
 
     $.ajax({
         url: '/myMoviesSeen/',
-        type: "POST",
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -963,7 +954,6 @@ function addShowToSee(elemento){
 
     $.ajax({
         url: '/addShowToSee/',
-        type: "POST",
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -986,7 +976,6 @@ function removeShowToSee(elemento){
 
     $.ajax({
         url: '/removeShowToSee/',
-        type: "POST",
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -1013,7 +1002,6 @@ function setShowToSeen(elemento){
 
     $.ajax({
         url: '/setShowToSeen/',
-        type: "POST",
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -1039,7 +1027,6 @@ function setShowToNotSeen(elemento){
 
     $.ajax({
         url: '/setShowToNotSeen/',
-        type: "POST",
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -1062,7 +1049,6 @@ function MyActiveShows(selector, width_poster){
 
     $.ajax({
         url: '/myActiveShows/',
-        type: "POST",
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -1096,7 +1082,6 @@ function MyForgottenShows(selector, width_poster){
 
     $.ajax({
         url: '/myForgottenShows/',
-        type: "POST",
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -1163,7 +1148,6 @@ function changeStateEpisode(elemento, id_show, num_season, id_episode){
 
     $.ajax({
         url: '/changeEpisodeState/',
-        type: "POST",
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -1226,7 +1210,6 @@ function MyShowsSeen(selector, width_poster){
 
     $.ajax({
         url: '/myShowsSeen/',
-        type: "POST",
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -1260,7 +1243,6 @@ function myActivity(selector){
 
     $.ajax({
         url: '/myActivity/',
-        type: "POST",
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -1302,7 +1284,6 @@ function MyFollowingsActivity(selector){
 
     $.ajax({
         url: '/myFollowingsActivity/',
-        type: "POST",
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -1344,7 +1325,6 @@ function MyFollowingsRecientActivity(selector){
     var data = new FormData();
     $.ajax({
         url: '/myFollowingsRecientActivity/',
-        type: "POST",
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -1389,7 +1369,6 @@ function FollowUser(elemento, id_user){
 
     $.ajax({
         url: '/followUser/',
-        type: "POST",
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -1410,7 +1389,6 @@ function UnFollowUser(elemento, id_user){
 
     $.ajax({
         url: '/unFollowUser/',
-        type: "POST",
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -1433,7 +1411,6 @@ function changeColorGenres(toogle) {
 
     $.ajax({
         url: '/changeGenreColors/',
-        type: "POST",
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -1452,7 +1429,6 @@ function changeAvatar(elemento, id_avatar){
 
     $.ajax({
         url: '/changeAvatar/',
-        type: "POST",
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -1474,7 +1450,6 @@ function changeCelularDataSavings(toogle){
 
     $.ajax({
         url: '/changeCelularSavings/',
-        type: "POST",
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
