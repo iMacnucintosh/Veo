@@ -66,16 +66,18 @@ def sign_in(request):
                                                     password=form.cleaned_data["password"], is_staff=True)
                     user.save()
 
-                    profile = Profile.objects.create(user=user, theme=1, avatar=Avatar.objects.first())
+                    profile = Profile.objects.create(user=user, theme=Theme.objects.filter(id=1).first(), avatar=Avatar.objects.first())
                     profile.save()
 
                     user = authenticate(username=form.cleaned_data["username"],
                                         password=form.cleaned_data["password"])
+
                     if user is not None:
                         login(request, user)
                         return HttpResponseRedirect("/")
 
-                except Exception:
+                except Exception as e:
+                    print(str(e))
                     context["form"] = form
                     context["code_error"] = 2
                     context["forbidden_username"] = 2
