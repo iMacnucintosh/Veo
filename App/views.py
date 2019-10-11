@@ -77,7 +77,7 @@ def sign_in(request):
                         return HttpResponseRedirect("/")
 
                 except Exception as e:
-                    print(str(e))
+                    raise Exception(str(e))
                     context["form"] = form
                     context["code_error"] = 2
                     context["forbidden_username"] = 2
