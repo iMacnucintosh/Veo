@@ -516,6 +516,13 @@ def changeEpisodeState(request): # Cambiar
 
 # Syncronize episodes Seen
 def syncronizeEpisodes(request):
+
+    print("\n\n----------------")
+
+    print(request.POST["id_show"])
+
+    print("----------------\n\n")
+
     episodes = Episode.objects.filter(show=Show.objects.filter(id_show=request.POST["id_show"], user=request.user).first(), season_number=request.POST["season_number"], user=request.user, states__in=[1])
 
     results = []

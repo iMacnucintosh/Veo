@@ -147,7 +147,8 @@ function Recommendations(width_poster) {
                 title_style = "font-size: 1.6em";
             }
 
-            var recommended_movie_str = '<div class="backdrop-recommend"  style="background-image: url(https://image.tmdb.org/t/p/w500' + movie.backdrop_path + ')"></div>\
+            if(movie.poster_path != null){
+                var recommended_movie_str = '<div class="backdrop-recommend"  style="background-image: url(https://image.tmdb.org/t/p/w500' + movie.backdrop_path + ')"></div>\
                     <a href="/movie/' + movie.id + '" class="poster-item list recommended-poster col s4 m3 l2 no-padding box-shadow">\
                         <img src="https://image.tmdb.org/t/p/w' + width_poster + movie.poster_path + '" class="shadow"/>\
                     </a>\
@@ -160,6 +161,7 @@ function Recommendations(width_poster) {
                             <p>'+movie.vote_average+'</p>\
                         </div>\
                     </div>';
+            }
             $("#recommended").html(recommended_movie_str);
         }else{
             Recommendations();
@@ -289,6 +291,7 @@ function InformationMovie(id, parameters, colorGenres, width_poster) {
     data.append('id', id);
     $.ajax({
         url: '/isMovieOnMyList/',
+        type: 'POST',
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -383,13 +386,16 @@ function InformationMovie(id, parameters, colorGenres, width_poster) {
             for (var i = 0; i < recommendations.length; i++) {
                 poster_i = data.results[i];
 
-                var poster_str = "\
-                <a href='/show/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
-                    <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
-                 </a>\
-                ";
+                if(poster_i.poster_path != null) {
 
-                $('#recommendations').append(poster_str);
+                    var poster_str = "\
+                    <a href='/show/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
+                        <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
+                     </a>\
+                    ";
+
+                    $('#recommendations').append(poster_str);
+                }
             }
             resizePosters();
         }else{
@@ -412,7 +418,9 @@ function InformationMovie(id, parameters, colorGenres, width_poster) {
             images_str = "";
             for(var i=0; i<images.backdrops.length; i++){
                 var image = images.backdrops[i];
-                images_str += '<div class="col s12 m4"><img class="materialboxed" src="https://image.tmdb.org/t/p/w500' + image.file_path + '" /></div>'
+                if(image.file_path != null) {
+                    images_str += '<div class="col s12 m4"><img class="materialboxed" src="https://image.tmdb.org/t/p/w500' + image.file_path + '" /></div>'
+                }
             }
             $('#images').append(images_str);
         }else{
@@ -452,8 +460,12 @@ function InformationShow(id, parameters, colorGenres, width_poster) {
         $('title').text("Veo | " + show.name);
         $('#title').text(show.name);
 
-        $('#backdrop-image').attr("style", "background-image: url(https://image.tmdb.org/t/p/w500" + show.backdrop_path) + ")";
-        $('#poster-img').attr("src", "https://image.tmdb.org/t/p/w" + width_poster + show.poster_path);
+        if(show.backdrop_path != null) {
+            $('#backdrop-image').attr("style", "background-image: url(https://image.tmdb.org/t/p/w500" + show.backdrop_path) + ")";
+        }
+        if(show.poster_path != null) {
+            $('#poster-img').attr("src", "https://image.tmdb.org/t/p/w" + width_poster + show.poster_path);
+        }
         $('#sinopsis').text(show.overview);
         $('#title').addClass('fadeIn');
 
@@ -545,6 +557,7 @@ function InformationShow(id, parameters, colorGenres, width_poster) {
     data.append('id', id);
     $.ajax({
         url: '/isShowOnMyList/',
+        type: 'POST',
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -583,13 +596,16 @@ function InformationShow(id, parameters, colorGenres, width_poster) {
             for (var i = 0; i < related_shows.length; i++) {
                 poster_i = data.results[i];
 
-                var poster_str = "\
-                <a href='/show/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
-                    <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
-                 </a>\
-                ";
+                if(poster_i.poster_path != null) {
 
-                $('#related').append(poster_str);
+                    var poster_str = "\
+                    <a href='/show/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
+                        <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
+                     </a>\
+                    ";
+
+                    $('#related').append(poster_str);
+                }
             }
             resizePosters();
         }else{
@@ -612,13 +628,15 @@ function InformationShow(id, parameters, colorGenres, width_poster) {
             for (var i = 0; i < recommendations.length; i++) {
                 poster_i = data.results[i];
 
-                var poster_str = "\
-                <a href='/show/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
-                    <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
-                 </a>\
-                ";
+                if(poster_i.poster_path != null) {
+                    var poster_str = "\
+                    <a href='/show/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
+                        <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
+                     </a>\
+                    ";
 
-                $('#recommendations').append(poster_str);
+                    $('#recommendations').append(poster_str);
+                }
             }
             resizePosters();
         }else{
@@ -641,8 +659,10 @@ function InformationShow(id, parameters, colorGenres, width_poster) {
             images_str = "";
             for(var i=0; i<images.backdrops.length; i++){
                 var image = images.backdrops[i];
-                images_str += '<div class="col s12 m4"><img class="materialboxed" src="https://image.tmdb.org/t/p/w500' + image.file_path + '" /></div>'
-            }
+                if(image.file_path != null) {
+                    images_str += '<div class="col s12 m4"><img class="materialboxed" src="https://image.tmdb.org/t/p/w500' + image.file_path + '" /></div>'
+                }
+                }
             $('#images').append(images_str);
         }else{
             $('#images').append("<p class='infoPeticion'>No hay ninguna imagen</p>");
@@ -754,6 +774,7 @@ function InformationSeason(id_show, num_season, parameters, width_poster){
 
         // Syncronize episodes seen
         var data = new FormData();
+
         data.append('id_show', id_show);
         data.append('season_number', num_season);
 
@@ -761,11 +782,11 @@ function InformationSeason(id_show, num_season, parameters, width_poster){
             url: '/syncronizeEpisodes/',
             mimeType: "multipart/form-data",
             dataType: 'json',
+            type: 'POST',
             processData: false,
             contentType: false,
             data: data,
             success: function (response) {
-                console.log(response);
                 if(response.results.length > 0){
                     $('#num-episodes-season-' + num_season).text(response.results.length + "/" + $('#num-episodes-season-' + num_season).text())
                     for(var i=0; i<response.results.length; i++){
@@ -796,6 +817,7 @@ function addMovieToSee(elemento){
 
     $.ajax({
         url: '/addMovieToSee/',
+        type: 'POST',
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -818,6 +840,7 @@ function removeMovieToSee(elemento){
 
     $.ajax({
         url: '/removeMovieToSee/',
+        type: 'POST',
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -842,6 +865,7 @@ function setMovieToSeen(elemento){
 
     $.ajax({
         url: '/setMovieToSeen/',
+        type: 'POST',
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -863,6 +887,7 @@ function setMovieToNotSeen(elemento){
 
     $.ajax({
         url: '/setMovieToNotSeen/',
+        type: 'POST',
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -881,6 +906,7 @@ function MyMoviesToSee(selector, width_poster){
 
     $.ajax({
         url: '/myMoviesToSee/',
+        type: 'POST',
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -914,6 +940,7 @@ function MyMoviesSeen(selector, width_poster){
 
     $.ajax({
         url: '/myMoviesSeen/',
+        type: 'POST',
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -954,6 +981,7 @@ function addShowToSee(elemento){
 
     $.ajax({
         url: '/addShowToSee/',
+        type: 'POST',
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -976,6 +1004,7 @@ function removeShowToSee(elemento){
 
     $.ajax({
         url: '/removeShowToSee/',
+        type: 'POST',
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -1002,6 +1031,7 @@ function setShowToSeen(elemento){
 
     $.ajax({
         url: '/setShowToSeen/',
+        type: 'POST',
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -1027,6 +1057,7 @@ function setShowToNotSeen(elemento){
 
     $.ajax({
         url: '/setShowToNotSeen/',
+        type: 'POST',
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -1049,6 +1080,7 @@ function MyActiveShows(selector, width_poster){
 
     $.ajax({
         url: '/myActiveShows/',
+        type: 'POST',
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -1082,6 +1114,7 @@ function MyForgottenShows(selector, width_poster){
 
     $.ajax({
         url: '/myForgottenShows/',
+        type: 'POST',
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -1148,6 +1181,7 @@ function changeStateEpisode(elemento, id_show, num_season, id_episode){
 
     $.ajax({
         url: '/changeEpisodeState/',
+        type: 'POST',
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -1210,6 +1244,7 @@ function MyShowsSeen(selector, width_poster){
 
     $.ajax({
         url: '/myShowsSeen/',
+        type: 'POST',
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -1243,6 +1278,7 @@ function myActivity(selector){
 
     $.ajax({
         url: '/myActivity/',
+        type: 'POST',
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -1284,6 +1320,7 @@ function MyFollowingsActivity(selector){
 
     $.ajax({
         url: '/myFollowingsActivity/',
+        type: 'POST',
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -1325,6 +1362,7 @@ function MyFollowingsRecientActivity(selector){
     var data = new FormData();
     $.ajax({
         url: '/myFollowingsRecientActivity/',
+        type: 'POST',
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -1369,6 +1407,7 @@ function FollowUser(elemento, id_user){
 
     $.ajax({
         url: '/followUser/',
+        type: 'POST',
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -1389,6 +1428,7 @@ function UnFollowUser(elemento, id_user){
 
     $.ajax({
         url: '/unFollowUser/',
+        type: 'POST',
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -1411,6 +1451,7 @@ function changeColorGenres(toogle) {
 
     $.ajax({
         url: '/changeGenreColors/',
+        type: 'POST',
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -1429,6 +1470,7 @@ function changeAvatar(elemento, id_avatar){
 
     $.ajax({
         url: '/changeAvatar/',
+        type: 'POST',
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
@@ -1450,6 +1492,7 @@ function changeCelularDataSavings(toogle){
 
     $.ajax({
         url: '/changeCelularSavings/',
+        type: 'POST',
         mimeType: "multipart/form-data",
         dataType: 'json',
         processData: false,
