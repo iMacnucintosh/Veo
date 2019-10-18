@@ -664,7 +664,7 @@ def myActivity(request):
 
 # My Followings Activity
 def myFollowingsActivity(request):
-    activitys = Activity.objects.filter(user__in=Profile.objects.get(user=request.user).followings.all()).order_by("-date_add")[:150]
+    activitys = Activity.objects.filter(user__in=Profile.objects.get(user=request.user).followings.all()).order_by("-date_add")[:100]
 
     results = []
 

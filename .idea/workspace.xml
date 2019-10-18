@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="07020f31-8a76-45f1-a7cb-86f3cab66ea4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/themes/red_black.css" afterPath="$PROJECT_DIR$/static/css/themes/red_black.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/themes/yellow_black.css" afterPath="$PROJECT_DIR$/static/css/themes/yellow_black.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/themes/yellow_dark.css" afterPath="$PROJECT_DIR$/static/css/themes/yellow_dark.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/request_functions.js" afterPath="$PROJECT_DIR$/static/js/request_functions.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App/views.py" afterPath="$PROJECT_DIR$/App/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,12 +32,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>el usuari</find>
-      <find>el usuario no</find>
-      <find>el usuario no e</find>
-      <find>el usuario no es</find>
-      <find>el usuario no esta</find>
-      <find>el usuario no est</find>
       <find>el usuario no está</find>
       <find>el usuario</find>
       <find>e</find>
@@ -62,9 +53,15 @@
       <find>is</find>
       <find>isS</find>
       <find>isSho</find>
-      <find>isShow</find>
       <find>.btn-floating.btn-large</find>
       <find>.btn-floating.btn-larg</find>
+      <find>isShow</find>
+      <find>mis</find>
+      <find>mis</find>
+      <find>mis a</find>
+      <find>mis ami</find>
+      <find>MyFollowingsActivity</find>
+      <find>myFollowingsActivity</find>
     </findStrings>
     <replaceStrings>
       <replace>#3e3e3e</replace>
@@ -150,11 +147,11 @@
         <option value="$PROJECT_DIR$/static/css/themes/yellow_white.css" />
         <option value="$PROJECT_DIR$/static/js/general_functions.js" />
         <option value="$PROJECT_DIR$/templates/app/shows.html" />
-        <option value="$PROJECT_DIR$/App/views.py" />
         <option value="$PROJECT_DIR$/static/js/request_functions.js" />
         <option value="$PROJECT_DIR$/static/css/themes/red_black.css" />
         <option value="$PROJECT_DIR$/static/css/themes/yellow_black.css" />
         <option value="$PROJECT_DIR$/static/css/themes/yellow_dark.css" />
+        <option value="$PROJECT_DIR$/App/views.py" />
       </list>
     </option>
   </component>
@@ -627,13 +624,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/app/social.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="47" lean-forward="false" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/app/profile.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1139">
@@ -778,22 +768,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Veo/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="104" column="29" lean-forward="false" selection-start-line="104" selection-start-column="11" selection-end-line="104" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="523" column="27" lean-forward="false" selection-start-line="523" selection-start-column="27" selection-end-line="523" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/general_functions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
@@ -930,6 +904,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/app/social.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="70" column="28" lean-forward="false" selection-start-line="70" selection-start-column="8" selection-end-line="70" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="666" column="131" lean-forward="false" selection-start-line="666" selection-start-column="131" selection-end-line="666" selection-end-column="131" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Veo/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="114" column="56" lean-forward="false" selection-start-line="114" selection-start-column="36" selection-end-line="114" selection-end-column="56" />
           <folding />
         </state>
       </provider>
