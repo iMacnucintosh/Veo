@@ -1529,7 +1529,7 @@ function Search(query, width_poster){
 
                     var poster_str = "\
                     <a href='https://www.google.es/search?q="+name+"' target='_blank' class='person-item'>\
-                        <div class='img' style='background-image: url(https://image.tmdb.org/t/p/" + width_poster + poster_i.profile_path + ")'></div>\
+                        <div class='img' style='background-image: url(https://image.tmdb.org/t/p/original/" + poster_i.profile_path + ")'></div>\
                         <p>" + poster_i.name + "</p>\
                     </a>\
                     ";

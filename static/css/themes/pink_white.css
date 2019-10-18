@@ -179,6 +179,10 @@ footer .nav-active i, footer .nav-active p {
     background-color: #333333;
 }
 
+#average-count-bar {
+    background-color: #f48fb1;
+}
+
 /* -------------------------------------- SOCIAL PAGE --------------------------------------------------------------- */
 .activity-item {
     border-bottom: 1px solid #ddd;

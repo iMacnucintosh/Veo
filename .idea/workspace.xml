@@ -5,10 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="07020f31-8a76-45f1-a7cb-86f3cab66ea4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/css/themes/pink_black.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/css/themes/pink_dark.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/css/themes/pink_white.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/styles.css" afterPath="$PROJECT_DIR$/static/css/styles.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/themes/blue_black.css" afterPath="$PROJECT_DIR$/static/css/themes/blue_black.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/themes/blue_dark.css" afterPath="$PROJECT_DIR$/static/css/themes/blue_dark.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/themes/blue_white.css" afterPath="$PROJECT_DIR$/static/css/themes/blue_white.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/themes/grey_black.css" afterPath="$PROJECT_DIR$/static/css/themes/grey_black.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/themes/grey_dark.css" afterPath="$PROJECT_DIR$/static/css/themes/grey_dark.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/themes/grey_white.css" afterPath="$PROJECT_DIR$/static/css/themes/grey_white.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/themes/pink_black.css" afterPath="$PROJECT_DIR$/static/css/themes/pink_black.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/themes/pink_dark.css" afterPath="$PROJECT_DIR$/static/css/themes/pink_dark.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/themes/pink_white.css" afterPath="$PROJECT_DIR$/static/css/themes/pink_white.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/themes/red_black.css" afterPath="$PROJECT_DIR$/static/css/themes/red_black.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/themes/red_dark.css" afterPath="$PROJECT_DIR$/static/css/themes/red_dark.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/themes/red_white.css" afterPath="$PROJECT_DIR$/static/css/themes/red_white.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/themes/yellow_black.css" afterPath="$PROJECT_DIR$/static/css/themes/yellow_black.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/themes/yellow_dark.css" afterPath="$PROJECT_DIR$/static/css/themes/yellow_dark.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/themes/yellow_white.css" afterPath="$PROJECT_DIR$/static/css/themes/yellow_white.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/request_functions.js" afterPath="$PROJECT_DIR$/static/js/request_functions.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,20 +49,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>i</find>
-      <find>is</find>
-      <find>isS</find>
-      <find>isSho</find>
-      <find>.btn-floating.btn-large</find>
-      <find>.btn-floating.btn-larg</find>
-      <find>isShow</find>
-      <find>mis</find>
-      <find>mis a</find>
-      <find>mis ami</find>
-      <find>MyFollowingsActivity</find>
-      <find>myFollowingsActivity</find>
-      <find>load</find>
-      <find>$('.loading-container').css(&quot;display&quot;, &quot;flex&quot;).hide().fadeIn();</find>
       <find>m</find>
       <find>my</find>
       <find>myF</find>
@@ -65,6 +65,20 @@
       <find>myActivity</find>
       <find>f48fb1</find>
       <find>2196f3</find>
+      <find>#average-count-bar</find>
+      <find>.dot1</find>
+      <find>genre</find>
+      <find>do</find>
+      <find>dot</find>
+      <find>f368d6c9a2c7d460dacc7cfd42809665</find>
+      <find>per</find>
+      <find>p</find>
+      <find>a</find>
+      <find>acto</find>
+      <find>actor</find>
+      <find>s</find>
+      <find>sear</find>
+      <find>search</find>
     </findStrings>
     <replaceStrings>
       <replace>#3e3e3e</replace>
@@ -136,28 +150,28 @@
         <option value="$PROJECT_DIR$/App/apps.py" />
         <option value="$PROJECT_DIR$/static/js/startapp.js" />
         <option value="$PROJECT_DIR$/templates/includes/body_end.html" />
-        <option value="$PROJECT_DIR$/static/css/styles.css" />
         <option value="$PROJECT_DIR$/templates/app/movies.html" />
+        <option value="$PROJECT_DIR$/static/js/general_functions.js" />
+        <option value="$PROJECT_DIR$/templates/app/shows.html" />
+        <option value="$PROJECT_DIR$/App/views.py" />
+        <option value="$PROJECT_DIR$/templates/app/social.html" />
+        <option value="$PROJECT_DIR$/static/css/styles.css" />
         <option value="$PROJECT_DIR$/static/css/themes/blue_black.css" />
         <option value="$PROJECT_DIR$/static/css/themes/blue_dark.css" />
         <option value="$PROJECT_DIR$/static/css/themes/blue_white.css" />
         <option value="$PROJECT_DIR$/static/css/themes/grey_black.css" />
         <option value="$PROJECT_DIR$/static/css/themes/grey_dark.css" />
         <option value="$PROJECT_DIR$/static/css/themes/grey_white.css" />
-        <option value="$PROJECT_DIR$/static/css/themes/red_dark.css" />
-        <option value="$PROJECT_DIR$/static/css/themes/red_white.css" />
-        <option value="$PROJECT_DIR$/static/css/themes/yellow_white.css" />
-        <option value="$PROJECT_DIR$/static/js/general_functions.js" />
-        <option value="$PROJECT_DIR$/templates/app/shows.html" />
-        <option value="$PROJECT_DIR$/static/css/themes/red_black.css" />
-        <option value="$PROJECT_DIR$/static/css/themes/yellow_black.css" />
-        <option value="$PROJECT_DIR$/static/css/themes/yellow_dark.css" />
-        <option value="$PROJECT_DIR$/App/views.py" />
-        <option value="$PROJECT_DIR$/templates/app/social.html" />
-        <option value="$PROJECT_DIR$/static/js/request_functions.js" />
         <option value="$PROJECT_DIR$/static/css/themes/pink_black.css" />
         <option value="$PROJECT_DIR$/static/css/themes/pink_dark.css" />
         <option value="$PROJECT_DIR$/static/css/themes/pink_white.css" />
+        <option value="$PROJECT_DIR$/static/css/themes/red_black.css" />
+        <option value="$PROJECT_DIR$/static/css/themes/red_dark.css" />
+        <option value="$PROJECT_DIR$/static/css/themes/red_white.css" />
+        <option value="$PROJECT_DIR$/static/css/themes/yellow_black.css" />
+        <option value="$PROJECT_DIR$/static/css/themes/yellow_dark.css" />
+        <option value="$PROJECT_DIR$/static/css/themes/yellow_white.css" />
+        <option value="$PROJECT_DIR$/static/js/request_functions.js" />
       </list>
     </option>
   </component>
@@ -211,25 +225,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Veo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Veo" />
+              <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -692,27 +692,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="872" column="12" lean-forward="false" selection-start-line="872" selection-start-column="12" selection-end-line="872" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/themes/grey_white.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="166" column="1" lean-forward="false" selection-start-line="166" selection-start-column="1" selection-end-line="166" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/themes/blue_white.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="164" column="0" lean-forward="false" selection-start-line="164" selection-start-column="0" selection-end-line="166" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/app/movies.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
@@ -731,77 +710,31 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="23" column="28" lean-forward="true" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/general_functions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="153" column="85" lean-forward="false" selection-start-line="153" selection-start-column="85" selection-end-line="153" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/themes/blue_black.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="139" column="23" lean-forward="false" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/themes/grey_black.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="139" column="23" lean-forward="false" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/themes/grey_dark.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="138" column="23" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/themes/red_black.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="139" column="0" lean-forward="false" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/themes/red_dark.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="138" column="23" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/themes/red_white.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="128" column="23" lean-forward="false" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/themes/yellow_black.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="139" column="0" lean-forward="false" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/themes/yellow_white.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="131" column="0" lean-forward="true" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/themes/yellow_dark.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="23" />
+          <folding>
+            <element signature="e#160#434#0" expanded="false" />
+            <element signature="e#376#434#0" expanded="false" />
+            <element signature="e#468#633#0" expanded="false" />
+            <element signature="e#583#633#0" expanded="false" />
+            <element signature="e#1245#1310#0" expanded="false" />
+            <element signature="e#1349#1419#0" expanded="false" />
+            <element signature="e#1457#1526#0" expanded="false" />
+            <element signature="e#1567#1639#0" expanded="false" />
+            <element signature="e#1672#1787#0" expanded="false" />
+            <element signature="e#1743#1787#0" expanded="false" />
+            <element signature="e#1820#2307#0" expanded="false" />
+            <element signature="e#2215#2307#0" expanded="false" />
+            <element signature="e#2339#3005#0" expanded="false" />
+            <element signature="e#2722#2813#0" expanded="false" />
+            <element signature="e#2850#2899#0" expanded="false" />
+            <element signature="e#2940#3005#0" expanded="false" />
+            <element signature="e#3040#3504#0" expanded="false" />
+            <element signature="e#3369#3504#0" expanded="false" />
+            <element signature="e#3541#3996#0" expanded="false" />
+            <element signature="e#3580#3691#0" expanded="false" />
+            <element signature="e#3911#3996#0" expanded="false" />
+            <element signature="e#4032#5323#0" expanded="false" />
+            <element signature="e#4672#5323#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -809,6 +742,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="219">
           <caret line="666" column="131" lean-forward="false" selection-start-line="666" selection-start-column="131" selection-end-line="666" selection-end-column="131" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -816,6 +750,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
           <caret line="114" column="56" lean-forward="false" selection-start-line="114" selection-start-column="36" selection-end-line="114" selection-end-column="56" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -823,66 +758,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="29" column="23" lean-forward="false" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/request_functions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="1287" column="34" lean-forward="false" selection-start-line="1287" selection-start-column="34" selection-end-line="1287" selection-end-column="34" />
-          <folding>
-            <marker date="1571385456340" expanded="true" signature="1478:1975" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="5776:5857" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="5999:6147" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="6243:6799" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="6375:6771" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="6453:6680" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="9993:10150" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="10813:10831" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="13405:13637" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="14487:14617" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="15659:15797" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="19220:19238" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="19767:19898" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="20770:21360" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="20792:21341" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="23862:24000" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="25060:25198" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="27902:28659" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="27952:28659" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="28000:28073" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="28121:28485" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="28535:28659" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="28974:29033" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="29022:29033" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="29407:30524" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="29469:30091" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="29827:29987" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="30156:30493" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="35744:35874" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="36878:37008" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="41535:41680" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="42724:42870" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="47160:47306" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="48205:49156" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="48305:48445" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="48525:49108" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="48621:48757" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="48860:49056" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="50127:51077" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="50226:50366" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="50446:51029" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="50542:50678" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="50781:50977" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="51991:52941" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="52090:52230" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="52310:52893" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="52406:52542" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="52645:52841" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="56707:56939" ph="..." />
-            <marker date="1571385456340" expanded="false" signature="56758:56852" ph="..." />
-            <marker date="1571385456340" expanded="true" signature="57753:57891" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -893,34 +769,198 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/themes/pink_white.css">
+    <entry file="file://$PROJECT_DIR$/static/css/styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="32" lean-forward="false" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+        <state relative-caret-position="184">
+          <caret line="800" column="0" lean-forward="false" selection-start-line="800" selection-start-column="0" selection-end-line="803" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/themes/pink_dark.css">
+    <entry file="file://$PROJECT_DIR$/static/css/themes/blue_white.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3466">
-          <caret line="207" column="29" lean-forward="false" selection-start-line="207" selection-start-column="29" selection-end-line="207" selection-end-column="29" />
+        <state relative-caret-position="201">
+          <caret line="178" column="30" lean-forward="true" selection-start-line="178" selection-start-column="30" selection-end-line="178" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/themes/blue_dark.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="159" column="29" lean-forward="false" selection-start-line="159" selection-start-column="23" selection-end-line="159" selection-end-column="29" />
+        <state relative-caret-position="286">
+          <caret line="194" column="1" lean-forward="false" selection-start-line="194" selection-start-column="1" selection-end-line="194" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/themes/blue_black.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="192" column="0" lean-forward="true" selection-start-line="192" selection-start-column="0" selection-end-line="194" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/themes/grey_black.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="192" column="0" lean-forward="false" selection-start-line="192" selection-start-column="0" selection-end-line="194" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/themes/grey_dark.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="194" column="1" lean-forward="false" selection-start-line="194" selection-start-column="1" selection-end-line="194" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/themes/grey_white.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="183" column="1" lean-forward="false" selection-start-line="183" selection-start-column="1" selection-end-line="183" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/themes/pink_black.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="18" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="18" />
+        <state relative-caret-position="252">
+          <caret line="191" column="0" lean-forward="false" selection-start-line="191" selection-start-column="0" selection-end-line="193" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/themes/pink_dark.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="194" column="1" lean-forward="false" selection-start-line="194" selection-start-column="1" selection-end-line="194" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/themes/pink_white.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="181" column="0" lean-forward="false" selection-start-line="181" selection-start-column="0" selection-end-line="183" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/themes/red_black.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="192" column="0" lean-forward="false" selection-start-line="192" selection-start-column="0" selection-end-line="194" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/themes/yellow_black.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="193" column="29" lean-forward="false" selection-start-line="193" selection-start-column="29" selection-end-line="193" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/themes/yellow_white.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="183" column="1" lean-forward="false" selection-start-line="183" selection-start-column="1" selection-end-line="183" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/themes/red_white.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="183" column="1" lean-forward="false" selection-start-line="183" selection-start-column="1" selection-end-line="183" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/themes/red_dark.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="194" column="1" lean-forward="false" selection-start-line="194" selection-start-column="1" selection-end-line="194" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/themes/yellow_dark.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="192" column="0" lean-forward="false" selection-start-line="192" selection-start-column="0" selection-end-line="194" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/request_functions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="1531" column="108" lean-forward="false" selection-start-line="1531" selection-start-column="108" selection-end-line="1531" selection-end-column="108" />
+          <folding>
+            <marker date="1571396762601" expanded="true" signature="1478:1975" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="5776:5857" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="5999:6147" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="6243:6799" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="6375:6771" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="6453:6680" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="9993:10150" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="10813:10831" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="13405:13637" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="14487:14617" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="15659:15797" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="19220:19238" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="19767:19898" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="20770:21360" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="20792:21341" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="23862:24000" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="25060:25198" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="27902:28659" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="27952:28659" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="28000:28073" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="28121:28485" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="28535:28659" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="28974:29033" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="29022:29033" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="29407:30524" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="29469:30091" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="29827:29987" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="30156:30493" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="35744:35874" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="36878:37008" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="41535:41680" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="42724:42870" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="47160:47306" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="48205:49156" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="48305:48445" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="48525:49108" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="48621:48757" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="48860:49056" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="50127:51077" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="50226:50366" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="50446:51029" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="50542:50678" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="50781:50977" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="51991:52941" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="52090:52230" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="52310:52893" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="52406:52542" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="52645:52841" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="56707:56933" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="56758:56846" ph="..." />
+            <marker date="1571396762601" expanded="true" signature="57747:57885" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/general_functions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
