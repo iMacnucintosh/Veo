@@ -1319,6 +1319,8 @@ function myActivity(selector){
 function MyFollowingsActivity(selector){
     var data = new FormData();
 
+    $('.loading-container').css("display", "flex").hide().fadeIn();
+
     $.ajax({
         url: '/myFollowingsActivity/',
         type: 'POST',
@@ -1328,7 +1330,7 @@ function MyFollowingsActivity(selector){
         contentType: false,
         data: data,
         success: function (data) {
-            $('.gif-loading').fadeOut(100);
+            $('.loading-container').hide();
             $("main").addClass("main-active");
 
             if(data.results.length > 0) {
@@ -1352,8 +1354,6 @@ function MyFollowingsActivity(selector){
             }else{
                 $(selector).append("<p class='infoPeticion'>Aún no hay actividad</p>");
             }
-
-
         }
     });
 }
