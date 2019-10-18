@@ -65,6 +65,7 @@ function TmdbRequestFilter(selector_container, url, parameters, description_requ
                     dataMovie.append('id', poster_i.id);
                     $.ajax({
                         url: urlCheck,
+                        type: 'POST',
                         mimeType: "multipart/form-data",
                         dataType: 'json',
                         processData: false,
