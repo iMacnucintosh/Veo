@@ -1286,7 +1286,6 @@ function myActivity(selector){
         contentType: false,
         data: data,
         success: function (data) {
-            $('.gif-loading').fadeOut(100);
             $("main").addClass("main-active");
 
             if(data.results.length > 0) {
