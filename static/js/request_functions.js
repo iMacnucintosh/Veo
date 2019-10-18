@@ -40,7 +40,7 @@ function TmdbRequestFilter(selector_container, url, parameters, description_requ
 
                 overview = overview.replace(/'/g, "");
                 overview = overview.replace(/"/g, "");
-
+                overview = overview.replace(/\n/g, " ")
 
                 if (poster_i.poster_path != null) {
                     var poster_str = "\
@@ -663,7 +663,7 @@ function InformationShow(id, parameters, colorGenres, width_poster) {
                 if(image.file_path != null) {
                     images_str += '<div class="col s12 m4"><img class="materialboxed" src="https://image.tmdb.org/t/p/w500' + image.file_path + '" /></div>'
                 }
-                }
+            }
             $('#images').append(images_str);
         }else{
             $('#images').append("<p class='infoPeticion'>No hay ninguna imagen</p>");

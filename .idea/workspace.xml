@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="07020f31-8a76-45f1-a7cb-86f3cab66ea4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/images/avatars/bella.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/request_functions.js" afterPath="$PROJECT_DIR$/static/js/request_functions.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,8 +33,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>m</find>
-      <find>my</find>
       <find>myF</find>
       <find>myFo</find>
       <find>myFol</find>
@@ -64,6 +61,8 @@
       <find>s</find>
       <find>sear</find>
       <find>search</find>
+      <find>average-count-bar</find>
+      <find>showInfoPopup</find>
     </findStrings>
     <replaceStrings>
       <replace>#3e3e3e</replace>
@@ -136,7 +135,6 @@
         <option value="$PROJECT_DIR$/static/js/startapp.js" />
         <option value="$PROJECT_DIR$/templates/includes/body_end.html" />
         <option value="$PROJECT_DIR$/templates/app/movies.html" />
-        <option value="$PROJECT_DIR$/static/js/general_functions.js" />
         <option value="$PROJECT_DIR$/templates/app/shows.html" />
         <option value="$PROJECT_DIR$/App/views.py" />
         <option value="$PROJECT_DIR$/templates/app/social.html" />
@@ -156,6 +154,7 @@
         <option value="$PROJECT_DIR$/static/css/themes/yellow_black.css" />
         <option value="$PROJECT_DIR$/static/css/themes/yellow_dark.css" />
         <option value="$PROJECT_DIR$/static/css/themes/yellow_white.css" />
+        <option value="$PROJECT_DIR$/static/js/general_functions.js" />
         <option value="$PROJECT_DIR$/static/js/request_functions.js" />
       </list>
     </option>
@@ -197,60 +196,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Veo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Veo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Veo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Veo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Veo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Veo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Veo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="avatars" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -744,14 +689,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/themes/blue_white.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="178" column="30" lean-forward="true" selection-start-line="178" selection-start-column="30" selection-end-line="178" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/css/themes/blue_dark.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -866,68 +803,76 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/request_functions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="1531" column="108" lean-forward="false" selection-start-line="1531" selection-start-column="108" selection-end-line="1531" selection-end-column="108" />
+        <state relative-caret-position="117">
+          <caret line="42" column="55" lean-forward="false" selection-start-line="42" selection-start-column="55" selection-end-line="42" selection-end-column="55" />
           <folding>
-            <marker date="1571396762601" expanded="true" signature="1478:1975" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="5776:5857" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="5999:6147" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="6243:6799" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="6375:6771" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="6453:6680" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="9993:10150" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="10813:10831" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="13405:13637" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="14487:14617" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="15659:15797" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="19220:19238" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="19767:19898" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="20770:21360" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="20792:21341" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="23862:24000" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="25060:25198" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="27902:28659" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="27952:28659" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="28000:28073" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="28121:28485" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="28535:28659" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="28974:29033" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="29022:29033" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="29407:30524" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="29469:30091" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="29827:29987" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="30156:30493" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="35744:35874" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="36878:37008" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="41535:41680" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="42724:42870" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="47160:47306" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="48205:49156" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="48305:48445" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="48525:49108" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="48621:48757" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="48860:49056" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="50127:51077" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="50226:50366" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="50446:51029" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="50542:50678" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="50781:50977" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="51991:52941" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="52090:52230" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="52310:52893" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="52406:52542" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="52645:52841" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="56707:56933" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="56758:56846" ph="..." />
-            <marker date="1571396762601" expanded="true" signature="57747:57885" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="1533:2030" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="5831:5912" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="6054:6202" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="6298:6854" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="6430:6826" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="6508:6735" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="10048:10205" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="10868:10886" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="13460:13692" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="14542:14672" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="15714:15852" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="19275:19293" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="19822:19953" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="20825:21415" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="20847:21396" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="23917:24055" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="25115:25253" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="27953:28710" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="28003:28710" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="28051:28124" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="28172:28536" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="28586:28710" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="29025:29084" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="29073:29084" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="29458:30575" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="29520:30142" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="29878:30038" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="30207:30544" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="35795:35925" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="36929:37059" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="41586:41731" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="42775:42921" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="47211:47357" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="48256:49207" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="48356:48496" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="48576:49159" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="48672:48808" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="48911:49107" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="50178:51128" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="50277:50417" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="50497:51080" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="50593:50729" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="50832:51028" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="52042:52992" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="52141:52281" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="52361:52944" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="52457:52593" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="52696:52892" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="56758:56984" ph="..." />
+            <marker date="1571398652462" expanded="false" signature="56809:56897" ph="..." />
+            <marker date="1571398652462" expanded="true" signature="57798:57936" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/general_functions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="436">
+          <caret line="195" column="9" lean-forward="false" selection-start-line="195" selection-start-column="9" selection-end-line="195" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/themes/blue_white.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="181" column="1" lean-forward="false" selection-start-line="181" selection-start-column="1" selection-end-line="181" selection-end-column="1" />
           <folding />
         </state>
       </provider>
