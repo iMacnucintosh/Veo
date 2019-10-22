@@ -478,6 +478,7 @@ def changeEpisodeState(request): # Cambiar
                                    poster_path=request.POST["poster_path"])
 
         seasons = ast.literal_eval(request.POST["seasons"])
+
         for season in seasons:
             for episode in season["episodes"]:
                 Episode.objects.create(show=show, id_episode=episode["id"], season_number=season["season_number"],
@@ -487,6 +488,19 @@ def changeEpisodeState(request): # Cambiar
 
     result = ""
     if request.POST["state"] == "1":
+
+        _show = Show.objects.filter(id_show=request.POST["id_show"], user=request.user).first()
+
+        if len(Episode.objects.filter(id_episode=request.POST["id_episode"], user=request.user)) == 0:
+            seasons = ast.literal_eval(request.POST["seasons"])
+
+            for season in seasons:
+                for episode in season["episodes"]:
+                    if len(Episode.objects.filter(id_episode=episode["id"], user=request.user)) == 0:
+                        Episode.objects.create(show=_show, id_episode=episode["id"], season_number=season["season_number"],
+                                           episode_number=episode["episode_number"], user=request.user)
+
+
         Episode.objects.get(id_episode=request.POST["id_episode"], user=request.user).states.add(State.objects.get(id=1))
 
         Activity.objects.create(user=request.user, operation=Operation.objects.get(id=5), episode=Episode.objects.get(id_episode=request.POST["id_episode"], user=request.user))
@@ -516,12 +530,6 @@ def changeEpisodeState(request): # Cambiar
 
 # Syncronize episodes Seen
 def syncronizeEpisodes(request):
-
-    print("\n\n----------------")
-
-    print(request.POST["id_show"])
-
-    print("----------------\n\n")
 
     episodes = Episode.objects.filter(show=Show.objects.filter(id_show=request.POST["id_show"], user=request.user).first(), season_number=request.POST["season_number"], user=request.user, states__in=[1])
 
