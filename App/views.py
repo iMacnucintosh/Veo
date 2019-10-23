@@ -929,7 +929,7 @@ def search(request, query=None):
 @login_required()
 def profile(request, id=None):
     user = User.objects.get(id=id)
-    activitys = Activity.objects.filter(user=user).order_by("-date_add")[:150]
+    activitys = Activity.objects.filter(user=user).order_by("-date_add")[:80]
 
     context = {
         "activitys": activitys,
