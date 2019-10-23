@@ -23,9 +23,9 @@
     <div id="community" class="col s12 row no-margin">
         {% for profileJSON in profilesJSON %}
             <div class="user-item row no-margin">
-                <div class="avatar-user">
+                <a href="/profile/{{ profileJSON.profile.user.id }}" class="avatar-user">
                     <img src="{{ profileJSON.profile.avatar.src }}" />
-                </div>
+                </a>
                 <div class="information-profile">
                     <h1 class="username col s12 no-padding">{{ profileJSON.profile.user.username }}</h1>
                     <div class="col no-padding stadistics">

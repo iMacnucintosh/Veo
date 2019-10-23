@@ -928,8 +928,12 @@ def search(request, query=None):
 # ---------------------------------------- SEARCH ----------------------------------------------------------------------
 @login_required()
 def profile(request, id=None):
+    user = User.objects.get(id=id)
+    activitys = Activity.objects.filter(user=user).order_by("-date_add")[:150]
+
     context = {
-        "profile_visited": Profile.objects.get(user=User.objects.get(id=id)),
+        "activitys": activitys,
+        "profile_visited": Profile.objects.get(user=user),
         "profile": Profile.objects.get(user=request.user),
         "themes": Theme.objects.all(),
         "avatars": Avatar.objects.all(),

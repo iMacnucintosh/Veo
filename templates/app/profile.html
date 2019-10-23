@@ -73,7 +73,7 @@
             </div>
 
             <div class="col s6 m3">
-                <a class="statistic-profile-item blue row no-margin">
+                <a class="statistic-profile-item blue row no-margin tooltipped" data-position="bottom" data-tooltip="Listas Creadas">
                     <span>0</span>
                     <i class="material-icons">list</i>
                 </a>
@@ -87,7 +87,28 @@
 
     </section>
 
-    <section id="activity" class="col s12 row no-margin"></section>
+    <section id="activity" class="col s12 row no-margin">
+        {% for activity in activitys %}
+
+            <div class="activity-item row no-margin">
+                <a href="{{ activity.getHref }}" class="poster-activity">
+                    <img src="{{ activity.getPosterPath }}" />
+                </a>
+                <div class="information-activity">
+                    <div class="col s12 date-activity no-padding">
+                        <p>{{ activity.getDate }}</p>
+                    </div>
+                    <div class="col s12 description-activity no-padding">
+                        <p>{{ activity.getDescription|safe }}</p>
+                    </div>
+                </div>
+            </div>
+
+
+        {% endfor %}
+
+    </section>
+
     <section id="lists" class="col s12 row no-margin">
         <p class="infoPeticion">Disponible próximamente...</p>
     </section>

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from django.contrib.auth.models import User
 from django.db import models
@@ -127,3 +127,55 @@ class Activity(models.Model):
 
         if not self.follower==None:
             return str(self.user.username) + " | Follow | " + str(self.follower.username)
+
+    def getUser(self):
+        return self.user.username
+
+    def getDescription(self):
+        if (self.operation.id == 1):
+            return "Ha añadido <b>" + self.movie.title + "</b> a su lista de pendientes"
+
+        if (self.operation.id == 2):
+            return "Ha visto <b>" + self.movie.title + "</b>"
+
+        if (self.operation.id == 3):
+            return "Ha añadido <b>" + self.show.name + "</b> a su lista de pendientes"
+
+        if (self.operation.id == 4):
+            return "Ha visto <b>" + self.show.name + "</b>"
+
+        if (self.operation.id == 5):
+            return "Ha visto el <b>E" + str(self.episode.episode_number) + "xT" + str(
+                self.episode.season_number) + "</b> de <b>" + self.episode.show.name + "</b>"
+
+        if (self.operation.id == 6):
+            return "Ahora sigue a <b>" + self.follower.username + "</b>"
+
+    def getPosterPath(self):
+        if self.operation.id == 1 or self.operation_id == 2:
+            return "https://image.tmdb.org/t/p/w200" + self.movie.poster_path
+
+        if self.operation.id == 3 or self.operation.id == 4:
+            return "https://image.tmdb.org/t/p/w200" + self.show.poster_path
+
+        if self.operation.id == 5:
+            return "https://image.tmdb.org/t/p/w200" + self.episode.show.poster_path
+
+        if self.operation.id == 6:
+            poster_path = ""
+            if not Profile.objects.get(user=self.follower).avatar == None:
+                poster_path = Profile.objects.get(user=self.follower).avatar.src
+            return poster_path
+
+    def getDate(self):
+        return (self.date_add + timedelta(hours=1)).strftime("%d-%m-%Y %H:%M:%S")
+
+    def getHref(self):
+        if self.movie:
+            return "/movie/" + str(self.movie.id_movie)
+        elif self.show:
+            return "/show/" + str(self.show.id_show)
+        elif self.episode:
+            return "/show/" + str(self.episode.show.id_show)
+
+
