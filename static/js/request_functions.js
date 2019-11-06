@@ -258,9 +258,9 @@ function InformationMovie(id, parameters, colorGenres, width_poster) {
             var genre = movie.genres[i];
             if(colorGenres == true) {
                 var codeColor = getGenreColor(genre.id);
-                genres_str += "<a href='/search/" + genre.name + "_" + genre.id + "' class='genre' style='background-color: " + codeColor + "'>" + genre.name + "</a>";
+                genres_str += "<a href='/search/" + genre.name.replace(' ', '_') + "__" + genre.id + "' class='genre' style='background-color: " + codeColor + "'>" + genre.name + "</a>";
             }else{
-                genres_str += "<a href='/search/" + genre.name + "_" + genre.id + "' class='genre'>" + genre.name + "</a>";
+                genres_str += "<a href='/search/" + genre.name.replace(' ', '_') + "__" + genre.id + "' class='genre'>" + genre.name + "</a>";
             }
         }
         $('#genres').append(genres_str);
@@ -484,9 +484,9 @@ function InformationShow(id, parameters, colorGenres, width_poster) {
             var genre = show.genres[i];
             if(colorGenres == true) {
                 var codeColor = getGenreColor(genre.id);
-                genres_str += "<a href='/search/" + genre.name + "_" + genre.id + "' class='genre' style='background-color: " + codeColor + "'>" + genre.name + "</a>";
+                genres_str += "<a href='/search/" + genre.name.replace(' ', '_') + "__" + genre.id + "' class='genre' style='background-color: " + codeColor + "'>" + genre.name + "</a>";
             }else{
-                genres_str += "<a href='/search/" + genre.name + "_" + genre.id + "' class='genre'>" + genre.name + "</a>";
+                genres_str += "<a href='/search/" + genre.name.replace(' ', '_') + "__" + genre.id + "' class='genre'>" + genre.name + "</a>";
             }
         }
         $('#genres').append(genres_str);
@@ -1508,9 +1508,9 @@ function changeCelularDataSavings(toogle){
 // Return a list with Movies or Shows with the parameters you has specified
 function Search(query, width_poster){
 
-    if(query.split('_').length == 2){
-        var genre = query.split('_')[0];
-        var id_genre = query.split('_')[1];
+    if(query.split('__').length == 2){
+        var genre = query.split('__')[0];
+        var id_genre = query.split('__')[1];
         searchGenre(genre, id_genre)
     }else{
         searchQuery(query);
@@ -1519,7 +1519,7 @@ function Search(query, width_poster){
 
     function searchGenre(genre, id_genre){
 
-        $('#title').text(genre);
+        $('#title').text(genre.replace("_", " "));
 
         $('.tabs').html("");
         $('main').html("");
