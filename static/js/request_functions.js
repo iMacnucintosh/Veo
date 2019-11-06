@@ -258,9 +258,9 @@ function InformationMovie(id, parameters, colorGenres, width_poster) {
             var genre = movie.genres[i];
             if(colorGenres == true) {
                 var codeColor = getGenreColor(genre.id);
-                genres_str += "<div class='genre' style='background-color: " + codeColor + "'>" + genre.name + "</div>";
+                genres_str += "<a href='/search/" + genre.name + "_" + genre.id + "' class='genre' style='background-color: " + codeColor + "'>" + genre.name + "</a>";
             }else{
-                genres_str += "<div class='genre'>" + genre.name + "</div>";
+                genres_str += "<a href='/search/" + genre.name + "_" + genre.id + "' class='genre'>" + genre.name + "</a>";
             }
         }
         $('#genres').append(genres_str);
@@ -484,9 +484,9 @@ function InformationShow(id, parameters, colorGenres, width_poster) {
             var genre = show.genres[i];
             if(colorGenres == true) {
                 var codeColor = getGenreColor(genre.id);
-                genres_str += "<div class='genre' style='background-color: " + codeColor + "'>" + genre.name + "</div>";
+                genres_str += "<a href='/search/" + genre.name + "_" + genre.id + "' class='genre' style='background-color: " + codeColor + "'>" + genre.name + "</a>";
             }else{
-                genres_str += "<div class='genre'>" + genre.name + "</div>";
+                genres_str += "<a href='/search/" + genre.name + "_" + genre.id + "' class='genre'>" + genre.name + "</a>";
             }
         }
         $('#genres').append(genres_str);
@@ -1507,69 +1507,183 @@ function changeCelularDataSavings(toogle){
 // Search Movies, Shows or Actors
 // Return a list with Movies or Shows with the parameters you has specified
 function Search(query, width_poster){
-    $.ajax({
-        type: "GET",
-        dataType: "json",
-        url: "https://api.themoviedb.org/3/search/multi?api_key=f368d6c9a2c7d460dacc7cfd42809665&language=es-ES&query=" + query.replace(/_/g, "%20") + "&page=1&include_adult=false",
-    }).done(function(data, textStatus, jqXHR) {
-        $('.gif-loading').fadeOut(100);
-        $("main").addClass("main-active");
 
-        if(data.total_results > 0) {
+    if(query.split('_').length == 2){
+        var genre = query.split('_')[0];
+        var id_genre = query.split('_')[1];
+        searchGenre(genre, id_genre)
+    }else{
+        searchQuery(query);
+    }
 
-            var count_persons = 0;
-            // Persons
-            for (var i = 0; i < data.results.length; i++) {
-                poster_i = data.results[i];
 
-                if(poster_i.media_type == "person" && poster_i.profile_path != null) {
-                    count_persons ++;
-                    var info_for = "";
-                    var name = poster_i.name.replace(" ", "+");
+    function searchGenre(genre, id_genre){
 
-                    var poster_str = "\
-                    <a href='https://www.google.es/search?q="+name+"' target='_blank' class='person-item'>\
-                        <div class='img' style='background-image: url(https://image.tmdb.org/t/p/original/" + poster_i.profile_path + ")'></div>\
-                        <p>" + poster_i.name + "</p>\
-                    </a>\
-                    ";
+        $('#title').text(genre);
 
-                    $('#person-results').append(poster_str);
+        $('.tabs').html("");
+        $('main').html("");
+        $('.tabs').append('<li class="tab col s3"><a id="lblResultsTabMovies" class="tab-btn active" href="#results_movies">Películas</a></li>');
+        $('.tabs').append('<li class="tab col s3"><a id="lblResultsTabShows" class="tab-btn" href="#results_shows">Series</a></li>');
+
+        $('main').append('<section id="results_movies" class="col s12 row no-margin active"></section>');
+        $('main').append('<section id="results_shows" class="col s12 row no-margin" style="display: none"></section>');
+
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "https://api.themoviedb.org/3/discover/movie?api_key=" + api_key + "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=" + id_genre,
+        }).done(function(data, textStatus, jqXHR) {
+            $('.gif-loading').fadeOut(100);
+            $("main").addClass("main-active");
+
+            if(data.total_results > 0) {
+                // Movies
+                for (var i = 0; i < data.results.length; i++) {
+                    poster_i = data.results[i];
+
+                    if(poster_i.poster_path != null) {
+
+                        var poster_str = "\
+                         <a href='/movie/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
+                         <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
+                         </a>\
+                         ";
+
+                        $('#results_movies').append(poster_str);
+                    }
                 }
+                resizePosters();
+            }else{
+                $('#results_movies').append("<p class='infoPeticion'>No hay ningún resultado</p>");
+                $('#results_movies').css("padding-top", "0");
             }
 
-            if(count_persons == 0){
+            $('#lblResultsTabMovies').click(function(){
+                $('#lblResultsTabShows').removeClass("active")
+                $('#results_shows').hide();
+                $('#results_shows').removeClass("active")
+            });
+
+            $('#lblResultsTabShows').click(function(){
+                $('#lblResultsTabMovies').removeClass("active")
+                $('#results_movies').hide();
+                $('#results_movies').removeClass("active")
+            });
+
+        }).fail(function( jqXHR, textStatus, errorThrown ) {
+            console.error('La solicitud; Búsqueda películas de '+ genre +' ha fallado: ' +  textStatus);
+        });
+
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "https://api.themoviedb.org/3/discover/tv?api_key=" + api_key + "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=" + id_genre,
+        }).done(function(data, textStatus, jqXHR) {
+            $('.gif-loading').fadeOut(100);
+            $("main").addClass("main-active");
+
+            if(data.total_results > 0) {
+                // Movies and Shows
+                for (var i = 0; i < data.results.length; i++) {
+                    poster_i = data.results[i];
+
+                    if(poster_i.poster_path != null) {
+
+                        var poster_str = "\
+                         <a href='/show/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
+                         <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
+                         </a>\
+                         ";
+
+                        $('#results_shows').append(poster_str);
+                    }
+                }
+                resizePosters();
+            }else{
+                $('#results_shows').append("<p class='infoPeticion'>No hay ningún resultado</p>");
+                $('#results_shows').css("padding-top", "0");
+            }
+
+            $('#lblResultsTabMovies').click(function(){
+                $('#results_shows').hide();
+            });
+
+            $('#lblResultsTabShows').click(function(){
+                $('#results_movies').hide();
+            });
+
+        }).fail(function( jqXHR, textStatus, errorThrown ) {
+            console.error('La solicitud; Búsqueda de series de '+ genre +' ha fallado: ' +  textStatus);
+        });
+    }
+
+    function searchQuery(query){
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "https://api.themoviedb.org/3/search/multi?api_key=f368d6c9a2c7d460dacc7cfd42809665&language=es-ES&query=" + query.replace(/_/g, "%20") + "&page=1&include_adult=false",
+        }).done(function(data, textStatus, jqXHR) {
+            $('.gif-loading').fadeOut(100);
+            $("main").addClass("main-active");
+
+            if(data.total_results > 0) {
+
+                var count_persons = 0;
+                // Persons
+                for (var i = 0; i < data.results.length; i++) {
+                    poster_i = data.results[i];
+
+                    if(poster_i.media_type == "person" && poster_i.profile_path != null) {
+                        count_persons ++;
+                        var info_for = "";
+                        var name = poster_i.name.replace(" ", "+");
+
+                        var poster_str = "\
+     <a href='https://www.google.es/search?q="+name+"' target='_blank' class='person-item'>\
+     <div class='img' style='background-image: url(https://image.tmdb.org/t/p/original/" + poster_i.profile_path + ")'></div>\
+     <p>" + poster_i.name + "</p>\
+     </a>\
+     ";
+
+                        $('#person-results').append(poster_str);
+                    }
+                }
+
+                if(count_persons == 0){
+                    $('#person-results').hide();
+                    $('#movie-show-results').css("padding-top", "0");
+                }
+
+                // Movies and Shows
+                for (var i = 0; i < data.results.length; i++) {
+                    poster_i = data.results[i];
+
+                    if(poster_i.poster_path != null) {
+                        var info_for = "";
+
+                        if (poster_i.media_type == "movie") info_for = "movie"
+                        if (poster_i.media_type == "tv") info_for = "show"
+
+                        var poster_str = "\
+     <a href='/" + info_for + "/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
+     <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
+     </a>\
+     ";
+
+                        $('#movie-show-results').append(poster_str);
+                    }
+                }
+                resizePosters();
+            }else{
+                $('#movie-show-results').append("<p class='infoPeticion'>No hay ningún resultado</p>");
                 $('#person-results').hide();
                 $('#movie-show-results').css("padding-top", "0");
             }
 
-            // Movies and Shows
-            for (var i = 0; i < data.results.length; i++) {
-                poster_i = data.results[i];
+        }).fail(function( jqXHR, textStatus, errorThrown ) {
+            console.error('La solicitud; Búsqueda de: "' + query + ', a fallado: ' +  textStatus);
+        });
+    }
 
-                if(poster_i.poster_path != null) {
-                    var info_for = "";
-
-                    if (poster_i.media_type == "movie") info_for = "movie"
-                    if (poster_i.media_type == "tv") info_for = "show"
-
-                    var poster_str = "\
-                    <a href='/" + info_for + "/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
-                        <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
-                     </a>\
-                    ";
-
-                    $('#movie-show-results').append(poster_str);
-                }
-            }
-            resizePosters();
-        }else{
-            $('#movie-show-results').append("<p class='infoPeticion'>No hay ningún resultado</p>");
-            $('#person-results').hide();
-            $('#movie-show-results').css("padding-top", "0");
-        }
-
-    }).fail(function( jqXHR, textStatus, errorThrown ) {
-        console.error('La solicitud; Búsqueda de: "' + query + ', a fallado: ' +  textStatus);
-    });
 }
