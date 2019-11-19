@@ -942,7 +942,15 @@ footer .bottom-navBar > a {
     align-items: center;
     background-color: white;
     border-radius: 50%;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .3s;
 }
+
+.close-season-details:hover {
+    filter: brightness(95%);
+}
+
 
 .close-season-details i {
     font-size: 28px !important;
