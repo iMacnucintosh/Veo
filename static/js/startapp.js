@@ -183,9 +183,23 @@ $(document).ready(function(){
         history.back();
     });
 
-
     $('.info-popup').click(function(){
         $(this).fadeOut(100);
     });
+
+    // Abre la galeria para subir una foto de perfil
+    $('#select_image').click(function(){
+        $('#id_image').click();
+    });
+
+    $('#id_image').change(function(){
+        var image = $(this).val();
+        if(image != ""){
+            $(this).parent().submit();
+        }
+    });
+
+    $('#id_image').attr("accept", "image/*");
+
 
 });

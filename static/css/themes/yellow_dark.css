@@ -115,6 +115,10 @@ footer .nav-active i, footer .nav-active p {
     background-color: #ffc107;
 }
 
+.photo-user {
+    border: 3px solid #ffc107;
+}
+
 .avatar.active img {
     border: 3px solid #ffc107;
 }

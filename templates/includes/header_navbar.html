@@ -14,10 +14,15 @@
             <h1 id="title"></h1>
         </div>
 
-        <div class="img-profile-container">
-            <div class="img-profile"><img src="{{ profile.avatar.src }}" /></div>
-        </div>
-
+        {% if profile.image == null %}
+            <div class="img-profile-container">
+                <div class="img-profile"><img src="{{ profile.avatar.src }}" /></div>
+            </div>
+        {% else %}
+             <div class="img-profile-container">
+                <div class="img-profile image" style="background-image: url(/{{ profile.image }})"></div>
+            </div>
+        {% endif %}
         <div class="search-container">
             <a>
                 <i class="material-icons">search</i>

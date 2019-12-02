@@ -175,7 +175,7 @@ function Recommendations(width_poster) {
 
 var _movie;
 // Get all information from Movie
-function InformationMovie(id, parameters, colorGenres, width_poster) {
+function InformationMovie(id, parameters, colorGenres, width_poster, user_logged) {
 
     parameters["api_key"] = api_key;
 
@@ -288,35 +288,37 @@ function InformationMovie(id, parameters, colorGenres, width_poster) {
     });
 
     // Check if is in my list of Movies
-    var data = new FormData();
-    data.append('id', id);
-    $.ajax({
-        url: '/isMovieOnMyList/',
-        type: 'POST',
-        mimeType: "multipart/form-data",
-        dataType: 'json',
-        processData: false,
-        contentType: false,
-        data: data,
-        success: function (response) {
-            if(response.states != "null"){
-                for(var i=0; i < response.states.length; i++){
-                    var state = response.states[i];
+    if(user_logged) {
+        var data = new FormData();
+        data.append('id', id);
+        $.ajax({
+            url: '/isMovieOnMyList/',
+            type: 'POST',
+            mimeType: "multipart/form-data",
+            dataType: 'json',
+            processData: false,
+            contentType: false,
+            data: data,
+            success: function (response) {
+                if (response.states != "null") {
+                    for (var i = 0; i < response.states.length; i++) {
+                        var state = response.states[i];
 
-                    if(state.id == 2) {
-                        $('.toSee').text("playlist_add_check");
-                        $('.toSee').attr("onclick", "removeMovieToSee(this)");
+                        if (state.id == 2) {
+                            $('.toSee').text("playlist_add_check");
+                            $('.toSee').attr("onclick", "removeMovieToSee(this)");
+                        }
+
+                        if (state.id == 1) {
+                            $('.seen').attr("src", "/static/images/seen.png")
+                            $('.seen').attr("onclick", "setMovieToNotSeen(this)");
+                        }
+
                     }
-
-                    if(state.id == 1){
-                        $('.seen').attr("src", "/static/images/seen.png")
-                        $('.seen').attr("onclick", "setMovieToNotSeen(this)");
-                    }
-
                 }
             }
-        }
-    });
+        });
+    }
 
     // Cast
     $.ajax({
@@ -438,7 +440,7 @@ function InformationMovie(id, parameters, colorGenres, width_poster) {
 
 var _show;
 // Get all information from Show
-function InformationShow(id, parameters, colorGenres, width_poster) {
+function InformationShow(id, parameters, colorGenres, width_poster, user_logged) {
 
     parameters["api_key"] = api_key;
 
@@ -491,22 +493,25 @@ function InformationShow(id, parameters, colorGenres, width_poster) {
         }
         $('#genres').append(genres_str);
 
+
         var seasons_str = '';
-        for(var i=0; i<show.seasons.length; i++){
+        for (var i = 0; i < show.seasons.length; i++) {
             var season = show.seasons[i];
-            if(season.poster_path != null) {
+            if (season.poster_path != null) {
+                attr_onclick = ""
                 seasons_str += '<div class="season-poster poster-item list col s4 m3 l2 no-padding" onclick="showSeasonInfo(' + season.season_number + ')">\
                     <img src="https://image.tmdb.org/t/p/w' + width_poster + season.poster_path + '">\
                     </div>';
 
                 // Information for each season
-                InformationSeason(id, season.season_number, parameters,  width_poster);
+                InformationSeason(id, season.season_number, parameters, width_poster, user_logged);
             }
         }
 
         $('#seasons-posters-list').append(seasons_str);
 
         resizePosters();
+
 
         // Last episode Air
 
@@ -552,37 +557,38 @@ function InformationShow(id, parameters, colorGenres, width_poster) {
         console.error('La solicitud: Trailer de Película, a fallado: ' +  textStatus);
     });
 
+    if(user_logged) {
+        // Check if is in my list of Shows
+        var data = new FormData();
+        data.append('id', id);
+        $.ajax({
+            url: '/isShowOnMyList/',
+            type: 'POST',
+            mimeType: "multipart/form-data",
+            dataType: 'json',
+            processData: false,
+            contentType: false,
+            data: data,
+            success: function (response) {
+                if (response.states != "null") {
+                    for (var i = 0; i < response.states.length; i++) {
+                        var state = response.states[i];
 
-    // Check if is in my list of Shows
-    var data = new FormData();
-    data.append('id', id);
-    $.ajax({
-        url: '/isShowOnMyList/',
-        type: 'POST',
-        mimeType: "multipart/form-data",
-        dataType: 'json',
-        processData: false,
-        contentType: false,
-        data: data,
-        success: function (response) {
-            if(response.states != "null"){
-                for(var i=0; i < response.states.length; i++){
-                    var state = response.states[i];
+                        if (state.id == 2) {
+                            $('.toSee').text("playlist_add_check");
+                            $('.toSee').attr("onclick", "removeShowToSee(this,)");
+                        }
 
-                    if(state.id == 2) {
-                        $('.toSee').text("playlist_add_check");
-                        $('.toSee').attr("onclick", "removeShowToSee(this,)");
+                        if (state.id == 1) {
+                            $('.seen').attr("src", "/static/images/seen.png")
+                            $('.seen').attr("onclick", "setShowToNotSeen(this)");
+                        }
+
                     }
-
-                    if(state.id == 1){
-                        $('.seen').attr("src", "/static/images/seen.png")
-                        $('.seen').attr("onclick", "setShowToNotSeen(this)");
-                    }
-
                 }
             }
-        }
-    });
+        });
+    }
 
     // Related Shows
     parameters["page"] = "1";
@@ -678,7 +684,7 @@ function InformationShow(id, parameters, colorGenres, width_poster) {
 }
 
 var _seasons = [];
-function InformationSeason(id_show, num_season, parameters, width_poster){
+function InformationSeason(id_show, num_season, parameters, width_poster, user_logged){
     parameters["api_key"] = api_key;
 
     // Basic Information
@@ -740,11 +746,18 @@ function InformationSeason(id_show, num_season, parameters, width_poster){
             if(overview == ""){
                 overview = "No hay ninguna descripción disponible";
             }
+
             season_info_str += '\
                         <li>\
-                            <div class="collapsible-header">\
-                                <i class="material-icons" onclick="changeStateEpisode(this,' + id_show + ',' + num_season + ',' + episode.id + ')" id="' + id_show + '_' + num_season + '_' + episode.episode_number + '">radio_button_unchecked</i>' +
-                '' + episode.name + '' + '\
+                            <div class="collapsible-header">';
+
+            if(user_logged){
+                season_info_str += '<i class="material-icons" onclick="changeStateEpisode(this,' + id_show + ',' + num_season + ',' + episode.id + ')"  id="' + id_show + '_' + num_season + '_' + episode.episode_number + '">radio_button_unchecked</i>';
+            }else{
+                season_info_str += '<i class="material-icons" id="' + id_show + '_' + num_season + '_' + episode.episode_number + '">radio_button_unchecked</i>';
+            }
+
+            season_info_str += episode.name + '' + '\
                                 <div class="spinner hiddenFade">\
                                   <div class="dot1"></div>\
                                   <div class="dot2"></div>\
@@ -773,30 +786,31 @@ function InformationSeason(id_show, num_season, parameters, width_poster){
         });
 
 
-        // Syncronize episodes seen
-        var data = new FormData();
+        if(user_logged) {
+            // Syncronize episodes seen
+            var data = new FormData();
 
-        data.append('id_show', id_show);
-        data.append('season_number', num_season);
+            data.append('id_show', id_show);
+            data.append('season_number', num_season);
 
-        $.ajax({
-            url: '/syncronizeEpisodes/',
-            mimeType: "multipart/form-data",
-            dataType: 'json',
-            type: 'POST',
-            processData: false,
-            contentType: false,
-            data: data,
-            success: function (response) {
-                if(response.results.length > 0){
-                    $('#num-episodes-season-' + num_season).text(response.results.length + "/" + $('#num-episodes-season-' + num_season).text())
-                    for(var i=0; i<response.results.length; i++){
-                        $('#' + response.results[i].id).text("radio_button_checked")
+            $.ajax({
+                url: '/syncronizeEpisodes/',
+                mimeType: "multipart/form-data",
+                dataType: 'json',
+                type: 'POST',
+                processData: false,
+                contentType: false,
+                data: data,
+                success: function (response) {
+                    if (response.results.length > 0) {
+                        $('#num-episodes-season-' + num_season).text(response.results.length + "/" + $('#num-episodes-season-' + num_season).text())
+                        for (var i = 0; i < response.results.length; i++) {
+                            $('#' + response.results[i].id).text("radio_button_checked")
+                        }
                     }
                 }
-            }
-        });
-
+            });
+        }
 
 
     }).fail(function( jqXHR, textStatus, errorThrown ) {
@@ -1477,7 +1491,8 @@ function changeAvatar(elemento, id_avatar){
         contentType: false,
         data: data,
         success: function (data) {
-            location.reload();
+            $('#id_image').val("");
+            location.assign(location.href)
         }
     });
 }

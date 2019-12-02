@@ -106,6 +106,10 @@ footer .nav-active i, footer .nav-active p {
     filter: brightness(90%);
 }
 
+.photo-user {
+    border: 3px solid #2196f3;
+}
+
 .avatar.active img {
     border: 3px solid #2196f3;
 }

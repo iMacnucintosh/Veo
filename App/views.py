@@ -94,9 +94,16 @@ def sign_in(request):
 
 @login_required()
 def home(request):
+
+    profile = Profile.objects.get(user=request.user)
+    form = uploadImageProfileForm(request.POST or None, request.FILES or None, instance=profile)
+    if form.is_valid():
+        form.save()
+
     createAvatars()
     context = {
-        "profile": Profile.objects.get(user=request.user),
+        "profile": profile,
+        "form": form,
         "themes": Theme.objects.all(),
         "avatars": Avatar.objects.all(),
         "activitys": Activity.objects.filter(user__in=Profile.objects.get(user=request.user).followings.all()).order_by("-date_add")[:10]
@@ -105,8 +112,14 @@ def home(request):
 
 @login_required()
 def movies(request):
+
+    profile = Profile.objects.get(user=request.user)
+    form = uploadImageProfileForm(request.POST or None, request.FILES or None, instance=profile)
+    if form.is_valid():
+        form.save()
+
     context = {
-        "profile": Profile.objects.get(user=request.user),
+        "profile": profile,
         "themes": Theme.objects.all(),
         "avatars": Avatar.objects.all(),
     }
@@ -114,8 +127,14 @@ def movies(request):
 
 @login_required()
 def shows(request):
+
+    profile = Profile.objects.get(user=request.user)
+    form = uploadImageProfileForm(request.POST or None, request.FILES or None, instance=profile)
+    if form.is_valid():
+        form.save()
+
     context = {
-        "profile": Profile.objects.get(user=request.user),
+        "profile": profile,
         "themes": Theme.objects.all(),
         "avatars": Avatar.objects.all(),
     }
@@ -123,15 +142,21 @@ def shows(request):
 
 @login_required()
 def social(request):
+
+    profile = Profile.objects.get(user=request.user)
+    form = uploadImageProfileForm(request.POST or None, request.FILES or None, instance=profile)
+    if form.is_valid():
+        form.save()
+
     profiles = []
-    for profile in Profile.objects.all():
-        if not request.user == profile.user:
-            if(profile.user in Profile.objects.get(user=request.user).followings.all()):
-                profiles.append({"exists": True, "profile": profile})
+    for _profile in Profile.objects.all():
+        if not request.user == _profile.user:
+            if(_profile.user in Profile.objects.get(user=request.user).followings.all()):
+                profiles.append({"exists": True, "profile": _profile})
             else:
-                profiles.append({"exists": False, "profile": profile})
+                profiles.append({"exists": False, "profile": _profile})
     context = {
-        "profile": Profile.objects.get(user=request.user),
+        "profile": profile,
         "themes": Theme.objects.all(),
         "avatars": Avatar.objects.all(),
         "profilesJSON": profiles,
@@ -141,6 +166,18 @@ def social(request):
 def changeAvatar(request):
 
     Profile.objects.filter(user=request.user).update(avatar=Avatar.objects.get(id=request.POST["id_avatar"]))
+
+    profile = Profile.objects.get(user=request.user)
+
+    image = str(profile.image)
+
+    try:
+        if(os.path.isfile(image)):
+            os.remove(image)
+            Profile.objects.filter(user=request.user).update(image=None)
+
+    except Exception as e:
+        print(str(e))
 
     data = {
         'result': "ok",
@@ -165,25 +202,32 @@ def changeCelularSavings(request):
 
     return JsonResponse(data)
 
-
 def changeTheme(request, theme=None):
     Profile.objects.filter(user=request.user).update(theme=Theme.objects.get(id=theme))
     print(Theme.objects.get(id=theme))
     return HttpResponseRedirect("/")
 
-@login_required()
 def movie(request, id=None):
+    if request.user.is_anonymous:
+        profile = None
+    else:
+        profile = Profile.objects.get(user=request.user)
+
     context = {
-        "profile": Profile.objects.get(user=request.user),
+        "profile": profile,
         "id": id,
         "themes": Theme.objects.all()
     }
     return render(request, "app/movie.html", context=context)
 
-@login_required()
 def show(request, id=None):
+    if request.user.is_anonymous:
+        profile = None
+    else:
+        profile = Profile.objects.get(user=request.user)
+
     context = {
-        "profile": Profile.objects.get(user=request.user),
+        "profile": profile,
         "id": id,
         "themes": Theme.objects.all()
     }

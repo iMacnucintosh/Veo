@@ -39,9 +39,21 @@
         </div>
         <div class="avatars-container">
 
+            {% if profile.image %}
+                <div id="select_image" class="photo-user" style="background-image: url(/{{ profile.image }})"></div>
+                 <form style="display:none" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+                    {{ form.image }}
+                </form>
+            {% else %}
+                <div id="select_image" class="avatar photo"></div>
+                <form style="display:none" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+                    {{ form.image }}
+                </form>
+            {% endif %}
+
             {% for avatar in avatars %}
                 {% if avatar == profile.avatar %}
-                    <div onclick="changeAvatar(this, {{ avatar.id }})" class="avatar {% if profile.avatar == avatar %}active{% endif %}">
+                    <div onclick="changeAvatar(this, {{ avatar.id }})" class="avatar {% if profile.avatar == avatar and profile.image == None %}active{% endif %}">
                         <img src="{{ avatar.src }}" />
                     </div>
                 {% endif %}
@@ -49,7 +61,7 @@
 
             {% for avatar in avatars %}
                 {% if not avatar == profile.avatar %}
-                    <div onclick="changeAvatar(this, {{ avatar.id }})" class="avatar {% if profile.avatar == avatar %}active{% endif %}">
+                    <div onclick="changeAvatar(this, {{ avatar.id }})" class="avatar {% if profile.avatar == avatar and profile.image == None %}active{% endif %}">
                         <img src="{{ avatar.src }}" />
                     </div>
                 {% endif %}

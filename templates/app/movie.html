@@ -34,16 +34,17 @@
             <div id="backdrop-image"></div>
             <img id="poster-img" class="col s3" />
             <a class="btn-trailer waves-effect waves-light btn" target="_blank"><i class="material-icons left">theaters</i>Ver Tráiler</a>
-
-            <div class="fixed-action-btn ">
-                <a class="btn-floating btn-large red">
-                    <i class="large material-icons">person_add</i>
-                </a>
-                <ul>
-                    <li><a class="btn-floating green"><img class="seen" src="/static/images/not_seen.png" onclick="setMovieToSeen(this)" /></a></li>
-                    <li><a class="btn-floating pink lighten-1"><i class="material-icons toSee" onclick="addMovieToSee(this)">playlist_add</i></a></li>
-                </ul>
-            </div>
+            {% if not profile == None %}
+                <div class="fixed-action-btn ">
+                    <a class="btn-floating btn-large red">
+                        <i class="large material-icons">person_add</i>
+                    </a>
+                    <ul>
+                        <li><a class="btn-floating green"><img class="seen" src="/static/images/not_seen.png" onclick="setMovieToSeen(this)" /></a></li>
+                        <li><a class="btn-floating pink lighten-1"><i class="material-icons toSee" onclick="addMovieToSee(this)">playlist_add</i></a></li>
+                    </ul>
+                </div>
+            {% endif %}
 
 
         </div>
@@ -89,10 +90,14 @@
     $(document).ready(function(){
         $('#nav-movies').addClass("nav-active");
 
-        {% if profile.celularDataSavings == True %} localStorage.setItem("width_poster", "200"); {% else %} localStorage.setItem("width_poster", "400"); {% endif %}
-
-        // Información de la Película
-        InformationMovie({{id}}, {"language":"es-ES"}, {% if profile.colorGenres == True %}true{% else %}false{% endif %}, {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
+        {% if profile == None %} // Usuario anónimo
+            localStorage.setItem("width_poster", "200");
+            InformationMovie({{id}}, {"language":"es-ES"}, true, 200, false);
+        {% else %} // Usuario registrado
+            {% if profile.celularDataSavings == True %} localStorage.setItem("width_poster", "200"); {% else %} localStorage.setItem("width_poster", "400"); {% endif %}
+            // Información de la Película
+            InformationMovie({{id}}, {"language":"es-ES"}, {% if profile.colorGenres == True %}true{% else %}false{% endif %}, {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %}, true);
+        {% endif %}
     });
 </script>
 

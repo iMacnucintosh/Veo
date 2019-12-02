@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import os
 from datetime import datetime, timedelta
 
 from django.contrib.auth.models import User
@@ -21,6 +22,22 @@ class Avatar(models.Model):
     def __str__(self):
         return str(self.name) + " (" + str(self.src) + ")"
 
+def path_image_upload(instance, filename):
+    var = filename.split('.')
+    var_length = len(var) - 1
+    var_extension = var[var_length]
+
+    try:
+        image = "static/images/profiles/" + str(instance.user.id) + "_" + instance.user.username + "." + var_extension
+        if(os.path.isfile(image)):
+            os.remove(image)
+
+    except Exception as e:
+        print(str(e))
+
+
+    return "static/images/profiles/" + str(instance.user.id) + "_" + instance.user.username + "." + var_extension
+
 class Profile(models.Model):
     user = models.ForeignKey(User, related_name="user", blank=True, null=True)
     theme = models.ForeignKey(Theme, blank=True, null=True, on_delete=models.SET_NULL)
@@ -30,6 +47,7 @@ class Profile(models.Model):
     height_image = models.IntegerField(default=0)
     followings = models.ManyToManyField(User, related_name="following", blank=True)
     avatar = models.ForeignKey(Avatar, blank=True, null=True, on_delete=models.SET_NULL)
+    image = models.FileField(upload_to=path_image_upload, null=True, blank=True)
 
     def __str__(self):
         return str(self.user.first_name) + " " + str(self.user.last_name)
