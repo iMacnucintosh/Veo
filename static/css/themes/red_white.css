@@ -40,6 +40,11 @@ input:not([type]):focus:not([readonly])+label, input[type=text]:not(.browser-def
     color: #f44336;
 }
 
+/* ----------------- GENERAL ---------------------------- */
+.primary-color {
+    background-color: #f44336;
+}
+
 /* ---------------- TOP NAVBAR -------------------------- */
 header .header-navBar .img-profile {
     /*box-shadow: 0px 0px 5px 0px #b9b9b9;*/

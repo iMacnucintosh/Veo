@@ -973,10 +973,25 @@ def search(request, query=None):
 @login_required()
 def profile(request, id=None):
     user = User.objects.get(id=id)
-    activitys = Activity.objects.filter(user=user).order_by("-date_add")[:80]
+    activitys = Activity.objects.filter(user=user).order_by("-date_add")
+    activitys_dir = []
+
+    days = []
+    for activity in activitys:
+        if not activity.date_add.date() in days:
+            date_activity = activity.date_add.date()
+
+            f_start = datetime.combine(date_activity, datetime.min.time())
+            f_fin = datetime.combine(date_activity, datetime.max.time())
+
+            days.append(date_activity)
+            activitys_dir.append({"year": f_start.year, "month": f_start.month, "day": f_start.day, "n_activitys": len(Activity.objects.filter(user=user, date_add__gte=f_start, date_add__lte=f_fin))})
+
+    # raise Exception(activitys_dir)
 
     context = {
         "activitys": activitys,
+        "activitys_dir": activitys_dir,
         "profile_visited": Profile.objects.get(user=user),
         "profile": Profile.objects.get(user=request.user),
         "themes": Theme.objects.all(),

@@ -53,6 +53,10 @@ input:not([type]):focus:not([readonly])+label, input[type=text]:not(.browser-def
     color: #607d8b;
 }
 
+/* ----------------- GENERAL ---------------------------- */
+.primary-color {
+   background-color: #607d8b;
+}
 
 /* ---------------- TOP NAVBAR -------------------------- */
 header .header-navBar .img-profile {

@@ -6,7 +6,6 @@ html, body {
     color: white;
 }
 
-
 /* Session Page */
 .input-field .prefix.active {
     color: #ffc107;
@@ -53,6 +52,10 @@ input:not([type]):focus:not([readonly])+label, input[type=text]:not(.browser-def
     color: #ffc107;
 }
 
+/* ----------------- GENERAL ---------------------------- */
+.primary-color {
+    background-color: #ffc107;
+}
 
 /* ---------------- TOP NAVBAR -------------------------- */
 header .header-navBar .img-profile {
