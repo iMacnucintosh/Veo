@@ -201,5 +201,10 @@ $(document).ready(function(){
 
     $('#id_image').attr("accept", "image/*");
 
+    // Selección de colores en creación de lista
+    $('.color').click(function(){
+       $('.color').removeClass("selected");
+       $(this).addClass("selected");
+    });
 
 });

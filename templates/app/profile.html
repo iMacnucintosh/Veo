@@ -11,7 +11,7 @@
 
     <style>
         #chartdiv {
-            width: 100%;
+            width: 95%;
             height: 300px;
         }
     </style>
@@ -25,7 +25,7 @@
         <div class="nav-wrapper search-field">
             <form id="search">
                 <div class="input-field">
-                    <input id="search" type="search" placeholder="Introduce el título a buscar" autofocus required>
+                    <input type="search" placeholder="Introduce el título a buscar" autofocus required>
                     <i class="material-icons">close</i>
                 </div>
             </form>
@@ -36,7 +36,15 @@
         </div>
 
         <div class="img-profile-container">
-            <div class="img-profile"><img src="{{ profile_visited.avatar.src }}" /></div>
+            {% if profile_visited.image == null %}
+                <div class="img-profile-container">
+                    <div class="img-profile"><img src="{{ profile_visited.avatar.src }}" /></div>
+                </div>
+            {% else %}
+                <div class="img-profile-container">
+                    <div class="img-profile image" style="background-image: url(/{{ profile_visited.image }})"></div>
+                </div>
+            {% endif %}
         </div>
 
         <div class="search-container">
@@ -103,9 +111,9 @@
 
                     var data = [];
                     {% for activity in activitys_dir %}
-{#                        var date = new Date({{ activity.year }}, {{ activity.month }}, {{ activity.day }});#}
-{#                        date.setHours(0,0,0,0);#}
-{#                        date.setDate(date);#}
+                        {#                        var date = new Date({{ activity.year }}, {{ activity.month }}, {{ activity.day }});#}
+                        {#                        date.setHours(0,0,0,0);#}
+                        {#                        date.setDate(date);#}
                         data.push({date:new Date({{ activity.year }}, {{ activity.month }}, {{ activity.day }}), value: {{ activity.n_activitys }} });
                     {% endfor %}
 
@@ -142,7 +150,7 @@
     </section>
 
     <section id="activity" class="col s12 row no-margin">
-        {% for activity in activitys %}
+        {% for activity in activitys_summary %}
 
             <div class="activity-item row no-margin">
                 <a href="{{ activity.getHref }}" class="poster-activity">
@@ -162,7 +170,43 @@
     </section>
 
     <section id="lists" class="col s12 row no-margin">
-        <p class="infoPeticion">Disponible próximamente...</p>
+        {% if user_lists|length > 0 %}
+            <ul class="collection with-header col s12 no-border">
+                <li class="collection-header"><h4>Tus Listas <button class="btn primary-color waves-effect right modal-trigger" href="#modalNewList">Nueva</button></h4></li>
+                {% for list in user_lists %}
+                    <a href="/list/{{ list.id }}/"><li class="collection-item"><div>{{ list.name }}<div class="secondary-content"><i class="material-icons" style="color: {{ list.color }}">fiber_manual_record</i></div></div></li></a>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="infoPeticion">Aún no tienes listas creadas</p>
+        {% endif %}
+
+        <!-- Modal New List -->
+        <div id="modalNewList" class="modal">
+            <div class="modal-content">
+                <h4>Nueva Lista</h4>
+                <div class="row">
+                    <div class="col s12 input-field">
+                        <input id="txt_name_new_list" type="text" class="validate">
+                        <label for="txt_name_new_list">Nombre</label>
+                    </div>
+
+                    <div class="col s12 list-colors">
+                        <div class="color red"><i class="material-icons">done</i></div>
+                        <div class="color blue"><i class="material-icons">done</i></div>
+                        <div class="color green"><i class="material-icons">done</i></div>
+                        <div class="color yellow"><i class="material-icons">done</i></div>
+                        <div class="color orange"><i class="material-icons">done</i></div>
+                        <div class="color cyan"><i class="material-icons">done</i></div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer flex-end">
+                <button class="modal-close waves-effect waves-green btn-flat">Cancelar</button>
+                <button onclick="newList({{ profile.user.id }})" class="modal-close waves-effect waves-green btn-flat">Crear</button>
+            </div>
+        </div>
     </section>
 
     <div id="home-shows-active" class="col s12 row no-margin"></div>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% include "includes/head.html" %}
+
+    <title>Veo | Lista</title>
+
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+</head>
+<body>
+
+<header>
+    <nav class="header-navBar">
+
+        <div class="nav-wrapper search-field">
+            <form id="search">
+                <div class="input-field">
+                    <input type="search" placeholder="Introduce el título a buscar" autofocus required>
+                    <i class="material-icons">close</i>
+                </div>
+            </form>
+        </div>
+
+        <div class="header-title">
+            <h1 id="title">{{ list.name }}</h1>
+        </div>
+
+        <div class="img-profile-container">
+            {% if profile_list.image == null %}
+                <div class="img-profile-container">
+                    <div class="img-profile"><img src="{{ profile_list.avatar.src }}" /></div>
+                </div>
+            {% else %}
+                <div class="img-profile-container">
+                    <div class="img-profile image" style="background-image: url(/{{ profile_list.image }})"></div>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="search-container">
+            <a>
+                <i class="material-icons">search</i>
+            </a>
+        </div>
+
+    </nav>
+</header>
+<!-- Tabs -->
+<ul class="tabs">
+    <li class="tab col s3"><a class="tab-btn active" href="#list_movies">Películas</a></li>
+    <li class="tab col s3"><a class="tab-btn" href="#list_shows">Series</a></li>
+</ul>
+
+<main class="main-home">
+    <section id="list_movies" class="col s12 row no-margin">
+        {% if list.movies.all|length > 0 %}
+            {% for movie in list.movies.all %}
+                <a href='/movie/{{ movie.id_movie }}/' class='poster-item list col s4 m3 l2 no-padding'>
+                    <img src='https://image.tmdb.org/t/p/w400{{ movie.poster_path }}' />
+                </a>
+            {% endfor %}
+        {% else %}
+            <p class="infoPeticion">Ninguna película añadida</p>
+        {% endif %}
+    </section>
+
+    <section id="list_shows" class="col s12 row no-margin">
+        {% if list.shows.all|length > 0 %}
+            {% for show in list.shows.all %}
+                <a href='/show/{{ show.id_show }}/' class='poster-item list col s4 m3 l2 no-padding'>
+                    <img src='https://image.tmdb.org/t/p/w400{{ show.poster_path }}' />
+                </a>
+            {% endfor %}
+        {% else %}
+            <p class="infoPeticion">Ninguna serie añadida</p>
+        {% endif %}
+    </section>
+</main>
+
+<div class="gif-loading">
+    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+</div>
+
+
+<!-- Button navbar-->
+<footer>
+    <nav class="bottom-navBar row no-margin">
+        <a href="/" id="nav-home" class="col s3">
+            <i class="material-icons">home</i>
+            <p>Inicio</p>
+        </a>
+        <a href="/movies" id="nav-movies" class="col s3" onclick="localStorage.setItem('active_tab', '#movies_popularity')">
+            <i class="material-icons">movie</i>
+            <p>Películas</p>
+        </a>
+        <a href="/shows" id="nav-shows" class="col s3" onclick="localStorage.setItem('active_tab', '#shows_popularity')">
+            <i class="material-icons">subscriptions</i>
+            <p>Series</p>
+        </a>
+        <a href="/social" id="nav-social" class="col s3">
+            <i class="material-icons">group</i>
+            <p>Amigos</p>
+        </a>
+    </nav>
+</footer>
+
+
+<!-- Loading Gif -->
+<section class="loading-container">
+    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+</section>
+
+{% include "includes/body_end.html" %}
+
+<script>
+
+    $(document).ready(function(){
+        {% if profile.celularDataSavings == True %} localStorage.setItem("width_poster", "200"); {% else %} localStorage.setItem("width_poster", "400"); {% endif %}
+
+        /* ---------------------------------- PERSONAL DATABASE ----------------------------------------------------- */
+        $('.gif-loading').fadeOut(100);
+        $("main").addClass("main-active");
+
+        resizePosters();
+    });
+
+</script>
+
+</body>
+</html>

@@ -11,4 +11,5 @@ admin.site.register(Show)
 admin.site.register(Episode)
 admin.site.register(Operation)
 admin.site.register(Activity)
+admin.site.register(List)
 

@@ -542,7 +542,7 @@ def changeEpisodeState(request): # Cambiar
                 for episode in season["episodes"]:
                     if len(Episode.objects.filter(id_episode=episode["id"], user=request.user)) == 0:
                         Episode.objects.create(show=_show, id_episode=episode["id"], season_number=season["season_number"],
-                                           episode_number=episode["episode_number"], user=request.user)
+                                               episode_number=episode["episode_number"], user=request.user)
 
 
         Episode.objects.get(id_episode=request.POST["id_episode"], user=request.user).states.add(State.objects.get(id=1))
@@ -969,7 +969,7 @@ def search(request, query=None):
     }
     return render(request, "app/search.html", context=context)
 
-# ---------------------------------------- SEARCH ----------------------------------------------------------------------
+# ---------------------------------------- PROFILE ---------------------------------------------------------------------
 @login_required()
 def profile(request, id=None):
     user = User.objects.get(id=id)
@@ -987,11 +987,13 @@ def profile(request, id=None):
             days.append(date_activity)
             activitys_dir.append({"year": f_start.year, "month": f_start.month, "day": f_start.day, "n_activitys": len(Activity.objects.filter(user=user, date_add__gte=f_start, date_add__lte=f_fin))})
 
-    # raise Exception(activitys_dir)
+    user_lists = List.objects.filter(user=user)
 
     context = {
         "activitys": activitys,
+        "activitys_summary": activitys[:40],
         "activitys_dir": activitys_dir,
+        "user_lists":user_lists,
         "profile_visited": Profile.objects.get(user=user),
         "profile": Profile.objects.get(user=request.user),
         "themes": Theme.objects.all(),
@@ -999,3 +1001,32 @@ def profile(request, id=None):
     }
 
     return render(request, "app/profile.html", context=context)
+
+# Create a new List for user
+def newList(request):
+    user = User.objects.get(id=request.POST["id_user"])
+
+    newList = List.objects.create(user=user, name=request.POST["name"], color=request.POST["color"])
+
+    if newList:
+        result = newList.id
+    else:
+        result = -1
+
+    data = {
+        'result': result
+    }
+
+    return JsonResponse(data)
+
+@login_required()
+def list(request, id=None):
+    list = List.objects.get(id=id)
+
+    context = {
+        "profile": Profile.objects.get(user=request.user),
+        "profile_list": Profile.objects.get(user=list.user),
+        "list": list,
+    }
+
+    return render(request, "app/list.html", context=context)

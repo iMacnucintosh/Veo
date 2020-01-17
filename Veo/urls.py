@@ -132,5 +132,7 @@ urlpatterns = [
     url(r'^search/(?P<query>\w+)/$', search),
 
     # --------------------------------- PROFILE ------------------------------------------------------------------------
-    url(r'^profile/(?P<id>\d+)$', profile),
+    url(r'^profile/(?P<id>\d+)/$', profile),
+    url(r'^newList/$', newList),
+    url(r'^list/(?P<id>\d+)/$', list),
 ]

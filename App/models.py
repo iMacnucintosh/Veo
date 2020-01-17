@@ -61,6 +61,9 @@ class Profile(models.Model):
     def getEpisodesSeen(self):
         return len(Episode.objects.filter(user=self.user, states__in=[1]).all())
 
+    def getLists(self):
+        return List.objects.filter(user=self.user)
+
 class State(models.Model):
     name = models.CharField(max_length=30)
 
@@ -125,7 +128,6 @@ class Operation(models.Model):
 class Activity(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_activity")
     operation = models.ForeignKey(Operation, on_delete=models.CASCADE)
-
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE, null=True, blank=True)
     show = models.ForeignKey(Show, on_delete=models.CASCADE, null=True, blank=True)
     episode = models.ForeignKey(Episode, on_delete=models.CASCADE, null=True, blank=True)
@@ -196,4 +198,13 @@ class Activity(models.Model):
         elif self.episode:
             return "/show/" + str(self.episode.show.id_show)
 
+class List(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=200)
+    color = models.CharField(max_length=10, blank=True, null=True)
+    creation_date = models.DateTimeField(auto_now=False, auto_now_add=True)
+    movies = models.ManyToManyField(Movie, blank=True)
+    shows = models.ManyToManyField(Show, blank=True)
 
+    def __str__(self):
+            return str(self.user) + " | " + self.name
