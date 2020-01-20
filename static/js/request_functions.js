@@ -1725,6 +1725,7 @@ function newList(id_user, selectable, type){
             if(data.result == -1){
                 M.toast({html: 'Ha ocurrido un error al crear la lista'})
             }else{
+                $('.no-lists').remove();
                 if(selectable){
                     $('.list-of-lists').append('<a onclick="selectList(this, ' + type + ', ' + data.result + ')"' + data.result +'"><li class="collection-item"><div>' + name + '<div class="secondary-content"><i class="material-icons" style="color: ' + color +'">fiber_manual_record</i></div></div></li></a>')
                 }else{

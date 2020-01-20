@@ -97,11 +97,27 @@ def home(request):
 
     profile = Profile.objects.get(user=request.user)
     form = uploadImageProfileForm(request.POST or None, request.FILES or None, instance=profile)
+
+    activitys = Activity.objects.all().order_by("-date_add")
+    activitys_veo = []
+
+    days = []
+    for activity in activitys:
+        if not activity.date_add.date() in days:
+            date_activity = activity.date_add.date()
+
+            f_start = datetime.combine(date_activity, datetime.min.time())
+            f_fin = datetime.combine(date_activity, datetime.max.time())
+
+            days.append(date_activity)
+            activitys_veo.append({"year": f_start.year, "month": f_start.month, "day": f_start.day, "n_activitys": len(Activity.objects.filter(date_add__gte=f_start, date_add__lte=f_fin))})
+
     if form.is_valid():
         form.save()
 
     createAvatars()
     context = {
+        "activitys_veo": activitys_veo,
         "profile": profile,
         "form": form,
         "themes": Theme.objects.all(),
@@ -1057,6 +1073,24 @@ def newList(request):
 
 # Delete a list for user
 def removeList(request):
+
+    # Delete all movies and shows from this list with only List status
+    list = List.objects.get(id=request.POST["id_list"])
+
+    for movie in list.movies.all():
+        if len(movie.states.all()) == 1:
+            state = movie.states.all().first()
+            if state == State.objects.get(id=3):
+                Movie.objects.filter(id=movie.id).delete()
+
+    for show in list.shows.all():
+        if len(show.states.all()) == 1:
+            state = show.states.all().first()
+            if state == State.objects.get(id=3):
+                Show.objects.filter(id=show.id).delete()
+                print("\n\n\n")
+                print("Serie Eliminada")
+                print("\n\n\n")
 
     List.objects.filter(id=request.POST["id_list"]).delete()
 

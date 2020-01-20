@@ -85,6 +85,13 @@
     font-family: Google-Sans-Bold;
 }
 
+.author {
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    font-size: 12px;
+}
+
 /* ------------- MAIN STYLES ------------- */
 * {
     font-family: Google-Sans;
@@ -938,7 +945,7 @@ footer .bottom-navBar > a {
 #settings .btn-floating-bottom-full {
     position: fixed;
     right: 18px;
-    bottom: 20px;
+    bottom: 53px;
     background-color: #f44336 !important;
 }
 
@@ -1364,6 +1371,7 @@ footer .bottom-navBar > a {
 }
 
 .chart-stadistics {
+    padding-top: 1em !important;
     height: 395px;
 }
 
