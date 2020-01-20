@@ -11,6 +11,10 @@
     border-radius: 20px;
 }
 
+.danger-color {
+    background-color: #f44336 !important;
+}
+
 /* ------------- SESSION STYLES -----------*/
 .iconLoginVeoContainer {
     width: 100px;
@@ -1444,4 +1448,8 @@ footer .bottom-navBar > a {
     bottom: 8px;
     color: #ff4e4e;
     text-shadow: 0px 0px 9px black;
+}
+
+.btn-floating.btn-large.waves-effect.waves-light.red.btn-floating-bottom.modal-trigger.danger-color {
+    background-color: #f44336 !important;
 }
