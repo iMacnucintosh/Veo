@@ -1358,7 +1358,7 @@ function MyFollowingsActivity(selector){
                                                     <p>'+activity_i.date+'</p>\
                                                 </div>\
                                                 <div class="col s12 description-activity no-padding">\
-                                                    <p><b class="username-activity">'+activity_i.user+'</b> '+activity_i.description+'</p>\
+                                                    <p><a href="/profile/' + activity_i.user_id + '"><b class="username-activity">'+activity_i.user+'</b></a> '+activity_i.description+'</p>\
                                                 </div>\
                                             </div>\
                                         </div>';
@@ -1398,7 +1398,7 @@ function MyFollowingsRecientActivity(selector){
                                                     <p>'+activity_i.date+'</p>\
                                                 </div>\
                                                 <div class="col s12 description-activity no-padding">\
-                                                    <p><b class="username-activity">'+activity_i.user+'</b> '+activity_i.description+'</p>\
+                                                    <p><a href="/profile/' + activity_i.user_id + '/"><b class="username-activity">'+activity_i.user+'</b></a> '+activity_i.description+'</p>\
                                                 </div>\
                                             </div>\
                                         </div>';
@@ -1700,5 +1700,112 @@ function Search(query, width_poster){
             console.error('La solicitud; Búsqueda de: "' + query + ', a fallado: ' +  textStatus);
         });
     }
+
+}
+
+// Add New List
+function newList(id_user, selectable, type){
+    var name = $('#txt_name_new_list').val();
+    var color = $('.color.selected').css("background-color");
+
+    var data = new FormData();
+    data.append('id_user', id_user);
+    data.append('name', name);
+    data.append('color', color);
+
+    $.ajax({
+        url: '/newList/',
+        type: 'POST',
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (data) {
+            if(data.result == -1){
+                M.toast({html: 'Ha ocurrido un error al crear la lista'})
+            }else{
+                if(selectable){
+                    $('.list-of-lists').append('<a onclick="selectList(this, ' + type + ', ' + data.result + ')"' + data.result +'"><li class="collection-item"><div>' + name + '<div class="secondary-content"><i class="material-icons" style="color: ' + color +'">fiber_manual_record</i></div></div></li></a>')
+                }else{
+                    $('.list-of-lists').append('<a href="/list/' + data.result +'"><li class="collection-item"><div>' + name + '<div class="secondary-content"><i class="material-icons" style="color: ' + color +'">fiber_manual_record</i></div></div></li></a>')
+                }
+                M.toast({html: 'Has creado la lista ' + name})
+            }
+        }
+    });
+}
+
+function removeList(id_user, id_list){
+    var data = new FormData();
+    data.append('id_list', id_list);
+    $.ajax({
+        url: '/removeList/',
+        type: 'POST',
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (data) {
+            location.assign("/profile/" + id_user)
+        }
+    });
+}
+
+// Add Movie or Show to list
+function addToList(type, id_list){
+    var data = new FormData();
+
+    if(type == 1){ // No funciona
+        data.append('id', _movie.id);
+        data.append('title', _movie.title);
+        data.append('poster_path',  _movie.poster_path);
+        data.append('vote_average',  _movie.vote_average);
+    }else{
+        data.append('id', _show.id);
+        data.append('name', _show.name);
+        data.append('poster_path', _show.poster_path);
+        data.append('vote_average',  _show.vote_average);
+        data.append('seasons', JSON.stringify(_seasons));
+    }
+
+    data.append('type', type);
+    data.append('id_list', id_list);
+    $.ajax({
+        url: '/addToList/',
+        type: 'POST',
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (data) {
+            M.toast({ html: data.result });
+        }
+    });
+}
+
+
+// Remove a movie or show from list
+function deleteFromList(element, type, id_list, id_media){
+    var data = new FormData();
+
+    data.append('type', type);
+    data.append('id_media', id_media);
+    data.append('id_list', id_list);
+
+    $.ajax({
+        url: '/deleteFromList/',
+        type: 'POST',
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (data) {
+            $(element).parent().remove()
+        }
+    });
 
 }

@@ -134,5 +134,8 @@ urlpatterns = [
     # --------------------------------- PROFILE ------------------------------------------------------------------------
     url(r'^profile/(?P<id>\d+)/$', profile),
     url(r'^newList/$', newList),
+    url(r'^removeList/$', removeList),
+    url(r'^addToList/$', addToList),
+    url(r'^deleteFromList/$', deleteFromList),
     url(r'^list/(?P<id>\d+)/$', list),
 ]

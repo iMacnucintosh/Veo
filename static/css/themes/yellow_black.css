@@ -148,6 +148,26 @@ footer .nav-active i, footer .nav-active p {
     background-color: #ffc107 !important;
 }
 
+.modal {
+    background-color: black;
+}
+
+.modal-content {
+    background-color: black;
+}
+
+.modal-content * {
+    color: white !important;
+}
+
+.modal-footer {
+    background-color: black !important;
+}
+
+.modal-footer * {
+    color: white !important;
+}
+
 /* --------------- TABS ----------- */
 .tabs .indicator {
     background-color: #ffc107;

@@ -58,9 +58,12 @@
     <section id="list_movies" class="col s12 row no-margin">
         {% if list.movies.all|length > 0 %}
             {% for movie in list.movies.all %}
-                <a href='/movie/{{ movie.id_movie }}/' class='poster-item list col s4 m3 l2 no-padding'>
-                    <img src='https://image.tmdb.org/t/p/w400{{ movie.poster_path }}' />
-                </a>
+                <div class="38700 poster-item list col s4 m3 l2 no-padding">
+                    <img onclick="infoFor('movie', {{ movie.id_movie }})" src="https://image.tmdb.org/t/p/w200{{ movie.poster_path }}">
+                    {% if profile == profile_list %}
+                        <i onclick="deleteFromList(this, 1, {{ list.id }}, {{ movie.id_movie }})" class="material-icons delete-from-list">delete</i>
+                    {% endif %}
+                </div>
             {% endfor %}
         {% else %}
             <p class="infoPeticion">Ninguna película añadida</p>
@@ -70,14 +73,30 @@
     <section id="list_shows" class="col s12 row no-margin">
         {% if list.shows.all|length > 0 %}
             {% for show in list.shows.all %}
-                <a href='/show/{{ show.id_show }}/' class='poster-item list col s4 m3 l2 no-padding'>
-                    <img src='https://image.tmdb.org/t/p/w400{{ show.poster_path }}' />
-                </a>
+                <div class="38700 poster-item list col s4 m3 l2 no-padding">
+                    <img onclick="infoFor('show', {{ show.id_show }})" src="https://image.tmdb.org/t/p/w200{{ show.poster_path }}">
+                    {% if profile == profile_list %}
+                        <i onclick="deleteFromList(this, 2, {{ list.id }}, {{ show.id_show }})" class="material-icons delete-from-list">delete</i>
+                    {% endif %}
+                </div>
             {% endfor %}
         {% else %}
             <p class="infoPeticion">Ninguna serie añadida</p>
         {% endif %}
     </section>
+    <a  class="btn-floating btn-large waves-effect waves-light red btn-floating-bottom modal-trigger" href="#modalRemoveList"><i style="margin-top: -2px;" class="material-icons">delete</i></a>
+
+    <!-- Modal Structure -->
+    <div id="modalRemoveList" class="modal">
+        <div class="modal-content">
+            <h4>{{ list.name }}</h4>
+            <p>¿Eliminar esta lista?</p>
+        </div>
+        <div class="modal-footer">
+            <a class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
+            <a onclick="removeList({{ profile.user.id }}, {{ list.id }})" class="modal-close waves-effect waves-green btn-flat">Eliminar</a>
+        </div>
+    </div>
 </main>
 
 <div class="gif-loading">

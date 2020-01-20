@@ -88,7 +88,7 @@
 
             <div class="col s6 m3">
                 <a class="statistic-profile-item blue row no-margin tooltipped" data-position="bottom" data-tooltip="Listas Creadas">
-                    <span>0</span>
+                    <span>{{ profile_visited.getLists|length }}</span>
                     <i class="material-icons">list</i>
                 </a>
             </div>
@@ -171,8 +171,19 @@
 
     <section id="lists" class="col s12 row no-margin">
         {% if user_lists|length > 0 %}
-            <ul class="collection with-header col s12 no-border">
-                <li class="collection-header"><h4>Tus Listas <button class="btn primary-color waves-effect right modal-trigger" href="#modalNewList">Nueva</button></h4></li>
+            <ul class="collection with-header col s12 no-border list-of-lists">
+
+                <li class="collection-header">
+                    <h4>
+                        {% if profile_visited == profile %}
+                            Tus Listas
+                            <button class="btn primary-color waves-effect right modal-trigger" href="#modalNewList">Nueva</button>
+                        {% else %}
+                            Listas
+                        {% endif %}
+                    </h4>
+                </li>
+
                 {% for list in user_lists %}
                     <a href="/list/{{ list.id }}/"><li class="collection-item"><div>{{ list.name }}<div class="secondary-content"><i class="material-icons" style="color: {{ list.color }}">fiber_manual_record</i></div></div></li></a>
                 {% endfor %}
@@ -194,10 +205,20 @@
                     <div class="col s12 list-colors">
                         <div class="color red"><i class="material-icons">done</i></div>
                         <div class="color blue"><i class="material-icons">done</i></div>
+                        <div class="color pink"><i class="material-icons">done</i></div>
                         <div class="color green"><i class="material-icons">done</i></div>
                         <div class="color yellow"><i class="material-icons">done</i></div>
                         <div class="color orange"><i class="material-icons">done</i></div>
+                        <div class="color deep-purple"><i class="material-icons">done</i></div>
+                        <div class="color lime"><i class="material-icons">done</i></div>
                         <div class="color cyan"><i class="material-icons">done</i></div>
+                        <div class="color teal"><i class="material-icons">done</i></div>
+                        <div class="color indigo"><i class="material-icons">done</i></div>
+                        <div class="color brown"><i class="material-icons">done</i></div>
+                        <div class="color purple"><i class="material-icons">done</i></div>
+                        <div class="color blue-grey"><i class="material-icons">done</i></div>
+                        <div class="color black"><i class="material-icons">done</i></div>
+                        <div class="color light-blue"><i class="material-icons">done</i></div>
                     </div>
 
                 </div>
@@ -216,6 +237,9 @@
     <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
 </div>
 
+{% if profile == profile_visited %}
+    {% include "includes/bottom_navbar.html" %}
+{% endif %}
 
 <!-- Button navbar-->
 <footer>

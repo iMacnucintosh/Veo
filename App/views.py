@@ -723,89 +723,106 @@ def myFollowingsActivity(request):
     for activity in activitys:
         if (activity.operation.id == 1):
             user_str = ""
+            user_id = ""
             description = ""
 
             if (activity.user == request.user):
                 description = "Has añadido <b>" + activity.movie.title + "</b> a tu lista de pendientes"
             else:
-                user_str = activity.user.username,
+                user_str = activity.user.username
+                user_id = activity.user.id
                 description = "ha añadido <b>" + activity.movie.title + "</b> a su lista de pendientes"
 
             results.append({"user": user_str,
+                            "user_id": user_id,
                             "description": description,
                             "href": "/movie/" + str(activity.movie.id_movie),
                             "poster_path": "https://image.tmdb.org/t/p/w200" + activity.movie.poster_path,
                             "date": (activity.date_add + timedelta(hours=1)).strftime("%d-%m-%Y %H:%M:%S")})
         if (activity.operation.id == 2):
             user_str = ""
+            user_id = ""
             description = ""
 
             if (activity.user == request.user):
                 description = "Has visto <b>" + activity.movie.title + "</b>",
             else:
-                user_str = activity.user.username,
+                user_str = activity.user.username
+                user_id = activity.user.id
                 description = "ha visto <b>" + activity.movie.title + "</b>",
 
             results.append({"user": user_str,
+                            "user_id": user_id,
                             "description": description,
                             "href": "/movie/" + str(activity.movie.id_movie),
                             "poster_path": "https://image.tmdb.org/t/p/w200" + activity.movie.poster_path,
                             "date": (activity.date_add + timedelta(hours=1)).strftime("%d-%m-%Y %H:%M:%S")})
         if (activity.operation.id == 3):
             user_str = ""
+            user_id = ""
             description = ""
 
             if (activity.user == request.user):
                 description = "Has añadido <b>" + activity.show.name + "</b> a tu lista de pendientes",
             else:
-                user_str = activity.user.username,
+                user_str = activity.user.username
+                user_id = activity.user.id
                 description = "ha añadido <b>" + activity.show.name + "</b> a su lista de pendientes",
 
             results.append({"user": user_str,
+                            "user_id": user_id,
                             "description": description,
                             "href": "/show/" + str(activity.show.id_show),
                             "poster_path": "https://image.tmdb.org/t/p/w200" + activity.show.poster_path,
                             "date": (activity.date_add + timedelta(hours=1)).strftime("%d-%m-%Y %H:%M:%S")})
         if (activity.operation.id == 4):
             user_str = ""
+            user_id = ""
             description = ""
 
             if (activity.user == request.user):
                 description = "Has visto <b>" + activity.show.name + "</b>",
             else:
-                user_str = activity.user.username,
+                user_str = activity.user.username
+                user_id = activity.user.id
                 description = "ha visto <b>" + activity.show.name + "</b>",
 
             results.append({"user": user_str,
+                            "user_id": user_id,
                             "description": description,
                             "href": "/show/" + str(activity.show.id_show),
                             "poster_path": "https://image.tmdb.org/t/p/w200" + activity.show.poster_path,
                             "date": (activity.date_add + timedelta(hours=1)).strftime("%d-%m-%Y %H:%M:%S")})
         if (activity.operation.id == 5):
             user_str = ""
+            user_id = ""
             description = ""
 
             if (activity.user == request.user):
                 description = "Has visto el <b>E" + str(activity.episode.episode_number) + "xT" + str(
                     activity.episode.season_number) + "</b> de <b>" + activity.episode.show.name + "</b>",
             else:
-                user_str = activity.user.username,
+                user_str = activity.user.username
+                user_id = activity.user.id
                 description = "ha visto el <b>E" + str(activity.episode.episode_number) + "xT" + str(
                     activity.episode.season_number) + "</b> de <b>" + activity.episode.show.name + "</b>",
 
             results.append({"user": user_str,
+                            "user_id": user_id,
                             "description": description,
                             "href": "/show/" + str(activity.episode.show.id_show),
                             "poster_path": "https://image.tmdb.org/t/p/w200" + activity.episode.show.poster_path,
                             "date": (activity.date_add + timedelta(hours=1)).strftime("%d-%m-%Y %H:%M:%S")})
         if (activity.operation.id == 6):
             user_str = ""
+            user_id = ""
             description = ""
 
             if (activity.user == request.user):
                 description = "Has seguido a <b>" + activity.follower.username + "</b>",
             else:
-                user_str = activity.user.username,
+                user_str = activity.user.username
+                user_id = activity.user.id
                 description = "ahora sigue a <b>" + activity.follower.username + "</b>",
 
 
@@ -814,6 +831,7 @@ def myFollowingsActivity(request):
                 poster_path = Profile.objects.get(user=activity.follower).avatar.src
 
             results.append({"user": user_str,
+                            "user_id": user_id,
                             "description": description,
                             "href": "",
                             "poster_path": poster_path,
@@ -834,89 +852,106 @@ def myFollowingsRecientActivity(request):
     for activity in activitys:
         if (activity.operation.id == 1):
             user_str = ""
+            user_id = ""
             description = ""
 
             if (activity.user == request.user):
                 description = "Has añadido <b>" + activity.movie.title + "</b> a tu lista de pendientes"
             else:
-                user_str = activity.user.username,
+                user_str = activity.user.username
+                user_id = activity.user.id
                 description = "ha añadido <b>" + activity.movie.title + "</b> a su lista de pendientes"
 
             results.append({"user": user_str,
+                            "user_id": user_id,
                             "description": description,
                             "href": "/movie/" + str(activity.movie.id_movie),
                             "poster_path": "https://image.tmdb.org/t/p/w200" + activity.movie.poster_path,
                             "date": (activity.date_add + timedelta(hours=1)).strftime("%d-%m-%Y %H:%M:%S")})
         if (activity.operation.id == 2):
             user_str = ""
+            user_id = ""
             description = ""
 
             if (activity.user == request.user):
                 description = "Has visto <b>" + activity.movie.title + "</b>",
             else:
-                user_str = activity.user.username,
+                user_str = activity.user.username
+                user_id = activity.user.id
                 description = "ha visto <b>" + activity.movie.title + "</b>",
 
             results.append({"user": user_str,
+                            "user_id": user_id,
                             "description": description,
                             "href": "/movie/" + str(activity.movie.id_movie),
                             "poster_path": "https://image.tmdb.org/t/p/w200" + activity.movie.poster_path,
                             "date": (activity.date_add + timedelta(hours=1)).strftime("%d-%m-%Y %H:%M:%S")})
         if (activity.operation.id == 3):
             user_str = ""
+            user_id = ""
             description = ""
 
             if (activity.user == request.user):
                 description = "Has añadido <b>" + activity.show.name + "</b> a tu lista de pendientes",
             else:
-                user_str = activity.user.username,
+                user_str = activity.user.username
+                user_id = activity.user.id
                 description = "ha añadido <b>" + activity.show.name + "</b> a su lista de pendientes",
 
             results.append({"user": user_str,
+                            "user_id": user_id,
                             "description": description,
                             "href": "/show/" + str(activity.show.id_show),
                             "poster_path": "https://image.tmdb.org/t/p/w200" + activity.show.poster_path,
                             "date": (activity.date_add + timedelta(hours=1)).strftime("%d-%m-%Y %H:%M:%S")})
         if (activity.operation.id == 4):
             user_str = ""
+            user_id = ""
             description = ""
 
             if (activity.user == request.user):
                 description = "Has visto <b>" + activity.show.name + "</b>",
             else:
-                user_str = activity.user.username,
+                user_str = activity.user.username
+                user_id = activity.user.id
                 description = "ha visto <b>" + activity.show.name + "</b>",
 
             results.append({"user": user_str,
+                            "user_id": user_id,
                             "description": description,
                             "href": "/show/" + str(activity.show.id_show),
                             "poster_path": "https://image.tmdb.org/t/p/w200" + activity.show.poster_path,
                             "date": (activity.date_add + timedelta(hours=1)).strftime("%d-%m-%Y %H:%M:%S")})
         if (activity.operation.id == 5):
             user_str = ""
+            user_id = ""
             description = ""
 
             if (activity.user == request.user):
                 description = "Has visto el <b>E" + str(activity.episode.episode_number) + "xT" + str(
                     activity.episode.season_number) + "</b> de <b>" + activity.episode.show.name + "</b>",
             else:
-                user_str = activity.user.username,
+                user_str = activity.user.username
+                user_id = activity.user.id
                 description = "ha visto el <b>E" + str(activity.episode.episode_number) + "xT" + str(
                     activity.episode.season_number) + "</b> de <b>" + activity.episode.show.name + "</b>",
 
             results.append({"user": user_str,
+                            "user_id": user_id,
                             "description": description,
                             "href": "/show/" + str(activity.episode.show.id_show),
                             "poster_path": "https://image.tmdb.org/t/p/w200" + activity.episode.show.poster_path,
                             "date": (activity.date_add + timedelta(hours=1)).strftime("%d-%m-%Y %H:%M:%S")})
         if (activity.operation.id == 6):
             user_str = ""
+            user_id = ""
             description = ""
 
             if (activity.user == request.user):
                 description = "Has seguido a <b>" + activity.follower.username + "</b>",
             else:
-                user_str = activity.user.username,
+                user_str = activity.user.username
+                user_id = activity.user.id
                 description = "ahora sigue a <b>" + activity.follower.username + "</b>",
 
             poster_path = ""
@@ -924,6 +959,7 @@ def myFollowingsRecientActivity(request):
                 poster_path = Profile.objects.get(user=activity.follower).avatar.src
 
             results.append({"user": user_str,
+                            "user_id": user_id,
                             "description": description,
                             "href": "",
                             "poster_path": poster_path,
@@ -1016,6 +1052,102 @@ def newList(request):
     data = {
         'result': result
     }
+
+    return JsonResponse(data)
+
+# Delete a list for user
+def removeList(request):
+
+    List.objects.filter(id=request.POST["id_list"]).delete()
+
+    data = {
+        'result': 'ok'
+    }
+
+    return JsonResponse(data)
+
+# Añade una pelicula o serie a una de tus listas
+def addToList(request):
+    type = request.POST["type"]
+    list = List.objects.get(id=request.POST["id_list"])
+
+    # Case Movie:
+    if type == "1":
+        movie = Movie.objects.filter(id_movie=request.POST["id"], user=request.user)
+
+        if len(movie) == 0:
+            movie = Movie.objects.create(id_movie=request.POST["id"], user=request.user, title=request.POST["title"],
+                                         poster_path=request.POST["poster_path"], vote_average=request.POST["vote_average"])
+            movie.states.add(State.objects.get(id=3))
+            list.movies.add(movie)
+        else:
+            movie.first().states.add(State.objects.get(id=3))
+            list.movies.add(movie.first())
+
+        data = {
+            'result': request.POST["title"] + " añadida a tu lista " + list.name,
+        }
+    else: # Case Show
+        show = Show.objects.filter(id_show=request.POST["id"], user=request.user)
+
+        if len(show) == 0:
+            show = Show.objects.create(id_show=request.POST["id"], user=request.user, name=request.POST["name"],
+                                       poster_path=request.POST["poster_path"],
+                                       vote_average=request.POST["vote_average"])
+            show.states.add(State.objects.get(id=3))
+
+            seasons = ast.literal_eval(request.POST["seasons"])
+            for season in seasons:
+                for episode in season["episodes"]:
+                    Episode.objects.create(show=show, id_episode=episode["id"], season_number=season["season_number"],
+                                           episode_number=episode["episode_number"], user=request.user)
+            list.shows.add(show)
+        else:
+            show.first().states.add(State.objects.get(id=3))
+            list.shows.add(show.first())
+
+        data = {
+            'result': request.POST["name"] + " añadida a tu lista " + list.name,
+        }
+
+    return JsonResponse(data)
+
+# Añade una pelicula o serie a una de tus listas
+def deleteFromList(request):
+    type = request.POST["type"]
+    list = List.objects.get(id=request.POST["id_list"])
+    id_media = request.POST["id_media"]
+
+
+    # Case Movie:
+    if type == "1":
+        movie = Movie.objects.filter(id_movie=id_media, user=request.user)
+        title = movie.first().title
+
+        if len(movie.first().states.all()) > 1:
+            movie.first().status.remove(State.objects.get(id=3))
+            list.movies.remove(movie.first())
+        else:
+            list.movies.remove(movie.first())
+            movie.delete()
+
+        data = {
+            'result': title + " eliminada de " + list.name,
+        }
+    else: # Case Show
+        show = Show.objects.filter(id_show=id_media, user=request.user)
+        title = show.first().name
+
+        if len(show.first().states.all()) > 1:
+            show.first().status.remove(State.objects.get(id=3))
+            list.shows.remove(show.first())
+        else:
+            list.shows.remove(show.first())
+            show.delete()
+
+        data = {
+            'result': title + " eliminada de " + list.name,
+        }
 
     return JsonResponse(data)
 

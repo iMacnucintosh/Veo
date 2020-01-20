@@ -55,7 +55,7 @@ input:not([type]):focus:not([readonly])+label, input[type=text]:not(.browser-def
 
 /* ----------------- GENERAL ---------------------------- */
 .primary-color {
-   background-color: #2196f3;
+    background-color: #2196f3;
 }
 
 /* ---------------- TOP NAVBAR -------------------------- */
@@ -147,6 +147,26 @@ footer .nav-active i, footer .nav-active p {
 
 .btn-floating.btn-large {
     background-color: #2196f3 !important;
+}
+
+.modal {
+    background-color: black;
+}
+
+.modal-content {
+    background-color: black;
+}
+
+.modal-content * {
+    color: white !important;
+}
+
+.modal-footer {
+    background-color: black !important;
+}
+
+.modal-footer * {
+    color: white !important;
 }
 
 /* --------------- TABS ----------- */

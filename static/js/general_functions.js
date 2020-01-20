@@ -199,35 +199,8 @@ function showInfoPopup(title, overview){
     $('.info-popup').css("display", "flex").hide().fadeIn(100);
 }
 
-function newList(id_user){
-
-    var name = $('#txt_name_new_list').val();
-    var color = $('.color.selected').css("background-color");
-
-    var data = new FormData();
-    data.append('id_user', id_user);
-    data.append('name', name);
-    data.append('color', color);
-
-    $.ajax({
-        url: '/newList/',
-        type: 'POST',
-        mimeType: "multipart/form-data",
-        dataType: 'json',
-        processData: false,
-        contentType: false,
-        data: data,
-        success: function (data) {
-            if(data.result == -1){
-                M.toast({html: 'Ha ocurrido un error al crear la lista'})
-            }else{
-                $('#lists ul').append('<a href="/list/' + data.result +'"><li class="collection-item"><div>' + name + '<div class="secondary-content"><i class="material-icons" style="color: ' + color +'">fiber_manual_record</i></div></div></li></a>')
-                M.toast({html: 'Lista creada'})
-            }
-        }
-    });
-}
-
-function addMovieToListDialog() {
-
+// Selecciona una lista a la que añadir una película o serie.
+function selectList(elemento, type, id_list) {
+    $(elemento).children().addClass('list-selected');
+    $('#btnAddToList').attr("onclick", "addToList(" + type + "," + id_list + ")");
 }

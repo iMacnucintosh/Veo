@@ -64,6 +64,8 @@ class Profile(models.Model):
     def getLists(self):
         return List.objects.filter(user=self.user)
 
+
+
 class State(models.Model):
     name = models.CharField(max_length=30)
 
@@ -80,7 +82,7 @@ class Movie(models.Model):
     states = models.ManyToManyField(State, blank=True)
 
     def __str__(self):
-        return str(self.title) + " (" + self.user.username + ") - States: " + str(self.states.all())
+        return str(self.id_movie) + " | " + str(self.title) + " (" + self.user.username + ") - States: " + str(self.states.all())
 
 class Show(models.Model):
     id_show = models.IntegerField()
@@ -207,4 +209,4 @@ class List(models.Model):
     shows = models.ManyToManyField(Show, blank=True)
 
     def __str__(self):
-            return str(self.user) + " | " + self.name
+            return str(self.id) + " - " + str(self.user) + " | " + self.name
