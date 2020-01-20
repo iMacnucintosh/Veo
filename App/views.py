@@ -98,7 +98,7 @@ def home(request):
     profile = Profile.objects.get(user=request.user)
     form = uploadImageProfileForm(request.POST or None, request.FILES or None, instance=profile)
 
-    activitys = Activity.objects.all().order_by("-date_add")
+    activitys = Activity.objects.all().order_by("-date_add")[:300]
     activitys_veo = []
 
     days = []
