@@ -1,7 +1,8 @@
 <!-- Settings Panel -->
 <section id="settings" class="row no-margin">
     <article class="header-settings col s12">
-        <h2>Mi Perfil</h2>
+        <h2 class="col s10">Mi Perfil</h2>
+
         <div class="close-settings-container">
             <i class="material-icons">close</i>
         </div>
@@ -30,7 +31,7 @@
                 </div>
             </div>
             <div class="row log-out no-margin">
-                <a href="/logout" class="btn">Salir</a>
+                <a href="/profile/{{ profile.user.id }}" class="col s12 btn waves-effect primary-color stadistics-button">Perfil</a>
             </div>
         </div>
 
@@ -41,7 +42,7 @@
 
             {% if profile.image %}
                 <div id="select_image" class="photo-user" style="background-image: url(/{{ profile.image }})"></div>
-                 <form style="display:none" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+                <form style="display:none" method="POST" enctype="multipart/form-data"> {% csrf_token %}
                     {{ form.image }}
                 </form>
             {% else %}
@@ -133,34 +134,35 @@
 
         </div>
 
-        <div class="row">
-            <div class="col s8 offset-s2">
-                <a href="/profile/{{ profile.user.id }}" class="col s12 btn waves-effect primary-color stadistics-button">Ver estadísticas</a>
-            </div>
-        </div>
-
     </article>
+
+    <a href="/logout/" class="btn-floating btn-large waves-effect waves-light red btn-floating-bottom-full"><i class="material-icons">exit_to_app</i></a>
+
 </section>
 
 
 <!-- Button navbar-->
 <footer>
     <nav class="bottom-navBar row no-margin">
-        <a href="/" id="nav-home" class="col s3">
+        <a href="/" id="nav-home">
             <i class="material-icons">home</i>
             <p>Inicio</p>
         </a>
-        <a href="/movies" id="nav-movies" class="col s3" onclick="localStorage.setItem('active_tab', '#movies_popularity')">
+        <a href="/movies" id="nav-movies" onclick="localStorage.setItem('active_tab', '#movies_popularity')">
             <i class="material-icons">movie</i>
             <p>Películas</p>
         </a>
-        <a href="/shows" id="nav-shows" class="col s3" onclick="localStorage.setItem('active_tab', '#shows_popularity')">
+        <a href="/shows" id="nav-shows" onclick="localStorage.setItem('active_tab', '#shows_popularity')">
             <i class="material-icons">subscriptions</i>
             <p>Series</p>
         </a>
-        <a href="/social" id="nav-social" class="col s3">
+        <a href="/social" id="nav-social">
             <i class="material-icons">group</i>
             <p>Amigos</p>
+        </a>
+        <a href="/profile/{{ profile.user.id }}/" id="nav-profile">
+            <i class="material-icons">person</i>
+            <p>Perfil</p>
         </a>
     </nav>
 </footer>

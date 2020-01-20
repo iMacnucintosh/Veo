@@ -7,6 +7,10 @@
     justify-content: flex-end;
 }
 
+.border-radius {
+    border-radius: 20px;
+}
+
 /* ------------- SESSION STYLES -----------*/
 .iconLoginVeoContainer {
     width: 100px;
@@ -389,6 +393,11 @@ footer {
     bottom: 0;
 }
 
+footer .bottom-navBar {
+    display: flex;
+    justify-content: space-between;
+}
+
 footer .bottom-navBar i {
     height: 0px;
     line-height: 40px;
@@ -400,6 +409,7 @@ footer .bottom-navBar p {
 
 footer .bottom-navBar > a {
     display: flex;
+    flex-grow: 1;
     flex-flow: column;
     align-items: center;
 }
@@ -434,8 +444,8 @@ footer .bottom-navBar > a {
 
 .close-settings-container {
     position: absolute;
-    top: 22px;
-    right: 12px;
+    top: 23px;
+    right: 15px;
     cursor: pointer;
 }
 
@@ -921,6 +931,13 @@ footer .bottom-navBar > a {
     bottom: 75px;
 }
 
+#settings .btn-floating-bottom-full {
+    position: fixed;
+    right: 18px;
+    bottom: 20px;
+    background-color: #f44336 !important;
+}
+
 .toSee {
     padding-left: 4px;
 }
@@ -1190,7 +1207,7 @@ footer .bottom-navBar > a {
     display: flex;
     padding-left: 10px;
     padding-right: 20px;
-    padding-top: 10px;
+    padding-top: 20px;
     padding-bottom: 10px;
     margin-bottom: 5px;
 }

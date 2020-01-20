@@ -172,6 +172,7 @@ $(document).ready(function(){
 
     $('.search-container').click(function(){
         $('.search-field').fadeIn(150);
+        $('#txt-search').focus();
     });
 
     $('.search-field i').click(function(){
