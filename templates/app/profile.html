@@ -277,7 +277,10 @@
             </a>
             <a href="/social" id="nav-social">
                 <i class="material-icons">group</i>
-                <p>Amigos</p>
+                <p>Social</p>
+                {% if unread_recommendations > 0 %}
+                    <div class="recommendations-unread">{{ unread_recommendations }}</div>
+                {% endif %}
             </a>
             <a href="/profile/{{ profile.user.id }}/" id="nav-profile">
                 <i class="material-icons">person</i>

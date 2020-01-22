@@ -64,7 +64,11 @@ class Profile(models.Model):
     def getLists(self):
         return List.objects.filter(user=self.user)
 
-
+    def getFriends(self):
+        friends = []
+        for following in self.followings.all():
+            friends.append(Profile.objects.get(user=following))
+        return friends
 
 class State(models.Model):
     name = models.CharField(max_length=30)
@@ -210,3 +214,20 @@ class List(models.Model):
 
     def __str__(self):
             return str(self.id) + " - " + str(self.user) + " | " + self.name
+
+class Recommendation(models.Model):
+    name = models.CharField(max_length=100)
+    poster_path = models.CharField(max_length=50)
+    id_media = models.IntegerField()
+    from_user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="from_user")
+    to_user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="to_user")
+    types = (
+        ('movie', 'Movie'),
+        ('show', 'Show'),
+    )
+    type = models.CharField(choices=types, max_length=20)
+    creation_date = models.DateTimeField(auto_now=False, auto_now_add=True)
+    read = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.from_user.user.username + " -> " + self.to_user.user.username + " | " + self.name

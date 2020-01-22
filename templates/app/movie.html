@@ -40,7 +40,8 @@
                         <i class="large material-icons">person_add</i>
                     </a>
                     <ul>
-                        <li><a class="btn-floating blue-grey modal-trigger" href="#modalAddToList"><i class="material-icons">sort</i></a></li>
+                        <li><a class="btn-floating red modal-trigger" href="#modalShare"><i class="material-icons">share</i></a></li>
+                        <li><a class="btn-floating indigo modal-trigger" href="#modalAddToList"><i class="material-icons">sort</i></a></li>
                         <li><a class="btn-floating green"><img class="seen" src="/static/images/not_seen.png" onclick="setMovieToSeen(this)" /></a></li>
                         <li><a class="btn-floating pink lighten-1"><i class="material-icons toSee" onclick="addMovieToSee(this)">playlist_add</i></a></li>
                     </ul>
@@ -92,6 +93,31 @@
         <div class="modal-footer flex-end">
             <a class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
             <a id="btnAddToList" onclick="M.toast({html: 'Debes seleccionar una lista'});" class="modal-close waves-effect waves-green btn-flat">Añadir</a>
+        </div>
+    </div>
+
+    <!-- Modal modalShare -->
+    <div id="modalShare" class="modal">
+        <div class="modal-content">
+            <div class="list-friends">
+                {% for friend in profile.getFriends %}
+                    {% if not friend.image == None %}
+                        <div class="friend">
+                            <div class="img-recommendation" style="background-image: url(/{{ friend.image }})"></div>
+                            <p><b>{{ friend.user.username }}</b></p>
+                        </div>
+                    {% else %}
+                        <div class="friend">
+                            <img src="{{ friend.avatar.src }}">
+                            <p><b>{{ friend.user.username }}</b></p>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="modal-footer flex-end">
+            <a class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
+            <a id="btnAddToList" onclick="M.toast({html: 'Debes seleccionar un amigo'});" class="modal-close waves-effect waves-green btn-flat">Compartir</a>
         </div>
     </div>
 

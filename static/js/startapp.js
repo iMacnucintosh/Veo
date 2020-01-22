@@ -208,4 +208,8 @@ $(document).ready(function(){
        $(this).addClass("selected");
     });
 
+    $('#recommendations-tab').click(function(){
+        readRecommendations();
+    });
+
 });

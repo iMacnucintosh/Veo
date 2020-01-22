@@ -12,18 +12,20 @@
 <!-- Tabs -->
 <ul class="tabs">
     <li class="tab col s3"><a class="tab-btn active" href="#shows_popularity">Populares</a></li>
-    <li class="tab col s3"><a class="tab-btn" href="#shows_vote_count">Más Votadas</a></li>
+    {#    <li class="tab col s3"><a class="tab-btn" href="#shows_vote_count">Más Votadas</a></li>#}
     <li class="tab col s3"><a class="tab-btn" href="#shows_seeing">Viendo</a></li>
     <li class="tab col s3"><a class="tab-btn" href="#shows_forgotten">Olvidadas</a></li>
     <li class="tab col s3"><a class="tab-btn" href="#shows_seen">Vistas</a></li>
+    <li class="tab col s3"><a class="tab-btn" href="#shows_pending">Pendientes</a></li>
 </ul>
 
 <main>
     <section id="shows_popularity" class="col s12 row no-margin"></section>
-    <section id="shows_vote_count" class="col s12 row no-margin"></section>
+    {#    <section id="shows_vote_count" class="col s12 row no-margin"></section>#}
     <section id="shows_seeing" class="col s12 row no-margin"></section>
     <section id="shows_forgotten" class="col s12 row no-margin"></section>
     <section id="shows_seen" class="col s12 row no-margin"></section>
+    <section id="shows_pending" class="col s12 row no-margin"></section>
 
     <div class='info-popup'>
         <div class='info-popup-main'>
@@ -55,7 +57,7 @@
         TmdbRequestFilter('#shows_popularity', "https://api.themoviedb.org/3/discover/tv", {"language":"es-ES", "sort_by":"popularity.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":page_request_shows_popularity}, "Series Populares", "show", {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
 
         // Más Votadas
-        TmdbRequestFilter('#shows_vote_count', "https://api.themoviedb.org/3/discover/tv", {"language":"es-ES", "sort_by":"vote_count.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":page_request_shows_vote_count}, "Series mejor Votadas", "show", {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
+        //TmdbRequestFilter('#shows_vote_count', "https://api.themoviedb.org/3/discover/tv", {"language":"es-ES", "sort_by":"vote_count.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":page_request_shows_vote_count}, "Series mejor Votadas", "show", {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
 
         /* ---------------------------------- PERSONAL DATABASE ----------------------------------------------------- */
 
@@ -67,6 +69,10 @@
 
         // Mis Series Vistas
         MyShowsSeen('#shows_seen', {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
+
+        // Mis Series Pendientes
+        MyShowsPending('#shows_pending', {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
+
 
         if(localStorage.getItem("active_tab") == null){
             localStorage.setItem("active_tab", "#shows_popularity");

@@ -45,6 +45,9 @@ input:not([type]):focus:not([readonly])+label, input[type=text]:not(.browser-def
     background-color: #f48fb1;
 }
 
+.primary-color-txt {
+    color: #f48fb1;
+}
 
 /* ---------------- TOP NAVBAR -------------------------- */
 header .header-navBar .img-profile {

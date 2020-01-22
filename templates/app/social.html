@@ -12,9 +12,16 @@
 
 <!-- Tabs -->
 <ul class="tabs">
-    <li class="tab col s3"><a class="tab-btn active" href="#myfollowings">Mis Amigos</a></li>
-    <li class="tab col s3"><a class="tab-btn active" href="#myActivity">Mi Actividad</a></li>
+    <li class="tab col s3"><a class="tab-btn active" href="#myfollowings">Social</a></li>
+    <li class="tab col s3"><a class="tab-btn active" href="#myActivity">Actividad</a></li>
     <li class="tab col s3"><a class="tab-btn" href="#community">Comunidad</a></li>
+    <li id="recommendations-tab" class="tab col s3">
+        <a class="tab-btn" href="#recommendations">Recomendaciones
+            {% if unread_recommendations > 0 %}
+                <div class="recommendations-unread">{{ unread_recommendations }}</div>
+            {% endif %}
+        </a>
+    </li>
 </ul>
 
 <main>
@@ -56,6 +63,36 @@
             </div>
         {% endfor %}
     </div>
+    <div id="recommendations" class="col s12 row no-margin">
+        {% for recommendation in recommendations %}
+            <div class="row no-margin recommendation">
+                <div class="rmm-avatar">
+                    {% if not recommendation.from_user.image == None %}
+                        <a href="/profile/{{ recommendation.from_user.user.id }}/">
+                            <div class="img-recommendation" style="background-image: url(/{{ recommendation.from_user.image }})"></div>
+                        </a>
+                    {% else %}
+                        <a href="/profile/{{ recommendation.from_user.user.id }}/">
+                            <img src="{{ recommendation.from_user.avatar.src }}">
+                        </a>
+                    {% endif %}
+                </div>
+                <div class="rmm-arrow">
+                    <i class="material-icons">arrow_forward</i>
+                </div>
+                <div class="rmm-media">
+                    <a href="/{{ recommendation.type }}/{{ recommendation.id_media }}" class="poster-activity">
+                        <img src="https://image.tmdb.org/t/p/w200{{ recommendation.poster_path }}" />
+                    </a>
+                </div>
+                <div class="rmm-info">
+                    <p class="date-recommendation">{{ recommendation.creation_date|date:"Y-m-d H:i:s" }}</p>
+                    <p><b class="primary-color-txt">{{ recommendation.from_user.user.username }}</b> te ha recomendado <a href="/{{ recommendation.type }}/{{ recommendation.id_media }}"><b class="black-txt">{{ recommendation.name }}</b></a></p>
+                </div>
+                <div></div>
+            </div>
+        {% endfor %}
+    </div>
 </main>
 
 {% include "includes/bottom_navbar.html" %}
@@ -64,7 +101,7 @@
 <script>
 
     $(document).ready(function(){
-        $('#title').text("Amigos");
+        $('#title').text("Social");
         $('#nav-social').addClass("nav-active");
 
         // Registro de la actividad de las personas a las que sigo

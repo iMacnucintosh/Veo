@@ -36,6 +36,9 @@ urlpatterns = [
 
     # Social
     url(r'^social/$', social),
+    url(r'^readRecommendations/$', readRecommendations),
+
+
 
     # Change Theme
     url(r'^changeTheme/(?P<theme>\d+)/$', changeTheme),
@@ -106,6 +109,9 @@ urlpatterns = [
 
     # List of Seen Shows
     url(r'^myShowsSeen/$', myShowsSeen),
+
+    # List of Pending Shows
+    url(r'^myShowsPending/$', myShowsPending),
 
     # ----------------------------------- ACTIVITY ---------------------------------------------------------------------
     # List of All Activity

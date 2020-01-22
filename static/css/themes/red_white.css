@@ -166,6 +166,10 @@ footer .nav-active i, footer .nav-active p {
     background-color: white;
 }
 
+.primary-color-txt {
+    color: #f44336;
+}
+
 /* -------- MOVIES STYLES --------------- */
 .info-popup-main {
     background-color: white;

@@ -15,6 +15,10 @@
     background-color: #f44336 !important;
 }
 
+.black-txt {
+    color: black;
+}
+
 /* ------------- SESSION STYLES -----------*/
 .iconLoginVeoContainer {
     width: 100px;
@@ -985,6 +989,31 @@ footer .bottom-navBar > a {
     text-align: justify;
 }
 
+.list-friends {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.friend {
+    margin: 10px;
+}
+
+.friend p {
+    margin: 0;
+    text-align: center;
+}
+
+.list-friends img, .list-friends .img-recommendation {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 0px 0px 5px 0px #b9b9b9;
+}
+
 /* ------------- SHOW --------------- */
 #seasons-posters-list {
     padding: 10px;
@@ -1460,4 +1489,69 @@ footer .bottom-navBar > a {
 
 .btn-floating.btn-large.waves-effect.waves-light.red.btn-floating-bottom.modal-trigger.danger-color {
     background-color: #f44336 !important;
+}
+
+/* ----------------------------------------- RECOMMENDATIONS -------------------------------------------------------- */
+#nav-social {
+    position: relative;
+}
+
+.recommendations-unread {
+    position: absolute;
+    top: 5px;
+    right: 6px;
+    background-color: #f44336;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1px;
+    font-size: 10px;
+}
+
+.recommendation {
+    margin-bottom: 10px !important;
+    border-bottom: 1px solid #ddd;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.img-recommendation, .rmm-avatar img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 0px 0px 5px 0px #b9b9b9;
+}
+
+.rmm-arrow {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.rmm-media {
+    margin-right: 10px;
+}
+
+.rmm-info {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    height: 81px;
+}
+
+.rmm-info p {
+    margin: 0;
+}
+
+.date-recommendation {
+    font-weight: bold;
+    font-size: 12px;
 }

@@ -289,35 +289,7 @@ function InformationMovie(id, parameters, colorGenres, width_poster, user_logged
 
     // Check if is in my list of Movies
     if(user_logged) {
-        var data = new FormData();
-        data.append('id', id);
-        $.ajax({
-            url: '/isMovieOnMyList/',
-            type: 'POST',
-            mimeType: "multipart/form-data",
-            dataType: 'json',
-            processData: false,
-            contentType: false,
-            data: data,
-            success: function (response) {
-                if (response.states != "null") {
-                    for (var i = 0; i < response.states.length; i++) {
-                        var state = response.states[i];
-
-                        if (state.id == 2) {
-                            $('.toSee').text("playlist_add_check");
-                            $('.toSee').attr("onclick", "removeMovieToSee(this)");
-                        }
-
-                        if (state.id == 1) {
-                            $('.seen').attr("src", "/static/images/seen.png")
-                            $('.seen').attr("onclick", "setMovieToNotSeen(this)");
-                        }
-
-                    }
-                }
-            }
-        });
+        SyncronizeStatusMovie(id)
     }
 
     // Cast
@@ -589,6 +561,35 @@ function InformationShow(id, parameters, colorGenres, width_poster, user_logged)
             }
         });
     }
+
+
+    // Cast
+    $.ajax({
+        data: parameters,
+        type: "GET",
+        dataType: "json",
+        url: "https://api.themoviedb.org/3/tv/" + id + "/credits"
+    }).done(function(data, textStatus, jqXHR) {
+        var cast_show = data.cast;
+        var cast_show_str = '';
+        for(var i=0; i < cast_show.length;i++){
+            actor = cast_show[i];
+            if(actor.profile_path != null) {
+                cast_show_str += '\
+                <a target="_blank" href="https://www.google.es/search?q=' + actor.name.replace(" ", "+") + '" class="actor">\
+                    <img src="https://image.tmdb.org/t/p/w300' + actor.profile_path + '" />\
+                    <div class="footer-actors"><h1>' + actor.name + '</h1><h2>(' + actor.character + ')</h2></div>\
+                 </a>\
+                ';
+            }
+        }
+        $('#cast').append(cast_show_str);
+        resizePosters();
+
+    }).fail(function( jqXHR, textStatus, errorThrown ) {
+        console.error('La solicitud: Trailer de Película, a fallado: ' +  textStatus);
+    });
+
 
     // Related Shows
     parameters["page"] = "1";
@@ -891,6 +892,7 @@ function setMovieToSeen(elemento){
             $(elemento).attr("src", "/static/images/seen.png")
             $(elemento).attr("onclick", "setMovieToNotSeen(this)");
 
+            SyncronizeStatusMovie(_movie.id)
         }
     });
 }
@@ -1286,6 +1288,41 @@ function MyShowsSeen(selector, width_poster){
         }
     });
 }
+
+// List of Pending Shows
+function MyShowsPending(selector, width_poster){
+    var data = new FormData();
+
+    $.ajax({
+        url: '/myShowsPending/',
+        type: 'POST',
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (data) {
+            $('.gif-loading').fadeOut(100);
+            $("main").addClass("main-active");
+            if(data.results.length > 0) {
+                for (var i = 0; i < data.results.length; i++) {
+                    poster_i = data.results[i];
+                    var poster_str = "\
+                        <a href='/show/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
+                            <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
+                         </a>\
+                        ";
+                    $(selector).append(poster_str);
+                }
+                resizePosters();
+            }else{
+                $(selector).append("<p class='infoPeticion'>Aún no has añadido ninguna serie</p>");
+            }
+
+        }
+    });
+}
+
 
 // List of All Activity
 function myActivity(selector){
@@ -1787,6 +1824,43 @@ function addToList(type, id_list){
     });
 }
 
+// Sincroniza los estados de la película
+function SyncronizeStatusMovie(id){
+    var data = new FormData();
+    data.append('id', id);
+    $.ajax({
+        url: '/isMovieOnMyList/',
+        type: 'POST',
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (response) {
+            if (response.states != "null") {
+                for (var i = 0; i < response.states.length; i++) {
+                    var state = response.states[i];
+
+                    if (state.id == 2) {
+                        $('.toSee').text("playlist_add_check");
+                        $('.toSee').attr("onclick", "removeMovieToSee(this)");
+                    }else{
+                        $('.toSee').text("playlist_add");
+                        $('.toSee').attr("onclick", "addMovieToSee(this)");
+                    }
+
+                    if (state.id == 1) {
+                        $('.seen').attr("src", "/static/images/seen.png")
+                        $('.seen').attr("onclick", "setMovieToNotSeen(this)");
+                    }else{
+                        $('.seen').attr("src", "/static/images/not_seen.png")
+                        $('.seen').attr("onclick", "setMovieToNotSeen(this)");
+                    }
+                }
+            }
+        }
+    });
+}
 
 // Remove a movie or show from list
 function deleteFromList(element, type, id_list, id_media){
@@ -1809,4 +1883,21 @@ function deleteFromList(element, type, id_list, id_media){
         }
     });
 
+}
+
+// Change all Recommendations from user to read
+function readRecommendations(){
+    var data = new FormData();
+    $.ajax({
+        url: '/readRecommendations/',
+        type: 'POST',
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (response) {
+            $('.recommendations-unread').fadeOut();
+        }
+    });
 }

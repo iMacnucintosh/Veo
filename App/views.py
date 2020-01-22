@@ -119,6 +119,7 @@ def home(request):
     context = {
         "activitys_veo": activitys_veo,
         "profile": profile,
+        "unread_recommendations": len(Recommendation.objects.filter(to_user=profile, read=False)),
         "form": form,
         "themes": Theme.objects.all(),
         "avatars": Avatar.objects.all(),
@@ -136,6 +137,7 @@ def movies(request):
 
     context = {
         "profile": profile,
+        "unread_recommendations": len(Recommendation.objects.filter(to_user=profile, read=False)),
         "themes": Theme.objects.all(),
         "avatars": Avatar.objects.all(),
     }
@@ -143,7 +145,6 @@ def movies(request):
 
 @login_required()
 def shows(request):
-
     profile = Profile.objects.get(user=request.user)
     form = uploadImageProfileForm(request.POST or None, request.FILES or None, instance=profile)
     if form.is_valid():
@@ -151,6 +152,7 @@ def shows(request):
 
     context = {
         "profile": profile,
+        "unread_recommendations": len(Recommendation.objects.filter(to_user=profile, read=False)),
         "themes": Theme.objects.all(),
         "avatars": Avatar.objects.all(),
     }
@@ -158,8 +160,9 @@ def shows(request):
 
 @login_required()
 def social(request):
-
     profile = Profile.objects.get(user=request.user)
+    recommentations = Recommendation.objects.filter(to_user=profile).order_by("-creation_date")
+    unread_recommendations = len(Recommendation.objects.filter(to_user=profile, read=False))
     form = uploadImageProfileForm(request.POST or None, request.FILES or None, instance=profile)
     if form.is_valid():
         form.save()
@@ -173,11 +176,26 @@ def social(request):
                 profiles.append({"exists": False, "profile": _profile})
     context = {
         "profile": profile,
+        "unread_recommendations": len(Recommendation.objects.filter(to_user=profile, read=False)),
+        "recommendations": recommentations,
+        "unread_recommendations": unread_recommendations,
         "themes": Theme.objects.all(),
         "avatars": Avatar.objects.all(),
         "profilesJSON": profiles,
     }
     return render(request, "app/social.html", context=context)
+
+def readRecommendations(request):
+    user = request.user
+    profile = Profile.objects.get(user=user)
+
+    Recommendation.objects.filter(to_user=profile, read=False).update(read=True)
+
+    data = {
+        'result': "ok",
+    }
+
+    return JsonResponse(data)
 
 def changeAvatar(request):
 
@@ -231,6 +249,7 @@ def movie(request, id=None):
 
     context = {
         "profile": profile,
+        "unread_recommendations": len(Recommendation.objects.filter(to_user=profile, read=False)),
         "id": id,
         "themes": Theme.objects.all()
     }
@@ -244,6 +263,7 @@ def show(request, id=None):
 
     context = {
         "profile": profile,
+        "unread_recommendations": len(Recommendation.objects.filter(to_user=profile, read=False)),
         "id": id,
         "themes": Theme.objects.all()
     }
@@ -327,9 +347,11 @@ def setMovieToSeen(request):
         movie = Movie.objects.create(id_movie=request.POST["id"], user=request.user, title=request.POST["title"],
                                      poster_path=request.POST["poster_path"], vote_average=request.POST["vote_average"])
         movie.states.clear()
+        movie.states.remove(State.objects.get(id=2))
         movie.states.add(State.objects.get(id=1))
         Activity.objects.create(user=request.user, operation=Operation.objects.get(id=2), movie=movie)
     else:
+        movie.first().states.remove(State.objects.get(id=2))
         movie.first().states.add(State.objects.get(id=1))
         Activity.objects.create(user=request.user, operation=Operation.objects.get(id=2), movie=movie.first())
 
@@ -451,6 +473,7 @@ def setShowToSeen(request):
     if len(show) == 0:
         show = Show.objects.create(id_show=request.POST["id"], user=request.user, name=request.POST["name"],
                                    poster_path=request.POST["poster_path"], vote_average=request.POST["vote_average"])
+        show.states.remove(State.objects.get(id=2))
         show.states.add(State.objects.get(id=1))
 
         seasons = ast.literal_eval(request.POST["seasons"])
@@ -463,6 +486,7 @@ def setShowToSeen(request):
         Show.objects.filter(id=request.POST["id"]).update(date_update=datetime.now())
         Activity.objects.create(user=request.user, operation=Operation.objects.get(id=4), show=show)
     else:
+        show.first().states.remove(State.objects.get(id=2))
         show.first().states.add(State.objects.get(id=1))
         for episode in show.first().getEpisodes():
             episode.states.add(State.objects.get(id=1))
@@ -618,6 +642,22 @@ def myShowsSeen(request):
     }
 
     return JsonResponse(data)
+
+# List of Shows pending
+def myShowsPending(request):
+    shows = Show.objects.filter(user=request.user, states__in=[2]).order_by("-date_update")
+
+    results = []
+
+    for show in shows:
+        results.append({"id": show.id_show, "poster_path": show.poster_path})
+
+    data = {
+        'results': results
+    }
+
+    return JsonResponse(data)
+
 
 # ---------------------------------------- ACTIVITY --------------------------------------------------------------------
 # All Activity
@@ -1015,6 +1055,7 @@ def unFollowUser(request):
 def search(request, query=None):
     context = {
         "profile": Profile.objects.get(user=request.user),
+        "unread_recommendations": len(Recommendation.objects.filter(to_user=profile, read=False)),
         "themes": Theme.objects.all(),
         "avatars": Avatar.objects.all(),
         "query": query
@@ -1048,6 +1089,7 @@ def profile(request, id=None):
         "user_lists":user_lists,
         "profile_visited": Profile.objects.get(user=user),
         "profile": Profile.objects.get(user=request.user),
+        "unread_recommendations": len(Recommendation.objects.filter(to_user=Profile.objects.get(user=request.user), read=False)),
         "themes": Theme.objects.all(),
         "avatars": Avatar.objects.all(),
     }
@@ -1191,6 +1233,7 @@ def list(request, id=None):
 
     context = {
         "profile": Profile.objects.get(user=request.user),
+        "unread_recommendations": len(Recommendation.objects.filter(to_user=profile, read=False)),
         "profile_list": Profile.objects.get(user=list.user),
         "list": list,
     }
