@@ -116,6 +116,7 @@ def home(request):
         form.save()
 
     createAvatars()
+
     context = {
         "activitys_veo": activitys_veo,
         "profile": profile,
@@ -198,16 +199,14 @@ def readRecommendations(request):
 
 def changeAvatar(request):
 
+    profile = Profile.objects.filter(user=request.user).first()
     Profile.objects.filter(user=request.user).update(avatar=Avatar.objects.get(id=request.POST["id_avatar"]))
-
-    profile = Profile.objects.get(user=request.user)
-
     image = str(profile.image)
+    Profile.objects.filter(user=request.user).update(image="")
 
     try:
         if(os.path.isfile(image)):
             os.remove(image)
-            Profile.objects.filter(user=request.user).update(image=None)
 
     except Exception as e:
         print(str(e))
@@ -1053,7 +1052,7 @@ def unFollowUser(request):
 def search(request, query=None):
     context = {
         "profile": Profile.objects.get(user=request.user),
-        "unread_recommendations": len(Recommendation.objects.filter(to_user=profile, read=False)),
+        "unread_recommendations": len(Recommendation.objects.filter(to_user=Profile.objects.get(user=request.user), read=False)),
         "themes": Theme.objects.all(),
         "avatars": Avatar.objects.all(),
         "query": query

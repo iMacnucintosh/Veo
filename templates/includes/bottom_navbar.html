@@ -40,13 +40,13 @@
         </div>
         <div class="avatars-container">
 
-            {% if profile.image %}
-                <div id="select_image" class="photo-user" style="background-image: url(/{{ profile.image }})"></div>
+            {% if profile.image == "" %}
+                <div id="select_image" class="avatar photo"></div>
                 <form style="display:none" method="POST" enctype="multipart/form-data"> {% csrf_token %}
                     {{ form.image }}
                 </form>
             {% else %}
-                <div id="select_image" class="avatar photo"></div>
+                <div id="select_image" class="photo-user" style="background-image: url(/{{ profile.image }})"></div>
                 <form style="display:none" method="POST" enctype="multipart/form-data"> {% csrf_token %}
                     {{ form.image }}
                 </form>
