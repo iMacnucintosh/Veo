@@ -38,8 +38,6 @@ urlpatterns = [
     url(r'^social/$', social),
     url(r'^readRecommendations/$', readRecommendations),
 
-
-
     # Change Theme
     url(r'^changeTheme/(?P<theme>\d+)/$', changeTheme),
 
@@ -144,4 +142,6 @@ urlpatterns = [
     url(r'^addToList/$', addToList),
     url(r'^deleteFromList/$', deleteFromList),
     url(r'^list/(?P<id>\d+)/$', list),
+    url(r'^shareWithFriends/$', shareWithFriends),
+
 ]

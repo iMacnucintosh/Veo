@@ -161,7 +161,7 @@ def shows(request):
 @login_required()
 def social(request):
     profile = Profile.objects.get(user=request.user)
-    recommentations = Recommendation.objects.filter(to_user=profile).order_by("-creation_date")
+    recommentations = Recommendation.objects.filter(to_user=profile).order_by("-creation_date")[:50]
     unread_recommendations = len(Recommendation.objects.filter(to_user=profile, read=False))
     form = uploadImageProfileForm(request.POST or None, request.FILES or None, instance=profile)
     if form.is_valid():
@@ -176,7 +176,6 @@ def social(request):
                 profiles.append({"exists": False, "profile": _profile})
     context = {
         "profile": profile,
-        "unread_recommendations": len(Recommendation.objects.filter(to_user=profile, read=False)),
         "recommendations": recommentations,
         "unread_recommendations": unread_recommendations,
         "themes": Theme.objects.all(),
@@ -657,7 +656,6 @@ def myShowsPending(request):
     }
 
     return JsonResponse(data)
-
 
 # ---------------------------------------- ACTIVITY --------------------------------------------------------------------
 # All Activity
@@ -1194,7 +1192,6 @@ def deleteFromList(request):
     list = List.objects.get(id=request.POST["id_list"])
     id_media = request.POST["id_media"]
 
-
     # Case Movie:
     if type == "1":
         movie = Movie.objects.filter(id_movie=id_media, user=request.user)
@@ -1239,3 +1236,13 @@ def list(request, id=None):
     }
 
     return render(request, "app/list.html", context=context)
+
+def shareWithFriends(request):
+    profile_from = Profile.objects.get(user=request.user)
+    friends_selected = ast.literal_eval(request.POST["friends_selected"])
+
+    for friend in friends_selected:
+        to_user = Profile.objects.get(id=friend)
+        Recommendation.objects.create(name=request.POST["title"], poster_path=request.POST["poster_path"], id_media=request.POST["id"], from_user=profile_from, to_user=to_user, type=request.POST["type"])
+
+    return JsonResponse({"response":"ok"})

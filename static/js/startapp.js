@@ -212,4 +212,8 @@ $(document).ready(function(){
         readRecommendations();
     });
 
+    $('.friend').click(function(){
+        $(this).toggleClass("selected");
+    });
+
 });

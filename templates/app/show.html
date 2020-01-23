@@ -104,15 +104,16 @@
     <!-- Modal modalShare -->
     <div id="modalShare" class="modal">
         <div class="modal-content">
+            <h4>Amigos</h4>
             <div class="list-friends">
                 {% for friend in profile.getFriends %}
                     {% if not friend.image == None %}
-                        <div class="friend">
+                        <div class="friend" id="friend_{{ friend.id }}">
                             <div class="img-recommendation" style="background-image: url(/{{ friend.image }})"></div>
                             <p><b>{{ friend.user.username }}</b></p>
                         </div>
                     {% else %}
-                        <div class="friend">
+                        <div class="friend" id="friend_{{ friend.id }}">
                             <img src="{{ friend.avatar.src }}">
                             <p><b>{{ friend.user.username }}</b></p>
                         </div>
@@ -122,7 +123,7 @@
         </div>
         <div class="modal-footer flex-end">
             <a class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
-            <a id="btnAddToList" onclick="M.toast({html: 'Debes seleccionar un amigo'});" class="modal-close waves-effect waves-green btn-flat">Compartir</a>
+            <a id="btnAddToList" onclick="shareWithFriends('show')" class="modal-close waves-effect waves-green btn-flat">Compartir</a>
         </div>
     </div>
 

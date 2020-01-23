@@ -996,12 +996,18 @@ footer .bottom-navBar > a {
 }
 
 .friend {
-    margin: 10px;
+    padding: 10px;
+    transition: .3s;
+    border-radius: 3px;
 }
 
 .friend p {
     margin: 0;
     text-align: center;
+}
+
+.friend.selected {
+    background-color: #ddd;
 }
 
 .list-friends img, .list-friends .img-recommendation {

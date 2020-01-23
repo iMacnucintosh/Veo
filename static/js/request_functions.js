@@ -1795,7 +1795,7 @@ function removeList(id_user, id_list){
 function addToList(type, id_list){
     var data = new FormData();
 
-    if(type == 1){ // No funciona
+    if(type == 1){
         data.append('id', _movie.id);
         data.append('title', _movie.title);
         data.append('poster_path',  _movie.poster_path);
@@ -1900,4 +1900,46 @@ function readRecommendations(){
             $('.recommendations-unread').fadeOut();
         }
     });
+}
+
+function shareWithFriends(type){
+    var friends_selected = $(".friend.selected").length;
+
+    if(friends_selected > 0){
+        friends_selected = [];
+
+        $(".friend.selected").each(function(){
+            friends_selected.push($(this).attr("id").replace("friend_", ""));
+        });
+
+        var data = new FormData();
+        if(type == 'movie'){
+            data.append('id', _movie.id);
+            data.append('title', _movie.title);
+            data.append('poster_path',  _movie.poster_path);
+        }else{
+            data.append('id', _show.id);
+            data.append('title', _show.name);
+            data.append('poster_path', _show.poster_path);
+        }
+
+        data.append('type',  type);
+        data.append('friends_selected',  JSON.stringify(friends_selected));
+
+        $.ajax({
+            url: '/shareWithFriends/',
+            type: 'POST',
+            mimeType: "multipart/form-data",
+            dataType: 'json',
+            processData: false,
+            contentType: false,
+            data: data,
+            success: function (response) {
+                M.toast({html: 'Compartido'});
+                $('.friend').removeClass("selected")
+            }
+        });
+    }else{
+        M.toast({html: 'Debes seleccionar algún amigo'});
+    }
 }
