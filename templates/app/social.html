@@ -64,6 +64,7 @@
         {% endfor %}
     </div>
     <div id="recommendations" class="col s12 row no-margin">
+    {% if recommendations|length > 0 %}
         {% for recommendation in recommendations %}
             <div class="row no-margin recommendation">
                 <div class="rmm-avatar">
@@ -87,11 +88,14 @@
                 </div>
                 <div class="rmm-info">
                     <p class="date-recommendation">{{ recommendation.creation_date|date:"Y-m-d H:i:s" }}</p>
-                    <p><b class="primary-color-txt">{{ recommendation.from_user.user.username }}</b> te ha recomendado <a href="/{{ recommendation.type }}/{{ recommendation.id_media }}"><b class="black-txt">{{ recommendation.name }}</b></a></p>
+                    <p><a href="/profile/{{ recommendation.from_user.user.id }}/"><b class="primary-color-txt">{{ recommendation.from_user.user.username }}</b></a> te ha recomendado <a href="/{{ recommendation.type }}/{{ recommendation.id_media }}"><b class="black-txt">{{ recommendation.name }}</b></a></p>
                 </div>
                 <div></div>
             </div>
         {% endfor %}
+    {% else %}
+        <p class="infoPeticion">Aún no te han recomendado nada</p>
+    {% endif %}
     </div>
 </main>
 
