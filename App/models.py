@@ -70,6 +70,12 @@ class Profile(models.Model):
             friends.append(Profile.objects.get(user=following))
         return friends
 
+    def getImage(self):
+        image = "-"
+        if self.image:
+            image = self.image
+        return image
+
 class State(models.Model):
     name = models.CharField(max_length=30)
 
