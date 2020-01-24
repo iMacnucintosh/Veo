@@ -29,7 +29,7 @@ def path_image_upload(instance, filename):
 
     try:
         profile = Profile.objects.get(user=instance.user)
-        image = str(profile.image)
+        image = "/home/veo/Veo/" + str(profile.image)
 
         if(os.path.isfile(image)):
             os.remove(image)
