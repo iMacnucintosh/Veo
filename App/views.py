@@ -94,7 +94,6 @@ def sign_in(request):
 
 @login_required()
 def home(request):
-
     profile = Profile.objects.get(user=request.user)
     form = uploadImageProfileForm(request.POST or None, request.FILES or None, instance=profile)
 
