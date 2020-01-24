@@ -1229,7 +1229,7 @@ def list(request, id=None):
 
     context = {
         "profile": Profile.objects.get(user=request.user),
-        "unread_recommendations": len(Recommendation.objects.filter(to_user=profile, read=False)),
+        "unread_recommendations": len(Recommendation.objects.filter(to_user=Profile.objects.get(user=request.user), read=False)),
         "profile_list": Profile.objects.get(user=list.user),
         "list": list,
     }
