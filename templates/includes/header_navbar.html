@@ -14,10 +14,6 @@
             <h1 id="title"></h1>
         </div>
 
-        <script>
-            console.log('{{ profile.getImage }}');
-        </script>
-
         {% if profile.getImage == "-" %}
             <div class="img-profile-container">
                 <div class="img-profile"><img src="{{ profile.avatar.src }}" /></div>

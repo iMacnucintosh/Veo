@@ -28,7 +28,9 @@ def path_image_upload(instance, filename):
     var_extension = var[var_length]
 
     try:
-        image = "static/images/profiles/" + str(instance.user.id) + "_" + instance.user.username + "." + var_extension
+        profile = Profile.objects.get(user=instance.user)
+        image = str(profile.image)
+
         if(os.path.isfile(image)):
             os.remove(image)
 
