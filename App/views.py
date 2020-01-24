@@ -200,7 +200,7 @@ def changeAvatar(request):
 
     profile = Profile.objects.filter(user=request.user).first()
     Profile.objects.filter(user=request.user).update(avatar=Avatar.objects.get(id=request.POST["id_avatar"]))
-    image = str(profile.image)
+    image = "/home/veo/Veo/" + str(profile.image)
     Profile.objects.filter(user=request.user).update(image="")
 
     try:
