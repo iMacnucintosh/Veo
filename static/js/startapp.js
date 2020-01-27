@@ -89,6 +89,12 @@ $(document).ready(function(){
         $('.tabs').tabs('select', localStorage.getItem("active_tab").replace("#",""));
     }
 
+
+    if($('#recommendations-tab').hasClass("active")){
+        readRecommendations();
+    }
+
+
     // ------------------------ CLICK EVENTS ------------------------------
 
     /* Scroll al inicio si clickamos en una tab */

@@ -1239,7 +1239,8 @@ def list(request, id=None):
 # ----------------------------------------- NOTIFICATIONS --------------------------------------------------------------
 def notification(request):
     data = {"title": "Veo",
-            "body": "hola"}
+            "body": "hola",
+            "icon": "https://image.tmdb.org/t/p/w200/3iFm6Kz7iYoFaEcj4fLyZHAmTQA.jpg"}
 
     profile = Profile.objects.get(user=User.objects.get(username="iMacnucintosh"))
 
@@ -1262,7 +1263,11 @@ def shareWithFriends(request):
             else:
                 type = "película"
 
-            data = { "title": "Veo", "body": profile_from.user.username + " te ha recomendado la " + type + " " + request.POST["title"] }
+            data = {
+                "title": "Veo",
+                "body": profile_from.user.username + " te ha recomendado la " + type + " " + request.POST["title"],
+                "icon": "https://image.tmdb.org/t/p/w200" + request.POST["poster_path"]
+            }
 
             webpush(json.loads(to_user.endpoint),
                     json.dumps(data),

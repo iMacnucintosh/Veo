@@ -49,7 +49,8 @@ self.addEventListener('push', function(event) {
   const title = data.title;
   const options = {
     body: data.body,
-    icon: '/static/images/favicon.png',
+    // icon: '/static/images/favicon.png',
+    icon: data.icon,
     badge: '/static/images/favicon.png'
   };
 
