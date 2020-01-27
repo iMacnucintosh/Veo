@@ -162,7 +162,7 @@ def shows(request):
 @login_required()
 def social(request):
     profile = Profile.objects.get(user=request.user)
-    recommentations = Recommendation.objects.filter(to_user=profile).order_by("-creation_date")[:50]
+    recommentations = Recommendation.objects.filter(to_user=profile).order_by("-creation_date")[:30]
     unread_recommendations = len(Recommendation.objects.filter(to_user=profile, read=False))
     form = uploadImageProfileForm(request.POST or None, request.FILES or None, instance=profile)
     if form.is_valid():
@@ -659,7 +659,7 @@ def myShowsPending(request):
 # ---------------------------------------- ACTIVITY --------------------------------------------------------------------
 # All Activity
 def myActivity(request):
-    activitys = Activity.objects.filter(user=request.user).order_by("-date_add")[:150]
+    activitys = Activity.objects.filter(user=request.user).order_by("-date_add")[:50]
 
     results = []
 
@@ -769,7 +769,7 @@ def myActivity(request):
 
 # My Followings Activity
 def myFollowingsActivity(request):
-    activitys = Activity.objects.filter(user__in=Profile.objects.get(user=request.user).followings.all()).order_by("-date_add")[:100]
+    activitys = Activity.objects.filter(user__in=Profile.objects.get(user=request.user).followings.all()).order_by("-date_add")[:50]
 
     results = []
 
