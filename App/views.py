@@ -2,9 +2,6 @@
 import ast
 import os
 from json import dumps
-
-from pandas import json
-
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
