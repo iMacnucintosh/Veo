@@ -51,7 +51,7 @@ self.addEventListener('push', function(event) {
     body: data.body,
     // icon: '/static/images/favicon.png',
     icon: data.icon,
-    badge: '/static/images/favicon.png'
+    badge: '/static/images/notification.png'
   };
 
   event.waitUntil(self.registration.showNotification(title, options));
