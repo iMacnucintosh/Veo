@@ -1237,6 +1237,17 @@ def list(request, id=None):
     return render(request, "app/list.html", context=context)
 
 # ----------------------------------------- NOTIFICATIONS --------------------------------------------------------------
+def notification(request):
+    data = {"title": "Veo",
+            "body": "hola"}
+
+    profile = Profile.objects.get(user=User.objects.get(username="iMacnucintosh"))
+
+    webpush(json.loads(profile.endpoint),
+            json.dumps(data),
+            vapid_private_key="UP56WTB9F-H-NVOz2qbOBwDk-1txARUaCk7olQWdXdk",
+            vapid_claims={"sub": "mailto:manuellopezmallorquin@syltec.es"})
+
 def shareWithFriends(request):
     profile_from = Profile.objects.get(user=request.user)
     friends_selected = ast.literal_eval(request.POST["friends_selected"])
