@@ -1252,7 +1252,7 @@ def shareWithFriends(request):
 
         data = { "title": "Veo", "body": profile_from.user.username + " te ha recomendado la " + type + " " + request.POST["title"] }
 
-        webpush(to_user.endpoint,
+        webpush(json.loads(to_user.endpoint),
                 json.dumps(data),
                 vapid_private_key="UP56WTB9F-H-NVOz2qbOBwDk-1txARUaCk7olQWdXdk",
                 vapid_claims={"sub": "mailto:manuellopezmallorquin@syltec.es"})
