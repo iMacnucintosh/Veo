@@ -999,6 +999,9 @@ footer .bottom-navBar > a {
     padding: 10px;
     transition: .3s;
     border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .friend p {
