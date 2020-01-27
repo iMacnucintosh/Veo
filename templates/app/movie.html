@@ -102,7 +102,7 @@
             <h4>Amigos</h4>
             <div class="list-friends">
                 {% for friend in profile.getFriends %}
-                    {% if not friend.image == None %}
+                    {% if not friend.getImage == "-" %}
                         <div class="friend" id="friend_{{ friend.id }}">
                             <div class="img-recommendation" style="background-image: url(/{{ friend.image }})"></div>
                             <p><b>{{ friend.user.username }}</b></p>

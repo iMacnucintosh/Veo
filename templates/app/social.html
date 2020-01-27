@@ -30,9 +30,16 @@
     <div id="community" class="col s12 row no-margin">
         {% for profileJSON in profilesJSON %}
             <div class="user-item row no-margin">
-                <a href="/profile/{{ profileJSON.profile.user.id }}" class="avatar-user">
-                    <img src="{{ profileJSON.profile.avatar.src }}" />
-                </a>
+                {% if not profileJSON.profile.getImage == "-" %}
+                    <a href="/profile/{{ profileJSON.profile.user.id }}/" class="avatar-user">
+                        <div class="img-recommendation" style="background-image: url(/{{ profileJSON.profile.image }})"></div>
+                    </a>
+                {% else %}
+                    <a href="/profile/{{ profileJSON.profile.user.id }}" class="avatar-user">
+                        <img src="{{ profileJSON.profile.avatar.src }}" />
+                    </a>
+                {% endif %}
+
                 <div class="information-profile">
                     <h1 class="username col s12 no-padding">{{ profileJSON.profile.user.username }}</h1>
                     <div class="col no-padding stadistics">
@@ -64,38 +71,38 @@
         {% endfor %}
     </div>
     <div id="recommendations" class="col s12 row no-margin">
-    {% if recommendations|length > 0 %}
-        {% for recommendation in recommendations %}
-            <div class="row no-margin recommendation">
-                <div class="rmm-avatar">
-                    {% if not recommendation.from_user.image == None %}
-                        <a href="/profile/{{ recommendation.from_user.user.id }}/">
-                            <div class="img-recommendation" style="background-image: url(/{{ recommendation.from_user.image }})"></div>
+        {% if recommendations|length > 0 %}
+            {% for recommendation in recommendations %}
+                <div class="row no-margin recommendation">
+                    <div class="rmm-avatar">
+                        {% if not recommendation.from_user.getImage == "-" %}
+                            <a href="/profile/{{ recommendation.from_user.user.id }}/">
+                                <div class="img-recommendation" style="background-image: url(/{{ recommendation.from_user.image }})"></div>
+                            </a>
+                        {% else %}
+                            <a href="/profile/{{ recommendation.from_user.user.id }}/">
+                                <img src="{{ recommendation.from_user.avatar.src }}">
+                            </a>
+                        {% endif %}
+                    </div>
+                    <div class="rmm-arrow">
+                        <i class="material-icons">arrow_forward</i>
+                    </div>
+                    <div class="rmm-media">
+                        <a href="/{{ recommendation.type }}/{{ recommendation.id_media }}" class="poster-activity">
+                            <img src="https://image.tmdb.org/t/p/w200{{ recommendation.poster_path }}" />
                         </a>
-                    {% else %}
-                        <a href="/profile/{{ recommendation.from_user.user.id }}/">
-                            <img src="{{ recommendation.from_user.avatar.src }}">
-                        </a>
-                    {% endif %}
+                    </div>
+                    <div class="rmm-info">
+                        <p class="date-recommendation">{{ recommendation.creation_date|date:"Y-m-d H:i:s" }}</p>
+                        <p><a href="/profile/{{ recommendation.from_user.user.id }}/"><b class="primary-color-txt">{{ recommendation.from_user.user.username }}</b></a> te ha recomendado <a href="/{{ recommendation.type }}/{{ recommendation.id_media }}"><b class="black-txt">{{ recommendation.name }}</b></a></p>
+                    </div>
+                    <div></div>
                 </div>
-                <div class="rmm-arrow">
-                    <i class="material-icons">arrow_forward</i>
-                </div>
-                <div class="rmm-media">
-                    <a href="/{{ recommendation.type }}/{{ recommendation.id_media }}" class="poster-activity">
-                        <img src="https://image.tmdb.org/t/p/w200{{ recommendation.poster_path }}" />
-                    </a>
-                </div>
-                <div class="rmm-info">
-                    <p class="date-recommendation">{{ recommendation.creation_date|date:"Y-m-d H:i:s" }}</p>
-                    <p><a href="/profile/{{ recommendation.from_user.user.id }}/"><b class="primary-color-txt">{{ recommendation.from_user.user.username }}</b></a> te ha recomendado <a href="/{{ recommendation.type }}/{{ recommendation.id_media }}"><b class="black-txt">{{ recommendation.name }}</b></a></p>
-                </div>
-                <div></div>
-            </div>
-        {% endfor %}
-    {% else %}
-        <p class="infoPeticion">Aún no te han recomendado nada</p>
-    {% endif %}
+            {% endfor %}
+        {% else %}
+            <p class="infoPeticion">Aún no te han recomendado nada</p>
+        {% endif %}
     </div>
 </main>
 
