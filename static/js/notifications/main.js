@@ -71,6 +71,7 @@ function updateSubscriptionOnServer(subscription) {
         subscriptionJson.textContent = JSON.stringify(subscription);
 
         // Register the Endpoint from user
+        console.log("1 - LLamamos a registerEndpoint")
         registerEndpoint(JSON.stringify(subscription))
 
 
