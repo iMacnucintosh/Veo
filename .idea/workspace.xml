@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="07020f31-8a76-45f1-a7cb-86f3cab66ea4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/styles.css" afterPath="$PROJECT_DIR$/static/css/styles.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/startapp.js" afterPath="$PROJECT_DIR$/static/js/startapp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/app/social.html" afterPath="$PROJECT_DIR$/templates/app/social.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,7 +20,98 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Veo/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="133" column="41" lean-forward="false" selection-start-line="133" selection-start-column="41" selection-end-line="133" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="startapp.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/js/startapp.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="269">
+              <caret line="93" column="19" lean-forward="false" selection-start-line="93" selection-start-column="19" selection-end-line="93" selection-end-column="19" />
+              <folding>
+                <element signature="e#726#2189#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="request_functions.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/js/request_functions.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="202">
+              <caret line="1888" column="31" lean-forward="false" selection-start-line="1888" selection-start-column="31" selection-end-line="1888" selection-end-column="31" />
+              <folding>
+                <marker date="1580140515764" expanded="true" signature="1533:2030" ph="..." />
+                <marker date="1580140515764" expanded="false" signature="5831:5912" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="6054:6202" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="6298:6854" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="6430:6826" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="6508:6735" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="10061:10218" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="10949:10967" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="12728:12960" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="13810:13940" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="14982:15120" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="18624:18642" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="19277:19408" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="20293:20883" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="20315:20864" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="23461:23693" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="24595:24733" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="25793:25931" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="28644:29401" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="28694:29401" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="28742:28815" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="28863:29227" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="29277:29401" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="29716:29775" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="29764:29775" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="30150:30212" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="30811:30971" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="31140:31477" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="36900:37030" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="38034:38164" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="42691:42836" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="43880:44026" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="48316:48462" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="49493:49639" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="50541:51492" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="50641:50781" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="50861:51444" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="50957:51093" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="51196:51392" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="52463:53463" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="52562:52702" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="52782:53415" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="52878:53014" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="53117:53363" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="54377:55378" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="54476:54616" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="54696:55330" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="54792:54928" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="55031:55278" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="59085:59098" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="59919:60062" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="61895:62038" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="63855:64028" ph="..." />
+                <marker date="1580140515764" expanded="false" signature="63887:63975" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="64872:64975" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="66544:66551" ph="..." />
+                <marker date="1580140515764" expanded="true" signature="66827:66834" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -146,7 +236,6 @@
         <option value="$PROJECT_DIR$/App/models.py" />
         <option value="$PROJECT_DIR$/templates/includes/bottom_navbar.html" />
         <option value="$PROJECT_DIR$/static/js/notifications/main.js" />
-        <option value="$PROJECT_DIR$/static/js/request_functions.js" />
         <option value="$PROJECT_DIR$/templates/app/movie.html" />
         <option value="$PROJECT_DIR$/templates/app/show.html" />
         <option value="$PROJECT_DIR$/templates/app/profile.html" />
@@ -157,6 +246,7 @@
         <option value="$PROJECT_DIR$/templates/app/social.html" />
         <option value="$PROJECT_DIR$/static/css/styles.css" />
         <option value="$PROJECT_DIR$/static/js/startapp.js" />
+        <option value="$PROJECT_DIR$/static/js/request_functions.js" />
       </list>
     </option>
   </component>
@@ -211,25 +301,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Veo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Veo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -262,46 +334,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="notifications" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Veo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Veo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Veo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Veo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -557,8 +589,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18960468" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18960468" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -822,22 +855,6 @@
             <element signature="e#673#1216#0" expanded="false" />
             <element signature="e#1256#2043#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Veo/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="133" column="41" lean-forward="false" selection-start-line="133" selection-start-column="41" selection-end-line="133" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/request_functions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="1947" column="36" lean-forward="false" selection-start-line="1947" selection-start-column="36" selection-end-line="1947" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1164,16 +1181,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/startapp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="94" column="4" lean-forward="false" selection-start-line="94" selection-start-column="4" selection-end-line="94" selection-end-column="4" />
-          <folding>
-            <element signature="e#726#2189#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/css/styles.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -1202,6 +1209,90 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="66" column="44" lean-forward="false" selection-start-line="66" selection-start-column="44" selection-end-line="66" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/request_functions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="1888" column="31" lean-forward="false" selection-start-line="1888" selection-start-column="31" selection-end-line="1888" selection-end-column="31" />
+          <folding>
+            <marker date="1580140515764" expanded="true" signature="1533:2030" ph="..." />
+            <marker date="1580140515764" expanded="false" signature="5831:5912" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="6054:6202" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="6298:6854" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="6430:6826" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="6508:6735" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="10061:10218" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="10949:10967" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="12728:12960" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="13810:13940" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="14982:15120" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="18624:18642" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="19277:19408" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="20293:20883" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="20315:20864" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="23461:23693" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="24595:24733" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="25793:25931" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="28644:29401" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="28694:29401" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="28742:28815" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="28863:29227" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="29277:29401" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="29716:29775" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="29764:29775" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="30150:30212" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="30811:30971" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="31140:31477" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="36900:37030" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="38034:38164" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="42691:42836" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="43880:44026" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="48316:48462" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="49493:49639" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="50541:51492" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="50641:50781" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="50861:51444" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="50957:51093" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="51196:51392" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="52463:53463" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="52562:52702" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="52782:53415" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="52878:53014" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="53117:53363" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="54377:55378" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="54476:54616" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="54696:55330" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="54792:54928" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="55031:55278" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="59085:59098" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="59919:60062" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="61895:62038" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="63855:64028" ph="..." />
+            <marker date="1580140515764" expanded="false" signature="63887:63975" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="64872:64975" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="66544:66551" ph="..." />
+            <marker date="1580140515764" expanded="true" signature="66827:66834" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/startapp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="93" column="19" lean-forward="false" selection-start-line="93" selection-start-column="19" selection-end-line="93" selection-end-column="19" />
+          <folding>
+            <element signature="e#726#2189#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Veo/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="133" column="41" lean-forward="false" selection-start-line="133" selection-start-column="41" selection-end-line="133" selection-end-column="41" />
           <folding />
         </state>
       </provider>

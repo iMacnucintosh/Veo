@@ -90,7 +90,9 @@ $(document).ready(function(){
     }
 
     if($('#recommendations-tab a').hasClass("active")){
-        readRecommendations();
+        setTimeout(function(){
+            readRecommendations();
+        }, 1000)
     }
 
 
