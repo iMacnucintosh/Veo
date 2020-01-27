@@ -130,7 +130,6 @@ def home(request):
 
 @login_required()
 def movies(request):
-
     profile = Profile.objects.get(user=request.user)
     form = uploadImageProfileForm(request.POST or None, request.FILES or None, instance=profile)
     if form.is_valid():
@@ -140,6 +139,7 @@ def movies(request):
         "profile": profile,
         "unread_recommendations": len(Recommendation.objects.filter(to_user=profile, read=False)),
         "themes": Theme.objects.all(),
+        "form": form,
         "avatars": Avatar.objects.all(),
     }
     return render(request, "app/movies.html", context=context)
@@ -155,6 +155,7 @@ def shows(request):
         "profile": profile,
         "unread_recommendations": len(Recommendation.objects.filter(to_user=profile, read=False)),
         "themes": Theme.objects.all(),
+        "form": form,
         "avatars": Avatar.objects.all(),
     }
     return render(request, "app/shows.html", context=context)
@@ -180,6 +181,7 @@ def social(request):
         "recommendations": recommentations,
         "unread_recommendations": unread_recommendations,
         "themes": Theme.objects.all(),
+        "form": form,
         "avatars": Avatar.objects.all(),
         "profilesJSON": profiles,
     }
@@ -1050,12 +1052,16 @@ def unFollowUser(request):
 # ---------------------------------------- SEARCH ----------------------------------------------------------------------
 @login_required()
 def search(request, query=None):
+    form = uploadImageProfileForm(request.POST or None, request.FILES or None, instance=Profile.objects.get(user=request.user))
+    if form.is_valid():
+        form.save()
     context = {
         "profile": Profile.objects.get(user=request.user),
         "unread_recommendations": len(Recommendation.objects.filter(to_user=Profile.objects.get(user=request.user), read=False)),
         "themes": Theme.objects.all(),
         "avatars": Avatar.objects.all(),
-        "query": query
+        "query": query,
+        "form": form,
     }
     return render(request, "app/search.html", context=context)
 
@@ -1079,6 +1085,10 @@ def profile(request, id=None):
 
     user_lists = List.objects.filter(user=user)
 
+    form = uploadImageProfileForm(request.POST or None, request.FILES or None, instance=Profile.objects.get(user=user))
+    if form.is_valid():
+        form.save()
+
     context = {
         "activitys": activitys,
         "activitys_summary": activitys[:40],
@@ -1088,6 +1098,7 @@ def profile(request, id=None):
         "profile": Profile.objects.get(user=request.user),
         "unread_recommendations": len(Recommendation.objects.filter(to_user=Profile.objects.get(user=request.user), read=False)),
         "themes": Theme.objects.all(),
+        "form": form,
         "avatars": Avatar.objects.all(),
     }
 
@@ -1227,11 +1238,16 @@ def deleteFromList(request):
 def list(request, id=None):
     list = List.objects.get(id=id)
 
+    form = uploadImageProfileForm(request.POST or None, request.FILES or None, instance=Profile.objects.get(user=request.user))
+    if form.is_valid():
+        form.save()
+
     context = {
         "profile": Profile.objects.get(user=request.user),
         "unread_recommendations": len(Recommendation.objects.filter(to_user=Profile.objects.get(user=request.user), read=False)),
         "profile_list": Profile.objects.get(user=list.user),
         "list": list,
+        "form": form,
     }
 
     return render(request, "app/list.html", context=context)
