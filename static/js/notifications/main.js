@@ -23,7 +23,7 @@
 
 const applicationServerPublicKey = 'BMlHpeNfHHgXhsyOmNDjM6S4kJ5IiJwHV6MdFamcLTZ17_hw8S1uPHRZETc0ORWBKfskEuIw_tV0Urg_0bJ-R1s';
 
-const pushButton = document.querySelector('.js-push-btn');
+const chbNotifications = document.querySelector('#swtNotifications');
 
 var isSubscribed = false;
 var swRegistration = null;
@@ -45,37 +45,27 @@ function urlB64ToUint8Array(base64String) {
 
 function updateBtn() {
     if (Notification.permission === 'denied') {
-        pushButton.textContent = 'Push Messaging Blocked.';
-        pushButton.disabled = true;
+        chbNotifications.disabled = true;
         updateSubscriptionOnServer(null);
         return;
     }
 
     if (isSubscribed) {
-        pushButton.textContent = 'Disable Push Messaging';
+        $('#swtNotifications').attr("checked", "checked");
     } else {
-        pushButton.textContent = 'Enable Push Messaging';
+        chbNotifications.removeAttribute("checked");
     }
 
-    pushButton.disabled = false;
+    chbNotifications.disabled = false;
 }
 
 function updateSubscriptionOnServer(subscription) {
-    // TODO: Send subscription to application server
-
-    const subscriptionJson = document.querySelector('.js-subscription-json');
-    const subscriptionDetails =
-        document.querySelector('.js-subscription-details');
-
     if (subscription) {
-        subscriptionJson.textContent = JSON.stringify(subscription);
-
         // Register the Endpoint from user
         registerEndpoint(JSON.stringify(subscription))
-
-        subscriptionDetails.classList.remove('is-invisible');
-    } else {
-        subscriptionDetails.classList.add('is-invisible');
+    }else{
+        // Unregister the Endpoint from user
+        unRegisterEndpoint()
     }
 }
 
@@ -86,12 +76,8 @@ function subscribeUser() {
         applicationServerKey: applicationServerKey
     })
         .then(function(subscription) {
-            console.log('User is subscribed.');
-
             updateSubscriptionOnServer(subscription);
-
             isSubscribed = true;
-
             updateBtn();
         })
         .catch(function(err) {
@@ -121,8 +107,8 @@ function unsubscribeUser() {
 }
 
 function initializeUI() {
-    pushButton.addEventListener('click', function() {
-        pushButton.disabled = true;
+    chbNotifications.addEventListener('click', function() {
+       $('#swtNotifications').attr("disabled", "disabled")
         if (isSubscribed) {
             unsubscribeUser();
         } else {
@@ -138,22 +124,19 @@ function initializeUI() {
             updateSubscriptionOnServer(subscription);
 
             if (isSubscribed) {
-                console.log('User IS subscribed.');
+                //console.log('User IS subscribed.');
             } else {
-                console.log('User is NOT subscribed.');
+                //console.log('User is NOT subscribed.');
             }
 
             updateBtn();
         });
 }
 
+// Si las notificaciones están permitidas
 if ('serviceWorker' in navigator && 'PushManager' in window) {
-    console.log('Service Worker and Push is supported');
-
     navigator.serviceWorker.register('/static/js/notifications/sw.js')
         .then(function(swReg) {
-            console.log('Service Worker is registered', swReg);
-
             swRegistration = swReg;
             initializeUI();
         })
@@ -161,6 +144,9 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
             console.error('Service Worker Error', error);
         });
 } else {
-    console.warn('Push messaging is not supported');
+    //console.warn('Push messaging is not supported');
+
+    // Ocultamos el swich de notificaciones
+
     pushButton.textContent = 'Push Not Supported';
 }

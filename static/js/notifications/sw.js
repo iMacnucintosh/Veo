@@ -57,7 +57,7 @@ self.addEventListener('push', function(event) {
 });
 
 self.addEventListener('notificationclick', function(event) {
-  console.log('[Service Worker] Notification click Received.');
+  //console.log('[Service Worker] Notification click Received.');
 
   event.notification.close();
 
@@ -67,7 +67,7 @@ self.addEventListener('notificationclick', function(event) {
 });
 
 self.addEventListener('pushsubscriptionchange', function(event) {
-  console.log('[Service Worker]: \'pushsubscriptionchange\' event fired.');
+  //console.log('[Service Worker]: \'pushsubscriptionchange\' event fired.');
   const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
   event.waitUntil(
     self.registration.pushManager.subscribe({
@@ -76,7 +76,7 @@ self.addEventListener('pushsubscriptionchange', function(event) {
     })
     .then(function(newSubscription) {
       // TODO: Send to application server
-      console.log('[Service Worker] New subscription: ', newSubscription);
+      //console.log('[Service Worker] New subscription: ', newSubscription);
     })
   );
 });

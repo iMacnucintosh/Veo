@@ -11,6 +11,7 @@ from App.models import *
 from App.forms import *
 from django.utils import timezone
 from datetime import timedelta
+from pywebpush import webpush
 
 # --------------------------------------- GENERAL FUNCTIONS ------------------------------------------------------------
 def createAvatars():
@@ -1235,8 +1236,7 @@ def list(request, id=None):
 
     return render(request, "app/list.html", context=context)
 
-
-
+# ----------------------------------------- NOTIFICATIONS --------------------------------------------------------------
 def shareWithFriends(request):
     profile_from = Profile.objects.get(user=request.user)
     friends_selected = ast.literal_eval(request.POST["friends_selected"])
@@ -1245,21 +1245,20 @@ def shareWithFriends(request):
         to_user = Profile.objects.get(id=friend)
         Recommendation.objects.create(name=request.POST["title"], poster_path=request.POST["poster_path"], id_media=request.POST["id"], from_user=profile_from, to_user=to_user, type=request.POST["type"])
 
-        if request.POST["type"] == "show":
-            type = "serie"
-        else:
-            type = "película"
+        if to_user.endpoint != "":
+            if request.POST["type"] == "show":
+                type = "serie"
+            else:
+                type = "película"
 
-        data = { "title": "Veo", "body": profile_from.user.username + " te ha recomendado la " + type + " " + request.POST["title"] }
+            data = { "title": "Veo", "body": profile_from.user.username + " te ha recomendado la " + type + " " + request.POST["title"] }
 
-        webpush(json.loads(to_user.endpoint),
-                json.dumps(data),
-                vapid_private_key="UP56WTB9F-H-NVOz2qbOBwDk-1txARUaCk7olQWdXdk",
-                vapid_claims={"sub": "mailto:manuellopezmallorquin@syltec.es"})
+            webpush(json.loads(to_user.endpoint),
+                    json.dumps(data),
+                    vapid_private_key="UP56WTB9F-H-NVOz2qbOBwDk-1txARUaCk7olQWdXdk",
+                    vapid_claims={"sub": "mailto:manuellopezmallorquin@syltec.es"})
 
     return JsonResponse({"response":"ok"})
-
-from pywebpush import webpush
 
 # Register the Endpoint for this user
 def registerEndpoint(request):
@@ -1267,14 +1266,7 @@ def registerEndpoint(request):
     Profile.objects.filter(user=request.user).update(endpoint=endpoint)
     return JsonResponse({"response":"ok"})
 
-
-def sendNotification(request):
-    profile = Profile.objects.get(user=request.user)
-    endpoint = json.loads(profile.endpoint)
-
-    webpush(endpoint,
-            '{"title": "Titulo", "body": "Cuerpo"}',
-            vapid_private_key="UP56WTB9F-H-NVOz2qbOBwDk-1txARUaCk7olQWdXdk",
-            vapid_claims={"sub": "mailto:manuellopezmallorquin@syltec.es"})
-
-    raise Exception("hola")
+# UnRegister the Endpoint for this user
+def unRegisterEndpoint(request):
+    Profile.objects.filter(user=request.user).update(endpoint="")
+    return JsonResponse({"response":"ok"})

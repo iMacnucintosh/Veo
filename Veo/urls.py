@@ -146,9 +146,8 @@ urlpatterns = [
     url(r'^list/(?P<id>\d+)/$', list),
     url(r'^shareWithFriends/$', shareWithFriends),
 
-
-    # Notifications
+    # --------------------------------- NOTIFICATIONS ------------------------------------------------------------------
     url('registerEndpoint/', registerEndpoint),
+    url('unRegisterEndpoint/', unRegisterEndpoint),
     url('webpush/', include('webpush.urls')),
-    url(r'^sendNotification/$', sendNotification),
 ]

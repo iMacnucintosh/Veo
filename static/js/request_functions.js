@@ -1958,7 +1958,21 @@ function registerEndpoint(endpoint){
         contentType: false,
         data: data,
         success: function (response) {
-            M.toast({html: 'Has activado las notificaciones'});
+
         }
+    });
+}
+
+function unRegisterEndpoint(){
+    var data = new FormData();
+    $.ajax({
+        url: '/unRegisterEndpoint/',
+        type: 'POST',
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (response) {}
     });
 }
