@@ -297,7 +297,7 @@ function InformationMovie(id, parameters, colorGenres, width_poster, user_logged
         data: parameters,
         type: "GET",
         dataType: "json",
-        url: "http://api.themoviedb.org/3/movie/" + id + "/casts"
+        url: "https://api.themoviedb.org/3/movie/" + id + "/casts"
     }).done(function(data, textStatus, jqXHR) {
         var cast_movie = data.cast;
         var cast_movie_str = '';
