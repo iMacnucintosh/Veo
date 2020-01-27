@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="07020f31-8a76-45f1-a7cb-86f3cab66ea4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/notifications/sw.js" afterPath="$PROJECT_DIR$/static/js/notifications/sw.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/styles.css" afterPath="$PROJECT_DIR$/static/css/styles.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/startapp.js" afterPath="$PROJECT_DIR$/static/js/startapp.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/app/social.html" afterPath="$PROJECT_DIR$/templates/app/social.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,8 +34,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>s</find>
-      <find>soci</find>
       <find>movie</find>
       <find>class profile</find>
       <find>list-f</find>
@@ -62,6 +62,8 @@
       <find>attr</find>
       <find>profilesJSON</find>
       <find>os</find>
+      <find>.rmm-info</find>
+      <find>black</find>
     </findStrings>
     <replaceStrings>
       <replace>#3e3e3e</replace>
@@ -148,13 +150,13 @@
         <option value="$PROJECT_DIR$/templates/app/movie.html" />
         <option value="$PROJECT_DIR$/templates/app/show.html" />
         <option value="$PROJECT_DIR$/templates/app/profile.html" />
-        <option value="$PROJECT_DIR$/templates/app/social.html" />
-        <option value="$PROJECT_DIR$/static/css/styles.css" />
         <option value="$PROJECT_DIR$/templates/app/home.html" />
         <option value="$PROJECT_DIR$/Veo/urls.py" />
-        <option value="$PROJECT_DIR$/static/js/startapp.js" />
         <option value="$PROJECT_DIR$/App/views.py" />
         <option value="$PROJECT_DIR$/static/js/notifications/sw.js" />
+        <option value="$PROJECT_DIR$/templates/app/social.html" />
+        <option value="$PROJECT_DIR$/static/css/styles.css" />
+        <option value="$PROJECT_DIR$/static/js/startapp.js" />
       </list>
     </option>
   </component>
@@ -284,24 +286,6 @@
               <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Veo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Veo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -318,20 +302,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Veo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Veo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="App" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -947,13 +917,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="1012" column="27" lean-forward="false" selection-start-line="1012" selection-start-column="27" selection-end-line="1012" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/app/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -966,22 +929,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="410">
           <caret line="149" column="37" lean-forward="false" selection-start-line="149" selection-start-column="25" selection-end-line="149" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/notifications/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-952">
-          <caret line="66" column="44" lean-forward="false" selection-start-line="66" selection-start-column="44" selection-end-line="66" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/notifications/sw.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="53" column="39" lean-forward="false" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="39" />
           <folding />
         </state>
       </provider>
@@ -1219,18 +1166,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/startapp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="93" column="30" lean-forward="false" selection-start-line="93" selection-start-column="30" selection-end-line="93" selection-end-column="30" />
+        <state relative-caret-position="286">
+          <caret line="94" column="4" lean-forward="false" selection-start-line="94" selection-start-column="4" selection-end-line="94" selection-end-column="4" />
           <folding>
             <element signature="e#726#2189#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="1549" column="1" lean-forward="true" selection-start-line="1549" selection-start-column="1" selection-end-line="1549" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/app/social.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="935">
-          <caret line="76" column="44" lean-forward="false" selection-start-line="76" selection-start-column="44" selection-end-line="76" selection-end-column="44" />
+        <state relative-caret-position="184">
+          <caret line="97" column="255" lean-forward="false" selection-start-line="97" selection-start-column="255" selection-end-line="97" selection-end-column="255" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/notifications/sw.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="53" column="39" lean-forward="false" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/notifications/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="66" column="44" lean-forward="false" selection-start-line="66" selection-start-column="44" selection-end-line="66" selection-end-column="44" />
           <folding />
         </state>
       </provider>

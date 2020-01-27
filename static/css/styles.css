@@ -1553,7 +1553,7 @@ footer .bottom-navBar > a {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    height: 81px;
+    min-height: 81px;
 }
 
 .rmm-info p {

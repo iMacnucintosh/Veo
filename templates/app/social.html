@@ -95,7 +95,7 @@
                     </div>
                     <div class="rmm-info">
                         <p class="date-recommendation">{{ recommendation.creation_date|date:"Y-m-d H:i:s" }}</p>
-                        <p><a href="/profile/{{ recommendation.from_user.user.id }}/"><b class="primary-color-txt">{{ recommendation.from_user.user.username }}</b></a> te ha recomendado <a href="/{{ recommendation.type }}/{{ recommendation.id_media }}"><b class="black-txt">{{ recommendation.name }}</b></a></p>
+                        <p><a href="/profile/{{ recommendation.from_user.user.id }}/"><b class="primary-color-txt">{{ recommendation.from_user.user.username }}</b></a> te ha recomendado <a href="/{{ recommendation.type }}/{{ recommendation.id_media }}"><b>{{ recommendation.name }}</b></a></p>
                     </div>
                     <div></div>
                 </div>

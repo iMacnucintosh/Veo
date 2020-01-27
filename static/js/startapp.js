@@ -89,8 +89,7 @@ $(document).ready(function(){
         $('.tabs').tabs('select', localStorage.getItem("active_tab").replace("#",""));
     }
 
-
-    if($('#recommendations-tab').hasClass("active")){
+    if($('#recommendations-tab a').hasClass("active")){
         readRecommendations();
     }
 
@@ -210,8 +209,8 @@ $(document).ready(function(){
 
     // Selección de colores en creación de lista
     $('.color').click(function(){
-       $('.color').removeClass("selected");
-       $(this).addClass("selected");
+        $('.color').removeClass("selected");
+        $(this).addClass("selected");
     });
 
     $('#recommendations-tab').click(function(){
