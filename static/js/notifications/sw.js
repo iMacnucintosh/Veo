@@ -44,7 +44,9 @@ function urlB64ToUint8Array(base64String) {
 
 self.addEventListener('push', function(event) {
 
-  var data = JSON.parse(event.data);
+  console.log(event.data.text());
+
+  var data = JSON.parse(event.data.text());
 
   const title = data.title;
   const options = {
