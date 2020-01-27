@@ -1244,9 +1244,22 @@ def shareWithFriends(request):
     for friend in friends_selected:
         to_user = Profile.objects.get(id=friend)
         Recommendation.objects.create(name=request.POST["title"], poster_path=request.POST["poster_path"], id_media=request.POST["id"], from_user=profile_from, to_user=to_user, type=request.POST["type"])
+
+        if request.POST["type"] == "show":
+            type = "serie"
+        else:
+            type = "película"
+
+        data = { "title": "Veo", "body": profile_from.user.username + " te ha recomendado la " + type + " " + request.POST["title"] }
+
+        webpush(to_user.endpoint,
+                json.dumps(data),
+                vapid_private_key="UP56WTB9F-H-NVOz2qbOBwDk-1txARUaCk7olQWdXdk",
+                vapid_claims={"sub": "mailto:manuellopezmallorquin@syltec.es"})
+
     return JsonResponse({"response":"ok"})
 
-from pywebpush import webpush, WebPushException
+from pywebpush import webpush
 
 # Register the Endpoint for this user
 def registerEndpoint(request):
