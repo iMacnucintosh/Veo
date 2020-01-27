@@ -1949,7 +1949,6 @@ function registerEndpoint(endpoint){
     console.log("2 - Estamos en endpoint");
     console.log("3 - " + endpoint);
     var data = new FormData();
-    data.append('type',  type);
     data.append('endpoint',  endpoint);
 
     $.ajax({
