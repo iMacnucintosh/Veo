@@ -601,9 +601,11 @@ footer .bottom-navBar > a {
     justify-content: center;
 }
 
-
-
 /* ------------------ HOME STYLES ------------------- */
+#home_portada { /* Para las recomendadas con radius*/
+    padding: 10px;
+}
+
 #recommended {
     height: 235px;
     position: relative;
@@ -618,6 +620,9 @@ footer .bottom-navBar > a {
     background-repeat: no-repeat;
     filter: brightness(50%);
     z-index: 0;
+    /* Para las recomendadas con radius */
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
 .recommended-info {
@@ -689,7 +694,8 @@ footer .bottom-navBar > a {
 }
 
 #recient-activity {
-    padding: 10px !important;
+    /*padding: 10px !important;*/
+    padding-top: 10px !important;
 }
 
 
