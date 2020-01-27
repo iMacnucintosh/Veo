@@ -43,12 +43,12 @@ function urlB64ToUint8Array(base64String) {
 }
 
 self.addEventListener('push', function(event) {
-  console.log('[Service Worker] Push Received.');
-  console.log('[Service Worker] Push had this data: "${event.data.text()}"');
 
-  const title = 'Nueva Recomendación';
+  var data = JSON.parse(event.data);
+
+  const title = data.title;
   const options = {
-    body: 'Te ha recomendado el zarramal',
+    body: data.body,
     icon: '/static/images/favicon.png',
     badge: '/static/images/favicon.png'
   };

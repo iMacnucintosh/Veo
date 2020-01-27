@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 import ast
 import os
+from json import dumps
+
+from pandas import json
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -1235,6 +1238,8 @@ def list(request, id=None):
 
     return render(request, "app/list.html", context=context)
 
+
+
 def shareWithFriends(request):
     profile_from = Profile.objects.get(user=request.user)
     friends_selected = ast.literal_eval(request.POST["friends_selected"])
@@ -1242,5 +1247,14 @@ def shareWithFriends(request):
     for friend in friends_selected:
         to_user = Profile.objects.get(id=friend)
         Recommendation.objects.create(name=request.POST["title"], poster_path=request.POST["poster_path"], id_media=request.POST["id"], from_user=profile_from, to_user=to_user, type=request.POST["type"])
-
     return JsonResponse({"response":"ok"})
+
+from pywebpush import webpush, WebPushException
+
+def sendNotification(request):
+    webpush({"endpoint":"https://fcm.googleapis.com/fcm/send/fIQ4COF0vfk:APA91bE1jDE7wsr0CBv-j1qSVfLRYUOr6g218vlLPLM9i7QQ1ZtifvjiniVVEQvvgzu-MJ0EJVN_3G5Wrk8eKl6d9ML2rChSUZj5wzH_Z4mmNzVohD3ouI4Qx8x1EmpuffvtbNxBQHMh","expirationTime":"null","keys":{"p256dh":"BE03rqxTYy8-sSoskzqQP4uQZcHrXcPiKmMqg4ofMR6J-tGg8MeJRcbk_qNJ1piVY3P9awzwRZi2M_ahBXoj_aI","auth":"W79ManQhGaBz6iUfYlmCYA"}},
+            '{"title": "Titulo", "body": "Cuerpo"}',
+            vapid_private_key="UP56WTB9F-H-NVOz2qbOBwDk-1txARUaCk7olQWdXdk",
+            vapid_claims={"sub": "mailto:manuellopezmallorquin@syltec.es"})
+
+    raise Exception("hola")
