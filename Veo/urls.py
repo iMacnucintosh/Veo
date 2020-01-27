@@ -148,6 +148,7 @@ urlpatterns = [
 
 
     # Notifications
+    url('registerEndpoint/', registerEndpoint),
     url('webpush/', include('webpush.urls')),
     url(r'^sendNotification/$', sendNotification),
 ]

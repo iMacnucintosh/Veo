@@ -1943,3 +1943,23 @@ function shareWithFriends(type){
         M.toast({html: 'Debes seleccionar algún amigo'});
     }
 }
+
+
+function registerEndpoint(endpoint){
+    var data = new FormData();
+    data.append('type',  type);
+    data.append('endpoint',  endpoint);
+
+    $.ajax({
+        url: '/registerEndpoint/',
+        type: 'POST',
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (response) {
+            M.toast({html: 'Has activado las notificaciones'});
+        }
+    });
+}

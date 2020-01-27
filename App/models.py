@@ -51,6 +51,8 @@ class Profile(models.Model):
     avatar = models.ForeignKey(Avatar, blank=True, null=True, on_delete=models.SET_NULL)
     image = models.FileField(upload_to=path_image_upload, null=True, blank=True)
 
+    endpoint = models.TextField(null=True, blank=True)
+
     def __str__(self):
         return str(self.user.first_name) + " " + str(self.user.last_name)
 

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import ast
+import json
 import os
-from json import dumps
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
@@ -1248,8 +1248,18 @@ def shareWithFriends(request):
 
 from pywebpush import webpush, WebPushException
 
+# Register the Endpoint for this user
+def registerEndpoint(request):
+    endpoint = request.POST["endpoint"]
+    Profile.objects.filter(user=request.user).update(endpoint=endpoint)
+    return JsonResponse({"response":"ok"})
+
+
 def sendNotification(request):
-    webpush({"endpoint":"https://fcm.googleapis.com/fcm/send/fIQ4COF0vfk:APA91bE1jDE7wsr0CBv-j1qSVfLRYUOr6g218vlLPLM9i7QQ1ZtifvjiniVVEQvvgzu-MJ0EJVN_3G5Wrk8eKl6d9ML2rChSUZj5wzH_Z4mmNzVohD3ouI4Qx8x1EmpuffvtbNxBQHMh","expirationTime":"null","keys":{"p256dh":"BE03rqxTYy8-sSoskzqQP4uQZcHrXcPiKmMqg4ofMR6J-tGg8MeJRcbk_qNJ1piVY3P9awzwRZi2M_ahBXoj_aI","auth":"W79ManQhGaBz6iUfYlmCYA"}},
+    profile = Profile.objects.get(user=request.user)
+    endpoint = json.loads(profile.endpoint)
+
+    webpush(endpoint,
             '{"title": "Titulo", "body": "Cuerpo"}',
             vapid_private_key="UP56WTB9F-H-NVOz2qbOBwDk-1txARUaCk7olQWdXdk",
             vapid_claims={"sub": "mailto:manuellopezmallorquin@syltec.es"})
