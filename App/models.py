@@ -41,7 +41,7 @@ def path_image_upload(instance, filename):
     return "static/images/profiles/" + str(instance.user.id) + "_" + instance.user.username + "_" + str(datetime.now()) + "." + var_extension
 
 class Profile(models.Model):
-    user = models.ForeignKey(User, related_name="user", blank=True, null=True)
+    user = models.ForeignKey(User, related_name="user", blank=True, null=True, on_delete=models.CASCADE)
     theme = models.ForeignKey(Theme, blank=True, null=True, on_delete=models.SET_NULL)
     colorGenres = models.BooleanField(default=True)
     celularDataSavings = models.BooleanField(default=True)
