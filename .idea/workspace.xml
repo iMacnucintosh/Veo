@@ -2,11 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="07020f31-8a76-45f1-a7cb-86f3cab66ea4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Veo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Veo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pywebpush/.circleci/config.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pywebpush/.coveragerc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pywebpush/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pywebpush/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pywebpush/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pywebpush/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pywebpush/CODE_OF_CONDUCT.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pywebpush/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pywebpush/MANIFEST.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pywebpush/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pywebpush/README.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pywebpush/convert_readme.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pywebpush/pywebpush/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pywebpush/pywebpush/__main__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pywebpush/pywebpush/tests/test_webpush.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pywebpush/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pywebpush/setup.cfg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pywebpush/setup.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pywebpush/test-requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
