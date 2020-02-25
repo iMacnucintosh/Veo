@@ -148,5 +148,5 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 
     // Ocultamos el swich de notificaciones
 
-    pushButton.textContent = 'Push Not Supported';
+    //pushButton.textContent = 'Push Not Supported';
 }
