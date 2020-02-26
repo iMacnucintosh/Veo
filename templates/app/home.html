@@ -106,6 +106,7 @@
         MyActiveShows('#home-shows-active', {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
 
         Recommendations({% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
+
         setInterval(function(){
             Recommendations({% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
         }, 15000);
