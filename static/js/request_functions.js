@@ -716,7 +716,7 @@ function InformationSeason(id_show, num_season, parameters, width_poster, user_l
 
         var season_info_str = '<div id="season-details-'+ num_season + '" class="season-details">\
          <div class="header-season row col s12">\
-            <div class="close-season-details">\
+            <div class="close-season-details shadow">\
                 <i class="material-icons">close</i>\
             </div>\
             <div class="col s4 m2 no-padding">\

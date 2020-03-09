@@ -54,7 +54,7 @@ input:not([type]):focus:not([readonly])+label, input[type=text]:not(.browser-def
 
 /* ----------------- GENERAL ---------------------------- */
 .primary-color {
-   background-color: #f48fb1;
+    background-color: #f48fb1;
 }
 
 .primary-color-txt {
@@ -215,6 +215,7 @@ footer .nav-active i, footer .nav-active p {
 
 .close-season-details {
     background-color: black;
+    box-shadow: 0px 0px 6px 4px rgba(255, 255, 255, 0.23);
 }
 
 .dot1, .dot2 {
