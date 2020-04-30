@@ -98,6 +98,23 @@ def home(request):
     profile = Profile.objects.get(user=request.user)
     form = uploadImageProfileForm(request.POST or None, request.FILES or None, instance=profile)
 
+    one_month_ago = timezone.now() - timezone.timedelta(days=30)
+    active_shows = Show.objects.filter(user=request.user, date_update__gte=one_month_ago).exclude(states__in=[1]).order_by("-date_update")
+
+    next_episodes = []
+
+    for show in active_shows:
+
+        last_episode_season_seen = Episode.objects.filter(user=request.user, states__in=[1], show=show).order_by("season_number").last()
+        last_episode_seen = Episode.objects.filter(user=request.user, states__in=[1], show=show, season_number=last_episode_season_seen.season_number).order_by("episode_number").last()
+        next_episode = Episode.objects.filter(user=request.user, show=show, season_number=last_episode_season_seen.season_number, episode_number__gt=last_episode_seen.episode_number).order_by('episode_number')
+
+        if len(next_episode) > 0:
+            next_episode = next_episode.first()
+
+        next_episodes.append({"id_show":next_episode.show.id_show, "name": show.name, "season_number": next_episode.season_number, "episode_number": next_episode.episode_number})
+
+
     activitys = Activity.objects.all().order_by("-date_add")[:300]
     activitys_veo = []
 
@@ -124,6 +141,7 @@ def home(request):
         "form": form,
         "themes": Theme.objects.all(),
         "avatars": Avatar.objects.all(),
+        "next_episodes": next_episodes,
         "activitys": Activity.objects.filter(user__in=Profile.objects.get(user=request.user).followings.all()).order_by("-date_add")[:10]
     }
     return render(request, "app/home.html", context=context)

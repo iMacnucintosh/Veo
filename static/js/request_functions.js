@@ -125,6 +125,27 @@ function TmdbRequestFilter(selector_container, url, parameters, description_requ
     });
 }
 
+function InfoNextEpisode(id_show, name_show, season_number, episode_number){
+    $.ajax({
+        data: {
+            "api_key":api_key,
+            "language": "es-ES",
+        },
+        type: "GET",
+        dataType: "json",
+        url: "https://api.themoviedb.org/3/tv/"+id_show+"/season/"+season_number+"/episode/"+episode_number+"",
+    }).done(function(data, textStatus, jqXHR) {
+
+       console.log(data);
+
+       $('#next-episodies').append('<article class="next-episode col s12"><a href="/show/' + id_show + '"><img class="episode-bg" src="https://image.tmdb.org/t/p/w227_and_h127_bestv2' + data.still_path + '"></a><div class="next-episode-content"><div class="next-episode-title"><h2 class="no-margin primary-color-txt">' + name_show + '</h2></div><div class="next-episode-info"><div class="next-episode-info-l"><h3 class="no-margin">Capítulo ' + episode_number + '</h3><h4 class="no-margin">Temporada ' + season_number + '</h4><a>Ver más</a></div><div class="next-episode-info-r"><a href="/show/' + id_show + '" class="btn primary-color"><i class="material-icons">visibility</i></a></div></div></div></article>');
+
+    }).fail(function( jqXHR, textStatus, errorThrown ) {
+        console.error('La solicitud: Pelicula Recomendada, a fallado: ' +  textStatus);
+    });
+}
+
+
 // Return a specific number of random movies from your list
 function Recommendations(width_poster) {
     $.ajax({

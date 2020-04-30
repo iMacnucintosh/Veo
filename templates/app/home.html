@@ -15,7 +15,7 @@
             height: 250px;
         }
         .chart-stadistics {
-            height: 255px;
+            height: 285px;
         }
     </style>
 </head>
@@ -31,51 +31,92 @@
 
 <main class="main-home">
     <section id="home_portada" class="col s12 row no-margin ">
+
         <article id="recommended" class="col s12 no-padding"></article>
-        <article id="recient-activity" class="col s12 no-padding"></article>
-        <article class="col s12 title-section">
-            <h4>Actividad</h4>
+
+         <article class="article-radius col s12">
+            <article class="col s12 title-section">
+                    <h4>Sigue viendo</h4>
+                </article>
+                <article id="next-episodies" class="col s12 no-padding">
+
+                    <!--<p>{{ next_episodes }}</p>-->
+
+                    <!--
+                     <article class="next-episode col s12">
+                        <a><img class="episode-bg" src="https://image.tmdb.org/t/p/w227_and_h127_bestv2/oT8x1r5S5QYGGUNqaZ9IIBS81s2.jpg"></a>
+
+                         <div class="next-episode-content">
+                            <div class="next-episode-title">
+                                <h2 class="no-margin primary-color-txt">Supernatural</h2>
+                            </div>
+                             <div class="next-episode-info">
+                                 <div class="next-episode-info-l">
+                                     <h3 class="no-margin">Capítulo 10</h3>
+                                     <h4 class="no-margin">Temporada 6</h4>
+                                     <a>Ver más</a>
+                                 </div>
+                                 <div class="next-episode-info-r">
+                                    <button class="btn primary-color"><i class="material-icons">visibility</i></button>
+                                 </div>
+                            </div>
+                         </div>
+                    </article>
+-->
+            </article>
         </article>
-        <article class="chart-stadistics col s12">
 
-            <script>
-                am4core.ready(function() {
-                    am4core.useTheme(am4themes_animated);
-
-                    var chart = am4core.create("chartdiv", am4charts.XYChart);
-
-                    var data = [];
-                    {% for activity in activitys_veo %}
-                        data.push({date:new Date({{ activity.year }}, {{ activity.month }}, {{ activity.day }}), value: {{ activity.n_activitys }} });
-                    {% endfor %}
-
-                    chart.data = data;
-
-
-                    var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
-                    dateAxis.renderer.minGridDistance = 60;
-
-                    var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-
-
-                    var series = chart.series.push(new am4charts.LineSeries());
-                    series.dataFields.valueY = "value";
-                    series.dataFields.dateX = "date";
-                    series.tooltipText = "{value}"
-                    series.tensionX = 0.77;
-                    series.tooltip.pointerOrientation = "vertical";
-
-
-                    chart.cursor = new am4charts.XYCursor();
-                    chart.cursor.snapToSeries = series;
-                    chart.cursor.xAxis = dateAxis;
-
-                });
-            </script>
-
-            <!-- HTML -->
-            <div id="chartdiv"></div>
+        <article class="article-radius col s12">
+            <article class="col s12 title-section">
+                    <h4>Actividad</h4>
+                </article>
+            <article id="recient-activity" class="col s12 no-padding"></article>
         </article>
+
+        <article class="article-radius col s12">
+            <article class="col s12 title-section">
+                <h4>Estadísticas</h4>
+            </article>
+            <article class="chart-stadistics col s12">
+
+                <script>
+                    am4core.ready(function() {
+                        am4core.useTheme(am4themes_animated);
+
+                        var chart = am4core.create("chartdiv", am4charts.XYChart);
+
+                        var data = [];
+                        {% for activity in activitys_veo %}
+                            data.push({date:new Date({{ activity.year }}, {{ activity.month }}, {{ activity.day }}), value: {{ activity.n_activitys }} });
+                        {% endfor %}
+
+                        chart.data = data;
+
+
+                        var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+                        dateAxis.renderer.minGridDistance = 60;
+
+                        var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+
+
+                        var series = chart.series.push(new am4charts.LineSeries());
+                        series.dataFields.valueY = "value";
+                        series.dataFields.dateX = "date";
+                        series.tooltipText = "{value}"
+                        series.tensionX = 0.77;
+                        series.tooltip.pointerOrientation = "vertical";
+
+
+                        chart.cursor = new am4charts.XYCursor();
+                        chart.cursor.snapToSeries = series;
+                        chart.cursor.xAxis = dateAxis;
+
+                    });
+                </script>
+                <div id="chartdiv"></div>
+            </article>
+        </article>
+
     </section>
 
     <section id="home-movies-pending" class="col s12 row no-margin"></section>
@@ -110,6 +151,13 @@
         setInterval(function(){
             Recommendations({% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
         }, 15000);
+
+
+        {% for show in next_episodes %}
+            InfoNextEpisode( {{ show.id_show }}, '{{ show.name }}', {{ show.season_number }}, {{ show.episode_number }});
+        {% endfor %}
+
+
 
         MyFollowingsRecientActivity('#recient-activity');
     });

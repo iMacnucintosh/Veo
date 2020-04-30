@@ -1,4 +1,8 @@
 /* ------------------ GENERAL ---------------------- */
+body {
+    background-color: #eceff41f;
+}
+
 .no-border {
     border: none;
 }
@@ -17,6 +21,14 @@
 
 .black-txt {
     color: black;
+}
+
+.article-radius {
+    border-radius: 12px;
+    box-shadow: 0px 0px 10px 6px #0000000f;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding-bottom: 15px !important;
 }
 
 /* ------------- SESSION STYLES -----------*/
@@ -94,6 +106,9 @@
     bottom: 1em;
     right: 1em;
     font-size: 12px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 20px;
 }
 
 /* ------------- MAIN STYLES ------------- */
@@ -209,6 +224,11 @@ header .header-navBar .img-profile {
     cursor:pointer;
 }
 
+.tabs {
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
 .tabs-fixed {
     position: fixed;
     top: -1px;
@@ -243,7 +263,7 @@ header .header-navBar .img-profile {
 }
 
 .title-section {
-    padding-left: 1em !important;
+    padding-left: .5em !important;
 }
 
 /* ---------------------- MAIN ---------------------- */
@@ -265,9 +285,7 @@ main {
 }
 
 .main-home {
-    padding-top: 0;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 15px;
 }
 
 .main-info {
@@ -396,8 +414,8 @@ main {
 
 /* --------------------- BOTTOM NAVBAR ---------------------- */
 footer nav {
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
 }
 
 footer {
@@ -617,6 +635,8 @@ footer .bottom-navBar > a {
     filter: brightness(50%);
     z-index: 0;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
+    opacity: .9;
 }
 
 .recommended-info {
@@ -688,12 +708,6 @@ footer .bottom-navBar > a {
         stroke-dasharray: 0 100;
     }
 }
-
-#recient-activity {
-    padding: 10px !important;
-    padding-top: 10px !important;
-}
-
 
 /* ------------------ MOVIES STYLES ------------------- */
 .infoPeticion {
@@ -1210,10 +1224,10 @@ footer .bottom-navBar > a {
 .activity-item {
     margin-bottom: 5px;
     display: flex;
-    padding-left: 10px;
-    padding-right: 20px;
-    padding-top: 5px;
-    border-bottom: 1px solid #333333;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    border-bottom: none !important;
     min-height: 82px;
     display: flex;
     align-items: center;
@@ -1230,7 +1244,6 @@ footer .bottom-navBar > a {
     border-radius: 3px;
     width: 50px;
 }
-
 
 .date-activity p {
     margin: 0;
@@ -1376,6 +1389,63 @@ footer .bottom-navBar > a {
 
 .recommended-poster img {
     border-radius: 6px !important;
+}
+
+.next-episode {
+    height: 82px;
+    display: flex;
+    align-items: end;
+    margin-bottom: 18px;
+}
+
+.next-episode > a {
+    height: 100%;
+}
+
+.episode-bg {
+    height: 100%;
+    border-radius: 6px;
+}
+
+.next-episode-content {
+    padding-left: 15px;
+    flex-grow: 1;
+}
+
+.next-episode-title {
+    padding-top: 3px;
+}
+
+.next-episode-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.next-episode h2 {
+    font-size: 18px;
+}
+
+.next-episode h3 {
+    font-size: 15px;
+    margin-top: 6px !important;
+}
+
+.next-episode h4 {
+    font-size: 12px;
+    margin-top: 2px !important;
+    margin-bottom: 2px !important;
+}
+
+.next-episode-actions {
+    height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-grow: 1;
+}
+
+.next-episode-info-r a{
+    border-radius: 20px;
 }
 
 @media only screen and (min-width: 435px) {

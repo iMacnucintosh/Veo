@@ -62,6 +62,10 @@ input:not([type]):focus:not([readonly])+label, input[type=text]:not(.browser-def
     color: #f44336;
 }
 
+.article-radius {
+    background-color: #272729;
+}
+
 /* ---------------- TOP NAVBAR -------------------------- */
 header .header-navBar .img-profile {
     /*box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);*/
