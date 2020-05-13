@@ -146,6 +146,27 @@ def home(request):
     }
     return render(request, "app/home.html", context=context)
 
+def seeEpisode(request):
+
+    id_show = request.POST["id_show"]
+    season_number = request.POST["season_number"]
+    episode_number = request.POST["episode_number"]
+
+    episode_to_seen = Episode.objects.filter(show=Show.objects.get(id_show=id_show, user=request.user), season_number=season_number, episode_number=episode_number, user=request.user)
+
+    if len(episode_to_seen) > 0:
+        episode_to_seen = episode_to_seen.first()
+        episode_to_seen.states.add(State.objects.get(id=1))
+        result = "ok"
+    else:
+        result = "error"
+
+    data = {
+        'result': result,
+    }
+
+    return JsonResponse(data)
+
 @login_required()
 def movies(request):
     profile = Profile.objects.get(user=request.user)

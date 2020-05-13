@@ -1444,7 +1444,7 @@ footer .bottom-navBar > a {
     flex-grow: 1;
 }
 
-.next-episode-info-r a{
+.next-episode-info-r button{
     border-radius: 20px;
 }
 

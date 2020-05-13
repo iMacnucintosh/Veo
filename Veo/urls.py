@@ -29,6 +29,7 @@ urlpatterns = [
 
     # HomePage
     url(r'^$', home),
+    url(r'^seeEpisode/$', seeEpisode),
 
     # Movies
     url(r'^movies/$', movies),

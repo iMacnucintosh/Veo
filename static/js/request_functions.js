@@ -125,6 +125,7 @@ function TmdbRequestFilter(selector_container, url, parameters, description_requ
     });
 }
 
+// Muestra en la página principal de veo los siguientes episodios por ver de tus series activas
 function InfoNextEpisode(id_show, name_show, season_number, episode_number){
     $.ajax({
         data: {
@@ -135,16 +136,38 @@ function InfoNextEpisode(id_show, name_show, season_number, episode_number){
         dataType: "json",
         url: "https://api.themoviedb.org/3/tv/"+id_show+"/season/"+season_number+"/episode/"+episode_number+"",
     }).done(function(data, textStatus, jqXHR) {
-
-       console.log(data);
-
-       $('#next-episodies').append('<article class="next-episode col s12"><a href="/show/' + id_show + '"><img class="episode-bg" src="https://image.tmdb.org/t/p/w227_and_h127_bestv2' + data.still_path + '"></a><div class="next-episode-content"><div class="next-episode-title"><h2 class="no-margin primary-color-txt">' + name_show + '</h2></div><div class="next-episode-info"><div class="next-episode-info-l"><h3 class="no-margin">Capítulo ' + episode_number + '</h3><h4 class="no-margin">Temporada ' + season_number + '</h4><a>Ver más</a></div><div class="next-episode-info-r"><a href="/show/' + id_show + '" class="btn primary-color"><i class="material-icons">visibility</i></a></div></div></div></article>');
+        console.log(data);
+       $('#next-episodies').append('<article class="next-episode col s12"><a href="/show/' + id_show + '/?season=' + season_number + '"><img class="episode-bg" src="https://image.tmdb.org/t/p/w227_and_h127_bestv2' + data.still_path + '"></a><div class="next-episode-content"><div class="next-episode-title"><a href="/show/' + id_show + '"><h2 class="no-margin primary-color-txt">' + name_show + '</h2></a></div><div class="next-episode-info"><div class="next-episode-info-l"><h3 class="no-margin">Capítulo ' + episode_number + '</h3><h4 class="no-margin">Temporada ' + season_number + '</h4><a onclick="showInfoPopup(\' '+ name_show +' - E' + episode_number + 'xT' + season_number + '\', \'' + data.overview + '\')">Ver más</a></div><div class="next-episode-info-r"><button onclick="seeEpisode('+id_show+','+season_number+','+episode_number+')" class="btn primary-color"><i class="material-icons">visibility</i></button></div></div></div></article>');
 
     }).fail(function( jqXHR, textStatus, errorThrown ) {
         console.error('La solicitud: Pelicula Recomendada, a fallado: ' +  textStatus);
     });
 }
 
+// Marca un episodio como visto desde la página principal de Veo
+
+function seeEpisode(id_show, season_number, episode_number){
+
+     var data = new FormData();
+        data.append('id_show', id_show);
+        data.append('season_number', season_number);
+        data.append('episode_number', episode_number);
+        $.ajax({
+            url: '/seeEpisode/',
+            type: 'POST',
+            mimeType: "multipart/form-data",
+            dataType: 'json',
+            processData: false,
+            contentType: false,
+            data: data,
+            success: function (response) {
+               M.toast({html: 'Capítulo marcado como visto'})
+               setTimeout(500);
+               location.reload();
+            }
+        });
+
+}
 
 // Return a specific number of random movies from your list
 function Recommendations(width_poster) {
@@ -505,6 +528,14 @@ function InformationShow(id, parameters, colorGenres, width_poster, user_logged)
 
         resizePosters();
 
+
+        var season_number = window.location.href.split("season=")[1];
+
+        if (season_number != undefined){
+            setTimeout(function(){
+                showSeasonInfo(season_number);
+            }, 500);
+        }
 
         // Last episode Air
 

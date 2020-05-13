@@ -204,3 +204,8 @@ function selectList(elemento, type, id_list) {
     $(elemento).children().addClass('list-selected');
     $('#btnAddToList').attr("onclick", "addToList(" + type + "," + id_list + ")");
 }
+
+// Muestra un popup con la sinopsis del capitulo siguiente por ver en la página principal de Veo
+function infoEpisode(overview){
+    alert(overview);
+}
