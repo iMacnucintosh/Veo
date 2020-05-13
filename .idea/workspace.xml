@@ -3,13 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="07020f31-8a76-45f1-a7cb-86f3cab66ea4" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Veo/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Veo/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/general_functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/general_functions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/request_functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/request_functions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/app/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -287,9 +282,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="390" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1581161607542" />
-    <state x="623" y="186" width="824" height="708" key="find.popup" timestamp="1589375435678">
+    <state x="623" y="191" width="824" height="641" key="find.popup" timestamp="1589392737232">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="623" y="186" width="824" height="708" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1589375435678" />
+    <state x="623" y="191" width="824" height="641" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1589392737232" />
   </component>
 </project>

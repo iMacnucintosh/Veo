@@ -1405,6 +1405,12 @@ footer .bottom-navBar > a {
 .episode-bg {
     height: 100%;
     border-radius: 6px;
+    transition: .2s;
+}
+
+.episode-bg:hover {
+    transform: scale(1.01);
+    filter: brightness(120%);
 }
 
 .next-episode-content {
@@ -1446,6 +1452,10 @@ footer .bottom-navBar > a {
 
 .next-episode-info-r button{
     border-radius: 20px;
+}
+
+.next-episode-info-l a {
+    cursor: pointer;
 }
 
 @media only screen and (min-width: 435px) {
