@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% include "includes/head.html" %}
+
+    <title>Veo | Perfil</title>
+
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+    <style>
+        #chartdiv {
+            width: 95%;
+            height: 300px;
+        }
+    </style>
+
+</head>
+<body>
+
+<header>
+    <nav class="header-navBar">
+
+        <div class="nav-wrapper search-field">
+            <form id="search">
+                <div class="input-field">
+                    <input id="txt-search" type="search" placeholder="Introduce el título a buscar" autofocus required>
+                    <i class="material-icons">close</i>
+                </div>
+            </form>
+        </div>
+
+        <div class="header-title">
+            <h1 id="title">{{ profile_visited.user.username }}</h1>
+        </div>
+
+        <div class="img-profile-container">
+            {% if profile_visited.getImage == "-" %}
+                <div class="img-profile-container">
+                    <div class="img-profile"><img src="{{ profile_visited.avatar.src }}" /></div>
+                </div>
+            {% else %}
+                <div class="img-profile-container">
+                    <div class="img-profile image" style="background-image: url(/{{ profile_visited.image }})"></div>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="search-container">
+            <a>
+                <i class="material-icons">search</i>
+            </a>
+        </div>
+
+    </nav>
+</header>
+<!-- Tabs -->
+<ul class="tabs">
+    <li class="tab col s3"><a class="tab-btn active" href="#home_profile">Resumen</a></li>
+    <li class="tab col s3"><a class="tab-btn" href="#activity">Actividad</a></li>
+    <li class="tab col s3"><a class="tab-btn" href="#lists">Listas</a></li>
+</ul>
+
+<main class="main-home">
+    <section id="home_profile" class="col s12 row no-margin">
+        <article class="stadistics-profile row no-margin">
+            <div class="col s6 m3">
+                <a class="statistic-profile-item deep-purple row no-margin tooltipped" data-position="bottom" data-tooltip="Películas Vistas">
+                    <span>{{ profile_visited.getMoviesSeen }}</span>
+                    <i class="material-icons">movie</i>
+                </a>
+            </div>
+
+            <div class="col s6 m3">
+                <a class="statistic-profile-item orange row no-margin tooltipped" data-position="bottom" data-tooltip="Series Vistas">
+                    <span>{{ profile_visited.getShowsSeen }}</span>
+                    <i class="material-icons">subscriptions</i>
+                </a>
+            </div>
+
+            <div class="col s6 m3">
+                <a class="statistic-profile-item teal row no-margin tooltipped" data-position="bottom" data-tooltip="Capítulos Vistos">
+                    <span>{{ profile_visited.getEpisodesSeen }}</span>
+                    <i class="material-icons">view_carousel</i>
+                </a>
+            </div>
+
+            <div class="col s6 m3">
+                <a class="statistic-profile-item blue row no-margin tooltipped" data-position="bottom" data-tooltip="Listas">
+                    <span>{{ profile_visited.getLists|length }}</span>
+                    <i class="material-icons">list</i>
+                </a>
+            </div>
+        </article>
+
+        <article class="col s12 title-section">
+            <h4>Actividad</h4>
+        </article>
+
+        <article class="chart-stadistics row no-margin">
+
+            <script>
+                am4core.ready(function() {
+
+
+                    am4core.useTheme(am4themes_animated);
+
+
+                    var chart = am4core.create("chartdiv", am4charts.XYChart);
+
+                    var data = [];
+                    {% for activity in activitys_dir %}
+                        data.push({date:new Date({{ activity.year }}, {{ activity.month }}, {{ activity.day }}), value: {{ activity.n_activitys }} });
+                    {% endfor %}
+
+                    chart.data = data;
+
+
+                    var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+                    dateAxis.renderer.minGridDistance = 60;
+
+                    var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+
+
+                    var series = chart.series.push(new am4charts.LineSeries());
+                    series.dataFields.valueY = "value";
+                    series.dataFields.dateX = "date";
+                    series.tooltipText = "{value}"
+                    series.tensionX = 0.77;
+                    series.tooltip.pointerOrientation = "vertical";
+
+
+                    chart.cursor = new am4charts.XYCursor();
+                    chart.cursor.snapToSeries = series;
+                    chart.cursor.xAxis = dateAxis;
+
+                });
+            </script>
+
+            <!-- HTML -->
+            <div id="chartdiv"></div>
+        </article>
+
+    </section>
+
+    <section id="activity" class="col s12 row no-margin">
+        {% for activity in activitys_summary %}
+
+            <div class="activity-item row no-margin">
+                <a href="{{ activity.getHref }}" class="poster-activity">
+                    <img src="{{ activity.getPosterPath }}" />
+                </a>
+                <div class="information-activity">
+                    <div class="col s12 date-activity no-padding">
+                        <p>{{ activity.getDate }}</p>
+                    </div>
+                    <div class="col s12 description-activity no-padding">
+                        <p>{{ activity.getDescription|safe }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+    </section>
+
+    <section id="lists" class="col s12 row no-margin">
+        {% if user_lists|length > 0 %}
+            <ul class="collection with-header col s12 no-border list-of-lists">
+
+                <li class="collection-header">
+                    <h4>
+                        {% if profile_visited == profile %}
+                            Tus Listas
+                            <button class="btn primary-color waves-effect right modal-trigger" href="#modalNewList">Nueva</button>
+                        {% else %}
+                            Listas
+                        {% endif %}
+                    </h4>
+                </li>
+
+                {% for list in user_lists %}
+                    <a href="/list/{{ list.id }}/"><li class="collection-item"><div>{{ list.name }}<div class="secondary-content"><i class="material-icons" style="color: {{ list.color }}">fiber_manual_record</i></div></div></li></a>
+                {% endfor %}
+            </ul>
+        {% else %}
+            {% if profile_visited == profile %}
+                <ul class="collection with-header col s12 no-border list-of-lists">
+
+                    <li class="collection-header">
+                        <h4>
+                            {% if profile_visited == profile %}
+                                Tus Listas
+                                <button class="btn primary-color waves-effect right modal-trigger" href="#modalNewList">Nueva</button>
+                            {% else %}
+                                Listas
+                            {% endif %}
+                        </h4>
+                    </li>
+
+                    <li class="collection-item no-lists">Aún no has creado ninguna lista</li>
+                </ul>
+            {% else %}
+                <p class="infoPeticion">Este usuario aún no ha creado ninguna lista</p>
+            {% endif %}
+        {% endif %}
+
+        <!-- Modal New List -->
+        <div id="modalNewList" class="modal">
+            <div class="modal-content">
+                <h4>Nueva Lista</h4>
+                <div class="row">
+                    <div class="col s12 input-field">
+                        <input id="txt_name_new_list" type="text" class="validate">
+                        <label for="txt_name_new_list">Nombre</label>
+                    </div>
+
+                    <div class="col s12 list-colors">
+                        <div class="color red"><i class="material-icons">done</i></div>
+                        <div class="color blue"><i class="material-icons">done</i></div>
+                        <div class="color pink"><i class="material-icons">done</i></div>
+                        <div class="color green"><i class="material-icons">done</i></div>
+                        <div class="color yellow"><i class="material-icons">done</i></div>
+                        <div class="color orange"><i class="material-icons">done</i></div>
+                        <div class="color deep-purple"><i class="material-icons">done</i></div>
+                        <div class="color lime"><i class="material-icons">done</i></div>
+                        <div class="color cyan"><i class="material-icons">done</i></div>
+                        <div class="color teal"><i class="material-icons">done</i></div>
+                        <div class="color indigo"><i class="material-icons">done</i></div>
+                        <div class="color brown"><i class="material-icons">done</i></div>
+                        <div class="color purple"><i class="material-icons">done</i></div>
+                        <div class="color blue-grey"><i class="material-icons">done</i></div>
+                        <div class="color black"><i class="material-icons">done</i></div>
+                        <div class="color light-blue"><i class="material-icons">done</i></div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer flex-end">
+                <button class="modal-close waves-effect waves-green btn-flat">Cancelar</button>
+                <button onclick="newList({{ profile.user.id }})" class="modal-close waves-effect waves-green btn-flat">Crear</button>
+            </div>
+        </div>
+    </section>
+
+    <div id="home-shows-active" class="col s12 row no-margin"></div>
+</main>
+
+<div class="gif-loading">
+    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+</div>
+
+<!-- Loading Gif -->
+<section class="loading-container">
+    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+</section>
+
+
+
+{% if profile == profile_visited %}
+    {% include "includes/bottom_navbar.html" %}
+{% else %}
+    <!-- Button navbar-->
+    <footer>
+        <nav class="bottom-navBar row no-margin">
+            <a href="/" id="nav-home">
+                <i class="material-icons">home</i>
+                <p>Inicio</p>
+            </a>
+            <a href="/movies" id="nav-movies" onclick="localStorage.setItem('active_tab', '#movies_popularity')">
+                <i class="material-icons">movie</i>
+                <p>Películas</p>
+            </a>
+            <a href="/shows" id="nav-shows" onclick="localStorage.setItem('active_tab', '#shows_popularity')">
+                <i class="material-icons">subscriptions</i>
+                <p>Series</p>
+            </a>
+            <a href="/social" id="nav-social">
+                <i class="material-icons">group</i>
+                <p>Social</p>
+                {% if unread_recommendations > 0 %}
+                    <div class="recommendations-unread">{{ unread_recommendations }}</div>
+                {% endif %}
+            </a>
+            <a href="/profile/{{ profile.user.id }}/" id="nav-profile">
+                <i class="material-icons">person</i>
+                <p>Perfil</p>
+            </a>
+        </nav>
+    </footer>
+{% endif %}
+
+{% include "includes/body_end.html" %}
+
+<script>
+
+    $(document).ready(function(){
+        $('#nav-profile').addClass("nav-active");
+        {% if profile.celularDataSavings == True %} localStorage.setItem("width_poster", "200"); {% else %} localStorage.setItem("width_poster", "400"); {% endif %}
+
+        /* ---------------------------------- PERSONAL DATABASE ----------------------------------------------------- */
+        $('.gif-loading').fadeOut(100);
+        $("main").addClass("main-active");
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% include "includes/head.html" %}
+
+    <title>Veo | Serie</title>
+
+</head>
+<body>
+<header>
+    <nav class="header-navBar">
+        <div class="header-title no-padding-sides">
+            <h1 id="title"></h1>
+        </div>
+
+        <div class="btn-back-list">
+            <div><i class="material-icons">keyboard_arrow_left</i></div>
+        </div>
+    </nav>
+</header>
+
+<!-- Tabs -->
+<ul class="tabs">
+    <li class="tab col s3"><a class="tab-btn active" href="#information">Información</a></li>
+    <li class="tab col s3"><a class="tab-btn" href="#related">Similares</a></li>
+    <li class="tab col s3"><a class="tab-btn" href="#recommendations">Recomendadas</a></li>
+    <li class="tab col s3"><a class="tab-btn" href="#images">Imágenes</a></li>
+</ul>
+
+<main class="main-info">
+    <div id="information" class="col s12">
+        <div class="backdrop-container">
+            <div id="backdrop-image"></div>
+            <img id="poster-img" class="col s3" />
+            <a class="btn-trailer waves-effect waves-light btn" target="_blank"><i class="material-icons left">theaters</i>Ver Tráiler</a>
+
+            {% if not profile == None %}
+                <div class="fixed-action-btn ">
+                    <a class="btn-floating btn-large red">
+                        <i class="large material-icons">person_add</i>
+                    </a>
+                    <ul>
+                        <li><a class="btn-floating red modal-trigger" href="#modalShare"><i class="material-icons">share</i></a></li>
+                        <li><a class="btn-floating indigo modal-trigger" href="#modalAddToList"><i class="material-icons">sort</i></a></li>
+                        <li><a class="btn-floating green"><img class="seen" src="/static/images/not_seen.png" onclick="setShowToSeen(this)" /></a></li>
+                        <li><a class="btn-floating pink lighten-1"><i class="material-icons toSee" onclick="addShowToSee(this)">playlist_add</i></a></li>
+                    </ul>
+                </div>
+            {% endif %}
+
+        </div>
+        <div class="primary-information">
+            <p id="sinopsis"></p>
+        </div>
+
+        <div class="secondary-information row no-margin">
+            <div id="genres" class="col s12 row no-margin no-padding"></div>
+            <h4 id="date-release" class="col s12"></h4>
+            <div class="average-container col s12 row no-margin">
+                <div id="average-count-num" class="col s1"></div>
+                <div class="col s11 no-padding">
+                    <div class="average-count-container">
+                        <div id="average-count-bar"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="seasons" class="row no-margin">
+            <h3 class="title-section">Temporadas</h3>
+            <div class="col s12 row no-margin" id="seasons-posters-list"></div>
+        </div>
+
+        <h3 class="col s12 title-section">Reparto</h3>
+        <div class="cast-container col s12">
+            <div id="cast" class="col s12 row no-margin"></div>
+        </div>
+
+        <div id="last-episode-air" class="row col s12 no-margin"></div>
+
+    </div>
+
+    <div id="related" class="col s12 row no-margin"></div>
+    <div id="recommendations" class="col s12 row no-margin"></div>
+    <div id="images" class="col s12 row no-margin"></div>
+
+    <!-- Modal AddToList -->
+    <div id="modalAddToList" class="modal">
+        <div class="modal-content">
+            <ul class="collection with-header col s12 no-border list-of-lists">
+                <li class="collection-header"><h4>Tus Listas <button class="btn primary-color waves-effect right modal-trigger" href="#modalNewList">Nueva</button></h4></li>
+                {% for list in profile.getLists %}
+                    <a onclick="selectList(this, 2, {{ list.id }})"><li class="collection-item"><div>{{ list.name }}<div class="secondary-content"><i class="material-icons" style="color: {{ list.color }}">fiber_manual_record</i></div></div></li></a>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="modal-footer flex-end">
+            <a class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
+            <a id="btnAddToList" onclick="M.toast({html: 'Debes seleccionar una lista'});" class="modal-close waves-effect waves-green btn-flat">Añadir</a>
+        </div>
+    </div>
+
+    <!-- Modal modalShare -->
+    <div id="modalShare" class="modal">
+        <div class="modal-content">
+            <h4>Amigos</h4>
+            <div class="list-friends">
+                {% for friend in profile.getFriends %}
+                    {% if not friend.getImage == "-" %}
+                        <div class="friend" id="friend_{{ friend.id }}">
+                            <div class="img-recommendation" style="background-image: url(/{{ friend.image }})"></div>
+                            <p><b>{{ friend.user.username }}</b></p>
+                        </div>
+                    {% else %}
+                        <div class="friend" id="friend_{{ friend.id }}">
+                            <img src="{{ friend.avatar.src }}">
+                            <p><b>{{ friend.user.username }}</b></p>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="modal-footer flex-end">
+            <a class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
+            <a id="btnAddToList" onclick="shareWithFriends('show')" class="modal-close waves-effect waves-green btn-flat">Compartir</a>
+        </div>
+    </div>
+
+    <!-- Modal New List -->
+    <div id="modalNewList" class="modal">
+        <div class="modal-content">
+            <h4>Nueva Lista</h4>
+            <div class="row">
+                <div class="col s12 input-field">
+                    <input id="txt_name_new_list" type="text" class="validate">
+                    <label for="txt_name_new_list">Nombre</label>
+                </div>
+
+                <div class="col s12 list-colors">
+                    <div class="color red"><i class="material-icons">done</i></div>
+                    <div class="color blue"><i class="material-icons">done</i></div>
+                    <div class="color pink"><i class="material-icons">done</i></div>
+                    <div class="color green"><i class="material-icons">done</i></div>
+                    <div class="color yellow"><i class="material-icons">done</i></div>
+                    <div class="color orange"><i class="material-icons">done</i></div>
+                    <div class="color deep-purple"><i class="material-icons">done</i></div>
+                    <div class="color lime"><i class="material-icons">done</i></div>
+                    <div class="color cyan"><i class="material-icons">done</i></div>
+                    <div class="color teal"><i class="material-icons">done</i></div>
+                    <div class="color indigo"><i class="material-icons">done</i></div>
+                    <div class="color brown"><i class="material-icons">done</i></div>
+                    <div class="color purple"><i class="material-icons">done</i></div>
+                    <div class="color blue-grey"><i class="material-icons">done</i></div>
+                    <div class="color black"><i class="material-icons">done</i></div>
+                    <div class="color light-blue"><i class="material-icons">done</i></div>
+                </div>
+
+            </div>
+        </div>
+        <div class="modal-footer flex-end">
+            <button class="modal-close waves-effect waves-green btn-flat">Cancelar</button>
+            <button onclick="newList({{ profile.user.id }}, true, 1)" class="modal-close waves-effect waves-green btn-flat">Crear</button>
+        </div>
+    </div>
+
+</main>
+
+<div class="gif-loading">
+    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+</div>
+
+{% include "includes/bottom_navbar.html" %}
+{% include "includes/body_end.html" %}
+
+<script>
+    $(document).ready(function(){
+        $('#nav-shows').addClass("nav-active");
+
+        {% if profile == None %} // Usuario anónimo
+            localStorage.setItem("width_poster", "200");
+            // Información de la Serie
+            InformationShow({{id}}, {"language":"es-ES"}, true, 200, false);
+
+        {% else %} // Usuario registrado
+            {% if profile.celularDataSavings == True %} localStorage.setItem("width_poster", "200"); {% else %} localStorage.setItem("width_poster", "400"); {% endif %}
+
+            // Información de la Serie
+            InformationShow({{id}}, {"language":"es-ES"}, {% if profile.colorGenres == True %}true{% else %}false{% endif %}, {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %}, true);
+
+        {% endif %}
+
+    });
+</script>
+
+</body>
+</html>

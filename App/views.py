@@ -112,7 +112,7 @@ def home(request):
         if len(next_episode) > 0:
             next_episode = next_episode.first()
 
-            next_episodes.append({"id_show":next_episode.show.id_show, "name": show.name, "season_number": next_episode.season_number, "episode_number": next_episode.episode_number})
+        next_episodes.append({"id_show":next_episode.show.id_show, "name": show.name, "season_number": next_episode.season_number, "episode_number": next_episode.episode_number})
 
 
     activitys = Activity.objects.all().order_by("-date_add")[:300]

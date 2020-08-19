@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es" class="all-height">
+<head>
+    {% include "includes/head.html" %}
+    <title>Veo | Iniciar Sesión</title>
+
+</head>
+<body class="all-height">
+
+<main class="row session-main">
+    <section class="col s12 l10 offset-l1">
+        <article class="top-session col s12 m6">
+            <div class="logo-session-container">
+                <div class="iconLoginVeoContainer">
+                    <div class="iconLoginVeo">
+                        <img class="veoBrightness" src="/static/images/veoBrillo.png" />
+                        <img class="veoEye" src="/static/images/veoOjo.png" />
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="bottom-session col s12 m6">
+            <div class="form-login-container">
+                <form class="col s12" action="/login/" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">account_circle</i>
+                            {{ form.username }}
+                            <label for="id_username">Usuario</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">lock</i>
+                            {{ form.password }}
+                            <label for="id_password">Contraseña</label>
+                        </div>
+
+                        <p class="session-error" class="txt-error col s12">
+                            <b>{{ message }}</b></p>
+
+                        <div class="col s12 btn-submit-login">
+                            <button class="col s8 offset-s4 btn waves-effect waves-light" type="submit" name="action">Iniciar Sesión</button>
+                        </div>
+                    </div>
+                </form>
+                <p class="account-change-mode col s12">Si todavía no estás registrado, puedes hacerlo <a href="/signin">aquí</a></p>
+            </div>
+            <p class="author">Diseñado por <b>Manuel López Mallorquín</b></p>
+        </article>
+    </section>
+</main>
+
+{% include "includes/body_end.html" %}
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("main").addClass("main-active");
+    });
+</script>
+</body>
+</html>

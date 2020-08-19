@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es" >
+<head>
+    {% include "includes/head.html" %}
+
+    <title>Veo | Registrarse</title>
+
+</head>
+<body>
+
+<main class="row session-main">
+    <section class="col s12 l10 offset-l1">
+        <article class="top-session col s12 m6">
+            <div class="logo-session-container">
+                <div class="iconLoginVeoContainer">
+                    <div class="iconLoginVeo">
+                        <img class="veoBrightness" src="/static/images/veoBrillo.png" />
+                        <img class="veoEye" src="/static/images/veoOjo.png" />
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="bottom-session col s12 m6">
+            <div class="form-login-container">
+                <form class="col s12" action="/signin/" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">assignment_ind</i>
+                            {{ form.first_name }}
+                            <label for="id_first_name">Nombre</label>
+                        </div>
+
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">perm_identity</i>
+                            {{ form.last_name }}
+                            <label for="id_last_name">Apellidos</label>
+                        </div>
+
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">email</i>
+                            {{ form.email_address }}
+                            <label for="id_email_address">Email</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">account_circle</i>
+                            {{ form.username }}
+                            <label for="id_username">Usuario</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">lock</i>
+                            {{ form.password }}
+                            <label for="id_password">Contraseña</label>
+                        </div>
+
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">refresh</i>
+                            {{ form.repassword }}
+                            <label for="id_repassword">Repite tu contraseña</label>
+                        </div>
+
+                        <p class="session-error" class="txt-error col s12">
+                            <b>{{ message }}</b></p>
+
+                        <div class="col s12 btn-submit-login">
+                            <button class="col s8 offset-s4 btn waves-effect waves-light" type="submit" name="action">Registrarse</button>
+                        </div>
+                    </div>
+                </form>
+                <p class="account-change-mode col s12">¿Ya tienes una cuenta?, inicia sesión <a href="/login">aquí</a></p>
+            </div>
+        </article>
+    </section>
+</main>
+
+{% include "includes/body_end.html" %}
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("main").addClass("main-active");
+    });
+</script>
+
+<!-- Si el nombre de usuario no esta disponible limpiamos el campo username y establecemos ahi el foco -->
+{% if code_error == 2 %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#id_username').val("").focus();
+        });
+    </script>
+{% endif %}
+
+</body>
+</html>

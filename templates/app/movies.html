@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% include "includes/head.html" %}
+
+    <title>Veo | Películas</title>
+
+</head>
+<body>
+{% include "includes/header_navbar.html" %}
+
+<!-- Tabs -->
+<ul class="tabs">
+    <li class="tab col s3"><a class="tab-btn active" href="#movies_popularity">Populares</a></li>
+    <li class="tab col s3"><a class="tab-btn" href="#movies_vote_count">Más Votadas</a></li>
+    <li class="tab col s3"><a class="tab-btn" href="#movies_theatres">Cines</a></li>
+    <li class="tab col s3"><a class="tab-btn" href="#movies_pending">Pendientes</a></li>
+    <li class="tab col s3"><a class="tab-btn" href="#movies_seen">Vistas</a></li>
+</ul>
+
+<main>
+    <section id="movies_popularity" class="col s12 row no-margin"></section>
+    <section id="movies_vote_count" class="col s12 row no-margin"></section>
+    <section id="movies_theatres" class="col s12 row no-margin"></section>
+    <section id="movies_pending" class="col s12 row no-margin"></section>
+    <section id="movies_seen" class="col s12 row no-margin"></section>
+
+    <div class='info-popup'>
+        <div class='info-popup-main'>
+            <h5 class="info-popup-title no-margin"></h5>
+            <p class="info-popup-overview"></p>
+            <button class="waves-effect waves-teal btn-flat right info-popup-btn">Aceptar</button>
+        </div>
+    </div>
+
+</main>
+
+<div class="gif-loading">
+    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+</div>
+
+{% include "includes/bottom_navbar.html" %}
+{% include "includes/body_end.html" %}
+
+<script>
+
+    $(document).ready(function(){
+        $('#title').text("Películas");
+        $('#nav-movies').addClass("nav-active");
+
+        $('.search-field form').attr("action", "/search");
+
+        {% if profile.celularDataSavings == True %} localStorage.setItem("width_poster", "200"); {% else %} localStorage.setItem("width_poster", "400"); {% endif %}
+
+
+        /* --------------------------------- THE MOVIE DATABASE ----------------------------------------------------- */
+
+        // Más Populares
+        TmdbRequestFilter('#movies_popularity', "https://api.themoviedb.org/3/discover/movie", {"language":"es-ES", "sort_by":"popularity.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":page_request_movies_popularity}, "Peliculas Populares","movie", {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
+
+        // Más Votadas
+        TmdbRequestFilter('#movies_vote_count', "https://api.themoviedb.org/3/discover/movie", {"language":"es-ES", "sort_by":"vote_count.desc", "without_genres": "16", "include_null_first_air_dates":"false.desc", "page":page_request_movies_vote_count}, "Peliculas mejor Votadas","movie", {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
+
+        // En Cines
+        TmdbRequestFilter('#movies_theatres', "https://api.themoviedb.org/3/movie/now_playing", {"language":"es-ES", "page":page_request_movies_now_playing, "region": "ES"}, "Peliculas En Cartelera de Cines", "movie", {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
+
+
+        /* ---------------------------------- PERSONAL DATABASE ----------------------------------------------------- */
+
+        // Mis Películas por ver
+        MyMoviesToSee('#movies_pending', {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
+
+        // Mis Películas Vistas
+        MyMoviesSeen('#movies_seen', {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
+
+        if(localStorage.getItem("active_tab") == null){
+            localStorage.setItem("active_tab", "#movies_popularity");
+        }
+
+    });
+
+</script>
+
+</body>
+</html>
