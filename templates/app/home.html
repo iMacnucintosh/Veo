@@ -1,177 +1,120 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    {% include "includes/head.html" %}
 
-    <title>Veo</title>
+    <title>TheRules</title>
 
-    <script src="https://www.amcharts.com/lib/4/core.js"></script>
-    <script src="https://www.amcharts.com/lib/4/charts.js"></script>
-    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/static/images/favicon.png" type="image/x-icon">
 
-    <style>
-        #chartdiv {
-            width: 95%;
-            height: 250px;
-        }
-        .chart-stadistics {
-            height: 285px;
-        }
-    </style>
+    <!---------------------------------------- Responsive and Theme ------------------------------------------------------->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="white">
+
+    <!-- Para que parezca una app nativa de IOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+
+    <!-- Para que parezca una app nativa de Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <meta name="mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Google Icons -->
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+
+    <!-- Styles -->
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet"/>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Materialize JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Six+Caps&family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
+
 </head>
 <body>
-{% include "includes/header_navbar.html" %}
-
-<!-- Tabs -->
-<ul class="tabs">
-    <li class="tab col s3"><a class="tab-btn active" href="#home_portada">Portada</a></li>
-    <li class="tab col s3"><a class="tab-btn" href="#home-movies-pending">Películas Pendientes</a></li>
-    <li class="tab col s3"><a class="tab-btn" href="#home-shows-active">Series Activas</a></li>
-</ul>
-
-<main class="main-home">
-    <section id="home_portada" class="col s12 row no-margin ">
-
-        <article id="recommended" class="col s12 no-padding"></article>
-
-         <article class="article-radius col s12">
-            <article class="col s12 title-section">
-                    <h4>Sigue viendo</h4>
-                </article>
-                <article id="next-episodies" class="col s12 no-padding">
-
-                    <!--<p>{{ next_episodes }}</p>-->
-
-                    <!--
-                     <article class="next-episode col s12">
-                        <a><img class="episode-bg" src="https://image.tmdb.org/t/p/w227_and_h127_bestv2/oT8x1r5S5QYGGUNqaZ9IIBS81s2.jpg"></a>
-
-                         <div class="next-episode-content">
-                            <div class="next-episode-title">
-                                <h2 class="no-margin primary-color-txt">Supernatural</h2>
-                            </div>
-                             <div class="next-episode-info">
-                                 <div class="next-episode-info-l">
-                                     <h3 class="no-margin">Capítulo 10</h3>
-                                     <h4 class="no-margin">Temporada 6</h4>
-                                     <a>Ver más</a>
-                                 </div>
-                                 <div class="next-episode-info-r">
-                                    <button class="btn primary-color"><i class="material-icons">visibility</i></button>
-                                 </div>
-                            </div>
-                         </div>
-                    </article>
--->
-            </article>
-        </article>
-
-        <article class="article-radius col s12">
-            <article class="col s12 title-section">
-                    <h4>Actividad</h4>
-                </article>
-            <article id="recient-activity" class="col s12 no-padding"></article>
-        </article>
-
-        <article class="article-radius col s12">
-            <article class="col s12 title-section">
-                <h4>Estadísticas</h4>
-            </article>
-            <article class="chart-stadistics col s12">
-
-                <script>
-                    am4core.ready(function() {
-                        am4core.useTheme(am4themes_animated);
-
-                        var chart = am4core.create("chartdiv", am4charts.XYChart);
-
-                        var data = [];
-                        {% for activity in activitys_veo %}
-                            data.push({date:new Date({{ activity.year }}, {{ activity.month }}, {{ activity.day }}), value: {{ activity.n_activitys }} });
-                        {% endfor %}
-
-                        chart.data = data;
-
-
-                        var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
-                        dateAxis.renderer.minGridDistance = 60;
-
-                        var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-
-
-                        var series = chart.series.push(new am4charts.LineSeries());
-                        series.dataFields.valueY = "value";
-                        series.dataFields.dateX = "date";
-                        series.tooltipText = "{value}"
-                        series.tensionX = 0.77;
-                        series.tooltip.pointerOrientation = "vertical";
-
-
-                        chart.cursor = new am4charts.XYCursor();
-                        chart.cursor.snapToSeries = series;
-                        chart.cursor.xAxis = dateAxis;
-
-                    });
-                </script>
-                <div id="chartdiv"></div>
-            </article>
-        </article>
-
-    </section>
-
-    <section id="home-movies-pending" class="col s12 row no-margin"></section>
-    <div id="home-shows-active" class="col s12 row no-margin"></div>
-
-    <div class='info-popup'>
-        <div class='info-popup-main'>
-            <h5 class="info-popup-title no-margin"></h5>
-            <p class="info-popup-overview"></p>
-            <button class="waves-effect waves-teal btn-flat right info-popup-btn">Aceptar</button>
+<main>
+    <header>
+        <div class="left-top corner waves-effect waves-light">
+            <i class="material-icons">format_list_bulleted</i>
         </div>
-    </div>
+        <div class="right-top corner waves-effect waves-light">
+            <i class="material-icons">settings</i>
+        </div>
+    </header>
+    <main>
+        <section class="logo">TheRules</section>
+        <section class="players">
+            <article class="setup">
+                <i class="material-icons">group</i>
+                <p>Seleccione número de jugadores</p>
+            </article>
+            <article class="players-picker">
+                <div class="remove-player waves-effect waves-light"><i class="material-icons">remove</i></div>
+                <div class="player-count">2</div>
+                <div class="add-player waves-effect waves-light"><i class="material-icons">add</i></div>
+            </article>
+        </section>
 
+
+        <section class="rules">
+
+            <article class="header-rules-list">
+                <h1>Active Reglas</h1>
+                <div><i class="material-icons">close</i></div>
+            </article>
+
+            <article class="rules-list">
+                <div class="rule row">
+                    <div class="col s3 no-padding"><div class="rule-image"></div></div>
+
+                    <div class="rule-info col s6">
+                        <h1>Nombre Regla</h1>
+                        <h2>Breve descripción de la regla</h2>
+                    </div>
+                    <div class="rule-switch col s3">
+                        <div class="switch">
+                            <label>
+                                <input type="checkbox">
+                                <span class="lever"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="rule row">
+                    <div class="col s3 no-padding"><div class="rule-image"></div></div>
+
+                    <div class="rule-info col s6">
+                        <h1>Nombre Regla</h1>
+                        <h2>Breve descripción de la regla</h2>
+                    </div>
+                    <div class="rule-switch col s3">
+                        <div class="switch">
+                            <label>
+                                <input type="checkbox">
+                                <span class="lever"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+
+        </section>
+
+    </main>
 </main>
 
-<div class="gif-loading">
-    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-</div>
 
-{% include "includes/bottom_navbar.html" %}
-{% include "includes/body_end.html" %}
-
-<script>
-
-    $(document).ready(function(){
-        $('#title').text("Hola {{ user.first_name }}");
-        $('#nav-home').addClass("nav-active");
-
-        {% if profile.celularDataSavings == True %} localStorage.setItem("width_poster", "200"); {% else %} localStorage.setItem("width_poster", "400"); {% endif %}
-
-        /* ---------------------------------- PERSONAL DATABASE ----------------------------------------------------- */
-
-        // Mis Películas por ver
-        MyMoviesToSee('#home-movies-pending', {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
-
-        // Mis Series activas
-        MyActiveShows('#home-shows-active', {% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
-
-        Recommendations({% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
-
-        setInterval(function(){
-            Recommendations({% if profile.celularDataSavings == True %} 200 {% else %} 400 {% endif %});
-        }, 15000);
-
-
-        {% for show in next_episodes %}
-            InfoNextEpisode( {{ show.id_show }}, '{{ show.name }}', {{ show.season_number }}, {{ show.episode_number }});
-        {% endfor %}
-
-
-
-        MyFollowingsRecientActivity('#recient-activity');
-    });
-
-</script>
+<script type="text/javascript" src="/static/js/general_functions.js"></script>
+<script type="text/javascript" src="/static/js/startapp.js"></script>
 
 </body>
 </html>
