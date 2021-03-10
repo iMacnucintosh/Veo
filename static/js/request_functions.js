@@ -8,7 +8,6 @@ function infoFor(type, id){
     location.assign("/" + type + "/" + id);
 }
 
-
 // Return a list with Movies or Shows with the parameters you has specified
 function TmdbRequestFilter(selector_container, url, parameters, description_request, info_for, width_poster){
 
@@ -136,8 +135,8 @@ function InfoNextEpisode(id_show, name_show, season_number, episode_number){
         dataType: "json",
         url: "https://api.themoviedb.org/3/tv/"+id_show+"/season/"+season_number+"/episode/"+episode_number+"",
     }).done(function(data, textStatus, jqXHR) {
-        console.log(data);
-       $('#next-episodies').append('<article class="next-episode col s12"><a href="/show/' + id_show + '/?season=' + season_number + '"><img class="episode-bg" src="https://image.tmdb.org/t/p/w227_and_h127_bestv2' + data.still_path + '"></a><div class="next-episode-content"><div class="next-episode-title"><a href="/show/' + id_show + '"><h2 class="no-margin primary-color-txt">' + name_show + '</h2></a></div><div class="next-episode-info"><div class="next-episode-info-l"><h3 class="no-margin">Capítulo ' + episode_number + '</h3><h4 class="no-margin">Temporada ' + season_number + '</h4><a onclick="showInfoPopup(\' '+ name_show +' - E' + episode_number + 'xT' + season_number + '\', \'' + data.overview + '\')">Ver más</a></div><div class="next-episode-info-r"><button onclick="seeEpisode('+id_show+','+season_number+','+episode_number+')" class="btn primary-color"><i class="material-icons">visibility</i></button></div></div></div></article>');
+
+        $('#next-episodies').append('<article class="next-episode col s12"><a href="/show/' + id_show + '/?season=' + season_number + '"><img class="episode-bg" src="https://image.tmdb.org/t/p/w227_and_h127_bestv2' + data.still_path + '"></a><div class="next-episode-content"><div class="next-episode-title"><a href="/show/' + id_show + '"><h2 class="no-margin primary-color-txt">' + name_show + '</h2></a></div><div class="next-episode-info"><div class="next-episode-info-l"><h3 class="no-margin">Capítulo ' + episode_number + '</h3><h4 class="no-margin">Temporada ' + season_number + '</h4><a onclick="showInfoPopup(\' '+ name_show +' - E' + episode_number + 'xT' + season_number + '\', \'' + data.overview + '\')">Ver más</a></div><div class="next-episode-info-r"><button onclick="seeEpisode('+id_show+','+season_number+','+episode_number+')" class="btn primary-color"><i class="material-icons">visibility</i></button></div></div></div></article>');
 
     }).fail(function( jqXHR, textStatus, errorThrown ) {
         console.error('La solicitud: Pelicula Recomendada, a fallado: ' +  textStatus);
@@ -148,24 +147,24 @@ function InfoNextEpisode(id_show, name_show, season_number, episode_number){
 
 function seeEpisode(id_show, season_number, episode_number){
 
-     var data = new FormData();
-        data.append('id_show', id_show);
-        data.append('season_number', season_number);
-        data.append('episode_number', episode_number);
-        $.ajax({
-            url: '/seeEpisode/',
-            type: 'POST',
-            mimeType: "multipart/form-data",
-            dataType: 'json',
-            processData: false,
-            contentType: false,
-            data: data,
-            success: function (response) {
-               M.toast({html: 'Capítulo marcado como visto'})
-               setTimeout(500);
-               location.reload();
-            }
-        });
+    var data = new FormData();
+    data.append('id_show', id_show);
+    data.append('season_number', season_number);
+    data.append('episode_number', episode_number);
+    $.ajax({
+        url: '/seeEpisode/',
+        type: 'POST',
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (response) {
+            M.toast({html: 'Capítulo marcado como visto'})
+            setTimeout(500);
+            location.reload();
+        }
+    });
 
 }
 
@@ -195,7 +194,7 @@ function Recommendations(width_poster) {
             if(movie.poster_path != null){
                 var recommended_movie_str = '<div class="backdrop-recommend"  style="background-image: url(https://image.tmdb.org/t/p/w500' + movie.backdrop_path + ')"></div>\
                     <a href="/movie/' + movie.id + '" class="poster-item list recommended-poster col s4 m3 l2 no-padding box-shadow">\
-                        <img src="https://image.tmdb.org/t/p/w' + width_poster + movie.poster_path + '" class="shadow"/>\
+                        <img alt="movie" rel="' + movie.id + '" onerror="errorImg(this)" src="https://image.tmdb.org/t/p/w' + width_poster + movie.poster_path + '" class="shadow"/>\
                     </a>\
                     <div class="recommended-info col s8 m9 l10 offset-s4 offset-m3 offset-l2">\
                         <h1 style="'+title_style+'">' + movie.title + '</h1>\
@@ -990,7 +989,7 @@ function MyMoviesToSee(selector, width_poster){
 
                     var poster_str = "\
                 <a href='/movie/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
-                    <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
+                    <img alt='movie' rel='" + poster_i.id + "' onerror='errorImg(this)' src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
                  </a>\
                 ";
                     $(selector).append(poster_str);
@@ -1002,6 +1001,48 @@ function MyMoviesToSee(selector, width_poster){
 
         }
     });
+}
+
+function errorImg(img){
+    var type = $(img).attr("alt");
+    var media_id = $(img).attr("rel");
+
+    if(type == "movie") {
+        var url = "https://api.themoviedb.org/3/movie/" + media_id
+    }else{
+        var url = "https://api.themoviedb.org/3/tv/" + media_id
+    }
+
+    $.ajax({
+        data: {"language":"es-ES", "api_key": api_key},
+        type: "GET",
+        dataType: "json",
+        url: url
+    }).done(function(media, textStatus, jqXHR) {
+        _media = media;
+
+        var data = new FormData();
+        data.append("media_id", media_id);
+        data.append("type", type);
+        data.append("poster_path", _media.poster_path);
+
+        $.ajax({
+            url: '/updateMediaPoster/',
+            type: 'POST',
+            mimeType: "multipart/form-data",
+            dataType: 'json',
+            processData: false,
+            contentType: false,
+            data: data,
+            success: function (dataUpdate) {
+                $('img[rel="'+dataUpdate.results.media_id+'"]').attr("src", "https://image.tmdb.org/t/p/w200" + dataUpdate.results.poster_path);
+            }
+        });
+
+    }).fail(function( jqXHR, textStatus, errorThrown ) {
+        console.error('La solicitud: Actualización del poster, ha fallado: ' +  textStatus);
+    });
+
 }
 
 function MyMoviesSeen(selector, width_poster){
@@ -1024,7 +1065,7 @@ function MyMoviesSeen(selector, width_poster){
 
                     var poster_str = "\
                 <a href='/movie/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
-                    <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
+                    <img alt='movie' rel='" + poster_i.id + "' onerror='errorImg(this)' src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
                  </a>\
                 ";
                     $(selector).append(poster_str);
@@ -1163,7 +1204,7 @@ function MyActiveShows(selector, width_poster){
                     poster_i = data.results[i];
                     var poster_str = "\
                         <a href='/show/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
-                            <img src='https://image.tmdb.org/t/p/w"+ width_poster + poster_i.poster_path + "' />\
+                            <img alt='show' rel='" + poster_i.id + "' onerror='errorImg(this)' src='https://image.tmdb.org/t/p/w"+ width_poster + poster_i.poster_path + "' />\
                          </a>\
                         ";
                     $(selector).append(poster_str);
@@ -1197,7 +1238,7 @@ function MyForgottenShows(selector, width_poster){
                     poster_i = data.results[i];
                     var poster_str = "\
                         <a href='/show/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
-                            <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
+                            <img alt='show' rel='" + poster_i.id + "' onerror='errorImg(this)' src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
                          </a>\
                         ";
                     $(selector).append(poster_str);
@@ -1327,7 +1368,7 @@ function MyShowsSeen(selector, width_poster){
                     poster_i = data.results[i];
                     var poster_str = "\
                         <a href='/show/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
-                            <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
+                            <img alt='show' rel='" + poster_i.id + "' onerror='errorImg(this)' src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
                          </a>\
                         ";
                     $(selector).append(poster_str);
@@ -1360,7 +1401,7 @@ function MyShowsPending(selector, width_poster){
                 for (var i = 0; i < data.results.length; i++) {
                     poster_i = data.results[i];
                     var poster_str = "\
-                        <a href='/show/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
+                        <a alt='show' rel='" + poster_i.id + "' onerror='errorImg(this)' href='/show/" + poster_i.id + "' class='poster-item list col s4 m3 l2 no-padding'>\
                             <img src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
                          </a>\
                         ";
@@ -1370,11 +1411,9 @@ function MyShowsPending(selector, width_poster){
             }else{
                 $(selector).append("<p class='infoPeticion'>Aún no has añadido ninguna serie</p>");
             }
-
         }
     });
 }
-
 
 // List of All Activity
 function myActivity(selector){
