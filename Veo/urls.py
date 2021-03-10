@@ -114,6 +114,10 @@ urlpatterns = [
     # List of Pending Shows
     url(r'^myShowsPending/$', myShowsPending),
 
+    # ------------------------------------ MEDIA -----------------------------------------------------------------------
+    # Update old poster_path of media after launch an error
+    url(r'^updateMediaPoster/$', updateMediaPoster),
+
     # ----------------------------------- ACTIVITY ---------------------------------------------------------------------
     # List of All Activity
     url(r'^myActivity/$', myActivity),

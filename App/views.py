@@ -1067,6 +1067,31 @@ def myFollowingsRecientActivity(request):
 
     return JsonResponse(data)
 
+
+# ----------------------------------------- MEDIA ----------------------------------------------------------------------
+def updateMediaPoster(request):
+    results = {}
+
+
+    media_id = request.POST["media_id"]
+    type = request.POST["type"]
+    poster_path = request.POST["poster_path"]
+
+    results["media_id"] = media_id
+    results["type"] = type
+    results["poster_path"] = poster_path
+
+    if type == "movie":
+        Movie.objects.filter(id_movie=media_id, user=request.user).update(poster_path=poster_path)
+    elif type == "show":
+        Show.objects.filter(id_show=media_id, user=request.user).update(poster_path=poster_path)
+
+    data = {
+        'results': results
+    }
+
+    return JsonResponse(data)
+
 # --------------------------------------- FOLLOWERS --------------------------------------------------------------------
 def followUser(request):
 
