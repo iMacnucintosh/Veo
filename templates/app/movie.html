@@ -44,7 +44,6 @@
                         <li><a class="btn-floating indigo modal-trigger" href="#modalAddToList"><i class="material-icons">sort</i></a></li>
                         <li><a class="btn-floating green"><img class="seen" src="/static/images/not_seen.png" onclick="setMovieToSeen(this)" /></a></li>
                         <li><a class="btn-floating pink lighten-1"><i class="material-icons toSee" onclick="addMovieToSee(this)">bookmark_add</i></a></li>
-                        <li><a id="download_btn" class="btn-floating blue lighten-1"><i class="material-icons">download</i></a></li>
                     </ul>
                 </div>
             {% endif %}
@@ -53,6 +52,10 @@
         </div>
         <div class="primary-information">
             <p id="sinopsis"></p>
+        </div>
+
+        <div class="download-btn row">
+            <button id="download_btn" class="col s4 btn blue lighten-1">Descargar</button>
         </div>
 
         <div class="secondary-information row no-margin">
