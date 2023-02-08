@@ -855,6 +855,16 @@ footer .bottom-navBar > a {
     text-align: justify;
 }
 
+.download-btn {
+    display: flex;
+    justify-content: end;
+    padding-right: 30px;
+}
+
+#download_btn {
+    border-radius: 30px;
+}
+
 #genres {
     display: flex;
     flex-flow: wrap;
