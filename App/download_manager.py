@@ -6,34 +6,38 @@ import requests
 
 class DownloadsManager():
     def search_torrents(self, name: str) -> dict:
-        url = f"https://mejortorrent.wtf/busqueda?q={name}"
-
-        response = requests.request("GET", url, headers={}, data={})
-
-        soup = BeautifulSoup(response.text, 'html.parser')
-
-        results = soup.findAll(lambda tag: tag.name == 'a' and tag.findParent('div', attrs={'class': 'flex flex-row mb-2'}))
-
         quality_results = {}
+        try:
+            url = f"https://mejortorrent.wtf/busqueda?q={name}"
 
-        for result in results:
-            name = result.p.text
-            quality = result.strong.text
-            href = result.attrs.get('href')
+            response = requests.request("GET", url, headers={"User-Agent": "Defined"}, data={})
 
-            torrents = self.__get_items_torrent(href)
+            soup = BeautifulSoup(response.text, 'html.parser')
 
-            if quality not in quality_results:
-                quality_results[quality] = []
+            results = soup.findAll(lambda tag: tag.name == 'a' and tag.findParent('div', attrs={'class': 'flex flex-row mb-2'}))
 
-            quality_results[quality].append({
-                "name": name,
-                "torrents": torrents
-            })
-        return quality_results
+            for result in results:
+                name = result.p.text
+                quality = result.strong.text
+                href = result.attrs.get('href')
+
+                torrents = self.__get_items_torrent(href)
+
+                if quality not in quality_results:
+                    quality_results[quality] = []
+
+                quality_results[quality].append({
+                    "name": name,
+                    "torrents": torrents
+                })
+
+        except Exception as e:
+            raise e
+        finally:
+            return quality_results
 
     def __get_items_torrent(self, href):
-        response = requests.request("GET", href, headers={}, data={})
+        response = requests.request("GET", href, headers={"User-Agent": "Defined"}, data={})
         soup = BeautifulSoup(response.text, 'html.parser')
         results = soup.select("a[href*='https://server-local']")
         return [dict(
