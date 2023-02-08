@@ -47,7 +47,7 @@ function TmdbRequestFilter(selector_container, url, parameters, description_requ
                         <i class='material-icons i-info' onclick=\"showInfoPopup(\'" + title+"\',\'" + overview + "\')\">short_text</i>\
                         <img onclick='infoFor(\"" + info_for + "\", " + poster_i.id + ")' src='https://image.tmdb.org/t/p/w" + width_poster + poster_i.poster_path + "' />\
                         <i class='material-icons i-vista'>visibility</i>\
-                        <i class='material-icons i-pendiente'>playlist_add_check</i>\
+                        <i class='material-icons i-pendiente'>bookmark_added</i>\
                     </div>\
                     ";
 
@@ -242,6 +242,7 @@ function InformationMovie(id, parameters, colorGenres, width_poster, user_logged
 
         $('title').text("Veo | " + movie.title);
         $('#title').text(movie.title);
+        $('#download_btn').attr("href", "/download/" + sanetizeTitle(movie.title));
         $('#backdrop-image').attr("style", "background-image: url(https://image.tmdb.org/t/p/w500" + movie.backdrop_path) + ")";
 
         localStorage.setItem("movie_poster_path", movie.poster_path);
@@ -255,7 +256,7 @@ function InformationMovie(id, parameters, colorGenres, width_poster, user_logged
         var meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
         $('#date-release').text(date_release.getDate() + " de " + meses[date_release.getMonth()] + " del " + date_release.getFullYear());
-        $('#average-count-num').text(movie.vote_average);
+        $('#average-count-num').text(movie.vote_average.toFixed(2));
         $('#average-count-bar').css("width", (movie.vote_average)*10 + "%");
 
         // Collection
@@ -477,6 +478,7 @@ function InformationShow(id, parameters, colorGenres, width_poster, user_logged)
 
         $('title').text("Veo | " + show.name);
         $('#title').text(show.name);
+        $('#download_btn').attr('href' , "/download/" + sanetizeTitle(show.name));
 
         if(show.backdrop_path != null) {
             $('#backdrop-image').attr("style", "background-image: url(https://image.tmdb.org/t/p/w500" + show.backdrop_path) + ")";
@@ -492,7 +494,7 @@ function InformationShow(id, parameters, colorGenres, width_poster, user_logged)
 
         $('#date-release').text(date_release.getDate() + " de " + meses[date_release.getMonth()] + " del " + date_release.getFullYear());
 
-        $('#average-count-num').text(show.vote_average);
+        $('#average-count-num').text(show.vote_average.toFixed(2));
         $('#average-count-bar').css("width", (show.vote_average)*10 + "%");
 
         // Genres
@@ -598,7 +600,7 @@ function InformationShow(id, parameters, colorGenres, width_poster, user_logged)
                         var state = response.states[i];
 
                         if (state.id == 2) {
-                            $('.toSee').text("playlist_add_check");
+                            $('.toSee').text("bookmark_added");
                             $('.toSee').attr("onclick", "removeShowToSee(this,)");
                         }
 
@@ -892,7 +894,7 @@ function addMovieToSee(elemento){
         data: data,
         success: function (response) {
             M.toast({html: 'Has añadido ' + $('#title').text() + " a tu lista de pendientes"})
-            $(elemento).text("playlist_add_check");
+            $(elemento).text("bookmark_added");
             $(elemento).attr("onclick", "removeMovieToSee(this)");
 
         }
@@ -915,7 +917,7 @@ function removeMovieToSee(elemento){
         data: data,
         success: function (response) {
             M.toast({html: 'Has eliminado ' + $('#title').text() + " de tu lista de pendientes"})
-            $(elemento).text("playlist_add")
+            $(elemento).text("bookmark_add")
             $(elemento).attr("onclick", "addMovieToSee(this)");
         }
     });
@@ -1099,7 +1101,7 @@ function addShowToSee(elemento){
         data: data,
         success: function (response) {
             M.toast({html: 'Has añadido ' + $('#title').text() + " a tu lista de pendientes"})
-            $(elemento).text("playlist_add_check");
+            $(elemento).text("bookmark_added");
             $(elemento).attr("onclick", "removeShowToSee(this)");
 
         }
@@ -1122,7 +1124,7 @@ function removeShowToSee(elemento){
         data: data,
         success: function (response) {
             M.toast({html: 'Has eliminado ' + $('#title').text() + " de tu lista de pendientes"})
-            $(elemento).text("playlist_add")
+            $(elemento).text("bookmark_add")
             $(elemento).attr("onclick", "addShowToSee(this)");
         }
     });
@@ -1933,10 +1935,10 @@ function SyncronizeStatusMovie(id){
                     var state = response.states[i];
 
                     if (state.id == 2) {
-                        $('.toSee').text("playlist_add_check");
+                        $('.toSee').text("bookmark_added");
                         $('.toSee').attr("onclick", "removeMovieToSee(this)");
                     }else{
-                        $('.toSee').text("playlist_add");
+                        $('.toSee').text("bookmark_add");
                         $('.toSee').attr("onclick", "addMovieToSee(this)");
                     }
 
@@ -2066,4 +2068,71 @@ function unRegisterEndpoint(){
         data: data,
         success: function (response) {}
     });
+}
+
+
+function download_torrent(href) {
+    $('main').addClass('main-blur');
+    $('.gif-loading').fadeIn(100);
+    var data = new FormData();
+    data.append('href', href);
+    $.ajax({
+        url: '/download_torrent/',
+        type: 'POST',
+        mimeType: "multipart/form-data",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: data,
+        success: function (response) {
+            $('main').removeClass('main-blur');
+            $('.gif-loading').fadeOut(100);
+            M.toast({html: 'Torrent añadido correctamente: ' + response.status})
+        },
+        error: function (response) {
+            $('main').removeClass('main-blur');
+            $('.gif-loading').fadeOut(100);
+            M.toast({html: 'Ha ocurrido un error al intentar descargar el torrent'})
+        }
+    });
+}
+
+function save_qtorrent_settings() {
+    $('main').addClass('main-blur');
+    $('.gif-loading').fadeIn(100);
+    var data = new FormData();
+
+    qip = $('#qip').val();
+    qport = $('#qport').val();
+    quser = $('#quser').val();
+    qpassword = $('#qpassword').val();
+
+    if(qip && qport && quser && qpassword){
+        data.append('qip', qip);
+        data.append('qport', qport);
+        data.append('quser', quser);
+        data.append('qpassword', qpassword);
+
+        $.ajax({
+            url: '/save_qtorrent_settings/',
+            type: 'POST',
+            mimeType: "multipart/form-data",
+            dataType: 'json',
+            processData: false,
+            contentType: false,
+            data: data,
+            success: function (response) {
+                $('main').removeClass('main-blur');
+                $('.gif-loading').fadeOut(100);
+                M.toast({html: 'Guardado correctamente' })
+            },
+            error: function (response) {
+                $('main').removeClass('main-blur');
+                $('.gif-loading').fadeOut(100);
+                M.toast({html: 'Ha ocurrido un error al guardar la configuración'})
+            }
+        });
+    } else{
+        M.toast({html: 'Debes rellenar todos los campos' })
+    }
 }

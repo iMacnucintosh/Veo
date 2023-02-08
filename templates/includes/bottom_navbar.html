@@ -69,7 +69,7 @@
             {% endfor %}
         </div>
 
-        <h3 class="title-section row">Tema</h3>
+        <h3 class="title-section row" style="padding-left:11px">Tema</h3>
 
         <div class="themes-container">
             {% for theme in themes %}
@@ -80,6 +80,51 @@
                 </a>
             {% endfor %}
         </div>
+
+        <div class="row">
+            <h3 class="title-section col s12">Configuración de descarga  <a class="waves-effect waves-light modal-trigger" href="#colorGenresModal"><i class="material-icons">info</i></a></h3>
+            <div class="col s12">
+                <form class="col s12">
+                    <div class="row no-margin">
+                      <div class="input-field col s6">
+                        <input {% if profile.qip %} value="{{ profile.qip }}" {% endif %} id="qip" type="text" class="validate">
+                        <label for="qip">Ip</label>
+                      </div>
+                      <div class="input-field col s6">
+                        <input {% if profile.qip %} value="{{ profile.qport }}" {% endif %} id="qport" type="text" class="validate">
+                        <label for="qport">Puerto</label>
+                      </div>
+                    </div>
+                    <div class="row no-margin">
+                        <div class="input-field col s6">
+                            <input {% if profile.qip %} value="{{ profile.quser }}" {% endif %} id="quser" type="text" class="validate">
+                            <label for="quser">Usuario</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input {% if profile.qip %} value="{{ profile.qpassword }}" {% endif %} id="qpassword" type="password" class="validate">
+                            <label for="qpassword">Contraseña</label>
+                        </div>
+                    </div>
+                    <div class="row no-margin">
+                        <button type="button" class="btn primary-color right" onclick="save_qtorrent_settings()">Guardar</button>
+                    </div>
+                  </form>
+            </div>
+
+            <!-- Modal Structure -->
+            <div id="colorGenresModal" class="modal">
+                <div class="modal-content">
+                    <h4>Configuración de descarga</h4>
+                    <p>Para poder descargar torrents directamente desde Veo tendrás que tener levantado en tu red local un servidor de qbittorrent</p>
+                    <p>Después tendrás que establecer los parametros de conexión para que Veo pueda iniciar la descarga</p>
+                </div>
+                <div class="modal-footer">
+                    <a class="modal-close waves-effect waves-green btn-flat">Aceptar</a>
+                </div>
+            </div>
+
+        </div>
+
         <div class="row">
             <h3 class="title-section col s12">Asociar géneros a colores  <a class="waves-effect waves-light modal-trigger" href="#colorGenresModal"><i class="material-icons">info</i></a></h3>
             <div class="col s12">

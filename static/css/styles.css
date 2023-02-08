@@ -262,10 +262,6 @@ header .header-navBar .img-profile {
     font-size: 40px;
 }
 
-.title-section {
-    padding-left: .5em !important;
-}
-
 /* ---------------------- MAIN ---------------------- */
 main {
     opacity: 0;
@@ -914,8 +910,11 @@ footer .bottom-navBar > a {
 }
 
 .title-section {
-    font-size: 1.6rem;
     margin: 10px;
+}
+
+.title-section h4, h3.title-section {
+    font-size: 1.6rem;
 }
 
 #collection {
