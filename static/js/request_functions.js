@@ -242,7 +242,8 @@ function InformationMovie(id, parameters, colorGenres, width_poster, user_logged
 
         $('title').text("Veo | " + movie.title);
         $('#title').text(movie.title);
-        $('#download_btn').attr("href", "/download/" + sanetizeTitle(movie.title));
+        var download_url = "/download/" + sanetizeTitle(movie.title);
+        $('#download_btn').attr("onclick", "goDownload('"+download_url+"')");
         $('#backdrop-image').attr("style", "background-image: url(https://image.tmdb.org/t/p/w500" + movie.backdrop_path) + ")";
 
         localStorage.setItem("movie_poster_path", movie.poster_path);
@@ -478,7 +479,8 @@ function InformationShow(id, parameters, colorGenres, width_poster, user_logged)
 
         $('title').text("Veo | " + show.name);
         $('#title').text(show.name);
-        $('#download_btn').attr('href' , "/download/" + sanetizeTitle(show.name));
+        var download_url = "/download/" + sanetizeTitle(show.name);
+        $('#download_btn').attr("onclick", "goDownload('"+download_url+"')");
 
         if(show.backdrop_path != null) {
             $('#backdrop-image').attr("style", "background-image: url(https://image.tmdb.org/t/p/w500" + show.backdrop_path) + ")";

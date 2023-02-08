@@ -216,3 +216,9 @@ function sanetizeTitle(title){
     title = title.replace("\"", " ");
     return title
 }
+
+function goDownload(download_url){
+    $('main').addClass('main-blur');
+    $('.gif-loading').fadeIn(100);
+    location.assign(download_url)
+}
