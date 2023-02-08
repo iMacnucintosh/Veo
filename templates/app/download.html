@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    {% include "includes/head.html" %}
+
+    <title>Veo | Descargar</title>
+
+</head>
+
+<body>
+    <header>
+        <nav class="header-navBar">
+            <div class="header-title no-padding-sides">
+                <h1 id="title">{{ name }}</h1>
+            </div>
+
+            <div class="btn-back-list">
+                <div><i class="material-icons">keyboard_arrow_left</i></div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Tabs -->
+    <ul class="tabs">
+        <li class="tab col s3"><a class="tab-btn active" href="#download">Descargar</a></li>
+    </ul>
+
+    <main class="main-info main-active">
+        <div class="row">
+            {% if torrents_find %}
+            <div id="download" class="col s12">
+                <ul class="collapsible col s12">
+                    {% for quality, items in torrents_find.items %}
+                        <li class="row">
+                            <div class="collapsible-header"><i class="material-icons">filter_drama</i>{{ quality }}</div>
+                            <div class="collapsible-body row">
+                                {% for item in items %}
+                                <ul class="collection with-header">
+                                    <li class="collection-header"><h6>{{ item.name }}</h6></li>
+                                    {% for torrent in item.torrents %}
+                                        <li class="collection-item"><div>{{ torrent.name }} <a onclick="download_torrent('{{ torrent.href }}')" class="secondary-content"><i class="material-icons primary-color-txt">download</i></a></div></li>
+                                    {% endfor %}
+                                    </ul>
+                                  {% endfor %}
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% else %}
+            <ul class="col s12 collection no-border">
+                <li class="collection-item">No se ha encontrado ningún torrent</li>
+            </ul>
+            {% endif %}
+        </div>
+    </main>
+
+    <div class="gif-loading">
+        <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+    </div>
+
+    {% include "includes/bottom_navbar.html" %}
+    {% include "includes/body_end.html" %}
+
+    <script>
+        $(document).ready(function () {
+            $('.collapsible').collapsible();
+            $('.gif-loading').fadeOut(100);
+
+            {% if profile == None %} // Usuario anónimo
+                localStorage.setItem("width_poster", "200");
+            {% else %} // Usuario registrado
+
+            {% if profile.celularDataSavings == True %} localStorage.setItem("width_poster", "200"); {% else %} localStorage.setItem("width_poster", "400"); {% endif %}
+            {% endif %}
+
+        });
+    </script>
+
+</body>
+
+</html>

@@ -38,7 +38,6 @@ function zoomBackdrop(){
     }
 }
 
-
 function getGenreColor(id){
     var code = "";
     switch(id){
@@ -208,4 +207,12 @@ function selectList(elemento, type, id_list) {
 // Muestra un popup con la sinopsis del capitulo siguiente por ver en la página principal de Veo
 function infoEpisode(overview){
     alert(overview);
+}
+
+function sanetizeTitle(title){
+    console.log(title);
+    title = title.replace(":", " ");
+    title = title.replace("'", " ");
+    title = title.replace("\"", " ");
+    return title
 }

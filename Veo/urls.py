@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from django.views.generic import TemplateView
 
 from App.views import *
 
@@ -115,6 +114,13 @@ urlpatterns = [
     url(r'^myShowsPending/$', myShowsPending),
 
     # ------------------------------------ MEDIA -----------------------------------------------------------------------
+    # Downloads
+    url(r'^download/(?P<name>[\w\s]+)$', download),
+
+    # Download torrent with qbittorrent
+    url(r'^download_torrent/$', download_torrent),
+
+    # ------------------------------------ MEDIA -----------------------------------------------------------------------
     # Update old poster_path of media after launch an error
     url(r'^updateMediaPoster/$', updateMediaPoster),
 
@@ -150,6 +156,7 @@ urlpatterns = [
     url(r'^deleteFromList/$', deleteFromList),
     url(r'^list/(?P<id>\d+)/$', list),
     url(r'^shareWithFriends/$', shareWithFriends),
+    url(r'^save_qtorrent_settings/$', save_qtorrent_settings),
 
     # --------------------------------- NOTIFICATIONS ------------------------------------------------------------------
     url('notification/', notification),
