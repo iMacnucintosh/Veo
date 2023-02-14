@@ -47,6 +47,7 @@ Thumbs.db
 *.flv
 *.mov
 *.wmv
+*.sqlite3
 
 # Ide folders
 .idea

@@ -12,6 +12,7 @@ from App.forms import *
 from django.utils import timezone
 from datetime import timedelta
 from pywebpush import webpush
+
 from App.download_manager import DownloadsManager
 
 # --------------------------------------- GENERAL FUNCTIONS ------------------------------------------------------------
@@ -1189,7 +1190,7 @@ def download(request, name):
     if form.is_valid():
         form.save()
 
-    downloads_manager = DownloadsManager()
+    downloads_manager = DownloadsManager(profile)
 
     torrents_find = downloads_manager.search_torrents(name)
 
@@ -1204,13 +1205,13 @@ def download(request, name):
     }
     return render(request, "app/download.html", context=context)
 
-
+@login_required()
 def download_torrent(request):
-    results = {}
+    profile = Profile.objects.get(user=request.user)
 
     torrent_href = request.POST["href"]
 
-    downloads_manager = DownloadsManager()
+    downloads_manager = DownloadsManager(profile)
     status = downloads_manager.download_torrent(torrent_href)
 
     data = {

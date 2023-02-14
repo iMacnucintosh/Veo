@@ -3,8 +3,13 @@ from qbittorrent import Client
 
 import requests
 
+from App.models import Profile
+
 
 class DownloadsManager():
+    def __init__(self, profile: Profile) -> None:
+        self.profile = profile
+
     def search_torrents(self, name: str) -> dict:
         quality_results = {}
         try:
@@ -46,7 +51,7 @@ class DownloadsManager():
         ) if results else [] for result in results]
 
     def download_torrent(self, href: str) -> None:
-        qb = Client('http://192.168.1.150:9091/')
-        qb.login('admin', 'adminadmin')
+        qb = Client(f'http://{self.profile.qip}:{self.profile.qport}/')
+        qb.login(self.profile.quser, self.profile.qpassword)
 
         return qb.download_from_link(href)

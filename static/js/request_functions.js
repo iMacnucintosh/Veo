@@ -120,7 +120,7 @@ function TmdbRequestFilter(selector_container, url, parameters, description_requ
         }
     }).fail(function( jqXHR, textStatus, errorThrown ) {
         console.log(jqXHR);
-        console.error('La solicitud: "' + description_request + '", a fallado: ' +  jqXHR.responseText);
+        console.error('La solicitud: "' + description_request + '", ha fallado: ' +  jqXHR.responseText);
     });
 }
 
@@ -139,7 +139,7 @@ function InfoNextEpisode(id_show, name_show, season_number, episode_number){
         $('#next-episodies').append('<article class="next-episode col s12"><a href="/show/' + id_show + '/?season=' + season_number + '"><img class="episode-bg" src="https://image.tmdb.org/t/p/w227_and_h127_bestv2' + data.still_path + '"></a><div class="next-episode-content"><div class="next-episode-title"><a href="/show/' + id_show + '"><h2 class="no-margin primary-color-txt">' + name_show + '</h2></a></div><div class="next-episode-info"><div class="next-episode-info-l"><h3 class="no-margin">Capítulo ' + episode_number + '</h3><h4 class="no-margin">Temporada ' + season_number + '</h4><a onclick="showInfoPopup(\' '+ name_show +' - E' + episode_number + 'xT' + season_number + '\', \'' + data.overview + '\')">Ver más</a></div><div class="next-episode-info-r"><button onclick="seeEpisode('+id_show+','+season_number+','+episode_number+')" class="btn primary-color"><i class="material-icons">visibility</i></button></div></div></div></article>');
 
     }).fail(function( jqXHR, textStatus, errorThrown ) {
-        console.error('La solicitud: Pelicula Recomendada, a fallado: ' +  textStatus);
+        console.error('La solicitud: Pelicula Recomendada, ha fallado: ' +  textStatus);
     });
 }
 
@@ -212,7 +212,7 @@ function Recommendations(width_poster) {
         }
 
     }).fail(function( jqXHR, textStatus, errorThrown ) {
-        console.error('La solicitud: Pelicula Recomendada, a fallado: ' +  textStatus);
+        console.error('La solicitud: Pelicula Recomendada, ha fallado: ' +  textStatus);
     });
 }
 
@@ -293,7 +293,7 @@ function InformationMovie(id, parameters, colorGenres, width_poster, user_logged
                 resizePosters();
 
             }).fail(function( jqXHR, textStatus, errorThrown ) {
-                console.error('La solicitud: Trailer de Película, a fallado: ' +  textStatus);
+                console.error('La solicitud: Trailer de Película, ha fallado: ' +  textStatus);
             });
         }
 
@@ -311,7 +311,7 @@ function InformationMovie(id, parameters, colorGenres, width_poster, user_logged
         $('#genres').append(genres_str);
 
     }).fail(function( jqXHR, textStatus, errorThrown ) {
-        console.error('La solicitud: Información de Película, a fallado: ' +  textStatus);
+        console.error('La solicitud: Información de Película, ha fallado: ' +  textStatus);
     });
 
     // Trailer
@@ -329,7 +329,7 @@ function InformationMovie(id, parameters, colorGenres, width_poster, user_logged
             $('.btn-trailer').hide();
         }
     }).fail(function( jqXHR, textStatus, errorThrown ) {
-        console.error('La solicitud: Trailer de Película, a fallado: ' +  textStatus);
+        console.error('La solicitud: Trailer de Película, ha fallado: ' +  textStatus);
     });
 
     // Check if is in my list of Movies
@@ -361,7 +361,7 @@ function InformationMovie(id, parameters, colorGenres, width_poster, user_logged
         resizePosters();
 
     }).fail(function( jqXHR, textStatus, errorThrown ) {
-        console.error('La solicitud: Trailer de Película, a fallado: ' +  textStatus);
+        console.error('La solicitud: Trailer de Película, ha fallado: ' +  textStatus);
     });
 
     // Related Movies
@@ -390,7 +390,7 @@ function InformationMovie(id, parameters, colorGenres, width_poster, user_logged
             $('#related').append("<p class='infoPeticion'>No hay películas similares</p>");
         }
     }).fail(function( jqXHR, textStatus, errorThrown ) {
-        console.error('La solicitud: Trailer de Película, a fallado: ' +  textStatus);
+        console.error('La solicitud: Trailer de Película, ha fallado: ' +  textStatus);
     });
 
     // Recommended Movies
@@ -422,7 +422,7 @@ function InformationMovie(id, parameters, colorGenres, width_poster, user_logged
             $('#recommendations').append("<p class='infoPeticion'>No hay series recomendadas</p>");
         }
     }).fail(function( jqXHR, textStatus, errorThrown ) {
-        console.error('La solicitud: Trailer de Película, a fallado: ' +  textStatus);
+        console.error('La solicitud: Trailer de Película, ha fallado: ' +  textStatus);
     });
 
     // Images from Movie
@@ -450,9 +450,23 @@ function InformationMovie(id, parameters, colorGenres, width_poster, user_logged
         $('.materialboxed').materialbox();
 
     }).fail(function( jqXHR, textStatus, errorThrown ) {
-        console.error('La solicitud: Trailer de Película, a fallado: ' +  textStatus);
+        console.error('La solicitud: Trailer de Película, ha fallado: ' +  textStatus);
     });
 
+    /*
+    // Providers for movie
+    $.ajax({
+        data: {"api_key": api_key},
+        type: "GET",
+        dataType: "json",
+        url: "https://api.themoviedb.org/3/movie/" + id + "/watch/providers"
+    }).done(function(data, textStatus, jqXHR) {
+        console.log(data)
+
+    }).fail(function( jqXHR, textStatus, errorThrown ) {
+        console.error('La solicitud: Proveedores de la pelicula, ha fallado: ' +  textStatus);
+    });
+    */
 }
 
 var _show;
@@ -561,7 +575,7 @@ function InformationShow(id, parameters, colorGenres, width_poster, user_logged)
         $('#last-episode-air').append(last_episode_str);
 
     }).fail(function( jqXHR, textStatus, errorThrown ) {
-        console.error('La solicitud: Información de Serie, a fallado: ' +  textStatus);
+        console.error('La solicitud: Información de Serie, ha fallado: ' +  textStatus);
     });
 
     // Trailer
@@ -581,7 +595,7 @@ function InformationShow(id, parameters, colorGenres, width_poster, user_logged)
 
 
     }).fail(function( jqXHR, textStatus, errorThrown ) {
-        console.error('La solicitud: Trailer de Película, a fallado: ' +  textStatus);
+        console.error('La solicitud: Trailer de Película, ha fallado: ' +  textStatus);
     });
 
     if(user_logged) {
@@ -642,7 +656,7 @@ function InformationShow(id, parameters, colorGenres, width_poster, user_logged)
         resizePosters();
 
     }).fail(function( jqXHR, textStatus, errorThrown ) {
-        console.error('La solicitud: Trailer de Película, a fallado: ' +  textStatus);
+        console.error('La solicitud: Trailer de Película, ha fallado: ' +  textStatus);
     });
 
 
@@ -675,7 +689,7 @@ function InformationShow(id, parameters, colorGenres, width_poster, user_logged)
             $('#related').append("<p class='infoPeticion'>No hay series similares</p>");
         }
     }).fail(function( jqXHR, textStatus, errorThrown ) {
-        console.error('La solicitud: Trailer de Película, a fallado: ' +  textStatus);
+        console.error('La solicitud: Trailer de Película, ha fallado: ' +  textStatus);
     });
 
     // Recommended Shows
@@ -706,7 +720,7 @@ function InformationShow(id, parameters, colorGenres, width_poster, user_logged)
             $('#recommendations').append("<p class='infoPeticion'>No hay series recomendadas</p>");
         }
     }).fail(function( jqXHR, textStatus, errorThrown ) {
-        console.error('La solicitud: Trailer de Película, a fallado: ' +  textStatus);
+        console.error('La solicitud: Trailer de Película, ha fallado: ' +  textStatus);
     });
 
     // Images from Show
@@ -734,7 +748,7 @@ function InformationShow(id, parameters, colorGenres, width_poster, user_logged)
         $('.materialboxed').materialbox();
 
     }).fail(function( jqXHR, textStatus, errorThrown ) {
-        console.error('La solicitud: Trailer de Película, a fallado: ' +  textStatus);
+        console.error('La solicitud: Trailer de Película, ha fallado: ' +  textStatus);
     });
 
 }
@@ -870,7 +884,7 @@ function InformationSeason(id_show, num_season, parameters, width_poster, user_l
 
 
     }).fail(function( jqXHR, textStatus, errorThrown ) {
-        console.error('La solicitud: Información de la Temporada, a fallado: ' +  textStatus);
+        console.error('La solicitud: Información de la Temporada, ha fallado: ' +  textStatus);
         $('#season-details-' + num_season).remove();
         $(".season-poster[onclick='showSeasonInfo(" + num_season + ")']").remove();
     });
@@ -1829,7 +1843,7 @@ function Search(query, width_poster){
             }
 
         }).fail(function( jqXHR, textStatus, errorThrown ) {
-            console.error('La solicitud; Búsqueda de: "' + query + ', a fallado: ' +  textStatus);
+            console.error('La solicitud; Búsqueda de: "' + query + ', ha fallado: ' +  textStatus);
         });
     }
 
