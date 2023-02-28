@@ -31,16 +31,22 @@
             {% if torrents_find %}
             <div id="download" class="col s12">
                 <ul class="collapsible col s12">
-                    {% for quality, items in torrents_find.items %}
+                    {% for category, torrents in torrents_find.items %}
                         <li class="row">
-                            <div class="collapsible-header"><i class="material-icons">filter_drama</i>{{ quality }}</div>
+                            <div class="collapsible-header"><i class="material-icons">filter_drama</i>{{ category }}</div>
                             <div class="collapsible-body row">
-                                {% for item in items %}
+                                {% for torrent in torrents %}
                                 <ul class="collection with-header">
-                                    <li class="collection-header"><h6>{{ item.name }}</h6></li>
-                                    {% for torrent in item.torrents %}
-                                        <li class="collection-item"><div>{{ torrent.name }} <a onclick="download_torrent('{{ torrent.href }}')" class="secondary-content"><i class="material-icons primary-color-txt">download</i></a></div></li>
-                                    {% endfor %}
+                                    <li class="collection-header"><h6>{{ torrent.title }}</h6></li>
+                                    <li class="collection-item">
+                                        <div class="row">
+                                            <p class="col s12"><a onclick="download_torrent('{{ torrent.magnetlink }}', '{{ torrent.infohash }}')" class="secondary-content"><i class="material-icons primary-color-txt">download</i></a></p>
+                                            <p class="col s12"><strong>Tamaño: </strong>{{ torrent.filesize }}</p>
+                                            <p class="col s12"><strong>Fecha: </strong>{{ torrent.upload_date }}</p>
+                                            <p class="col s12"><strong>Semillas: </strong>{{ torrent.seeds }}</p>
+                                            <p class="col s12"><strong>Subido por: </strong>{{ torrent.uploader }}</p>
+                                        </div>
+                                    </li>
                                     </ul>
                                   {% endfor %}
                             </div>
