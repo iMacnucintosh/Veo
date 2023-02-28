@@ -23,7 +23,6 @@ def createAvatars():
             if len(Avatar.objects.filter(src="/static/images/avatars/" + avatar_file)) == 0:
                 Avatar.objects.create(name=avatar_file.split(
                     ".")[0], src="/static/images/avatars/" + avatar_file)
-
     except:
         print("No se encuentra la ruta static/images/avatars")
 
@@ -1191,7 +1190,7 @@ def download(request, name):
 
     downloads_manager = DownloadsManager()
 
-    torrents_find = downloads_manager.search_torrents(name)
+    torrents_find = downloads_manager.search_torrents_tpb(name)
 
     context = {
         "profile": profile,
@@ -1209,9 +1208,10 @@ def download_torrent(request):
     results = {}
 
     torrent_href = request.POST["href"]
+    torrent_hash = request.POST["hash"]
 
     downloads_manager = DownloadsManager()
-    status = downloads_manager.download_torrent(torrent_href)
+    status = downloads_manager.download_torrent(torrent_href, torrent_hash)
 
     data = {
         'status': status

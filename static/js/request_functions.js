@@ -242,7 +242,7 @@ function InformationMovie(id, parameters, colorGenres, width_poster, user_logged
 
         $('title').text("Veo | " + movie.title);
         $('#title').text(movie.title);
-        var download_url = "/download/" + sanetizeTitle(movie.title);
+        var download_url = "/download/" + sanetizeTitle(movie.original_title);
         $('#download_btn').attr("onclick", "goDownload('"+download_url+"')");
         $('#backdrop-image').attr("style", "background-image: url(https://image.tmdb.org/t/p/w500" + movie.backdrop_path) + ")";
 
@@ -479,7 +479,7 @@ function InformationShow(id, parameters, colorGenres, width_poster, user_logged)
 
         $('title').text("Veo | " + show.name);
         $('#title').text(show.name);
-        var download_url = "/download/" + sanetizeTitle(show.name);
+        var download_url = "/download/" + sanetizeTitle(show.original_name);
         $('#download_btn').attr("onclick", "goDownload('"+download_url+"')");
 
         if(show.backdrop_path != null) {
@@ -2073,11 +2073,12 @@ function unRegisterEndpoint(){
 }
 
 
-function download_torrent(href) {
+function download_torrent(href, hash) {
     $('main').addClass('main-blur');
     $('.gif-loading').fadeIn(100);
     var data = new FormData();
     data.append('href', href);
+    data.append('hash', hash);
     $.ajax({
         url: '/download_torrent/',
         type: 'POST',
