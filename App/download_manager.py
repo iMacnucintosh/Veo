@@ -1,8 +1,6 @@
 from bs4 import BeautifulSoup
 from qbittorrent import Client
 from tpblite import TPB, CATEGORIES, ORDERS
-import subliminal
-from subliminal.video import Video
 import requests
 
 
