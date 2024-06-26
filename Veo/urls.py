@@ -5,162 +5,175 @@ The `urlpatterns` list routes URLs to views. For more information please see:
 Examples:
 Function views
     1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  url(r'^$', views.home, name='home')
+    2. Add a URL to urlpatterns:  re_path(r'^$', views.home, name='home')
 Class-based views
     1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  url(r'^$', Home.as_view(), name='home')
+    2. Add a URL to urlpatterns:  re_path(r'^$', Home.as_view(), name='home')
 Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
-    2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
+    2. Add a URL to urlpatterns:  re_path(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
-from django.contrib import admin
 
-from App.views import *
+from django.contrib import admin
+from django.urls import include, re_path
+
+from App.views import (
+    addMovieToSee,
+    addShowToSee,
+    addToList,
+    changeAvatar,
+    changeCelularSavings,
+    changeEpisodeState,
+    changeGenreColors,
+    changeTheme,
+    deleteFromList,
+    download,
+    download_torrent,
+    followUser,
+    home,
+    isMovieOnMyList,
+    isShowOnMyList,
+    log_in,
+    log_out,
+    movie,
+    movies,
+    myActiveShows,
+    myActivity,
+    myFollowingsActivity,
+    myFollowingsRecientActivity,
+    myForgottenShows,
+    myMoviesSeen,
+    myMoviesToSee,
+    myShowsPending,
+    myShowsSeen,
+    newList,
+    notification,
+    profile,
+    readRecommendations,
+    registerEndpoint,
+    removeList,
+    removeMovieToSee,
+    removeShowToSee,
+    save_qtorrent_settings,
+    search,
+    seeEpisode,
+    setMovieToNotSeen,
+    setMovieToSeen,
+    setShowToNotSeen,
+    setShowToSeen,
+    shareWithFriends,
+    show,
+    shows,
+    sign_in,
+    social,
+    syncronizeEpisodes,
+    unFollowUser,
+    unRegisterEndpoint,
+    updateMediaPoster,
+)
+
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-
-    # ------------------------------------- APP ------------------------------------------------------------------------
-    url(r'^login/$', log_in),
-    url(r'^logout/$', log_out),
-    url(r'^signin/$', sign_in),
-
+    re_path(r"^admin/", admin.site.urls),
+    # ------------------------------------- APP --------------------------------------------------
+    re_path(r"^login/$", log_in),
+    re_path(r"^logout/$", log_out),
+    re_path(r"^signin/$", sign_in),
     # HomePage
-    url(r'^$', home),
-    url(r'^seeEpisode/$', seeEpisode),
-
+    re_path(r"^$", home),
+    re_path(r"^seeEpisode/$", seeEpisode),
     # Movies
-    url(r'^movies/$', movies),
-
+    re_path(r"^movies/$", movies),
     # Shows
-    url(r'^shows/$', shows),
-
+    re_path(r"^shows/$", shows),
     # Social
-    url(r'^social/$', social),
-    url(r'^readRecommendations/$', readRecommendations),
-
+    re_path(r"^social/$", social),
+    re_path(r"^readRecommendations/$", readRecommendations),
     # Change Theme
-    url(r'^changeTheme/(?P<theme>\d+)/$', changeTheme),
-
+    re_path(r"^changeTheme/(?P<theme>\d+)/$", changeTheme),
     # Change Celular Data Savings
-    url(r'^changeCelularSavings/$', changeCelularSavings),
-
+    re_path(r"^changeCelularSavings/$", changeCelularSavings),
     # Movie
-    url(r'^movie/(?P<id>\d+)/$', movie),
-
+    re_path(r"^movie/(?P<id>\d+)/$", movie),
     # Is Movie on my List
-    url(r'^isMovieOnMyList/$', isMovieOnMyList),
-
+    re_path(r"^isMovieOnMyList/$", isMovieOnMyList),
     # Show
-    url(r'^show/(?P<id>\d+)/$', show),
-
+    re_path(r"^show/(?P<id>\d+)/$", show),
     # Change Genre Colors
-    url(r'^changeGenreColors/$', changeGenreColors),
-
-    # ------------------------------------ MOVIE -----------------------------------------------------------------------
-
+    re_path(r"^changeGenreColors/$", changeGenreColors),
+    # ------------------------------------ MOVIE -------------------------------------------------
     # Add Movie to see
-    url(r'^addMovieToSee/$', addMovieToSee),
-
+    re_path(r"^addMovieToSee/$", addMovieToSee),
     # Remove Movie to see
-    url(r'^removeMovieToSee/$', removeMovieToSee),
-
+    re_path(r"^removeMovieToSee/$", removeMovieToSee),
     # Set Movie like seen
-    url(r'^setMovieToSeen/$', setMovieToSeen),
-
+    re_path(r"^setMovieToSeen/$", setMovieToSeen),
     # Set Movie like not seen
-    url(r'^setMovieToNotSeen/$', setMovieToNotSeen),
-
+    re_path(r"^setMovieToNotSeen/$", setMovieToNotSeen),
     # List of my Movies to see
-    url(r'^myMoviesToSee/$', myMoviesToSee),
-
+    re_path(r"^myMoviesToSee/$", myMoviesToSee),
     # List of my Movies seen
-    url(r'^myMoviesSeen/$', myMoviesSeen),
-
-    # ----------------------------------- SHOW -------------------------------------------------------------------------
-
+    re_path(r"^myMoviesSeen/$", myMoviesSeen),
+    # ----------------------------------- SHOW --------------------------------------------------
     # Add Show to see
-    url(r'^addShowToSee/$', addShowToSee),
-
+    re_path(r"^addShowToSee/$", addShowToSee),
     # Is Show on my List
-    url(r'^isShowOnMyList/$', isShowOnMyList),
-
+    re_path(r"^isShowOnMyList/$", isShowOnMyList),
     # Remove Show to see
-    url(r'^removeShowToSee/$', removeShowToSee),
-
+    re_path(r"^removeShowToSee/$", removeShowToSee),
     # Set Show like seen
-    url(r'^setShowToSeen/$', setShowToSeen),
-
+    re_path(r"^setShowToSeen/$", setShowToSeen),
     # Set Show like not seen
-    url(r'^setShowToNotSeen/$', setShowToNotSeen),
-
+    re_path(r"^setShowToNotSeen/$", setShowToNotSeen),
     # List of active Shows
-    url(r'^myActiveShows/$', myActiveShows),
-
+    re_path(r"^myActiveShows/$", myActiveShows),
     # List of Forgotten Shows
-    url(r'^myForgottenShows/$', myForgottenShows),
-
+    re_path(r"^myForgottenShows/$", myForgottenShows),
     # Change State of episode
-    url(r'^changeEpisodeState/$', changeEpisodeState),
-
+    re_path(r"^changeEpisodeState/$", changeEpisodeState),
     # Syncronize Episodes
-    url(r'^syncronizeEpisodes/$', syncronizeEpisodes),
-
+    re_path(r"^syncronizeEpisodes/$", syncronizeEpisodes),
     # List of Seen Shows
-    url(r'^myShowsSeen/$', myShowsSeen),
-
+    re_path(r"^myShowsSeen/$", myShowsSeen),
     # List of Pending Shows
-    url(r'^myShowsPending/$', myShowsPending),
-
-    # ------------------------------------ MEDIA -----------------------------------------------------------------------
+    re_path(r"^myShowsPending/$", myShowsPending),
+    # ------------------------------------ MEDIA -------------------------------------------------
     # Downloads
-    url(r'^download/(?P<name>[\w\s]+)$', download),
-
+    re_path(r"^download/(?P<name>[\w\s]+)$", download),
     # Download torrent with qbittorrent
-    url(r'^download_torrent/$', download_torrent),
-
-    # ------------------------------------ MEDIA -----------------------------------------------------------------------
+    re_path(r"^download_torrent/$", download_torrent),
+    # ------------------------------------ MEDIA -------------------------------------------------
     # Update old poster_path of media after launch an error
-    url(r'^updateMediaPoster/$', updateMediaPoster),
-
-    # ----------------------------------- ACTIVITY ---------------------------------------------------------------------
+    re_path(r"^updateMediaPoster/$", updateMediaPoster),
+    # ----------------------------------- ACTIVITY -----------------------------------------------
     # List of All Activity
-    url(r'^myActivity/$', myActivity),
-
+    re_path(r"^myActivity/$", myActivity),
     # List of My Following Activity
-    url(r'^myFollowingsActivity/$', myFollowingsActivity),
-
+    re_path(r"^myFollowingsActivity/$", myFollowingsActivity),
     # List of My Following Recient Activity
-    url(r'^myFollowingsRecientActivity/$', myFollowingsRecientActivity),
-
-    # ---------------------------------- FOLLOWES ----------------------------------------------------------------------
+    re_path(r"^myFollowingsRecientActivity/$", myFollowingsRecientActivity),
+    # ---------------------------------- FOLLOWES ------------------------------------------------
     # Follow User
-    url(r'^followUser/$', followUser),
-
+    re_path(r"^followUser/$", followUser),
     # UnFollow User
-    url(r'^unFollowUser/$', unFollowUser),
-
+    re_path(r"^unFollowUser/$", unFollowUser),
     # Change Avatar
-    url(r'^changeAvatar/$', changeAvatar),
-
-    # ---------------------------------- SEARCH ------------------------------------------------------------------------
+    re_path(r"^changeAvatar/$", changeAvatar),
+    # ---------------------------------- SEARCH --------------------------------------------------
     # Search by query
-    url(r'^search/(?P<query>\w+)/$', search),
-
-    # --------------------------------- PROFILE ------------------------------------------------------------------------
-    url(r'^profile/(?P<id>\d+)/$', profile),
-    url(r'^newList/$', newList),
-    url(r'^removeList/$', removeList),
-    url(r'^addToList/$', addToList),
-    url(r'^deleteFromList/$', deleteFromList),
-    url(r'^list/(?P<id>\d+)/$', list),
-    url(r'^shareWithFriends/$', shareWithFriends),
-    url(r'^save_qtorrent_settings/$', save_qtorrent_settings),
-
-    # --------------------------------- NOTIFICATIONS ------------------------------------------------------------------
-    url('notification/', notification),
-    url('registerEndpoint/', registerEndpoint),
-    url('unRegisterEndpoint/', unRegisterEndpoint),
-    url('webpush/', include('webpush.urls')),
+    re_path(r"^search/(?P<query>\w+)/$", search),
+    # --------------------------------- PROFILE --------------------------------------------------
+    re_path(r"^profile/(?P<id>\d+)/$", profile),
+    re_path(r"^newList/$", newList),
+    re_path(r"^removeList/$", removeList),
+    re_path(r"^addToList/$", addToList),
+    re_path(r"^deleteFromList/$", deleteFromList),
+    re_path(r"^list/(?P<id>\d+)/$", list),
+    re_path(r"^shareWithFriends/$", shareWithFriends),
+    re_path(r"^save_qtorrent_settings/$", save_qtorrent_settings),
+    # --------------------------------- NOTIFICATIONS --------------------------------------------
+    re_path("notification/", notification),
+    re_path("registerEndpoint/", registerEndpoint),
+    re_path("unRegisterEndpoint/", unRegisterEndpoint),
+    re_path("webpush/", include("webpush.urls")),
 ]
