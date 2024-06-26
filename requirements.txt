@@ -6,7 +6,7 @@ cffi==1.15.1
 chardet==5.1.0
 charset-normalizer==3.0.1
 cryptography==39.0.1
-Django==3.2.17
+Django==3.2.25
 django-cors-headers==3.13.0
 django-webpush==0.3.4
 http-ece==1.1.0
